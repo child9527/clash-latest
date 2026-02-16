@@ -1,0 +1,28 @@
+name: Update Clash Latest
+
+on:
+  schedule:
+    - cron: "0 8 * * *"   # 每天下午 4 点（北京时间）自动执行（UTC+8）
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download latest clash file
+        run: |
+          DATE=$(date +'%Y%m%d')
+          URL="https://github.com/free-nodes/clashfree/raw/refs/heads/main/clash${DATE}.yml"
+          echo "Downloading: $URL"
+          curl -fSL "$URL" -o latest.yml
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add latest.yml
+          git commit -m "Update latest.yml" || echo "No changes to commit"
+          git push
