@@ -32,27 +32,45 @@ jobs:
           # 1. 初始化
           echo "proxies:" > latest.yml
           
-          # 2. 下载源文件
+          # 2. 计算日期（用于 s2 源）
+          DATE_S2=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          YESTERDAY_S2=$(TZ='Asia/Shanghai' date -d "yesterday" +'%Y%m%d')
+          
+          # 3. 下载源文件
+          # 源1：固定链接
           curl -sL "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub" -o s1.yml || touch s1.yml
-          curl -sL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash.yml" -o s2.yml || touch s2.yml
+          
+          # 源2：动态日期链接（先试今天，不行试昨天）
+          echo "Attempting to download s2 for $DATE_S2..."
+          curl -sL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_S2}.yml" -o s2.yml
+          if [ ! -s s2.yml ] || grep -q "404: Not Found" s2.yml; then
+            echo "Today's s2 not found, trying yesterday $YESTERDAY_S2..."
+            curl -sL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${YESTERDAY_S2}.yml" -o s2.yml
+          fi
+          
+          # 源3：固定链接
           curl -sL "https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml" -o s3.yml || touch s3.yml
 
-          # 3. 精准提取节点（过滤掉策略组和非节点行）
+          # 4. 稳健提取逻辑：直接匹配节点特征
           for f in s1.yml s2.yml s3.yml; do
             if [ -s "$f" ] && ! grep -q "404: Not Found" "$f"; then
-              # 提取 proxies 之后，直到遇到下一个顶级分类（如 proxy-groups）之前的所有缩进行
-              sed -n '/^proxies:/,/^[^ -]/p' "$f" | grep -vE "^proxies:|^proxy-groups:|^rules:|^  - name: \[|^  - name: \"\[" >> temp_raw.yml || true
+              awk '
+                /^[ ]*- name:/ {
+                  if ($0 ~ /select|url-test|fallback|load-balance/) {skip=1; next}
+                  skip=0; print $0; next
+                }
+                /^[ ]+[a-z]/ {
+                  if (skip==0) print $0
+                }
+              ' "$f" >> temp_raw.yml || true
             fi
           done
 
-          # 4. 标准化格式清洗与去重
-          # - 统一缩进：节点名 2 空格，属性 4 空格
-          # - 移除重复节点名（基于 server 地址去重，防止重复连接）
+          # 5. 格式化与去重
           if [ -f temp_raw.yml ]; then
             cat temp_raw.yml | awk '
               /^[ ]*- name:/ {
-                sub(/^[ ]*- name:/, "  - name:"); 
-                # 简单的去重逻辑：如果该行已出现过，跳过
+                sub(/^[ ]*- name:[ ]*/, "  - name: ");
                 if (!seen[$0]++) {
                   print $0;
                   skip=0;
@@ -61,20 +79,18 @@ jobs:
                 }
                 next;
               }
-              /^[ ]+[^ -]/ {
+              /^[ ]+[a-z]/ {
                 if (skip==0) {
-                  sub(/^[ ]+/, "    "); 
+                  sub(/^[ ]+/, "    ");
                   print $0;
                 }
               }
             ' >> latest.yml
           fi
 
-          # 5. 最后修正：移除 Windows 换行符和多余空行
+          # 6. 清理
           sed -i 's/\r//g' latest.yml
           sed -i '/^$/d' latest.yml
-          
-          # 确保文件末尾没有多余干扰
           rm -f s1.yml s2.yml s3.yml temp_raw.yml
 
       - name: Commit and push
