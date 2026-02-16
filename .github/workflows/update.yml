@@ -15,7 +15,7 @@ jobs:
       - name: Download latest clash file
         run: |
           DATE=$(date +'%Y%m%d')
-          URL="https://github.com/free-nodes/clashfree/blob/main/clash${DATE}.yml"
+          URL="https://github.com/free-nodes/clashfree/raw/refs/heads/main/clash${DATE}.yml"
           echo "Downloading: $URL"
           curl -fSL "$URL" -o latest.yml
 
