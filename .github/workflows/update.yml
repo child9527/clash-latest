@@ -31,19 +31,17 @@ jobs:
         run: |
           echo "proxies:" > latest.yml
           
-          # 下载三个源
-          curl -fSL "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub" -o s1.yml || touch s1.yml
-          curl -fSL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash.yml" -o s2.yml || touch s2.yml
-          curl -fSL "https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml" -o s3.yml || touch s3.yml
+          # 下载三个源，去掉 -f 选项防止 curl 因为 404 直接报错退出，改用判断逻辑
+          curl -sL "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub" -o s1.yml || touch s1.yml
+          # 修正后的源2链接（移除了 refs/heads/）
+          curl -sL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash.yml" -o s2.yml || touch s2.yml
+          curl -sL "https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml" -o s3.yml || touch s3.yml
 
-          # 处理逻辑：
-          # 1. 提取 - name: 开头的行及其后续内容
-          # 2. 严禁包含 type: select, type: url-test, type: fallback 等策略组关键词
-          # 3. 确保每行至少有两个空格缩进，符合 YAML 数组格式
+          # 处理逻辑
           for f in s1.yml s2.yml s3.yml; do
-            if [ -s "$f" ]; then
-              # 使用 sed 找到节点列表开始的位置，然后用 awk 过滤掉非节点模块
-              sed -n '/^- name:/,$p' "$f" | awk '
+            # 检查文件是否存在且不是 404 错误页面（404 页面通常很小且包含 "404" 字样）
+            if [ -s "$f" ] && ! grep -q "404: Not Found" "$f"; then
+              sed -n '/- name:/,$p' "$f" | awk '
                 BEGIN {ORS="\n"}
                 /^- name:/ {show=1} 
                 /^[^ ]/ && !/^- name:/ {show=0} 
@@ -53,8 +51,10 @@ jobs:
             fi
           done
 
-          # 最后的清洗：确保没有重复的 proxies: 标签，且格式整齐
-          grep "  - name:" -A 15 temp_nodes.yml | grep -v "^\-\-" | grep -v "proxies:" >> latest.yml
+          # 最后的清洗：确保格式整齐，只保留真正的节点部分
+          if [ -f temp_nodes.yml ]; then
+            grep "  - name:" -A 15 temp_nodes.yml | grep -v "^\-\-" | grep -v "proxies:" >> latest.yml
+          fi
 
           rm -f s1.yml s2.yml s3.yml temp_nodes.yml
 
