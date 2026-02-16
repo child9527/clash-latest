@@ -26,32 +26,36 @@ jobs:
             echo "should_update=false" >> $GITHUB_ENV
           fi
 
-      - name: Download and Format Clash files
+      - name: Download and Clean Proxies
         if: env.should_update == 'true'
         run: |
-          # 创建标准的头部
           echo "proxies:" > latest.yml
           
-          # 下载源文件
-          curl -fSL "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub" -o s1.yml || echo "" > s1.yml
-          curl -fSL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash.yml" -o s2.yml || echo "" > s2.yml
-          curl -fSL "https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml" -o s3.yml || echo "" > s3.yml
+          # 下载三个源
+          curl -fSL "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub" -o s1.yml || touch s1.yml
+          curl -fSL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash.yml" -o s2.yml || touch s2.yml
+          curl -fSL "https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml" -o s3.yml || touch s3.yml
 
-          # 精确提取并规范格式
+          # 处理逻辑：
+          # 1. 提取 - name: 开头的行及其后续内容
+          # 2. 严禁包含 type: select, type: url-test, type: fallback 等策略组关键词
+          # 3. 确保每行至少有两个空格缩进，符合 YAML 数组格式
           for f in s1.yml s2.yml s3.yml; do
             if [ -s "$f" ]; then
-              # 1. 只提取包含 - name: 的行及其配置行
-              # 2. 确保每行都以恰好两个空格开始（Clash 代理列表的标准缩进）
-              # 3. 过滤掉可能干扰的头部标签
-              sed -n '/- name:/,$p' "$f" | grep -v "^proxies:" | grep -v "^port:" | grep -v "^socks-port:" | grep -v "^allow-lan:" >> temp_nodes.yml || true
+              # 使用 sed 找到节点列表开始的位置，然后用 awk 过滤掉非节点模块
+              sed -n '/^- name:/,$p' "$f" | awk '
+                BEGIN {ORS="\n"}
+                /^- name:/ {show=1} 
+                /^[^ ]/ && !/^- name:/ {show=0} 
+                /type: (select|url-test|fallback|load-balance)/ {show=0}
+                {if(show) print "  " $0}
+              ' | sed 's/^    -/  -/g' >> temp_nodes.yml || true
             fi
           done
 
-          # 清理无效行（比如空的代理组头）并合并
-          # 确保只有以 "  - name:" 开头的配置进入 proxies 列表
-          grep "^  - name:" -A 15 temp_nodes.yml | grep -v "^\-\-" >> latest.yml || true
+          # 最后的清洗：确保没有重复的 proxies: 标签，且格式整齐
+          grep "  - name:" -A 15 temp_nodes.yml | grep -v "^\-\-" | grep -v "proxies:" >> latest.yml
 
-          # 最后清理
           rm -f s1.yml s2.yml s3.yml temp_nodes.yml
 
       - name: Commit and push
