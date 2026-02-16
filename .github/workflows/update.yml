@@ -2,27 +2,67 @@ name: Update Clash Latest
 
 on:
   schedule:
-    - cron: "0 8 * * *"   # 每天下午 4 点（北京时间）自动执行（UTC+8）
-  workflow_dispatch:
+    # UTC 00:00 (北京 08:00)
+    # UTC 04:00 (北京 12:00)
+    # UTC 08:00 (北京 16:00)
+    # UTC 12:00 (北京 20:00)
+    - cron: "0 0,4,8,12 * * *"
+  workflow_dispatch: # 保留手动触发按钮
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions: # 显式声明权限，确保可以推送
+      contents: write
+      
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 获取完整历史以检查提交记录
+
+      - name: Check if already updated today
+        id: check_status
+        run: |
+          # 获取北京时间日期 (YYYYMMDD)
+          BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          echo "Today is $BEIJING_DATE"
+          
+          # 检查仓库中 latest.yml 的最后一次提交日期
+          # 如果提交信息中包含当天的日期，说明今天已经更新过了
+          LAST_COMMIT_DATE=$(git log -1 --format=%s | grep -oP '\d{8}' || echo "none")
+          
+          if [ "$LAST_COMMIT_DATE" == "$BEIJING_DATE" ]; then
+            echo "Already updated today ($BEIJING_DATE). Skipping..."
+            echo "skip_update=true" >> $GITHUB_ENV
+          else
+            echo "Not updated yet today. Proceeding..."
+            echo "skip_update=false" >> $GITHUB_ENV
+          fi
 
       - name: Download latest clash file
+        if: env.skip_update == 'false'
+        id: download
         run: |
-          DATE=$(date +'%Y%m%d')
+          DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           URL="https://github.com/free-nodes/clashfree/raw/refs/heads/main/clash${DATE}.yml"
-          echo "Downloading: $URL"
-          curl -fSL "$URL" -o latest.yml
+          echo "Target URL: $URL"
+          
+          # 尝试下载，-f 失败时报错，--retry 增加稳定性
+          if curl -fSL "$URL" -o latest.yml; then
+            echo "download_success=true" >> $GITHUB_ENV
+          else
+            echo "File not found on source yet (404). Waiting for next schedule."
+            echo "download_success=false" >> $GITHUB_ENV
+          fi
 
       - name: Commit and push
+        if: env.skip_update == 'false' && env.download_success == 'true'
         run: |
+          DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add latest.yml
-          git commit -m "Update latest.yml" || echo "No changes to commit"
+          # 在提交信息中放入日期，方便上面的步骤检测
+          git commit -m "Update latest.yml (Date: $DATE)" || exit 0
           git push
