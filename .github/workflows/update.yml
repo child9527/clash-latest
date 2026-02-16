@@ -1,7 +1,8 @@
-name: Update Clash Latest (Aggregated)
+name: Update Clash Latest (Mirror)
 
 on:
   schedule:
+    # 北京时间：08:00, 12:00, 16:00, 20:00
     - cron: "0 0,4,8,12 * * *"
   workflow_dispatch:
 
@@ -14,90 +15,48 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       - name: Check if already updated today
         id: check_status
         run: |
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          # 检查最后一次提交信息是否包含今天的日期
           LAST_COMMIT_DATE=$(git log -1 --format=%s | grep -oP '\d{8}' || echo "none")
+          
           if [ "${{ github.event_name }}" == "workflow_dispatch" ] || [ "$LAST_COMMIT_DATE" != "$BEIJING_DATE" ]; then
             echo "should_update=true" >> $GITHUB_ENV
           else
             echo "should_update=false" >> $GITHUB_ENV
           fi
 
-      - name: Download and Clean Proxies
+      - name: Mirror Remote File
         if: env.should_update == 'true'
         run: |
-          # 1. 初始化
-          echo "proxies:" > latest.yml
+          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          URL="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_STR}.yml"
           
-          # 2. 计算日期
-          DATE_S2=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          YESTERDAY_S2=$(TZ='Asia/Shanghai' date -d "yesterday" +'%Y%m%d')
+          # 直接下载并覆盖 latest.yml
+          curl -sL "$URL" -o latest.yml
           
-          # 3. 下载源
-          curl -sL "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub" -o s1.yml || touch s1.yml
-          curl -sL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_S2}.yml" -o s2.yml
-          if [ ! -s s2.yml ] || grep -q "404: Not Found" s2.yml; then
-            curl -sL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${YESTERDAY_S2}.yml" -o s2.yml
+          # 鲁棒性检查：如果下载失败或404，不更新文件，直接报错退出
+          if [ ! -s latest.yml ] || grep -q "404: Not Found" latest.yml; then
+            echo "Today's source not ready yet."
+            exit 1
           fi
-          curl -sL "https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml" -o s3.yml || touch s3.yml
-
-          # 4. 暴力提取逻辑：只抓取包含代理协议特征的块
-          # 逻辑：寻找包含 type: (ss|vmess|trojan|snell|ssr) 的块
-          for f in s1.yml s2.yml s3.yml; do
-            if [ -s "$f" ] && ! grep -q "404: Not Found" "$f"; then
-              # 使用 awk 的段落模式，提取包含特定协议类型的代理节点
-              awk '
-                BEGIN {RS=""; FS="\n"}
-                /type: (ss|vmess|trojan|snell|ssr|hysteria2|tuic)/ {
-                  if ($0 ~ /- name:/) {
-                    print $0
-                  }
-                }
-              ' "$f" >> temp_raw.yml || true
-            fi
-          done
-
-          # 5. 格式化清洗
-          if [ -f temp_raw.yml ]; then
-            cat temp_raw.yml | awk '
-              # 规范化每一行，确保只有节点属性
-              /^[ ]*- name:/ {
-                sub(/^[ ]*- name:[ ]*/, "  - name: ");
-                # 再次过滤掉包含图标或常见策略组名称的行，防止混入策略组
-                if ($0 ~ /选择|切换|自动|视频|媒体|信息|OpenAi|微软|流量|重置/) { skip=1; next }
-                if (!seen[$0]++) { print $0; skip=0 } else { skip=1 }
-                next
-              }
-              /^[ ]+[a-z]/ {
-                if (skip==0) {
-                  sub(/^[ ]+/, "    ");
-                  print $0
-                }
-              }
-            ' >> latest.yml
-          fi
-
-          # 6. 兜底清理
-          sed -i 's/\r//g' latest.yml
-          # 移除所有只剩 - name: 但没有后续属性的残缺项
-          sed -i '/- name:.*$/{N;/  - name:.*$/!P;D}' latest.yml
-          sed -i '/^$/d' latest.yml
-          
-          rm -f s1.yml s2.yml s3.yml temp_raw.yml
 
       - name: Commit and push
         if: env.should_update == 'true'
         run: |
-          DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          DATE_COMMIT=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add latest.yml
+          # 只有在内容有变动时才提交，防止空提交
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "Update Aggregated latest.yml (Date: $DATE)"
+            git commit -m "Update latest.yml (Date: $DATE_COMMIT)"
             git push
           fi
