@@ -32,65 +32,60 @@ jobs:
           # 1. 初始化
           echo "proxies:" > latest.yml
           
-          # 2. 计算日期（用于 s2 源）
+          # 2. 计算日期
           DATE_S2=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           YESTERDAY_S2=$(TZ='Asia/Shanghai' date -d "yesterday" +'%Y%m%d')
           
-          # 3. 下载源文件
-          # 源1：固定链接
+          # 3. 下载源
           curl -sL "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub" -o s1.yml || touch s1.yml
-          
-          # 源2：动态日期链接（先试今天，不行试昨天）
-          echo "Attempting to download s2 for $DATE_S2..."
           curl -sL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_S2}.yml" -o s2.yml
           if [ ! -s s2.yml ] || grep -q "404: Not Found" s2.yml; then
-            echo "Today's s2 not found, trying yesterday $YESTERDAY_S2..."
             curl -sL "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${YESTERDAY_S2}.yml" -o s2.yml
           fi
-          
-          # 源3：固定链接
           curl -sL "https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml" -o s3.yml || touch s3.yml
 
-          # 4. 稳健提取逻辑：直接匹配节点特征
+          # 4. 暴力提取逻辑：只抓取包含代理协议特征的块
+          # 逻辑：寻找包含 type: (ss|vmess|trojan|snell|ssr) 的块
           for f in s1.yml s2.yml s3.yml; do
             if [ -s "$f" ] && ! grep -q "404: Not Found" "$f"; then
+              # 使用 awk 的段落模式，提取包含特定协议类型的代理节点
               awk '
-                /^[ ]*- name:/ {
-                  if ($0 ~ /select|url-test|fallback|load-balance/) {skip=1; next}
-                  skip=0; print $0; next
-                }
-                /^[ ]+[a-z]/ {
-                  if (skip==0) print $0
+                BEGIN {RS=""; FS="\n"}
+                /type: (ss|vmess|trojan|snell|ssr|hysteria2|tuic)/ {
+                  if ($0 ~ /- name:/) {
+                    print $0
+                  }
                 }
               ' "$f" >> temp_raw.yml || true
             fi
           done
 
-          # 5. 格式化与去重
+          # 5. 格式化清洗
           if [ -f temp_raw.yml ]; then
             cat temp_raw.yml | awk '
+              # 规范化每一行，确保只有节点属性
               /^[ ]*- name:/ {
                 sub(/^[ ]*- name:[ ]*/, "  - name: ");
-                if (!seen[$0]++) {
-                  print $0;
-                  skip=0;
-                } else {
-                  skip=1;
-                }
-                next;
+                # 再次过滤掉包含图标或常见策略组名称的行，防止混入策略组
+                if ($0 ~ /选择|切换|自动|视频|媒体|信息|OpenAi|微软|流量|重置/) { skip=1; next }
+                if (!seen[$0]++) { print $0; skip=0 } else { skip=1 }
+                next
               }
               /^[ ]+[a-z]/ {
                 if (skip==0) {
                   sub(/^[ ]+/, "    ");
-                  print $0;
+                  print $0
                 }
               }
             ' >> latest.yml
           fi
 
-          # 6. 清理
+          # 6. 兜底清理
           sed -i 's/\r//g' latest.yml
+          # 移除所有只剩 - name: 但没有后续属性的残缺项
+          sed -i '/- name:.*$/{N;/  - name:.*$/!P;D}' latest.yml
           sed -i '/^$/d' latest.yml
+          
           rm -f s1.yml s2.yml s3.yml temp_raw.yml
 
       - name: Commit and push
