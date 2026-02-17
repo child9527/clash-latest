@@ -18,12 +18,16 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Check if already updated today
+      - name: Check Status
         id: check_status
         run: |
+          # 统一使用 TZ='Asia/Shanghai' 确保日期对齐北京时间
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          LAST_COMMIT=$(git log -1 --format=%s)
-          # 如果今天已经成功更新过该源，则跳过，避免重复工作
+          LAST_COMMIT=$(git log -1 --format=%s || echo "none")
+          
+          echo "Current Beijing Date: $BEIJING_DATE"
+          echo "Last Commit Message: $LAST_COMMIT"
+          
           if [[ "$LAST_COMMIT" == *"tglaoshiji-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "should_update=false" >> $GITHUB_ENV
           else
@@ -33,54 +37,70 @@ jobs:
       - name: Download and Strategy Check
         if: env.should_update == 'true'
         run: |
-          # 1. 动态计算日期参数
+          # 1. 变量定义（强制指定时区）
           YEAR=$(TZ='Asia/Shanghai' date +'%Y')
-          MONTH=$(TZ='Asia/Shanghai' date +'%m' | sed 's/^0//') # 转换 02 为 2
-          FULL_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          MONTH=$(TZ='Asia/Shanghai' date +'%m' | sed 's/^0//')
+          DAY_TODAY=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           
-          # 计算昨天日期
-          Y_YEAR=$(TZ='Asia/Shanghai' date -d "yesterday" +'%Y')
-          Y_MONTH=$(TZ='Asia/Shanghai' date -d "yesterday" +'%m' | sed 's/^0//')
-          Y_FULL_DATE=$(TZ='Asia/Shanghai' date -d "yesterday" +'%Y%m%d')
+          Y_YEAR=$(TZ='Asia/Shanghai' date -d "24 hours ago" +'%Y')
+          Y_MONTH=$(TZ='Asia/Shanghai' date -d "24 hours ago" +'%m' | sed 's/^0//')
+          Y_DAY=$(TZ='Asia/Shanghai' date -d "24 hours ago" +'%Y%m%d')
 
-          # 2. 尝试下载今天的源
-          URL_TODAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${YEAR}/${MONTH}/${FULL_DATE}.yaml"
-          echo "Attempting today's source: $URL_TODAY"
-          curl -sL "$URL_TODAY" -o today.yml
+          # 2. 尝试抓取今天的
+          URL_TODAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${YEAR}/${MONTH}/${DAY_TODAY}.yaml"
+          echo "Debug: Today URL is $URL_TODAY"
           
-          # 3. 判断今天的是否有效 (文件大小 > 1KB 且不是 404)
-          if [ -s today.yml ] && ! grep -q "404" today.yml && [ $(wc -c < today.yml) -gt 1024 ]; then
-            echo "Success: Today's source obtained."
-            mv today.yml tglaoshiji.yml
-          else
-            echo "Today's source is NOT ready or invalid."
-            
-            # 4. 核心策略逻辑
-            if [ -f tglaoshiji.yml ]; then
-              echo "Existing tglaoshiji.yml found in repo. Keeping current version and waiting for next schedule."
-              rm -f today.yml
-              echo "skip_commit=true" >> $GITHUB_ENV
+          # -f 选项会让 curl 在 404 时返回非零退出码，-L 跟踪重定向
+          if curl -sL -f "$URL_TODAY" -o today.yml; then
+            if [ $(wc -c < today.yml) -gt 1024 ]; then
+              echo "Success: Today's source obtained."
+              mv today.yml tglaoshiji.yml
             else
-              echo "No local tglaoshiji.yml found. Fetching yesterday's as fallback..."
-              URL_YESTERDAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${Y_YEAR}/${Y_MONTH}/${Y_FULL_DATE}.yaml"
-              curl -sL "$URL_YESTERDAY" -o tglaoshiji.yml
+              echo "Error: File too small, might be invalid content."
+              rm -f today.yml
+              SUCCESS=false
+            fi
+          else
+            echo "Today's source NOT ready (404 or Network Error)."
+            SUCCESS=false
+          fi
+
+          # 3. 如果今天没成功，进入策略判断
+          if [ ! -f tglaoshiji.yml ]; then
+            if [ "$SUCCESS" != "true" ]; then
+              echo "Local file missing. Attempting Yesterday's source..."
+              URL_YESTERDAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${Y_YEAR}/${Y_MONTH}/${Y_DAY}.yaml"
+              echo "Debug: Yesterday URL is $URL_YESTERDAY"
               
-              if [ ! -s tglaoshiji.yml ] || grep -q "404" tglaoshiji.yml || [ $(wc -c < tglaoshiji.yml) -lt 1024 ]; then
-                echo "Error: Both today and yesterday sources are unavailable."
+              if curl -sL -f "$URL_YESTERDAY" -o tglaoshiji.yml; then
+                echo "Success: Yesterday's source obtained as fallback."
+              else
+                echo "Error: Even yesterday's file is missing."
                 exit 1
               fi
             fi
+          elif [ -f today.yml ]; then
+             # 这条路径通常不会执行，仅作为逻辑完备
+             mv today.yml tglaoshiji.yml
+          else
+             # 如果今天抓不到，本地又有文件，就跳过提交
+             if [ ! -s today.yml ]; then
+                echo "Keeping local version. Skipping commit."
+                echo "skip_commit=true" >> $GITHUB_ENV
+             fi
           fi
 
       - name: Commit and push
         if: env.should_update == 'true' && env.skip_commit != 'true'
         run: |
+          # 再次确保 DATE_STR 正确
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add tglaoshiji.yml
+          
           if git diff --staged --quiet; then
-            echo "No changes in file content."
+            echo "No changes detected in file content."
           else
             git commit -m "Update tglaoshiji-$DATE_STR"
             git push
