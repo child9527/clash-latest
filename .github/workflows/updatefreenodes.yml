@@ -2,7 +2,8 @@ name: Update Free Nodes (Mirror)
 
 on:
   schedule:
-    - cron: "10 0,4,8,12 * * *" # 稍微错开10分钟，避免并发冲突
+    # 北京时间：08:10, 12:10, 16:10, 20:10 (错开10分钟避免冲突)
+    - cron: "10 0,4,8,12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -22,27 +23,51 @@ jobs:
         run: |
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           LAST_COMMIT=$(git log -1 --format=%s)
+          # 如果今天已经更新过该源，则跳过
           if [[ "$LAST_COMMIT" == *"freenodes-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "should_update=false" >> $GITHUB_ENV
           else
             echo "should_update=true" >> $GITHUB_ENV
           fi
 
-      - name: Download
+      - name: Download and Strategy Check
         if: env.should_update == 'true'
         run: |
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          # 抓取那个按日期命名的旧源
-          URL="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_STR}.yml"
-          curl -sL "$URL" -o free-nodes.yml
+          YESTERDAY=$(TZ='Asia/Shanghai' date -d "yesterday" +'%Y%m%d')
           
-          if [ ! -s free-nodes.yml ] || grep -q "404" free-nodes.yml; then
-            echo "Old source not ready."
-            exit 1
+          # 1. 尝试抓取今天的源
+          URL_TODAY="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_STR}.yml"
+          echo "Trying today's source: $URL_TODAY"
+          curl -sL "$URL_TODAY" -o today.yml
+          
+          # 2. 判断今天的是否抓取成功 (不是404且大小正常)
+          if [ -s today.yml ] && ! grep -q "404" today.yml; then
+            echo "Success: Today's source obtained."
+            mv today.yml free-nodes.yml
+          else
+            echo "Today's source is NOT ready."
+            
+            # 3. 核心逻辑：判断仓库中是否已经存在 free-nodes.yml
+            if [ -f free-nodes.yml ]; then
+              echo "Existing free-nodes.yml found in repo. Keeping it and waiting for next schedule."
+              rm -f today.yml
+              # 设置一个变量告诉下一步不需要 commit
+              echo "skip_commit=true" >> $GITHUB_ENV
+            else
+              echo "No local free-nodes.yml found. Fetching yesterday's as fallback..."
+              URL_YESTERDAY="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${YESTERDAY}.yml"
+              curl -sL "$URL_YESTERDAY" -o free-nodes.yml
+              
+              if [ ! -s free-nodes.yml ] || grep -q "404" free-nodes.yml; then
+                echo "Error: Both today and yesterday sources are missing."
+                exit 1
+              fi
+            fi
           fi
 
       - name: Commit and push
-        if: env.should_update == 'true'
+        if: env.should_update == 'true' && env.skip_commit != 'true'
         run: |
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           git config user.name "github-actions"
