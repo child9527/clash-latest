@@ -1,9 +1,8 @@
-name: Update Clash Latest (Mirror)
+name: Update Free Nodes (Mirror)
 
 on:
   schedule:
-    # 北京时间：08:00, 12:00, 16:00, 20:00
-    - cron: "0 0,4,8,12 * * *"
+    - cron: "10 0,4,8,12 * * *" # 稍微错开10分钟，避免并发冲突
   workflow_dispatch:
 
 jobs:
@@ -18,45 +17,40 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Check if already updated today
+      - name: Check Status
         id: check_status
         run: |
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          # 检查最后一次提交信息是否包含今天的日期
-          LAST_COMMIT_DATE=$(git log -1 --format=%s | grep -oP '\d{8}' || echo "none")
-          
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ] || [ "$LAST_COMMIT_DATE" != "$BEIJING_DATE" ]; then
-            echo "should_update=true" >> $GITHUB_ENV
-          else
+          LAST_COMMIT=$(git log -1 --format=%s)
+          if [[ "$LAST_COMMIT" == *"freenodes-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "should_update=false" >> $GITHUB_ENV
+          else
+            echo "should_update=true" >> $GITHUB_ENV
           fi
 
-      - name: Mirror Remote File
+      - name: Download
         if: env.should_update == 'true'
         run: |
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          # 抓取那个按日期命名的旧源
           URL="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_STR}.yml"
+          curl -sL "$URL" -o free-nodes.yml
           
-          # 直接下载并覆盖 latest.yml
-          curl -sL "$URL" -o latest.yml
-          
-          # 鲁棒性检查：如果下载失败或404，不更新文件，直接报错退出
-          if [ ! -s latest.yml ] || grep -q "404: Not Found" latest.yml; then
-            echo "Today's source not ready yet."
+          if [ ! -s free-nodes.yml ] || grep -q "404" free-nodes.yml; then
+            echo "Old source not ready."
             exit 1
           fi
 
       - name: Commit and push
         if: env.should_update == 'true'
         run: |
-          DATE_COMMIT=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add latest.yml
-          # 只有在内容有变动时才提交，防止空提交
+          git add free-nodes.yml
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "Update latest.yml (Date: $DATE_COMMIT)"
+            git commit -m "Update freenodes-$DATE_STR"
             git push
           fi
