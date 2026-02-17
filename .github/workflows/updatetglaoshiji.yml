@@ -1,0 +1,67 @@
+name: Update Clash Latest (Mirror)
+
+on:
+  schedule:
+    # 北京时间：08:00, 12:00, 16:00, 20:00
+    - cron: "0 0,4,8,12 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Check if already updated today
+        id: check_status
+        run: |
+          BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          # 检查最后一次提交是否已经是今天的日期
+          LAST_COMMIT_DATE=$(git log -1 --format=%s | grep -oP '\d{8}' || echo "none")
+          
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ] || [ "$LAST_COMMIT_DATE" != "$BEIJING_DATE" ]; then
+            echo "should_update=true" >> $GITHUB_ENV
+          else
+            echo "should_update=false" >> $GITHUB_ENV
+          fi
+
+      - name: Mirror Remote File
+        if: env.should_update == 'true'
+        run: |
+          # 动态计算新源所需的日期参数
+          YEAR=$(TZ='Asia/Shanghai' date +'%Y')
+          MONTH=$(TZ='Asia/Shanghai' date +'%m' | sed 's/^0//') # 去掉月份前导0，比如 02 变成 2
+          FULL_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          
+          # 拼接新源链接
+          URL="https://sfdr.zaixianyouxi.dpdns.org/uploads/${YEAR}/${MONTH}/${FULL_DATE}.yaml"
+          echo "Attempting to download: $URL"
+          
+          # 下载并存为 latest.yml
+          curl -sL "$URL" -o latest.yml
+          
+          # 检查文件是否有效 (大于1KB 且 不是404)
+          if [ ! -s latest.yml ] || grep -q "404" latest.yml || [ $(wc -c < latest.yml) -lt 1024 ]; then
+            echo "Today's source is not ready yet or link invalid."
+            exit 1
+          fi
+
+      - name: Commit and push
+        if: env.should_update == 'true'
+        run: |
+          DATE_COMMIT=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add latest.yml
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update latest.yml (Date: $DATE_COMMIT)"
+            git push
+          fi
