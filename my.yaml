@@ -1,0 +1,14 @@
+proxies:
+  - name: "占位节点"
+    type: ss
+    server: 127.0.0.1
+    port: 8888
+    cipher: aes-256-gcm
+    password: "password"
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - "占位节点"
+rules:
+  - MATCH,Proxy
