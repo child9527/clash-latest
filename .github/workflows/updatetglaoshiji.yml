@@ -2,8 +2,9 @@ name: Update TG Laoshiji (Mirror)
 
 on:
   schedule:
-    # 北京时间：08:00, 12:00, 16:00, 20:00
-    - cron: "0 0,4,8,12 * * *"
+    # 修改分钟为 21，避开 GitHub 调度高峰
+    # 北京时间：08:21, 12:21, 16:21, 20:21
+    - cron: "21 0,4,8,12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -23,7 +24,13 @@ jobs:
         run: |
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           LAST_COMMIT=$(git log -1 --format=%s || echo "none")
+          
+          echo "Current Date: $BEIJING_DATE"
+          echo "Last Commit: $LAST_COMMIT"
+
+          # 如果最后一次提交信息包含今天的日期，且不是手动触发，则跳过
           if [[ "$LAST_COMMIT" == *"tglaoshiji-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+            echo "Already updated today. Skipping..."
             echo "should_update=false" >> $GITHUB_ENV
           else
             echo "should_update=true" >> $GITHUB_ENV
@@ -47,27 +54,27 @@ jobs:
           URL_TODAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${YEAR}/${MONTH}/${DAY_TODAY}.yaml"
           echo "Trying Today: $URL_TODAY"
           
-          if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o tglaoshiji.yml && [ $(wc -c < tglaoshiji.yml) -gt 1024 ]; then
+          # 使用 -f 确保 404 时报错退出，不保存文件
+          if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o temp.yml && [ $(stat -c%s temp.yml) -gt 2048 ]; then
+            mv temp.yml tglaoshiji.yml
             echo "status=success" >> $GITHUB_ENV
             echo "Today's file downloaded."
           else
-            echo "Today's source NOT ready."
+            echo "Today's source NOT ready yet."
             
             # 3. 核心逻辑判断
             if [ -f tglaoshiji.yml ]; then
-              # 仓库里有旧文件，直接跳过，等下次抓今天
-              echo "Existing tglaoshiji.yml found in repo. Keeping it."
-              echo "status=keep_old" >> $GITHUB_ENV
+              echo "Existing local file is enough for now. Waiting for next cron."
+              echo "status=skip_commit" >> $GITHUB_ENV
+              rm -f temp.yml || true
             else
-              # 仓库没文件，必须抓昨天的保底
-              echo "No local file. Trying Yesterday: https://sfdr.zaixianyouxi.dpdns.org/uploads/${Y_YEAR}/${Y_MONTH}/${Y_DAY}.yaml"
+              echo "No local file! Fetching Yesterday's fallback..."
               URL_YESTERDAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${Y_YEAR}/${Y_MONTH}/${Y_DAY}.yaml"
-              
-              if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_YESTERDAY" -o tglaoshiji.yml && [ $(wc -c < tglaoshiji.yml) -gt 1024 ]; then
+              if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_YESTERDAY" -o tglaoshiji.yml && [ $(stat -c%s tglaoshiji.yml) -gt 2048 ]; then
                 echo "status=success" >> $GITHUB_ENV
                 echo "Yesterday's file downloaded as fallback."
               else
-                echo "Error: Both today and yesterday sources are unavailable and no local backup exists."
+                echo "Error: Both sources fail and no local backup."
                 exit 1
               fi
             fi
@@ -82,7 +89,7 @@ jobs:
           git add tglaoshiji.yml
           
           if git diff --staged --quiet; then
-            echo "No changes in content."
+            echo "Content is identical to current repo version. No update needed."
           else
             git commit -m "Update tglaoshiji-$DATE_STR"
             git push
