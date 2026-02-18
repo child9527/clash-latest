@@ -2,8 +2,9 @@ name: Update Free Nodes (Mirror)
 
 on:
   schedule:
-    # 北京时间：08:10, 12:10, 16:10, 20:10 (错开10分钟避免冲突)
-    - cron: "10 0,4,8,12 * * *"
+    # 修改为更冷门的时间点，避开 0, 10, 30 分的高峰
+    # 北京时间：08:17, 12:17, 16:17, 20:17
+    - cron: "17 0,4,8,12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -22,60 +23,64 @@ jobs:
         id: check_status
         run: |
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          LAST_COMMIT=$(git log -1 --format=%s)
-          # 如果今天已经更新过该源，则跳过
-          if [[ "$LAST_COMMIT" == *"freenodes-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+          LAST_COMMIT_MSG=$(git log -1 --format=%s || echo "Initial commit")
+          
+          echo "Current Date: $BEIJING_DATE"
+          echo "Last Commit: $LAST_COMMIT_MSG"
+          
+          # 只有当最后一次提交确实包含了今天的日期，才跳过
+          if [[ "$LAST_COMMIT_MSG" == *"$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+            echo "Today's data already updated. Skipping..."
             echo "should_update=false" >> $GITHUB_ENV
           else
+            echo "Update needed."
             echo "should_update=true" >> $GITHUB_ENV
           fi
 
-      - name: Download and Strategy Check
+      - name: Download and Sync
         if: env.should_update == 'true'
         run: |
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           YESTERDAY=$(TZ='Asia/Shanghai' date -d "yesterday" +'%Y%m%d')
           
-          # 1. 尝试抓取今天的源
+          # 1. 尝试下载
           URL_TODAY="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_STR}.yml"
-          echo "Trying today's source: $URL_TODAY"
-          curl -sL "$URL_TODAY" -o today.yml
+          echo "Target URL: $URL_TODAY"
           
-          # 2. 判断今天的是否抓取成功 (不是404且大小正常)
-          if [ -s today.yml ] && ! grep -q "404" today.yml; then
-            echo "Success: Today's source obtained."
+          # 使用 --fail 确保 404 时返回非零状态码
+          if curl -sLf "$URL_TODAY" -o today.yml && [ -s today.yml ]; then
+            echo "Success: Fetched today's file."
             mv today.yml free-nodes.yml
+            echo "final_msg=Update freenodes-$DATE_STR" >> $GITHUB_ENV
           else
-            echo "Today's source is NOT ready."
+            echo "Today's source is not ready (404 or empty)."
             
-            # 3. 核心逻辑：判断仓库中是否已经存在 free-nodes.yml
-            if [ -f free-nodes.yml ]; then
-              echo "Existing free-nodes.yml found in repo. Keeping it and waiting for next schedule."
-              rm -f today.yml
-              # 设置一个变量告诉下一步不需要 commit
-              echo "skip_commit=true" >> $GITHUB_ENV
-            else
-              echo "No local free-nodes.yml found. Fetching yesterday's as fallback..."
+            # 2. 如果仓库里还没有文件，或者文件太旧，尝试拿昨天的
+            if [ ! -f free-nodes.yml ] || [[ ! $(git log -1 --format=%s) == *"$YESTERDAY"* ]]; then
+              echo "Local file is missing or outdated. Fetching yesterday's fallback..."
               URL_YESTERDAY="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${YESTERDAY}.yml"
-              curl -sL "$URL_YESTERDAY" -o free-nodes.yml
-              
-              if [ ! -s free-nodes.yml ] || grep -q "404" free-nodes.yml; then
-                echo "Error: Both today and yesterday sources are missing."
+              if curl -sLf "$URL_YESTERDAY" -o free-nodes.yml; then
+                echo "final_msg=Update freenodes-$YESTERDAY (Fallback)" >> $GITHUB_ENV
+              else
+                echo "Critical: Yesterday's source also fails."
                 exit 1
               fi
+            else
+              echo "Local file is already from yesterday. No action needed, wait for next cron."
+              echo "skip_commit=true" >> $GITHUB_ENV
             fi
           fi
 
       - name: Commit and push
         if: env.should_update == 'true' && env.skip_commit != 'true'
         run: |
-          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add free-nodes.yml
+          
           if git diff --staged --quiet; then
-            echo "No changes"
+            echo "No changes in file content. Skipping push."
           else
-            git commit -m "Update freenodes-$DATE_STR"
+            git commit -m "${{ env.final_msg }}"
             git push
           fi
