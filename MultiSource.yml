@@ -4824,7 +4824,7 @@ proxies:
   server: 204.44.122.100
   port: 3031
   type: ss
-  cipher: chacha20-poly1305
+  cipher: chacha20-ietf-poly1305
   password: rootface
 - name: 🇩🇪 德国 51
   server: 57.131.38.151
@@ -11129,5 +11129,6 @@ proxy-groups:
   - 🇸🇬 新加坡 73
   url: http://www.gstatic.com/generate_204
   interval: 300
+  tolerance: 50
 rules:
 - MATCH,Proxy
