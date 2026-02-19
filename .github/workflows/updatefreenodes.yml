@@ -2,72 +2,72 @@ name: Update Free Nodes (Mirror)
 
 on:
   schedule:
-    # 北京时间：08:17, 12:17, 16:17, 20:17
     - cron: "17 0,4,8,12 * * *"
   workflow_dispatch:
 
 jobs:
   update:
+    name: 同步 FreeNodes 镜像
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: Checkout
+      - name: 检出代码
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
 
-      - name: Check Status
+      - name: 检查今日更新状态
         id: check_status
         run: |
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          LAST_COMMIT_MSG=$(git log -1 --format=%s || echo "Initial commit")
+          LAST_COMMIT_MSG=$(git log -1 --format=%s || echo "初始提交")
           
-          echo "Current Date: $BEIJING_DATE"
-          echo "Last Commit: $LAST_COMMIT_MSG"
+          echo "📅 当前北京日期: $BEIJING_DATE"
+          echo "📝 最后提交记录: $LAST_COMMIT_MSG"
           
-          # 只有当最后一次提交确实包含了今天的日期，才跳过
           if [[ "$LAST_COMMIT_MSG" == *"$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
-            echo "Today's data already updated. Skipping..."
+            echo "✅ 今日数据已同步，跳过执行。"
             echo "should_update=false" >> $GITHUB_ENV
           else
-            echo "Update needed."
+            echo "🚀 需要更新数据。"
             echo "should_update=true" >> $GITHUB_ENV
           fi
 
-      - name: Download and Sync
+      - name: 下载并处理同步
         if: env.should_update == 'true'
         run: |
-          # 尝试获取最近 3 天的文件，使用你提供的正确 master 分支路径
           FOUND=false
+          # 循环尝试最近 3 天
           for i in {0..2}; do
             TARGET_DATE=$(TZ='Asia/Shanghai' date -d "$i days ago" +'%Y%m%d')
-            # 修正后的正确路径：refs/heads/master
+            # 使用正确的 master 分支路径
             URL="https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/master/clash${TARGET_DATE}.yml"
-            echo "Trying to fetch: $URL"
+            echo "🔍 正在尝试从 master 分支抓取: $TARGET_DATE"
             
             if curl -sLf "$URL" -o temp.yml && [ -s temp.yml ]; then
-              echo "Success: Found file for $TARGET_DATE"
+              echo "✅ 成功找到可用源: $TARGET_DATE"
               mv temp.yml free-nodes.yml
-              echo "final_msg=Update freenodes-$TARGET_DATE" >> $GITHUB_ENV
+              echo "final_msg=自动同步：FreeNodes-$TARGET_DATE" >> $GITHUB_ENV
               FOUND=true
               break
             fi
+            echo "❌ $TARGET_DATE 文件不存在或尚未发布"
           done
 
           if [ "$FOUND" = false ]; then
-            echo "Critical: Could not find any source files in the last 3 days at master branch."
+            echo "⚠️ 警告：最近 3 天的远程源均不可用。"
             if [ -f free-nodes.yml ]; then
-              echo "Local file exists, keeping current version."
+              echo "📦 保留现有的本地备份文件。"
               echo "skip_commit=true" >> $GITHUB_ENV
             else
-              echo "No local file and no remote file. Exit without error."
+              echo "❗ 错误：本地无备份且远程抓取失败。"
               exit 0
             fi
           fi
 
-      - name: Commit and push
+      - name: 提交更新到仓库
         if: env.should_update == 'true' && env.skip_commit != 'true'
         run: |
           git config user.name "github-actions"
@@ -75,8 +75,9 @@ jobs:
           git add free-nodes.yml
           
           if git diff --staged --quiet; then
-            echo "No changes in file content. Skipping push."
+            echo "ℹ️ 内容无变化，跳过提交。"
           else
             git commit -m "${{ env.final_msg }}"
             git push
+            echo "✨ 仓库已更新完毕。"
           fi
