@@ -12,7 +12,7 @@ SOURCES = [
     "https://github.com/mahdibland/V2RayAggregator/raw/refs/heads/master/Eternity.yml"
 ]
 
-# 国家关键词与表情包映射逻辑
+# 国家关键词与表情包映射
 COUNTRY_MAP = {
     '🇺🇸 美国': r'美国|US|United States|America|States',
     '🇯🇵 日本': r'日本|JP|Japan|Tokyo|Osaka|Saitama',
@@ -40,15 +40,31 @@ def fetch_and_merge():
     country_counters = {}
 
     for url in SOURCES:
-        print(f"正在抓取: {url}")
         try:
-            # 模拟浏览器 User-Agent 避免被部分仓库屏蔽
+            # 模拟浏览器 User-Agent 避免被屏蔽
             headers = {'User-Agent': 'ClashMeta/1.18.0'}
             response = requests.get(url, headers=headers, timeout=20)
-            data = yaml.safe_load(response.text)
+            # 处理一些源返回的乱码或非标准格式
+            try:
+                data = yaml.safe_load(response.text)
+            except Exception:
+                continue
             
             if data and 'proxies' in data:
                 for p in data['proxies']:
+                    # --- 协议修正逻辑开始 ---
+                    # 1. 修正 Shadowsocks 的加密方式
+                    if p.get('type') == 'ss':
+                        # 兼容 cipher 或 method 字段
+                        method = p.get('cipher') or p.get('method')
+                        if method == 'chacha20-poly1305':
+                            p['cipher'] = 'chacha20-ietf-poly1305'
+                    
+                    # 2. 基础有效性过滤 (必须有地址和端口)
+                    if not p.get('server') or not p.get('port'):
+                        continue
+                    # --- 协议修正逻辑结束 ---
+
                     # 关键逻辑：按服务器地址和端口去重
                     server_key = f"{p.get('server')}:{p.get('port')}"
                     if server_key not in seen_servers:
@@ -60,7 +76,7 @@ def fetch_and_merge():
                         merged_proxies.append(p)
                         seen_servers.add(server_key)
         except Exception as e:
-            print(f"抓取失败 {url}: {e}")
+            print(f"Error fetching {url}: {e}")
 
     # 构建 Clash 最小化配置输出
     final_config = {
@@ -71,7 +87,8 @@ def fetch_and_merge():
                 'type': 'url-test',
                 'proxies': [p['name'] for p in merged_proxies],
                 'url': 'http://www.gstatic.com/generate_204',
-                'interval': 300
+                'interval': 300,
+                'tolerance': 50
             }
         ],
         'rules': ['MATCH,Proxy']
@@ -80,7 +97,7 @@ def fetch_and_merge():
     # 导出为 MultiSource.yml
     with open('MultiSource.yml', 'w', encoding='utf-8') as f:
         yaml.dump(final_config, f, allow_unicode=True, sort_keys=False)
-    print(f"合并完成！总计节点: {len(merged_proxies)}")
+    print(f"合并完成！共计去重后节点: {len(merged_proxies)}")
 
 if __name__ == "__main__":
     fetch_and_merge()
