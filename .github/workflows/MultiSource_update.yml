@@ -1,0 +1,33 @@
+name: Update MultiSource Subscription
+
+on:
+  schedule:
+    - cron: '0 */4 * * *' # 每4小时自动运行一次
+  workflow_dispatch:      # 允许你在 GitHub 页面手动点按钮运行
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v3
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 安装依赖
+        run: |
+          pip install requests PyYAML
+
+      - name: 执行抓取整合脚本
+        run: python scripts/merge.py
+
+      - name: 提交更新到仓库
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add MultiSource.yml
+          git commit -m "自动更新订阅节点: $(date '+%Y-%m-%d %H:%M:%S')" || exit 0
+          git push
