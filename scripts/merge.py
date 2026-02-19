@@ -2,14 +2,20 @@ import requests
 import yaml
 import re
 import time
+import os
+from datetime import datetime
 
-# 6个原始订阅源
-SOURCES = [
+# 1. 定义本地镜像文件列表 (都在仓库根目录)
+LOCAL_SOURCES = [
+    "free-nodes.yml",
+    "tglaoshiji.yml"
+]
+
+# 2. 剩下的远程订阅源 (移除了本地已有的两个)
+REMOTE_SOURCES = [
     "https://github.com/snakem982/proxypool/raw/refs/heads/main/source/clash-meta.yaml",
     "https://github.com/snakem982/proxypool/raw/refs/heads/main/source/clash-meta-2.yaml",
     "https://github.com/free18/v2ray/raw/refs/heads/main/c.yaml",
-    "https://github.com/child9527/clash-latest/raw/refs/heads/main/free-nodes.yml",
-    "https://github.com/child9527/clash-latest/raw/refs/heads/main/tglaoshiji.yml",
     "https://github.com/mahdibland/V2RayAggregator/raw/refs/heads/master/Eternity.yml"
 ]
 
@@ -35,65 +41,83 @@ def get_country_name(old_name):
             return country
     return '🏳️ 其他'
 
+def process_data(data, merged_proxies, seen_servers, country_counters):
+    """通用解析逻辑"""
+    if data and isinstance(data, dict) and 'proxies' in data:
+        added_count = 0
+        for p in data['proxies']:
+            if not isinstance(p, dict): continue
+            
+            # 协议修正
+            if p.get('type') == 'ss':
+                method = p.get('cipher') or p.get('method')
+                if method == 'chacha20-poly1305':
+                    p['cipher'] = 'chacha20-ietf-poly1305'
+            
+            # 基础过滤
+            server, port = p.get('server'), p.get('port')
+            if not server or not port: continue
+
+            server_key = f"{server}:{port}"
+            if server_key not in seen_servers:
+                country = get_country_name(p.get('name', ''))
+                country_counters[country] = country_counters.get(country, 0) + 1
+                p['name'] = f"{country} {country_counters[country]:02d}"
+                merged_proxies.append(p)
+                seen_servers.add(server_key)
+                added_count += 1
+        return added_count
+    return 0
+
 def fetch_and_merge():
     merged_proxies = []
     seen_servers = set()
     country_counters = {}
 
-    for url in SOURCES:
-        print(f"正在尝试抓取: {url}")
+    print(f"========================================")
+    print(f"🚀 MultiSource 节点整合任务开始")
+    print(f"⏰ 北京时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"========================================")
+
+    # A. 处理所有本地镜像源
+    for local_file in LOCAL_SOURCES:
+        if os.path.exists(local_file):
+            print(f"📦 正在解析本地镜像: {local_file}")
+            try:
+                with open(local_file, 'r', encoding='utf-8') as f:
+                    data = yaml.safe_load(f)
+                    added = process_data(data, merged_proxies, seen_servers, country_counters)
+                    print(f"✅ 成功加载本地节点: {added} 个")
+            except Exception as e:
+                print(f"❌ 读取本地文件 {local_file} 失败: {e}")
+        else:
+            print(f"⚠️ 提示: 本地未找到 {local_file}")
+
+    # B. 处理剩下的远程订阅源
+    for url in REMOTE_SOURCES:
+        print(f"📥 正在抓取远程源: {url}")
         try:
             headers = {'User-Agent': 'ClashMeta/1.18.0'}
-            # 增加重试机制，防止网络波动
-            for i in range(3):
+            for i in range(2):
                 try:
-                    response = requests.get(url, headers=headers, timeout=30)
-                    response.raise_for_status() # 如果是 404 或 500 直接抛出异常
+                    response = requests.get(url, headers=headers, timeout=25)
+                    response.raise_for_status()
                     break
-                except Exception:
-                    if i == 2: raise
+                except:
+                    if i == 1: raise
                     time.sleep(2)
 
-            # 极其保守的 YAML 解析
-            try:
-                content = response.text
-                # 预处理：防止一些奇怪的控制字符导致解析失败
-                content = "".join(line for line in content.splitlines(True) if line.strip())
-                data = yaml.safe_load(content)
-            except Exception as e:
-                print(f"YAML 解析失败，跳过该源: {url} | 错误: {e}")
-                continue
-            
-            if data and isinstance(data, dict) and 'proxies' in data:
-                for p in data['proxies']:
-                    if not isinstance(p, dict): continue
-                    
-                    # 协议修正
-                    if p.get('type') == 'ss':
-                        method = p.get('cipher') or p.get('method')
-                        if method == 'chacha20-poly1305':
-                            p['cipher'] = 'chacha20-ietf-poly1305'
-                    
-                    # 基础有效性过滤
-                    server = p.get('server')
-                    port = p.get('port')
-                    if not server or not port:
-                        continue
-
-                    server_key = f"{server}:{port}"
-                    if server_key not in seen_servers:
-                        country = get_country_name(p.get('name', ''))
-                        country_counters[country] = country_counters.get(country, 0) + 1
-                        p['name'] = f"{country} {country_counters[country]:02d}"
-                        merged_proxies.append(p)
-                        seen_servers.add(server_key)
-                        
+            content = response.text
+            content = "".join(line for line in content.splitlines(True) if line.strip())
+            data = yaml.safe_load(content)
+            added = process_data(data, merged_proxies, seen_servers, country_counters)
+            print(f"✅ 抓取成功，新增去重节点: {added} 个")
         except Exception as e:
-            print(f"该源彻底失效，已跳过: {url} | 错误详情: {e}")
+            print(f"⚠️ 该远程源抓取失败，已跳过")
 
-    # 兜底：如果所有源都挂了，至少不能让 Clash 报错
+    # 结果导出
     if not merged_proxies:
-        print("警告：未抓取到任何有效节点！")
+        print("❌ 错误：未抓取到任何有效节点，任务终止。")
         return
 
     final_config = {
@@ -113,7 +137,11 @@ def fetch_and_merge():
 
     with open('MultiSource.yml', 'w', encoding='utf-8') as f:
         yaml.dump(final_config, f, allow_unicode=True, sort_keys=False)
-    print(f"处理成功！产出节点总数: {len(merged_proxies)}")
+    
+    print(f"========================================")
+    print(f"🎉 整合成功！最终去重节点总数: {len(merged_proxies)}")
+    print(f"💾 文件已同步至仓库根目录: MultiSource.yml")
+    print(f"========================================")
 
 if __name__ == "__main__":
     fetch_and_merge()
