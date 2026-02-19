@@ -1,6 +1,7 @@
 import requests
 import yaml
 import re
+import time
 
 # 6个原始订阅源
 SOURCES = [
@@ -30,7 +31,7 @@ COUNTRY_MAP = {
 
 def get_country_name(old_name):
     for country, pattern in COUNTRY_MAP.items():
-        if re.search(pattern, old_name, re.I):
+        if re.search(pattern, str(old_name), re.I):
             return country
     return '🏳️ 其他'
 
@@ -40,45 +41,61 @@ def fetch_and_merge():
     country_counters = {}
 
     for url in SOURCES:
+        print(f"正在尝试抓取: {url}")
         try:
-            # 模拟浏览器 User-Agent 避免被屏蔽
             headers = {'User-Agent': 'ClashMeta/1.18.0'}
-            response = requests.get(url, headers=headers, timeout=20)
-            # 处理一些源返回的乱码或非标准格式
+            # 增加重试机制，防止网络波动
+            for i in range(3):
+                try:
+                    response = requests.get(url, headers=headers, timeout=30)
+                    response.raise_for_status() # 如果是 404 或 500 直接抛出异常
+                    break
+                except Exception:
+                    if i == 2: raise
+                    time.sleep(2)
+
+            # 极其保守的 YAML 解析
             try:
-                data = yaml.safe_load(response.text)
-            except Exception:
+                content = response.text
+                # 预处理：防止一些奇怪的控制字符导致解析失败
+                content = "".join(line for line in content.splitlines(True) if line.strip())
+                data = yaml.safe_load(content)
+            except Exception as e:
+                print(f"YAML 解析失败，跳过该源: {url} | 错误: {e}")
                 continue
             
-            if data and 'proxies' in data:
+            if data and isinstance(data, dict) and 'proxies' in data:
                 for p in data['proxies']:
-                    # --- 协议修正逻辑开始 ---
-                    # 1. 修正 Shadowsocks 的加密方式
+                    if not isinstance(p, dict): continue
+                    
+                    # 协议修正
                     if p.get('type') == 'ss':
-                        # 兼容 cipher 或 method 字段
                         method = p.get('cipher') or p.get('method')
                         if method == 'chacha20-poly1305':
                             p['cipher'] = 'chacha20-ietf-poly1305'
                     
-                    # 2. 基础有效性过滤 (必须有地址和端口)
-                    if not p.get('server') or not p.get('port'):
+                    # 基础有效性过滤
+                    server = p.get('server')
+                    port = p.get('port')
+                    if not server or not port:
                         continue
-                    # --- 协议修正逻辑结束 ---
 
-                    # 关键逻辑：按服务器地址和端口去重
-                    server_key = f"{p.get('server')}:{p.get('port')}"
+                    server_key = f"{server}:{port}"
                     if server_key not in seen_servers:
-                        # 识别国家并重命名
                         country = get_country_name(p.get('name', ''))
                         country_counters[country] = country_counters.get(country, 0) + 1
                         p['name'] = f"{country} {country_counters[country]:02d}"
-                        
                         merged_proxies.append(p)
                         seen_servers.add(server_key)
+                        
         except Exception as e:
-            print(f"Error fetching {url}: {e}")
+            print(f"该源彻底失效，已跳过: {url} | 错误详情: {e}")
 
-    # 构建 Clash 最小化配置输出
+    # 兜底：如果所有源都挂了，至少不能让 Clash 报错
+    if not merged_proxies:
+        print("警告：未抓取到任何有效节点！")
+        return
+
     final_config = {
         'proxies': merged_proxies,
         'proxy-groups': [
@@ -94,10 +111,9 @@ def fetch_and_merge():
         'rules': ['MATCH,Proxy']
     }
 
-    # 导出为 MultiSource.yml
     with open('MultiSource.yml', 'w', encoding='utf-8') as f:
         yaml.dump(final_config, f, allow_unicode=True, sort_keys=False)
-    print(f"合并完成！共计去重后节点: {len(merged_proxies)}")
+    print(f"处理成功！产出节点总数: {len(merged_proxies)}")
 
 if __name__ == "__main__":
     fetch_and_merge()
