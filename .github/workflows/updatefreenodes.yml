@@ -2,7 +2,6 @@ name: Update Free Nodes (Mirror)
 
 on:
   schedule:
-    # 修改为更冷门的时间点，避开 0, 10, 30 分的高峰
     # 北京时间：08:17, 12:17, 16:17, 20:17
     - cron: "17 0,4,8,12 * * *"
   workflow_dispatch:
@@ -40,34 +39,30 @@ jobs:
       - name: Download and Sync
         if: env.should_update == 'true'
         run: |
-          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          YESTERDAY=$(TZ='Asia/Shanghai' date -d "yesterday" +'%Y%m%d')
-          
-          # 1. 尝试下载
-          URL_TODAY="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${DATE_STR}.yml"
-          echo "Target URL: $URL_TODAY"
-          
-          # 使用 --fail 确保 404 时返回非零状态码
-          if curl -sLf "$URL_TODAY" -o today.yml && [ -s today.yml ]; then
-            echo "Success: Fetched today's file."
-            mv today.yml free-nodes.yml
-            echo "final_msg=Update freenodes-$DATE_STR" >> $GITHUB_ENV
-          else
-            echo "Today's source is not ready (404 or empty)."
+          # 尝试获取最近 3 天的文件
+          FOUND=false
+          for i in {0..2}; do
+            TARGET_DATE=$(TZ='Asia/Shanghai' date -d "$i days ago" +'%Y%m%d')
+            URL="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${TARGET_DATE}.yml"
+            echo "Trying to fetch: $URL"
             
-            # 2. 如果仓库里还没有文件，或者文件太旧，尝试拿昨天的
-            if [ ! -f free-nodes.yml ] || [[ ! $(git log -1 --format=%s) == *"$YESTERDAY"* ]]; then
-              echo "Local file is missing or outdated. Fetching yesterday's fallback..."
-              URL_YESTERDAY="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${YESTERDAY}.yml"
-              if curl -sLf "$URL_YESTERDAY" -o free-nodes.yml; then
-                echo "final_msg=Update freenodes-$YESTERDAY (Fallback)" >> $GITHUB_ENV
-              else
-                echo "Critical: Yesterday's source also fails."
-                exit 1
-              fi
-            else
-              echo "Local file is already from yesterday. No action needed, wait for next cron."
+            if curl -sLf "$URL" -o temp.yml && [ -s temp.yml ]; then
+              echo "Success: Found file for $TARGET_DATE"
+              mv temp.yml free-nodes.yml
+              echo "final_msg=Update freenodes-$TARGET_DATE" >> $GITHUB_ENV
+              FOUND=true
+              break
+            fi
+          done
+
+          if [ "$FOUND" = false ]; then
+            echo "Critical: Could not find any source files in the last 3 days."
+            if [ -f free-nodes.yml ]; then
+              echo "Local file exists, keeping current version."
               echo "skip_commit=true" >> $GITHUB_ENV
+            else
+              echo "No local file and no remote file. This is a problem, but we won't crash the Action."
+              exit 0
             fi
           fi
 
