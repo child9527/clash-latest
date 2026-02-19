@@ -39,11 +39,12 @@ jobs:
       - name: Download and Sync
         if: env.should_update == 'true'
         run: |
-          # 尝试获取最近 3 天的文件
+          # 尝试获取最近 3 天的文件，使用你提供的正确 master 分支路径
           FOUND=false
           for i in {0..2}; do
             TARGET_DATE=$(TZ='Asia/Shanghai' date -d "$i days ago" +'%Y%m%d')
-            URL="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${TARGET_DATE}.yml"
+            # 修正后的正确路径：refs/heads/master
+            URL="https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/master/clash${TARGET_DATE}.yml"
             echo "Trying to fetch: $URL"
             
             if curl -sLf "$URL" -o temp.yml && [ -s temp.yml ]; then
@@ -56,12 +57,12 @@ jobs:
           done
 
           if [ "$FOUND" = false ]; then
-            echo "Critical: Could not find any source files in the last 3 days."
+            echo "Critical: Could not find any source files in the last 3 days at master branch."
             if [ -f free-nodes.yml ]; then
               echo "Local file exists, keeping current version."
               echo "skip_commit=true" >> $GITHUB_ENV
             else
-              echo "No local file and no remote file. This is a problem, but we won't crash the Action."
+              echo "No local file and no remote file. Exit without error."
               exit 0
             fi
           fi
