@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: 📦 安装依赖
+        run: pip install requests PyYAML
+
       - name: 🛠️ 运行清洗程序
         run: |
           python -c "
@@ -24,6 +27,7 @@ jobs:
           import yaml
           import re
           import os
+          import sys
 
           def clean_mfuu():
               url = 'https://github.com/mfuu/v2ray/raw/refs/heads/master/clash.yaml'
@@ -34,8 +38,8 @@ jobs:
                   r.raise_for_status()
                   
                   content = r.text
-                  # 修复嵌套双引号
-                  content = re.sub(r'\"([^\"]*)\"([^\"]*)\"([^\"]*)', r'\1\2\3', content)
+                  # 修复嵌套双引号：匹配 \"内容\" 这种结构并去掉多余引号
+                  content = re.sub(r'\"([^\"]*)\"', r'\1', content)
                   
                   data = yaml.safe_load(content)
                   if not data or 'proxies' not in data:
@@ -46,15 +50,17 @@ jobs:
                   for p in data['proxies']:
                       if not isinstance(p, dict): continue
                       
-                      # 使用更安全的字符清理方式，避开单双引号冲突
+                      # 彻底清洗节点名称，删除所有残留引号
                       raw_name = str(p.get('name', 'Unknown'))
-                      # 这里把单双引号都干掉
                       for char in ['\"', \"'\"]:
                           raw_name = raw_name.replace(char, '')
                       p['name'] = raw_name.strip()
                       
-                      if p.get('type') == 'ss' and p.get('cipher') == 'chacha20-poly1305':
-                          p['cipher'] = 'chacha20-ietf-poly1305'
+                      # 修正加密协议名
+                      if p.get('type') == 'ss':
+                          method = p.get('cipher') or p.get('method')
+                          if method == 'chacha20-poly1305':
+                              p['cipher'] = 'chacha20-ietf-poly1305'
                       
                       clean_proxies.append(p)
 
@@ -70,13 +76,13 @@ jobs:
                       'rules': ['MATCH,Proxy']
                   }
 
+                  # 写入根目录
                   with open('mfuu.yml', 'w', encoding='utf-8') as f:
                       yaml.dump(output, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
                   print(f'✅ 成功清洗并保存 {len(clean_proxies)} 个节点')
                   
               except Exception as e:
                   print(f'❌ 运行出错: {e}')
-                  import sys
                   sys.exit(1)
 
           if __name__ == '__main__':
