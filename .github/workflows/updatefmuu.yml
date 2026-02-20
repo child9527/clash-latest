@@ -33,7 +33,7 @@ jobs:
               url = 'https://github.com/mfuu/v2ray/raw/refs/heads/master/clash.yaml'
               headers = {'User-Agent': 'ClashMeta'}
               try:
-                  print('正在下载 mfuu 源并进行深度类型修复...')
+                  print('正在下载 mfuu 源并进行全字段兼容性清洗...')
                   r = requests.get(url, headers=headers, timeout=30)
                   r.raise_for_status()
                   text = r.text
@@ -44,42 +44,49 @@ jobs:
                   
                   for line in proxy_lines:
                       p = {}
-                      # 关键字段提取
-                      keys = ['name', 'server', 'port', 'type', 'cipher', 'password', 'uuid', 'alterId', 'network', 'ws-path', 'tls', 'sni', 'udp', 'skip-cert-verify']
+                      # 扩展提取字段：增加 plugin, obfs 相关内容
+                      keys = ['name', 'server', 'port', 'type', 'cipher', 'password', 'uuid', 'alterId', 
+                              'network', 'ws-path', 'tls', 'sni', 'udp', 'plugin', 'obfs', 'obfs-host']
+                      
                       for key in keys:
-                          # 修复了 f-string 中的大括号转义问题
                           pattern = fr'{key}:\s*([^,"\s}}]+)'
                           match = re.search(pattern, line)
                           if match:
                               val = match.group(1).strip().strip('"').strip("'")
-                              
-                              # 严格类型转换
-                              if key in ['tls', 'udp', 'skip-cert-verify']:
+                              # 类型转换
+                              if key in ['tls', 'udp']:
                                   p[key] = (val.lower() == 'true')
                               elif key in ['port', 'alterId']:
-                                  try:
-                                      p[key] = int(val)
-                                  except:
-                                      p[key] = val
+                                  try: p[key] = int(val)
+                                  except: p[key] = val
                               else:
                                   p[key] = val
-                      if p:
-                          data['proxies'].append(p)
+                      
+                      if not p: continue
 
-                  if not data['proxies']:
-                      print('错误：未能提取到任何节点')
-                      return
+                      # --- 特殊逻辑：修复 obfs 缺失错误 ---
+                      if p.get('plugin') == 'obfs':
+                          # 构造 Clash 要求的 plugin-opts 结构
+                          host = p.get('obfs-host', 'www.bing.com')
+                          mode = p.get('obfs', 'http') # 默认补全为 http
+                          p['plugin-opts'] = {'mode': mode, 'host': host}
+                          # 清理掉临时字段防止干扰
+                          if 'obfs' in p: del p['obfs']
+                          if 'obfs-host' in p: del p['obfs-host']
+
+                      data['proxies'].append(p)
 
                   clean_proxies = []
                   for p in data['proxies']:
+                      # 1. 名字脱敏
                       name = str(p.get('name', 'Node'))
-                      # 只保留中文字符、字母、数字、横杠、点
                       name = re.sub(r'[^\w\s\-\.\u4e00-\u9fa5]', '', name)
                       p['name'] = name.strip() or f"Node-{p.get('server', '')}"
                       
+                      # 2. SS 协议校准
                       if p.get('type') == 'ss':
-                          method = p.get('cipher') or p.get('method')
-                          if method == 'chacha20-poly1305':
+                          method = p.get('cipher') or p.get('method', '')
+                          if 'chacha20-poly1305' in method:
                               p['cipher'] = 'chacha20-ietf-poly1305'
                       
                       clean_proxies.append(p)
@@ -93,10 +100,10 @@ jobs:
                   with open('mfuu.yml', 'w', encoding='utf-8') as f:
                       yaml.dump(output, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
                   
-                  print(f'✅ 类型校准成功！共计 {len(clean_proxies)} 个节点已存入 mfuu.yml')
+                  print(f'✅ 全兼容修复完成！共计 {len(clean_proxies)} 个节点。')
                   
               except Exception as e:
-                  print(f'❌ 深度修复失败: {e}')
+                  print(f'❌ 终极清洗失败: {e}')
                   sys.exit(1)
 
           if __name__ == '__main__':
@@ -109,5 +116,5 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
           git add mfuu.yml
-          git commit -m "Fix mfuu regex and types" || exit 0
+          git commit -m "Fix: plugin obfs configuration error" || exit 0
           git push
