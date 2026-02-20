@@ -19,70 +19,69 @@ jobs:
 
       - name: 🛠️ 运行清洗程序
         run: |
-          python -c '
+          python -c "
           import requests
           import yaml
           import re
           import os
 
           def clean_mfuu():
-              url = "https://github.com/mfuu/v2ray/raw/refs/heads/master/clash.yaml"
-              headers = {"User-Agent": "ClashMeta"}
+              url = 'https://github.com/mfuu/v2ray/raw/refs/heads/master/clash.yaml'
+              headers = {'User-Agent': 'ClashMeta'}
               try:
-                  print(f"正在下载 mfuu 源...")
+                  print('正在下载 mfuu 源...')
                   r = requests.get(url, headers=headers, timeout=30)
                   r.raise_for_status()
                   
-                  # 核心修复 1：处理嵌套双引号的重灾区
-                  # 将类似 "FR-"2001:xxx"-061" 修复为 "FR-2001:xxx-061"
                   content = r.text
-                  content = re.sub(r"\"([^\"]*)\"([^\"]*)\"([^\"]*)\"", r"\1\2\3", content)
+                  # 修复嵌套双引号
+                  content = re.sub(r'\"([^\"]*)\"([^\"]*)\"([^\"]*)', r'\1\2\3', content)
                   
-                  # 核心修复 2：加载 YAML 并进一步清洗数据结构
                   data = yaml.safe_load(content)
-                  if not data or "proxies" not in data:
-                      print("数据格式错误")
+                  if not data or 'proxies' not in data:
+                      print('数据格式错误')
                       return
 
                   clean_proxies = []
-                  for p in data["proxies"]:
+                  for p in data['proxies']:
                       if not isinstance(p, dict): continue
                       
-                      # 彻底清洗节点名称中的所有引号和特殊空格
-                      raw_name = str(p.get("name", "Unknown"))
-                      p["name"] = raw_name.replace("\"", "").replace("'" , "").strip()
+                      # 使用更安全的字符清理方式，避开单双引号冲突
+                      raw_name = str(p.get('name', 'Unknown'))
+                      # 这里把单双引号都干掉
+                      for char in ['\"', \"'\"]:
+                          raw_name = raw_name.replace(char, '')
+                      p['name'] = raw_name.strip()
                       
-                      # 修正加密协议名 (Verge 兼容性)
-                      if p.get("type") == "ss" and p.get("cipher") == "chacha20-poly1305":
-                          p["cipher"] = "chacha20-ietf-poly1305"
+                      if p.get('type') == 'ss' and p.get('cipher') == 'chacha20-poly1305':
+                          p['cipher'] = 'chacha20-ietf-poly1305'
                       
                       clean_proxies.append(p)
 
-                  # 构造标准的输出结构
                   output = {
-                      "proxies": clean_proxies,
-                      "proxy-groups": [
+                      'proxies': clean_proxies,
+                      'proxy-groups': [
                           {
-                              "name": "Proxy",
-                              "type": "select",
-                              "proxies": [p["name"] for p in clean_proxies]
+                              'name': 'Proxy',
+                              'type': 'select',
+                              'proxies': [p['name'] for p in clean_proxies]
                           }
                       ],
-                      "rules": ["MATCH,Proxy"]
+                      'rules': ['MATCH,Proxy']
                   }
 
-                  # 写入根目录
-                  with open("mfuu.yml", "w", encoding="utf-8") as f:
+                  with open('mfuu.yml', 'w', encoding='utf-8') as f:
                       yaml.dump(output, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
-                  print(f"✅ 成功清洗并保存 {len(clean_proxies)} 个节点到 mfuu.yml")
+                  print(f'✅ 成功清洗并保存 {len(clean_proxies)} 个节点')
                   
               except Exception as e:
-                  print(f"❌ 运行出错: {e}")
-                  exit(1)
+                  print(f'❌ 运行出错: {e}')
+                  import sys
+                  sys.exit(1)
 
-          if __name__ == "__main__":
+          if __name__ == '__main__':
               clean_mfuu()
-          '
+          "
 
       - name: 📤 推送更新到仓库
         run: |
