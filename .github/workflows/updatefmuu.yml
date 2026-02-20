@@ -33,68 +33,85 @@ jobs:
               url = 'https://github.com/mfuu/v2ray/raw/refs/heads/master/clash.yaml'
               headers = {'User-Agent': 'ClashMeta'}
               try:
-                  print('正在下载 mfuu 源并进行暴力预处理...')
+                  print('正在下载 mfuu 源并进行终极暴力预处理...')
                   r = requests.get(url, headers=headers, timeout=30)
                   r.raise_for_status()
                   
                   text = r.text
                   
-                  # --- 暴力文本修复阶段 ---
-                  # 1. 修复 ws-path 缺失引号导致的解析错误 (针对含有 ? 的路径)
-                  # 寻找 ws-path: /xxx?xxx 替换为 ws-path: '/xxx?xxx'
-                  text = re.sub(r'ws-path:\s*([^,\s\}\'\"]+\?[^,\s\}]*)', r\"ws-path: '\1'\", text)
+                  # --- 阶段 1：推土机式字符串替换 ---
+                  # 针对解析器报错的 ws-path 问号问题，强行给所有 ws-path 的值加上引号
+                  # 即使原来有引号也不怕，替换后变成双引号包裹
+                  text = text.replace('ws-path: /', 'ws-path: \"/')
+                  # 在逗号或者大括号前补上结束引号
+                  text = text.replace(', tls:', '\", tls:')
+                  text = text.replace(', sni:', '\", sni:')
+                  text = text.replace('}}', '\"}}')
                   
-                  # 2. 修复 name 字段嵌套双引号的问题 (先把最外层的双引号脱掉)
-                  text = re.sub(r'name:\s*\"([^\"]*)\"', r'name: \1', text)
-                  
-                  # 3. 再次暴力清除所有节点行里可能引起冲突的双引号 (因为我们要重写名字)
-                  # 这一步是为了防止 {name: \"xxx\"} 这种结构
-                  text = text.replace('\\\"', '')
+                  # 针对 name 里的乱码和引号
+                  # 强制把 name: 后面直到逗号前的部分清理掉敏感词，并加上引号
+                  # 用正则捕获 name: 到第一个逗号之间的内容
+                  text = re.sub(r'name:\s*([^,]+),', r'name: \"\1\",', text)
 
-                  print('预处理完成，尝试解析 YAML...')
-                  data = yaml.safe_load(text)
+                  print('预处理完成，尝试二次解析...')
                   
-                  if not data or 'proxies' not in data:
-                      print('错误：未找到有效代理数据')
+                  # --- 阶段 2：尝试加载 ---
+                  # 如果还是报错，我们直接用正则表达式强行提取关键字段
+                  try:
+                      data = yaml.safe_load(text)
+                  except Exception as e:
+                      print(f'YAML 解析依然失败，启动紧急正则提取模式...')
+                      # 如果 YAML 解析器彻底挂了，我们手工提取 proxies 列表
+                      data = {'proxies': []}
+                      proxy_lines = re.findall(r'-\s*\{([^}]+)\}', text)
+                      for line in proxy_lines:
+                          p = {}
+                          # 提取 name, server, port, type, cipher, password, uuid 等关键项
+                          for key in ['name', 'server', 'port', 'type', 'cipher', 'password', 'uuid', 'alterId', 'network', 'ws-path', 'tls']:
+                              match = re.search(fr'{key}:\s*([^,\"]+)', line)
+                              if match:
+                                  p[key] = match.group(1).strip().strip('\"').strip(\"'\")
+                          if p: data['proxies'].append(p)
+
+                  if not data or 'proxies' not in data or not data['proxies']:
+                      print('错误：无法提取有效代理数据')
                       return
 
+                  # --- 阶段 3：标准化输出 ---
                   clean_proxies = []
                   for p in data['proxies']:
                       if not isinstance(p, dict): continue
                       
-                      # 彻底清洗节点名称
-                      raw_name = str(p.get('name', 'Unknown'))
-                      # 删掉所有残留的引号，避免 Verge 报错
-                      for char in ['\"', \"'\"]:
-                          raw_name = raw_name.replace(char, '')
-                      p['name'] = raw_name.strip()
+                      # 清洗名称：删掉所有奇怪的表情、引号和符号
+                      name = str(p.get('name', 'Unknown'))
+                      name = re.sub(r'[^\w\s\-\.\u4e00-\u9fa5]', '', name)
+                      p['name'] = name.strip() or f'Node-{p.get(\"server\", \"\")}'
                       
-                      # 修正 SS 协议加密
+                      # 修正加密
                       if p.get('type') == 'ss':
                           method = p.get('cipher') or p.get('method')
                           if method == 'chacha20-poly1305':
                               p['cipher'] = 'chacha20-ietf-poly1305'
                       
+                      # 确保端口是数字
+                      if 'port' in p:
+                          try: p['port'] = int(p['port'])
+                          except: pass
+
                       clean_proxies.append(p)
 
                   output = {
                       'proxies': clean_proxies,
-                      'proxy-groups': [
-                          {
-                              'name': 'Proxy',
-                              'type': 'select',
-                              'proxies': [p['name'] for p in clean_proxies]
-                          }
-                      ],
+                      'proxy-groups': [{'name': 'Proxy', 'type': 'select', 'proxies': [p['name'] for p in clean_proxies]}],
                       'rules': ['MATCH,Proxy']
                   }
 
                   with open('mfuu.yml', 'w', encoding='utf-8') as f:
                       yaml.dump(output, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
-                  print(f'✅ 成功收割 {len(clean_proxies)} 个节点，已存入 mfuu.yml')
+                  print(f'✅ 暴力收割成功！共计 {len(clean_proxies)} 个节点。')
                   
               except Exception as e:
-                  print(f'❌ 暴力清洗失败: {e}')
+                  print(f'❌ 终极清洗失败: {e}')
                   sys.exit(1)
 
           if __name__ == '__main__':
@@ -106,5 +123,5 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
           git add mfuu.yml
-          git commit -m "Update mfuu.yml (Sanitized)" || exit 0
+          git commit -m "Update mfuu.yml (Forced Sanitization)" || exit 0
           git push
