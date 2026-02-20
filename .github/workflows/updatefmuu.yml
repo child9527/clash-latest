@@ -33,73 +33,55 @@ jobs:
               url = 'https://github.com/mfuu/v2ray/raw/refs/heads/master/clash.yaml'
               headers = {'User-Agent': 'ClashMeta'}
               try:
-                  print('正在下载 mfuu 源并进行终极暴力预处理...')
+                  print('正在下载 mfuu 源并进行深度类型修复...')
                   r = requests.get(url, headers=headers, timeout=30)
                   r.raise_for_status()
-                  
                   text = r.text
                   
-                  # --- 阶段 1：推土机式字符串替换 ---
-                  # 针对解析器报错的 ws-path 问号问题，强行给所有 ws-path 的值加上引号
-                  # 即使原来有引号也不怕，替换后变成双引号包裹
-                  text = text.replace('ws-path: /', 'ws-path: \"/')
-                  # 在逗号或者大括号前补上结束引号
-                  text = text.replace(', tls:', '\", tls:')
-                  text = text.replace(', sni:', '\", sni:')
-                  text = text.replace('}}', '\"}}')
+                  # 默认进入正则模式，因为它最稳
+                  data = {'proxies': []}
+                  # 提取每一个代理块 {}
+                  proxy_lines = re.findall(r'-\s*\{([^}]+)\}', text)
                   
-                  # 针对 name 里的乱码和引号
-                  # 强制把 name: 后面直到逗号前的部分清理掉敏感词，并加上引号
-                  # 用正则捕获 name: 到第一个逗号之间的内容
-                  text = re.sub(r'name:\s*([^,]+),', r'name: \"\1\",', text)
+                  for line in proxy_lines:
+                      p = {}
+                      # 提取所有可能存在的键值对
+                      for key in ['name', 'server', 'port', 'type', 'cipher', 'password', 'uuid', 'alterId', 'network', 'ws-path', 'tls', 'sni', 'udp', 'skip-cert-verify']:
+                          match = re.search(fr'{key}:\s*([^,\"\s\}]+)', line)
+                          if match:
+                              val = match.group(1).strip().strip('\"').strip(\"'\")
+                              
+                              # 类型转换校准
+                              if key in ['tls', 'udp', 'skip-cert-verify']:
+                                  p[key] = (val.lower() == 'true') # 转为布尔值
+                              elif key == 'port' or key == 'alterId':
+                                  try: p[key] = int(val) # 转为整数
+                                  except: p[key] = val
+                              else:
+                                  p[key] = val
+                      if p: data['proxies'].append(p)
 
-                  print('预处理完成，尝试二次解析...')
-                  
-                  # --- 阶段 2：尝试加载 ---
-                  # 如果还是报错，我们直接用正则表达式强行提取关键字段
-                  try:
-                      data = yaml.safe_load(text)
-                  except Exception as e:
-                      print(f'YAML 解析依然失败，启动紧急正则提取模式...')
-                      # 如果 YAML 解析器彻底挂了，我们手工提取 proxies 列表
-                      data = {'proxies': []}
-                      proxy_lines = re.findall(r'-\s*\{([^}]+)\}', text)
-                      for line in proxy_lines:
-                          p = {}
-                          # 提取 name, server, port, type, cipher, password, uuid 等关键项
-                          for key in ['name', 'server', 'port', 'type', 'cipher', 'password', 'uuid', 'alterId', 'network', 'ws-path', 'tls']:
-                              match = re.search(fr'{key}:\s*([^,\"]+)', line)
-                              if match:
-                                  p[key] = match.group(1).strip().strip('\"').strip(\"'\")
-                          if p: data['proxies'].append(p)
-
-                  if not data or 'proxies' not in data or not data['proxies']:
-                      print('错误：无法提取有效代理数据')
+                  if not data['proxies']:
+                      print('错误：未能提取到任何节点')
                       return
 
-                  # --- 阶段 3：标准化输出 ---
                   clean_proxies = []
                   for p in data['proxies']:
-                      if not isinstance(p, dict): continue
-                      
-                      # 清洗名称：删掉所有奇怪的表情、引号和符号
-                      name = str(p.get('name', 'Unknown'))
+                      # 清洗节点名称，防止 Clash 解析出错
+                      name = str(p.get('name', 'Node'))
+                      # 过滤掉表情符号和引号，只保留字母数字中文横杠
                       name = re.sub(r'[^\w\s\-\.\u4e00-\u9fa5]', '', name)
                       p['name'] = name.strip() or f'Node-{p.get(\"server\", \"\")}'
                       
-                      # 修正加密
+                      # 修正加密协议名
                       if p.get('type') == 'ss':
                           method = p.get('cipher') or p.get('method')
                           if method == 'chacha20-poly1305':
                               p['cipher'] = 'chacha20-ietf-poly1305'
                       
-                      # 确保端口是数字
-                      if 'port' in p:
-                          try: p['port'] = int(p['port'])
-                          except: pass
-
                       clean_proxies.append(p)
 
+                  # 构造标准输出
                   output = {
                       'proxies': clean_proxies,
                       'proxy-groups': [{'name': 'Proxy', 'type': 'select', 'proxies': [p['name'] for p in clean_proxies]}],
@@ -107,11 +89,13 @@ jobs:
                   }
 
                   with open('mfuu.yml', 'w', encoding='utf-8') as f:
+                      # 核心：必须使用 safe_dump 且 ensure_ascii=False
                       yaml.dump(output, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
-                  print(f'✅ 暴力收割成功！共计 {len(clean_proxies)} 个节点。')
+                  
+                  print(f'✅ 类型校准成功！共计 {len(clean_proxies)} 个节点已存入 mfuu.yml')
                   
               except Exception as e:
-                  print(f'❌ 终极清洗失败: {e}')
+                  print(f'❌ 深度修复失败: {e}')
                   sys.exit(1)
 
           if __name__ == '__main__':
@@ -123,5 +107,5 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
           git add mfuu.yml
-          git commit -m "Update mfuu.yml (Forced Sanitization)" || exit 0
+          git commit -m "Fix mfuu data types (tls: bool, port: int)" || exit 0
           git push
