@@ -13,10 +13,12 @@ LOCAL_SOURCES = [
 
 # 2. 剩下的远程订阅源 (移除了本地已有的两个)
 REMOTE_SOURCES = [
-    "https://github.com/snakem982/proxypool/raw/refs/heads/main/source/clash-meta.yaml",
-    "https://github.com/snakem982/proxypool/raw/refs/heads/main/source/clash-meta-2.yaml",
-    "https://github.com/free18/v2ray/raw/refs/heads/main/c.yaml",
-    "https://github.com/mahdibland/V2RayAggregator/raw/refs/heads/master/Eternity.yml"
+    "https://raw.githubusercontent.com/tugepaopao/tugepaopao.github.io/master/free.yaml",
+    "https://raw.githubusercontent.com/vless-free/free/main/clash.yaml",
+    "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml",
+    "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml",
+    "https://raw.githubusercontent.com/free18/v2ray/main/source/c.yaml",
+    "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml"
 ]
 
 # 国家关键词与表情包映射
