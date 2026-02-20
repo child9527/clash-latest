@@ -1,9 +1,9 @@
 name: 🧼 清洗 mfuu 混乱订阅
 
 on:
-  workflow_dispatch: # 手动触发
+  workflow_dispatch:
   schedule:
-    - cron: '0 2 * * *' # 每天北京时间上午10点运行
+    - cron: '0 2 * * *'
 
 jobs:
   clean-and-save:
@@ -33,30 +33,43 @@ jobs:
               url = 'https://github.com/mfuu/v2ray/raw/refs/heads/master/clash.yaml'
               headers = {'User-Agent': 'ClashMeta'}
               try:
-                  print('正在下载 mfuu 源...')
+                  print('正在下载 mfuu 源并进行暴力预处理...')
                   r = requests.get(url, headers=headers, timeout=30)
                   r.raise_for_status()
                   
-                  content = r.text
-                  # 修复嵌套双引号：匹配 \"内容\" 这种结构并去掉多余引号
-                  content = re.sub(r'\"([^\"]*)\"', r'\1', content)
+                  text = r.text
                   
-                  data = yaml.safe_load(content)
+                  # --- 暴力文本修复阶段 ---
+                  # 1. 修复 ws-path 缺失引号导致的解析错误 (针对含有 ? 的路径)
+                  # 寻找 ws-path: /xxx?xxx 替换为 ws-path: '/xxx?xxx'
+                  text = re.sub(r'ws-path:\s*([^,\s\}\'\"]+\?[^,\s\}]*)', r\"ws-path: '\1'\", text)
+                  
+                  # 2. 修复 name 字段嵌套双引号的问题 (先把最外层的双引号脱掉)
+                  text = re.sub(r'name:\s*\"([^\"]*)\"', r'name: \1', text)
+                  
+                  # 3. 再次暴力清除所有节点行里可能引起冲突的双引号 (因为我们要重写名字)
+                  # 这一步是为了防止 {name: \"xxx\"} 这种结构
+                  text = text.replace('\\\"', '')
+
+                  print('预处理完成，尝试解析 YAML...')
+                  data = yaml.safe_load(text)
+                  
                   if not data or 'proxies' not in data:
-                      print('数据格式错误')
+                      print('错误：未找到有效代理数据')
                       return
 
                   clean_proxies = []
                   for p in data['proxies']:
                       if not isinstance(p, dict): continue
                       
-                      # 彻底清洗节点名称，删除所有残留引号
+                      # 彻底清洗节点名称
                       raw_name = str(p.get('name', 'Unknown'))
+                      # 删掉所有残留的引号，避免 Verge 报错
                       for char in ['\"', \"'\"]:
                           raw_name = raw_name.replace(char, '')
                       p['name'] = raw_name.strip()
                       
-                      # 修正加密协议名
+                      # 修正 SS 协议加密
                       if p.get('type') == 'ss':
                           method = p.get('cipher') or p.get('method')
                           if method == 'chacha20-poly1305':
@@ -76,13 +89,12 @@ jobs:
                       'rules': ['MATCH,Proxy']
                   }
 
-                  # 写入根目录
                   with open('mfuu.yml', 'w', encoding='utf-8') as f:
                       yaml.dump(output, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
-                  print(f'✅ 成功清洗并保存 {len(clean_proxies)} 个节点')
+                  print(f'✅ 成功收割 {len(clean_proxies)} 个节点，已存入 mfuu.yml')
                   
               except Exception as e:
-                  print(f'❌ 运行出错: {e}')
+                  print(f'❌ 暴力清洗失败: {e}')
                   sys.exit(1)
 
           if __name__ == '__main__':
@@ -94,5 +106,5 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
           git add mfuu.yml
-          git commit -m "Update mfuu.yml (Cleaned)" || exit 0
+          git commit -m "Update mfuu.yml (Sanitized)" || exit 0
           git push
