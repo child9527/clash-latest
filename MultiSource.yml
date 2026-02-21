@@ -6006,79 +6006,101 @@ proxies:
       Host: hnm.huangdi2025.dpdns.org
   udp: true
 - name: 🇺🇸 美国 245
-  server: 173.244.56.6
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: 🇺🇸 美国 246
-  server: 156.146.38.169
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: 🇺🇸 美国 247
   server: 156.146.38.170
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇺🇸 美国 248
+- name: 🇺🇸 美国 246
   server: 156.146.38.167
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
+- name: 🇺🇸 美国 247
+  server: 156.146.38.169
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇨🇦 加拿大 01
+  server: 79.127.200.169
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇺🇸 美国 248
+  server: 173.244.56.6
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇨🇦 加拿大 02
+  server: 137.184.174.93
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: 🇺🇸 美国 249
   server: 173.234.29.2
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇨🇦 加拿大 01
-  server: 137.184.174.93
-  port: 8080
-  type: ss
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
 - name: 🇺🇸 美国 250
   server: 37.19.198.236
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇨🇦 加拿大 02
-  server: 79.127.200.169
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇯🇵 日本 17
-  server: 172.105.199.111
+- name: 🏳️ 其他 03
+  server: hgtrojan.zabc.net
+  port: 2083
+  type: vmess
+  uuid: e6395c20-4571-4b34-d6b1-55a5d36e49ea
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: hgtrojan.zabc.net
+- name: 🇨🇦 加拿大 03
+  server: 134.195.198.147
+  port: 443
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: inna.cfd
+- name: 🏳️ 其他 04
+  server: 146.70.61.37
   port: 8080
   type: ss
   cipher: rc4-md5
   password: 14fFPrbezE3HDZzsMOr6
-- name: 🇯🇵 日本 18
-  server: 149.22.87.204
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: 🏳️ 其他 03
-  server: 138.186.142.80
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 04
-  server: 38.165.231.25
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
 - name: 🏳️ 其他 05
+  server: 57.129.140.88
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1v5g9FefdoO
+- name: 🏳️ 其他 06
   server: 82.38.31.218
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🏳️ 其他 07
+  server: 82.38.31.202
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
@@ -6089,132 +6111,138 @@ proxies:
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-- name: 🏳️ 其他 06
-  server: 82.38.31.205
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 04
-  server: 109.201.152.181
+- name: 🇯🇵 日本 17
+  server: 149.22.87.204
   port: 443
   type: ss
-  cipher: aes-128-cfb
+  cipher: aes-128-gcm
   password: shadowsocks
-- name: 🏳️ 其他 07
-  server: 57.129.140.88
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1v5g9FefdoO
 - name: 🏳️ 其他 08
-  server: 82.38.31.217
+  server: 82.38.31.191
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 05
-  server: 193.29.139.202
+- name: 🇯🇵 日本 18
+  server: 172.105.199.111
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: 🇳🇱 荷兰 04
+  server: 193.29.139.141
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: 🏳️ 其他 09
-  server: 82.38.31.208
+  server: 82.38.31.179
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 06
-  server: 193.29.139.217
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
 - name: 🏳️ 其他 10
-  server: 82.38.31.202
+  server: 82.38.31.187
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
 - name: 🏳️ 其他 11
-  server: 138.186.142.81
-  port: 990
+  server: 82.38.31.124
+  port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇳🇱 荷兰 05
+  server: 109.201.152.181
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
 - name: 🏳️ 其他 12
+  server: 82.38.31.99
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇳🇱 荷兰 06
+  server: 193.29.139.202
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🏳️ 其他 13
   server: 82.38.31.210
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
 - name: 🇳🇱 荷兰 07
-  server: 193.29.139.141
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: 🏳️ 其他 13
-  server: 82.38.31.187
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🏳️ 其他 14
-  server: 82.38.31.194
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 08
-  server: 193.29.139.206
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-- name: 🇳🇱 荷兰 09
-  server: 193.29.139.189
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
-- name: 🏳️ 其他 15
-  server: 82.38.31.82
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: 🇳🇱 荷兰 10
   server: 193.29.139.251
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: 🏳️ 其他 16
-  server: 82.38.31.191
+- name: 🏳️ 其他 14
+  server: 82.38.31.217
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🏳️ 其他 17
-  server: 82.38.31.214
+- name: 🏳️ 其他 15
+  server: 82.38.31.35
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇸🇬 新加坡 14
-  server: 68.183.227.4
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇳🇱 荷兰 08
+  server: 193.29.139.217
   port: 8080
   type: ss
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-- name: 🇳🇱 荷兰 11
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+- name: 🇳🇱 荷兰 09
   server: 193.29.139.227
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: QCXDxuDlTTMD7jtgHUjIoj
+- name: 🏳️ 其他 16
+  server: 82.38.31.82
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🏳️ 其他 17
+  server: 82.38.31.208
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🏳️ 其他 18
+  server: 82.38.31.194
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱 荷兰 10
+  server: 193.29.139.189
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
+- name: 🏳️ 其他 19
+  server: 82.38.31.205
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🏳️ 其他 20
+  server: 82.38.31.214
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: 🇫🇷 法国 03
   server: 57.128.189.240
   port: 443
@@ -6239,171 +6267,129 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🏳️ 其他 18
-  server: 82.38.31.99
+- name: 🇳🇱 荷兰 11
+  server: 193.29.139.179
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
+  password: cvII85TrW6n0OGyfpHVS1u
 - name: 🇳🇱 荷兰 12
   server: 193.29.139.157
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 4a2rfixophdjffa8KVA4Aa
-- name: 🇨🇦 加拿大 03
-  server: 23.95.76.59
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 19
-  server: 176.123.5.253
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 20
-  server: 104.19.174.68
-  port: 8080
-  type: vmess
-  uuid: e8b1500b-e9e8-5492-8312-f4eadf7d0767
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: nasnet-571299667.rahavard365.co
 - name: 🏳️ 其他 21
-  server: 82.38.31.35
+  server: 82.38.31.176
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: 🏳️ 其他 22
-  server: 109.61.39.28
-  port: 990
+  server: 82.38.31.189
+  port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱 荷兰 13
+  server: 51.15.17.169
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+- name: 🇳🇱 荷兰 14
+  server: 193.29.139.206
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
 - name: 🏳️ 其他 23
-  server: 156.38.168.58
+  server: 38.165.231.25
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇯🇵 日本 19
-  server: 160.16.105.192
-  port: 193
-  type: trojan
-  password: 64a59181551b5773e390bd717a7b7c06
-  sni: www.nintendogames.net
-  skip-cert-verify: false
-- name: 🇯🇵 日本 20
-  server: 160.16.72.33
-  port: 3423
-  type: trojan
-  password: 64a59181551b5773e390bd717a7b7c06
-  sni: www.nintendogames.net
-  skip-cert-verify: false
-- name: 🇯🇵 日本 21
-  server: 153.121.51.29
-  port: 400
-  type: trojan
-  password: 64a59181551b5773e390bd717a7b7c06
-  sni: www.nintendogames.net
-  skip-cert-verify: false
 - name: 🏳️ 其他 24
   server: 46.183.217.204
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇯🇵 日本 22
-  server: 160.16.106.99
-  port: 1281
-  type: trojan
-  password: 64a59181551b5773e390bd717a7b7c06
-  sni: www.nintendogames.net
-  skip-cert-verify: false
-- name: 🇯🇵 日本 23
-  server: 160.16.236.32
-  port: 1281
-  type: trojan
-  password: 64a59181551b5773e390bd717a7b7c06
-  sni: www.nintendogames.net
-  skip-cert-verify: false
-- name: 🇳🇱 荷兰 13
-  server: 193.29.139.179
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
-- name: 🇯🇵 日本 24
-  server: 160.16.72.205
-  port: 1281
-  type: trojan
-  password: 64a59181551b5773e390bd717a7b7c06
-  sni: www.nintendogames.net
-  skip-cert-verify: false
-- name: 🏳️ 其他 25
-  server: 82.38.31.179
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇨🇦 加拿大 04
-  server: 51.79.102.253
-  port: 80
+- name: 🇩🇪 德国 152
+  server: 57.129.24.125
+  port: 443
   type: vmess
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
-  tls: false
+  tls: true
   skip-cert-verify: false
   network: ws
   ws-opts:
     path: /
-- name: 🏳️ 其他 26
-  server: 147.78.0.182
+    headers:
+      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+- name: 🇸🇬 新加坡 14
+  server: 68.183.227.4
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: 🏳️ 其他 25
+  server: 176.123.5.253
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇨🇦 加拿大 05
+- name: 🏳️ 其他 26
+  server: promo18v.bystrivpn.ru
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: dAHM1pm8ag7KdlrUylQi6t
+- name: 🏳️ 其他 27
+  server: 138.186.142.80
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🏳️ 其他 28
+  server: 109.61.39.28
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🏳️ 其他 29
+  server: 138.186.142.81
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇨🇦 加拿大 04
   server: 45.154.204.7
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇨🇦 加拿大 06
-  server: 15.235.41.200
-  port: 80
-  type: vmess
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-- name: 🇰🇷 韩国 07
-  server: 141.164.45.187
-  port: 7001
-  type: ss
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-- name: 🏳️ 其他 27
-  server: 176.123.1.175
+- name: 🏳️ 其他 30
+  server: 147.78.0.182
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇨🇦 加拿大 07
+- name: 🏳️ 其他 31
+  server: 156.38.168.58
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇨🇦 加拿大 05
+  server: 23.95.76.59
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇨🇦 加拿大 06
   server: 23.162.200.227
   port: 443
   type: vmess
@@ -6415,11 +6401,31 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇺🇸 美国 251
-  server: v2ray.codefyinc.com
-  port: 443
+- name: 🏳️ 其他 32
+  server: 156.59.243.6
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇯🇵 日本 19
+  server: 160.16.72.33
+  port: 3423
+  type: trojan
+  password: 64a59181551b5773e390bd717a7b7c06
+  sni: www.nintendogames.net
+  skip-cert-verify: false
+- name: 🇯🇵 日本 20
+  server: 160.16.105.192
+  port: 193
+  type: trojan
+  password: 64a59181551b5773e390bd717a7b7c06
+  sni: www.nintendogames.net
+  skip-cert-verify: false
+- name: 🇨🇦 加拿大 07
+  server: 51.79.102.253
+  port: 80
   type: vmess
-  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
+  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
   alterId: 0
   cipher: auto
   tls: false
@@ -6427,15 +6433,63 @@ proxies:
   network: ws
   ws-opts:
     path: /
-    headers:
-      Host: v2ray.codefyinc.com
-- name: 🏳️ 其他 28
-  server: f.sdnlv0.cn
-  port: 31032
+- name: 🇨🇦 加拿大 08
+  server: 15.235.41.200
+  port: 80
+  type: vmess
+  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+- name: 🏳️ 其他 33
+  server: 82.180.146.173
+  port: 35652
+  type: ss
+  cipher: aes-128-gcm
+  password: 93498539-7838-4836-b9b3-8311ffc79bcf
+- name: 🏳️ 其他 34
+  server: 176.123.1.175
+  port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 13df5feb-756e-4627-bcee-497f3c81bab4
-- name: 🇺🇸 美国 252
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇯🇵 日本 21
+  server: 153.121.51.29
+  port: 400
+  type: trojan
+  password: 64a59181551b5773e390bd717a7b7c06
+  sni: www.nintendogames.net
+  skip-cert-verify: false
+- name: 🏳️ 其他 35
+  server: 80.173.231.254
+  port: 12420
+  type: trojan
+  password: wp9IsiY82uQhcmgNC1eoBM
+  sni: www.semanticstaplegun.click
+  skip-cert-verify: false
+- name: 🏳️ 其他 36
+  server: 193.135.174.135
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇸🇬 新加坡 15
+  server: 38.89.142.56
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🏳️ 其他 37
+  server: 192.36.27.94
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+- name: 🇺🇸 美国 251
   server: 209.126.84.189
   port: 443
   type: vmess
@@ -6449,73 +6503,49 @@ proxies:
     path: /
     headers:
       Host: 209.126.84.189
-- name: 🏳️ 其他 29
-  server: 193.135.174.135
-  port: 990
+- name: 🏳️ 其他 38
+  server: turk1.net.net
+  port: 80
+  type: vmess
+  uuid: 43dcdce1-3cea-4193-bc8d-90b92071d779
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  servername: RELAY-172.67.74.2-0554 | 1.779MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: tr1-smart.adelping.com.
+- name: 🇺🇸 美国 252
+  server: v2ray.codefyinc.com
+  port: 443
+  type: vmess
+  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v2ray.codefyinc.com
+- name: 🇰🇷 韩国 07
+  server: 218.237.185.230
+  port: 4652
   type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 30
-  server: 82.180.146.173
-  port: 35652
-  type: ss
-  cipher: aes-128-gcm
-  password: 93498539-7838-4836-b9b3-8311ffc79bcf
-- name: 🇳🇱 荷兰 14
+  cipher: aes-256-cfb
+  password: qwerREWQ@@
+- name: 🇳🇱 荷兰 15
   server: 51.15.23.63
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-- name: 🇸🇬 新加坡 15
-  server: 38.89.142.56
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 31
-  server: 37.235.49.209
-  port: 28099
-  type: trojan
-  password: qmBSKnAl6LYi9=z23Rs.Z
-  sni: celestialcorset.crystalhamster.click
-  skip-cert-verify: false
-- name: 🏳️ 其他 32
-  server: 185.47.255.22
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-- name: 🏳️ 其他 33
-  server: jnm.1x2.indevs.in
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jnm.1x2.indevs.in
-- name: 🏳️ 其他 34
-  server: bgn.1dd.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: bgn.1dd.ccwu.cc
-- name: 🏳️ 其他 35
-  server: bghy.1x9.indevs.in
+- name: 🏳️ 其他 39
+  server: mkjhu.2nn.ccwu.cc
   port: 443
   type: vmess
   uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
@@ -6527,20 +6557,8 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: bghy.1x9.indevs.in
-- name: 🇰🇷 韩国 08
-  server: 218.237.185.230
-  port: 4652
-  type: ss
-  cipher: aes-256-cfb
-  password: qwerREWQ@@
-- name: 🇳🇱 荷兰 15
-  server: 213.109.147.242
-  port: 62685
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: VpKABcOpNNA0l5G2AVOmw8
-- name: 🏳️ 其他 36
+      Host: mkjhu.2nn.ccwu.cc
+- name: 🏳️ 其他 40
   server: sy4.620720.xyz
   port: 443
   type: vmess
@@ -6554,36 +6572,13 @@ proxies:
     path: /
     headers:
       Host: sy4.620720.xyz
-- name: 🏳️ 其他 37
-  server: nmkiy.1x8.indevs.in
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: nmkiy.1x8.indevs.in
-- name: 🏳️ 其他 38
-  server: bnj.0nn.ccwu.cc
-  port: 443
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-172.67.130.26-1693 | 1.756MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: bnj.0nn.ccwu.cc
-- name: 🏳️ 其他 39
+- name: 🇭🇰 香港 14
+  server: 203.23.128.33
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+- name: 🏳️ 其他 41
   server: nmjk.1hh.ccwu.cc
   port: 443
   type: vmess
@@ -6592,409 +6587,146 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.200.61-1662 | 1.312MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: nmjk.1hh.ccwu.cc
-- name: 🏳️ 其他 40
-  server: yyhju.1x6.indevs.in
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: yyhju.1x6.indevs.in
-- name: 🏳️ 其他 41
-  server: yyhju.1x6.indevs.in
-  port: 443
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-104.21.86.35-1691 | 1.178MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: yyhju.1x6.indevs.in
 - name: 🏳️ 其他 42
-  server: nmki.1yy.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: nmki.1yy.ccwu.cc
-- name: 🏳️ 其他 43
-  server: m9o0.1xq.indevs.in
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: m9o0.1xq.indevs.in
-- name: 🏳️ 其他 44
-  server: gbnh.1oo.ccwu.cc
-  port: 443
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-172.67.139.209-1688 | 1.042MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gbnh.1oo.ccwu.cc
-- name: 🏳️ 其他 45
-  server: mkiuy.1x9.indevs.in
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mkiuy.1x9.indevs.in
-- name: 🏳️ 其他 46
-  server: yyynm.2nn.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: yyynm.2nn.ccwu.cc
-- name: 🏳️ 其他 47
-  server: vfgty6.2nn.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: vfgty6.2nn.ccwu.cc
-- name: 🏳️ 其他 48
-  server: kklo.1yy.ccwu.cc
-  port: 443
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-104.21.91.128-1689 | 0.936MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: kklo.1yy.ccwu.cc
-- name: 🏳️ 其他 49
-  server: nnmkl.2nn.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: nnmkl.2nn.ccwu.cc
-- name: 🏳️ 其他 50
-  server: kklo.1xq.indevs.in
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: kklo.1xq.indevs.in
-- name: 🏳️ 其他 51
-  server: 171.22.254.17
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-- name: 🏳️ 其他 52
-  server: mmhhj.2nn.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mmhhj.2nn.ccwu.cc
-- name: 🏳️ 其他 53
-  server: bnhhy.1ll.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: bnhhy.1ll.ccwu.cc
-- name: 🏳️ 其他 54
-  server: mkjhu.2nn.ccwu.cc
-  port: 443
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-172.67.215.240-1697 | 0.581MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: mkjhu.2nn.ccwu.cc
-- name: 🏳️ 其他 55
-  server: bfbg.2nn.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: bfbg.2nn.ccwu.cc
-- name: 🏳️ 其他 56
-  server: bgn.1dd.ccwu.cc
-  port: 443
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-172.67.159.58-1695 | 0.556MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: bgn.1dd.ccwu.cc
-- name: 🇭🇰 香港 14
-  server: 203.23.128.33
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-- name: 🏳️ 其他 57
-  server: nhj.1jj.ccwu.cc
-  port: 443
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-172.67.136.63-1685 | 0.51MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: nhj.1jj.ccwu.cc
-- name: 🏳️ 其他 58
-  server: 141.98.101.182
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: 🏳️ 其他 59
-  server: nnmj.1x5.indevs.in
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: nnmj.1x5.indevs.in
-- name: 🏳️ 其他 60
-  server: 38.54.57.90
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-- name: 🏳️ 其他 61
-  server: gbnh.0nn.ccwu.cc
-  port: 80
-  type: vmess
-  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gbnh.0nn.ccwu.cc
-- name: 🏳️ 其他 62
-  server: 172.67.197.47
-  port: 443
+  server: t1.620720.xyz
+  port: 8443
   type: vmess
   uuid: 516d8a7a-3f0b-41d3-bad0-246116381516
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.197.47-0282 | 0.435MB
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: sy4.620720.xyz
-- name: 🏳️ 其他 63
-  server: 134.209.147.198
+      Host: t1.620720.xyz
+- name: 🏳️ 其他 43
+  server: 185.47.255.22
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-- name: 🏳️ 其他 64
-  server: 147.78.1.230
+- name: 🏳️ 其他 44
+  server: yyhju.1x6.indevs.in
+  port: 443
+  type: vmess
+  uuid: 4e45c1b4-9107-45dd-9995-cdf7cbb44d9d
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: yyhju.1x6.indevs.in
+- name: 🏳️ 其他 45
+  server: 5.188.181.201
+  port: 9042
+  type: ss
+  cipher: aes-256-cfb
+  password: S7KwUu7yBy58S3Ga
+- name: 🏳️ 其他 46
+  server: 171.22.254.17
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-- name: 🇰🇷 韩国 09
-  server: 221.139.79.57
-  port: 13979
-  type: ss
-  cipher: aes-256-cfb
-  password: qwerREWQ@@
-- name: 🏳️ 其他 65
-  server: 147.78.1.230
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 66
-  server: 38.60.247.151
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 67
-  server: f.sdnlv0.cn
-  port: 46253
+- name: 🏳️ 其他 47
+  server: TM_AZARBAYJAB1.SERV.9.pagES.DEV
+  port: 80
+  type: vmess
+  uuid: 43dcdce1-3cea-4193-bc8d-90b92071d779
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: tr1-smart.adelping.com
+- name: 🇳🇱 荷兰 16
+  server: 213.109.147.242
+  port: 62685
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 13df5feb-756e-4627-bcee-497f3c81bab4
+  password: VpKABcOpNNA0l5G2AVOmw8
+- name: 🇸🇬 新加坡 16
+  server: 3.1.195.148
+  port: 8313
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ljqdalu13..
 - name: 🇷🇺 俄罗斯 06
   server: 38.60.223.8
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-- name: 🏳️ 其他 68
-  server: xgrr.sdnlv0.cn
-  port: 14941
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 13df5feb-756e-4627-bcee-497f3c81bab4
-- name: 🏳️ 其他 69
+- name: 🏳️ 其他 48
   server: 141.98.101.178
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🏳️ 其他 70
-  server: xgrr.sdnlv0.cn
-  port: 44106
+- name: 🇯🇵 日本 22
+  server: 3.112.130.53
+  port: 8316
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 13df5feb-756e-4627-bcee-497f3c81bab4
-- name: 🏳️ 其他 71
-  server: 80.173.231.254
-  port: 12420
-  type: trojan
-  password: wp9IsiY82uQhcmgNC1eoBM
-  sni: www.semanticstaplegun.click
-  skip-cert-verify: false
-- name: 🇸🇬 新加坡 16
-  server: sg.singaporenodeserverone.co.ua
+  password: ljqdalu13..
+- name: 🏳️ 其他 49
+  server: 141.98.101.182
   port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇳🇱 荷兰 17
+  server: exchange.gameaurela.click
+  port: 52952
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: LMSNh21TrXjR2ok25Q2nE8ENT2zoBmPvka3RCCUAHZELCnWoekVjvaf89qwcRkdbxEfep2bc2aUtmnxqvF1ayQRez1JHjULj
+- name: 🇯🇵 日本 23
+  server: 160.16.236.32
+  port: 1281
   type: trojan
-  password: 736cd94d-7b94-3e44-8106-3419f64eaf09
-  sni: 45.32.28.232
+  password: 64a59181551b5773e390bd717a7b7c06
+  sni: www.nintendogames.net
+  skip-cert-verify: false
+- name: 🏳️ 其他 50
+  server: 138.186.143.32
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇯🇵 日本 24
+  server: 160.16.106.99
+  port: 1281
+  type: trojan
+  password: 64a59181551b5773e390bd717a7b7c06
+  sni: www.nintendogames.net
   skip-cert-verify: false
 - name: 🇯🇵 日本 25
-  server: 103.106.228.247
-  port: 990
+  server: 160.16.72.205
+  port: 1281
+  type: trojan
+  password: 64a59181551b5773e390bd717a7b7c06
+  sni: www.nintendogames.net
+  skip-cert-verify: false
+- name: 🏳️ 其他 51
+  server: 138.186.143.32
+  port: 989
   type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 72
-  server: 154.70.207.97
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
 - name: 🇯🇵 日本 26
   server: 160.16.116.227
   port: 1281
@@ -7002,52 +6734,82 @@ proxies:
   password: 64a59181551b5773e390bd717a7b7c06
   sni: www.nintendogames.net
   skip-cert-verify: false
-- name: 🏳️ 其他 73
+- name: 🏳️ 其他 52
   server: 38.54.59.180
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 74
-  server: 82.38.31.199
-  port: 8080
+- name: 🏳️ 其他 53
+  server: 38.60.247.151
+  port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇩🇪 德国 152
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🏳️ 其他 54
+  server: 38.54.57.90
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+- name: 🏳️ 其他 55
+  server: 185.93.173.60
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇩🇪 德国 153
   server: 178.17.61.67
   port: 5790
   type: ss
   cipher: chacha20-ietf-poly1305
   password: qS3skwmolrQ70q842irQD0
-- name: 🏳️ 其他 75
-  server: 82.38.31.189
+- name: 🏳️ 其他 56
+  server: 154.70.207.97
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🏳️ 其他 57
+  server: 147.78.1.230
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+- name: 🏳️ 其他 58
+  server: 147.78.1.230
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇩🇪 德国 154
+  server: 38.60.250.107
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🏳️ 其他 59
+  server: 82.38.31.199
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇭🇰 香港 15
-  server: n1761214904.wpg27.xyz
+- name: 🏳️ 其他 60
+  server: cf.090227.xyz
   port: 443
   type: vmess
-  uuid: 7f6f64ae-3778-434c-adfc-95cb67ee8b73
+  uuid: 290cc691-3ac6-4387-98a1-25c8eb8ca2ea
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: 🇭🇰HK-47.242.31.79-0302 | 0.031MB
+  servername: RELAY-172.64.152.241-6994 | 0.103MB
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: n1761214904.wpg27.xyz
-- name: 🏳️ 其他 76
-  server: promo18v.bystrivpn.ru
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: dAHM1pm8ag7KdlrUylQi6t
-- name: 🇭🇰 香港 16
+      Host: sgal.dagrate.eu.org
+- name: 🇭🇰 香港 15
   server: n1761214911.74qxv.top
   port: 443
   type: vmess
@@ -7056,92 +6818,89 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: 🇭🇰HK-8.210.166.22-4716 | 0.023MB
+  servername: 🇭🇰HK-8.210.166.22-4608 | 0.101MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: n1761214911.74qxv.top
-- name: 🇳🇱 荷兰 16
-  server: exchange.gameaurela.click
-  port: 52952
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: LMSNh21TrXjR2ok25Q2nE8ENT2zoBmPvka3RCCUAHZELCnWoekVjvaf89qwcRkdbxEfep2bc2aUtmnxqvF1ayQRez1JHjULj
-- name: 🇯🇵 日本 27
-  server: n1753598451.74qxv.top
-  port: 443
-  type: vmess
-  uuid: 9798678f-5b8c-4ff1-bbdd-b9b5c1539de0
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: n1753598451.74qxv.top
-- name: 🏳️ 其他 77
-  server: 138.186.143.32
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-- name: 🏳️ 其他 78
-  server: 138.186.143.32
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 79
+- name: 🏳️ 其他 61
   server: 37.143.130.203
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇩🇪 德国 153
-  server: 38.60.250.107
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 80
-  server: 82.38.31.176
+- name: 🏳️ 其他 62
+  server: 82.38.31.184
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🏳️ 其他 81
-  server: 156.59.243.6
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 82
-  server: 154.223.16.212
+- name: 🇸🇬 新加坡 17
+  server: sg.singaporenodeserverone.co.ua
+  port: 443
+  type: trojan
+  password: 736cd94d-7b94-3e44-8106-3419f64eaf09
+  sni: 45.32.28.232
+  skip-cert-verify: false
+- name: 🏳️ 其他 63
+  server: 134.209.147.198
   port: 989
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-- name: 🇰🇷 韩国 10
-  server: p141.panda001.net
-  port: 4652
-  type: ss
-  cipher: aes-256-cfb
-  password: qwerREWQ@@
-- name: 🏳️ 其他 83
-  server: 185.93.173.60
+- name: 🇯🇵 日本 27
+  server: 103.106.228.247
   port: 990
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 84
-  server: 217.30.10.70
-  port: 9046
+- name: 🇰🇷 韩国 08
+  server: 221.139.79.57
+  port: 13979
   type: ss
   cipher: aes-256-cfb
-  password: NvS8N4Vf8qAGPSCL
+  password: qwerREWQ@@
+- name: 🇹🇼 台湾 04
+  server: 220.130.58.136
+  port: 31103
+  type: trojan
+  password: 0a169d7d-a30f-4d90-af1b-55f6ef6afcb7
+  sni: green2.cdntencentmusic.com
+  skip-cert-verify: false
+- name: 🏳️ 其他 64
+  server: 188.214.157.58
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇭🇰 香港 16
+  server: n1761214904.wpg27.xyz
+  port: 443
+  type: vmess
+  uuid: 7f6f64ae-3778-434c-adfc-95cb67ee8b73
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: 🇭🇰HK-47.242.31.79-0304 | 0.048MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: n1761214904.wpg27.xyz
+- name: 🏳️ 其他 65
+  server: 103.97.203.227
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+- name: 🇳🇱 荷兰 18
+  server: switcher-nick-croquet.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 9tqhMdIrTkgQ46PvhyAtMH
 - name: 🇭🇰 香港 17
   server: 47.244.120.197
   port: 44867
@@ -7155,20 +6914,32 @@ proxies:
   ws-opts:
     path: /
 - name: 🇯🇵 日本 28
-  server: n1753598452.wpg27.xyz
+  server: n1753598448.74qxv.top
   port: 443
   type: vmess
-  uuid: 4f23eb7c-ef2f-43b0-90dd-f2b8a75954a5
+  uuid: 3cd6f849-078e-4da9-8080-a2791b51b766
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: 🇯🇵JP-47.245.42.92-0292 | 0.0MB
+  servername: 🇯🇵JP-47.74.52.195-0322 | 0.028MB
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: n1753598452.wpg27.xyz
+      Host: n1753598448.74qxv.top
+- name: 🇺🇸 美国 253
+  server: 154.17.31.189
+  port: 18829
+  type: ss
+  cipher: aes-128-gcm
+  password: fa593414-7a76-4975-909b-7a7c46be123b
+- name: 🏳️ 其他 66
+  server: 188.214.157.30
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
 - name: 🇭🇰 香港 18
   server: 47.244.120.197
   port: 36703
@@ -7181,37 +6952,7 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🏳️ 其他 85
-  server: 188.214.157.30
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇳🇱 荷兰 17
-  server: switcher-nick-croquet.freesocks.work
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 9tqhMdIrTkgQ46PvhyAtMH
-- name: 🏳️ 其他 86
-  server: 188.214.157.58
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🏳️ 其他 87
-  server: 47.250.45.234
-  port: 43063
-  type: vmess
-  uuid: c77f48f5-4be3-4461-b52b-49998e7b897b
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-- name: 🏳️ 其他 88
+- name: 🏳️ 其他 67
   server: 47.250.45.234
   port: 8613
   type: vmess
@@ -7223,19 +6964,25 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🏳️ 其他 89
-  server: 103.186.154.251
-  port: 38388
+- name: 🇺🇸 美国 254
+  server: 38.68.135.19
+  port: 7306
   type: ss
-  cipher: aes-256-cfb
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-- name: 🇳🇱 荷兰 18
-  server: 213.183.59.206
-  port: 9084
-  type: ss
-  cipher: aes-256-cfb
-  password: c3NtHJ5ujV2tGDfj
-- name: 🇸🇬 新加坡 17
+  cipher: aes-256-gcm
+  password: FoOiGlkAA9yPEGP
+- name: 🏳️ 其他 68
+  server: 172.67.212.68
+  port: 2095
+  type: vmess
+  uuid: 417d27fb-cb93-3bd8-9bf7-71cd91319821
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+- name: 🇸🇬 新加坡 18
   server: 180.215.130.123
   port: 11584
   type: vmess
@@ -7249,20 +6996,6 @@ proxies:
     path: /
     headers:
       Host: 180.215.130.123
-- name: 🇸🇬 新加坡 18
-  server: 103.253.26.20
-  port: 443
-  type: vmess
-  uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-  alterId: 4
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: zecjk.com
 - name: 🇸🇬 新加坡 19
   server: 202.61.141.130
   port: 443
@@ -7319,21 +7052,7 @@ proxies:
     path: /
     headers:
       Host: eeh7iewe.com
-- name: 🏳️ 其他 90
-  server: hgtrojan.zabc.net
-  port: 2083
-  type: vmess
-  uuid: e6395c20-4571-4b34-d6b1-55a5d36e49ea
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: hgtrojan.zabc.net
-- name: 🇺🇸 美国 253
+- name: 🇺🇸 美国 255
   server: vjp3.0bad.com
   port: 443
   type: vmess
@@ -7347,7 +7066,22 @@ proxies:
     path: /
     headers:
       Host: vjp3.0bad.com
-- name: 🇺🇸 美国 254
+- name: 🇺🇸 美国 256
+  server: dll.avaaaal.ir
+  port: 8443
+  type: vmess
+  uuid: 725f5fcd-721d-40a0-ba6b-3c7477633110
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: 🇺🇸US-192.200.160.203-0180 | 0.0MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cdge.avaaaal.ir
+- name: 🇺🇸 美国 257
   server: vjp1.0bad.com
   port: 443
   type: vmess
@@ -7415,33 +7149,12 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
-- name: 🇺🇸 美国 255
-  server: dll.avaaaal.ir
-  port: 8443
-  type: vmess
-  uuid: 725f5fcd-721d-40a0-ba6b-3c7477633110
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: 🇺🇸US-192.200.160.203-0209 | 0.0MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: cdge.avaaaal.ir
 - name: 🇸🇬 新加坡 32
   server: 217.197.161.164
   port: 806
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
-- name: 🏳️ 其他 91
-  server: 51.104.204.185
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: W74XFALLLuw6m5IA
 - name: 🇸🇬 新加坡 33
   server: 217.197.161.164
   port: 811
@@ -7466,20 +7179,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
-- name: 🇩🇪 德国 154
-  server: 57.129.24.125
-  port: 443
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
 - name: 🇸🇬 新加坡 37
   server: 217.197.161.166
   port: 811
@@ -7531,6 +7230,138 @@ proxies:
 - name: 🇸🇬 新加坡 45
   server: 217.197.161.164
   port: 807
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 46
+  server: 217.197.161.166
+  port: 802
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 47
+  server: 217.197.161.138
+  port: 807
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 48
+  server: 81.90.189.18
+  port: 805
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 49
+  server: 217.197.161.166
+  port: 806
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 50
+  server: 81.90.189.18
+  port: 802
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 51
+  server: 81.90.189.18
+  port: 807
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 52
+  server: 217.197.161.138
+  port: 802
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 53
+  server: 217.197.161.136
+  port: 805
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 54
+  server: 217.197.161.136
+  port: 809
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 55
+  server: 217.197.161.166
+  port: 807
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 56
+  server: 217.197.161.136
+  port: 801
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 57
+  server: 217.197.161.138
+  port: 800
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 58
+  server: 81.90.189.152
+  port: 801
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 59
+  server: 217.197.161.136
+  port: 807
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 60
+  server: 217.197.161.138
+  port: 804
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 61
+  server: 81.90.189.152
+  port: 809
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 62
+  server: 217.197.161.136
+  port: 811
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 63
+  server: 217.197.161.166
+  port: 803
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 64
+  server: 81.90.189.184
+  port: 809
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 65
+  server: 217.197.161.138
+  port: 803
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 66
+  server: 217.197.161.138
+  port: 812
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G!yBwPWH3Vao
+- name: 🇸🇬 新加坡 67
+  server: 81.90.189.18
+  port: 808
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
@@ -8014,83 +7845,82 @@ proxy-groups:
   - 🇺🇸 美国 245
   - 🇺🇸 美国 246
   - 🇺🇸 美国 247
-  - 🇺🇸 美国 248
-  - 🇺🇸 美国 249
   - 🇨🇦 加拿大 01
-  - 🇺🇸 美国 250
+  - 🇺🇸 美国 248
   - 🇨🇦 加拿大 02
-  - 🇯🇵 日本 17
-  - 🇯🇵 日本 18
+  - 🇺🇸 美国 249
+  - 🇺🇸 美国 250
   - 🏳️ 其他 03
+  - 🇨🇦 加拿大 03
   - 🏳️ 其他 04
   - 🏳️ 其他 05
-  - 🇫🇷 法国 02
   - 🏳️ 其他 06
-  - 🇳🇱 荷兰 04
   - 🏳️ 其他 07
+  - 🇫🇷 法国 02
+  - 🇯🇵 日本 17
   - 🏳️ 其他 08
-  - 🇳🇱 荷兰 05
+  - 🇯🇵 日本 18
+  - 🇳🇱 荷兰 04
   - 🏳️ 其他 09
-  - 🇳🇱 荷兰 06
   - 🏳️ 其他 10
   - 🏳️ 其他 11
+  - 🇳🇱 荷兰 05
   - 🏳️ 其他 12
-  - 🇳🇱 荷兰 07
+  - 🇳🇱 荷兰 06
   - 🏳️ 其他 13
+  - 🇳🇱 荷兰 07
   - 🏳️ 其他 14
+  - 🏳️ 其他 15
   - 🇳🇱 荷兰 08
   - 🇳🇱 荷兰 09
-  - 🏳️ 其他 15
-  - 🇳🇱 荷兰 10
   - 🏳️ 其他 16
   - 🏳️ 其他 17
-  - 🇸🇬 新加坡 14
-  - 🇳🇱 荷兰 11
-  - 🇫🇷 法国 03
-  - 🇫🇷 法国 04
   - 🏳️ 其他 18
-  - 🇳🇱 荷兰 12
-  - 🇨🇦 加拿大 03
+  - 🇳🇱 荷兰 10
   - 🏳️ 其他 19
   - 🏳️ 其他 20
+  - 🇫🇷 法国 03
+  - 🇫🇷 法国 04
+  - 🇳🇱 荷兰 11
+  - 🇳🇱 荷兰 12
   - 🏳️ 其他 21
   - 🏳️ 其他 22
-  - 🏳️ 其他 23
-  - 🇯🇵 日本 19
-  - 🇯🇵 日本 20
-  - 🇯🇵 日本 21
-  - 🏳️ 其他 24
-  - 🇯🇵 日本 22
-  - 🇯🇵 日本 23
   - 🇳🇱 荷兰 13
-  - 🇯🇵 日本 24
+  - 🇳🇱 荷兰 14
+  - 🏳️ 其他 23
+  - 🏳️ 其他 24
+  - 🇩🇪 德国 152
+  - 🇸🇬 新加坡 14
   - 🏳️ 其他 25
-  - 🇨🇦 加拿大 04
   - 🏳️ 其他 26
+  - 🏳️ 其他 27
+  - 🏳️ 其他 28
+  - 🏳️ 其他 29
+  - 🇨🇦 加拿大 04
+  - 🏳️ 其他 30
+  - 🏳️ 其他 31
   - 🇨🇦 加拿大 05
   - 🇨🇦 加拿大 06
-  - 🇰🇷 韩国 07
-  - 🏳️ 其他 27
-  - 🇨🇦 加拿大 07
-  - 🇺🇸 美国 251
-  - 🏳️ 其他 28
-  - 🇺🇸 美国 252
-  - 🏳️ 其他 29
-  - 🏳️ 其他 30
-  - 🇳🇱 荷兰 14
-  - 🇸🇬 新加坡 15
-  - 🏳️ 其他 31
   - 🏳️ 其他 32
+  - 🇯🇵 日本 19
+  - 🇯🇵 日本 20
+  - 🇨🇦 加拿大 07
+  - 🇨🇦 加拿大 08
   - 🏳️ 其他 33
   - 🏳️ 其他 34
+  - 🇯🇵 日本 21
   - 🏳️ 其他 35
-  - 🇰🇷 韩国 08
-  - 🇳🇱 荷兰 15
   - 🏳️ 其他 36
+  - 🇸🇬 新加坡 15
   - 🏳️ 其他 37
+  - 🇺🇸 美国 251
   - 🏳️ 其他 38
+  - 🇺🇸 美国 252
+  - 🇰🇷 韩国 07
+  - 🇳🇱 荷兰 15
   - 🏳️ 其他 39
   - 🏳️ 其他 40
+  - 🇭🇰 香港 14
   - 🏳️ 其他 41
   - 🏳️ 其他 42
   - 🏳️ 其他 43
@@ -8098,75 +7928,58 @@ proxy-groups:
   - 🏳️ 其他 45
   - 🏳️ 其他 46
   - 🏳️ 其他 47
+  - 🇳🇱 荷兰 16
+  - 🇸🇬 新加坡 16
+  - 🇷🇺 俄罗斯 06
   - 🏳️ 其他 48
+  - 🇯🇵 日本 22
   - 🏳️ 其他 49
+  - 🇳🇱 荷兰 17
+  - 🇯🇵 日本 23
   - 🏳️ 其他 50
+  - 🇯🇵 日本 24
+  - 🇯🇵 日本 25
   - 🏳️ 其他 51
+  - 🇯🇵 日本 26
   - 🏳️ 其他 52
   - 🏳️ 其他 53
   - 🏳️ 其他 54
   - 🏳️ 其他 55
+  - 🇩🇪 德国 153
   - 🏳️ 其他 56
-  - 🇭🇰 香港 14
   - 🏳️ 其他 57
   - 🏳️ 其他 58
+  - 🇩🇪 德国 154
   - 🏳️ 其他 59
   - 🏳️ 其他 60
+  - 🇭🇰 香港 15
   - 🏳️ 其他 61
   - 🏳️ 其他 62
+  - 🇸🇬 新加坡 17
   - 🏳️ 其他 63
-  - 🏳️ 其他 64
-  - 🇰🇷 韩国 09
-  - 🏳️ 其他 65
-  - 🏳️ 其他 66
-  - 🏳️ 其他 67
-  - 🇷🇺 俄罗斯 06
-  - 🏳️ 其他 68
-  - 🏳️ 其他 69
-  - 🏳️ 其他 70
-  - 🏳️ 其他 71
-  - 🇸🇬 新加坡 16
-  - 🇯🇵 日本 25
-  - 🏳️ 其他 72
-  - 🇯🇵 日本 26
-  - 🏳️ 其他 73
-  - 🏳️ 其他 74
-  - 🇩🇪 德国 152
-  - 🏳️ 其他 75
-  - 🇭🇰 香港 15
-  - 🏳️ 其他 76
-  - 🇭🇰 香港 16
-  - 🇳🇱 荷兰 16
   - 🇯🇵 日本 27
-  - 🏳️ 其他 77
-  - 🏳️ 其他 78
-  - 🏳️ 其他 79
-  - 🇩🇪 德国 153
-  - 🏳️ 其他 80
-  - 🏳️ 其他 81
-  - 🏳️ 其他 82
-  - 🇰🇷 韩国 10
-  - 🏳️ 其他 83
-  - 🏳️ 其他 84
+  - 🇰🇷 韩国 08
+  - 🇹🇼 台湾 04
+  - 🏳️ 其他 64
+  - 🇭🇰 香港 16
+  - 🏳️ 其他 65
+  - 🇳🇱 荷兰 18
   - 🇭🇰 香港 17
   - 🇯🇵 日本 28
+  - 🇺🇸 美国 253
+  - 🏳️ 其他 66
   - 🇭🇰 香港 18
-  - 🏳️ 其他 85
-  - 🇳🇱 荷兰 17
-  - 🏳️ 其他 86
-  - 🏳️ 其他 87
-  - 🏳️ 其他 88
-  - 🏳️ 其他 89
-  - 🇳🇱 荷兰 18
-  - 🇸🇬 新加坡 17
+  - 🏳️ 其他 67
+  - 🇺🇸 美国 254
+  - 🏳️ 其他 68
   - 🇸🇬 新加坡 18
   - 🇸🇬 新加坡 19
   - 🇸🇬 新加坡 20
   - 🇸🇬 新加坡 21
   - 🇸🇬 新加坡 22
-  - 🏳️ 其他 90
-  - 🇺🇸 美国 253
-  - 🇺🇸 美国 254
+  - 🇺🇸 美国 255
+  - 🇺🇸 美国 256
+  - 🇺🇸 美国 257
   - 🇸🇬 新加坡 23
   - 🇸🇬 新加坡 24
   - 🇸🇬 新加坡 25
@@ -8176,14 +7989,11 @@ proxy-groups:
   - 🇸🇬 新加坡 29
   - 🇸🇬 新加坡 30
   - 🇸🇬 新加坡 31
-  - 🇺🇸 美国 255
   - 🇸🇬 新加坡 32
-  - 🏳️ 其他 91
   - 🇸🇬 新加坡 33
   - 🇸🇬 新加坡 34
   - 🇸🇬 新加坡 35
   - 🇸🇬 新加坡 36
-  - 🇩🇪 德国 154
   - 🇸🇬 新加坡 37
   - 🇸🇬 新加坡 38
   - 🇸🇬 新加坡 39
@@ -8193,6 +8003,28 @@ proxy-groups:
   - 🇸🇬 新加坡 43
   - 🇸🇬 新加坡 44
   - 🇸🇬 新加坡 45
+  - 🇸🇬 新加坡 46
+  - 🇸🇬 新加坡 47
+  - 🇸🇬 新加坡 48
+  - 🇸🇬 新加坡 49
+  - 🇸🇬 新加坡 50
+  - 🇸🇬 新加坡 51
+  - 🇸🇬 新加坡 52
+  - 🇸🇬 新加坡 53
+  - 🇸🇬 新加坡 54
+  - 🇸🇬 新加坡 55
+  - 🇸🇬 新加坡 56
+  - 🇸🇬 新加坡 57
+  - 🇸🇬 新加坡 58
+  - 🇸🇬 新加坡 59
+  - 🇸🇬 新加坡 60
+  - 🇸🇬 新加坡 61
+  - 🇸🇬 新加坡 62
+  - 🇸🇬 新加坡 63
+  - 🇸🇬 新加坡 64
+  - 🇸🇬 新加坡 65
+  - 🇸🇬 新加坡 66
+  - 🇸🇬 新加坡 67
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
