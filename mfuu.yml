@@ -14,7 +14,7 @@ proxies:
   alterId: 0
   network: ws
   tls: false
-- name: RELAY-104.21.76.158-02
+- name: RELAY-172.67.197.47-02
   server: t1.620720.xyz
   port: 8443
   type: vmess
@@ -142,7 +142,7 @@ proxies:
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
   obfs: plain
-- name: NL-209.38.107.157-19
+- name: US-64.23.193.180-19
   server: cg1c07.waimaojd.com
   port: 443
   type: vmess
@@ -152,7 +152,7 @@ proxies:
   network: ws
   ws-path: /api/v1/graphql
   tls: true
-- name: RELAY-170.114.45.6-20
+- name: RELAY-170.114.46.6-20
   server: support.zoom.us
   port: 8080
   type: vmess
@@ -171,7 +171,7 @@ proxies:
   network: ws
   ws-path: /vmessws
   tls: false
-- name: RELAY-172.67.197.47-22
+- name: RELAY-104.21.76.158-22
   server: sy4.620720.xyz
   port: 443
   type: vmess
@@ -181,7 +181,7 @@ proxies:
   network: ws
   ws-path: /
   tls: true
-- name: RELAY-104.18.17.77-23
+- name: RELAY-172.64.80.1-23
   server: hgtrojan.zabc.net
   port: 2083
   type: vmess
@@ -227,7 +227,19 @@ proxies:
   network: ws
   ws-path: /api/v1/graphql
   tls: true
-- name: RELAY-104.26.15.137-28
+- name: CN-36.141.116.68-28
+  server: c.cdn-bilibili.cn
+  port: 10019
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4475c5fb-c4d3-444c-8822-c2e32e1c272c
+- name: CN-183.232.137.13-29
+  server: ldu.izenny.com
+  port: 20149
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: c6d61cd1-d3dc-405e-afb2-d67815f4e4da
+- name: RELAY-104.26.15.137-30
   server: 104.26.15.137
   port: 80
   type: vmess
@@ -237,83 +249,72 @@ proxies:
   network: ws
   ws-path: /
   tls: false
-- name: RELAY-172.67.197.47-29
-  server: sy4.620720.xyz
+- name: CN-183.232.137.13-31
+  server: ldu.izenny.com
+  port: 34411
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: c6d61cd1-d3dc-405e-afb2-d67815f4e4da
+- name: RELAY-172.67.156.83-32
+  server: ki9i.dddct.us.ci
   port: 443
   type: vmess
   cipher: auto
-  uuid: 516d8a7a-3f0b-41d3-bad0-246116381516
+  uuid: 795ef99b-3260-4d18-ac98-5130bba9f168
   alterId: 0
   network: ws
-  ws-path: /
+  ws-path: /LtgDLBVt1BfWnGWI7hLRpJ1
   tls: true
-- name: CN-183.232.137.13-30
+- name: CH-38.180.161.123-33
+  server: 38.180.161.123
+  port: 8119
+  type: ss
+  cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
+- name: DE-82.198.246.97-34
+  server: 82.198.246.97
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
+  tls: false
+- name: RELAY-104.26.14.137-35
+  server: 104.26.14.137
+  port: 80
+  type: vmess
+  cipher: auto
+  uuid: 43dcdce1-3cea-4193-bc8d-90b92071d779
+  alterId: 0
+  network: ws
+  tls: false
+- name: CN-183.232.137.13-36
+  server: ldu.izenny.com
+  port: 43076
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: c6d61cd1-d3dc-405e-afb2-d67815f4e4da
+- name: CN-183.232.137.13-37
   server: ldu.izenny.com
   port: 34061
   type: ss
   cipher: chacha20-ietf-poly1305
   password: c6d61cd1-d3dc-405e-afb2-d67815f4e4da
-- name: RU-176.123.168.79-31
-  server: 176.123.168.79
-  port: 42095
+- name: GB-82.38.31.199-38
+  server: 82.38.31.199
+  port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: VCFAk7Hc8FI27kHavKAfJpamy
-- name: FI-212.193.18.144-32
-  server: 212.193.18.144
-  port: 36158
-  type: trojan
-  password: ZblhWr0mqMakCPg.N
-  sni: ya.ru
-- name: RELAY-172.67.197.47-33
-  server: t1.620720.xyz
-  port: 8443
-  type: vmess
-  cipher: auto
-  uuid: 516d8a7a-3f0b-41d3-bad0-246116381516
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: true
-- name: RELAY-104.26.15.137-34
-  server: 104.26.15.137
-  port: 80
-  type: vmess
-  cipher: auto
-  uuid: 43dcdce1-3cea-4193-bc8d-90b92071d779
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-- name: TW-220.130.58.136-35
-  server: green2.cdntencentmusic.com
-  port: 31101
-  type: trojan
-  password: 6f038cee-6ba1-4941-bce5-de1969f37405
-  sni: green2.cdntencentmusic.com
-- name: RELAY-104.26.14.137-36
-  server: turk1.net.net
-  port: 80
-  type: vmess
-  cipher: auto
-  uuid: 43dcdce1-3cea-4193-bc8d-90b92071d779
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-- name: NO-80.173.231.254-37
-  server: 80.173.231.254
-  port: 12420
-  type: trojan
-  password: wp9IsiY82uQhcmgNC1eoBM
-  sni: www.semanticstaplegun.click
-- name: DE-63.180.254.10-38
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: DE-63.180.254.10-39
   server: 63.180.254.10
   port: 443
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-- name: HK-1.64.25.192-39
+- name: HK-112.118.97.142-40
   server: v10.hdacd.com
   port: 30807
   type: vmess
@@ -323,76 +324,76 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: JP-13.114.51.135-40
-  server: 13.114.51.135
-  port: 4856
+- name: JP-13.231.143.120-41
+  server: 13.231.143.120
+  port: 2255
   type: trojan
   password: 262f1d150049457ac1d6e66b020fa980
   sni: www.nintendogames.net
-- name: HK-16.162.118.238-41
-  server: 16.162.118.238
+- name: HK-43.198.101.173-42
+  server: 43.198.101.173
   port: 504
   type: trojan
   password: BxceQaOe
-- name: HK-43.198.185.201-42
-  server: 43.198.185.201
-  port: 3292
+- name: JP-13.115.229.23-43
+  server: 13.115.229.23
+  port: 445
   type: trojan
   password: BxceQaOe
-- name: JP-3.112.214.167-43
-  server: 3.112.214.167
-  port: 2595
+- name: JP-13.231.58.134-44
+  server: 13.231.58.134
+  port: 26378
   type: trojan
   password: BxceQaOe
-- name: JP-160.16.138.24-44
-  server: 160.16.138.24
-  port: 193
+- name: JP-160.16.231.103-45
+  server: 160.16.231.103
+  port: 400
   type: trojan
   password: 262f1d150049457ac1d6e66b020fa980
   sni: www.nintendogames.net
-- name: JP-43.207.87.46-45
-  server: 43.207.87.46
+- name: JP-54.250.241.85-46
+  server: 54.250.241.85
   port: 3423
   type: trojan
   password: 262f1d150049457ac1d6e66b020fa980
   sni: www.nintendogames.net
-- name: JP-57.181.39.159-46
-  server: 57.181.39.159
-  port: 3901
-  type: trojan
-  password: 262f1d150049457ac1d6e66b020fa980
-  sni: www.nintendogames.net
-- name: JP-160.16.85.33-47
-  server: 160.16.85.33
+- name: JP-153.121.65.107-47
+  server: 153.121.65.107
   port: 3419
   type: trojan
   password: 262f1d150049457ac1d6e66b020fa980
   sni: www.nintendogames.net
-- name: HK-43.198.17.4-48
-  server: 43.198.17.4
-  port: 52951
-  type: trojan
-  password: BxceQaOe
-- name: JP-160.16.68.250-49
-  server: 160.16.68.250
-  port: 1281
+- name: JP-35.77.90.248-48
+  server: 35.77.90.248
+  port: 3901
   type: trojan
   password: 262f1d150049457ac1d6e66b020fa980
   sni: www.nintendogames.net
-- name: JP-13.231.123.180-50
-  server: 13.231.123.180
+- name: HK-16.163.102.116-49
+  server: 16.163.102.116
+  port: 52951
+  type: trojan
+  password: BxceQaOe
+- name: JP-153.121.65.107-50
+  server: 153.121.65.107
   port: 4920
   type: trojan
   password: 262f1d150049457ac1d6e66b020fa980
   sni: www.nintendogames.net
-- name: HK-16.162.118.238-51
-  server: 16.162.118.238
-  port: 45285
+- name: JP-153.121.65.107-51
+  server: 153.121.65.107
+  port: 1281
+  type: trojan
+  password: 262f1d150049457ac1d6e66b020fa980
+  sni: www.nintendogames.net
+- name: HK-43.198.101.173-52
+  server: 43.198.101.173
+  port: 45947
   type: trojan
   password: BxceQaOe
-- name: HK-103.181.164.111-52
-  server: board-01.ddnskunlun.com
-  port: 11929
+- name: HK-103.181.164.108-53
+  server: select-us.ddnskunlun.com
+  port: 9027
   type: vmess
   cipher: auto
   uuid: a8bcce43-abda-315b-8e81-e3e65bcb3d07
@@ -400,304 +401,23 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- port: 44579
+- name: HK-103.181.164.108-54
+  server: board-02.ddnskunlun.com
+  port: 11885
   type: vmess
   cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- port: 44579
-  type: vmess
-  cipher: auto
-  uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-  alterId: 0
-  network: ws
-  tls: false
-  name: Node
-- name: SC-45.196.235.171-76
-  server: 45.196.235.171
-  port: 443
-  type: vmess
-  cipher: auto
-  uuid: ac6e19f8-4852-41e1-c120-c7261ee8f6e5
+  uuid: a8bcce43-abda-315b-8e81-e3e65bcb3d07
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: RELAY-162.159.36.5-77
-  server: saas.sin.fan
-  type: ss
-  cipher: none
-  password: 79960b0b-7d31-4263-8915-6511b0e137a8
-- name: RELAY-172.64.52.226-78
-  server: cf.008500.xyz
-  type: ss
-  cipher: none
-  password: 79960b0b-7d31-4263-8915-6511b0e137a8
-- name: RELAY-172.67.70.92-79
-  server: sub.danfeng.eu.org
-  type: ss
-  cipher: none
-  password: 79960b0b-7d31-4263-8915-6511b0e137a8
-- name: NOWHERE-0.0.0.0-80
-  server: cf.130519.xyz
-  type: ss
-  cipher: none
-  password: 79960b0b-7d31-4263-8915-6511b0e137a8
-- name: RELAY-104.18.42.98-81
-  server: cf.zhetengsha.eu.org
-  type: ss
-  cipher: none
-  password: 79960b0b-7d31-4263-8915-6511b0e137a8
-- name: RELAY-172.64.145.158-82
-  server: cf.090227.xyz
-  type: ss
-  cipher: none
-  password: 79960b0b-7d31-4263-8915-6511b0e137a8
-- name: RELAY-104.18.41.190-83
-  server: cf.877774.xyz
-  type: ss
-  cipher: none
-  password: 79960b0b-7d31-4263-8915-6511b0e137a8
-- name: RELAY-104.18.42.163-84
-  server: cdns.doon.eu.org
-  type: ss
-  cipher: none
-  password: 79960b0b-7d31-4263-8915-6511b0e137a8
-- name: CN-183.232.137.13-85
-  server: ldu.izenny.com
-  port: 34061
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: c6d61cd1-d3dc-405e-afb2-d67815f4e4da
-- name: US-38.135.24.131-86
-  server: tinkered-pennies-puppies.freesocks.work
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: hbGrpfvNrJsUmKmPbR3iY2
-- name: CN-183.232.137.13-87
-  server: ldu.izenny.com
-  port: 34061
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: c6d61cd1-d3dc-405e-afb2-d67815f4e4da
-- name: CN-36.141.117.92-88
-  server: c.cdn-bilibili.cn
-  port: 10019
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4475c5fb-c4d3-444c-8822-c2e32e1c272c
-- name: RELAY-172.66.44.230-89
-  server: 172.66.44.230
-  port: 8443
-  type: trojan
-  sni: Koma-YT.PAGeS.Dev
-- name: US-38.135.24.131-90
-  server: tinkered-pennies-puppies.freesocks.work
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: hbGrpfvNrJsUmKmPbR3iY2
-- name: GB-51.145.88.9-91
-  server: series-a1.samanehha.co
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: W74XFALLLuw6m5IA
-- name: GB-51.105.33.148-92
-  server: admin.c2.havij.co
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: kaQH3hGdcP80XEDI
-- name: GB-51.105.33.148-93
-  server: admin.c2.havij.co
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: kaQH3hGdcP80XEDI
-- name: CN-36.141.116.89-94
+- name: CN-36.141.117.93-55
   server: mofacpdd.til69.com
   port: 41921
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 5d68d91f-ccc5-4c00-b1f6-0d764937f4f6
-- name: US-216.24.57.250-95
+- name: US-216.24.57.250-56
   server: 216.24.57.250
   port: 443
   type: trojan
@@ -709,7 +429,7 @@ proxy-groups:
   proxies:
   - CA-144.217.164.29-00
   - NOWHERE-0.0.0.0-01
-  - RELAY-104.21.76.158-02
+  - RELAY-172.67.197.47-02
   - CA-45.154.204.7-03
   - US-146.19.49.251-04
   - CA-15.235.41.200-05
@@ -726,82 +446,43 @@ proxy-groups:
   - US-23.95.75.146-16
   - US-198.23.174.168-17
   - CA-79.127.233.170-18
-  - NL-209.38.107.157-19
-  - RELAY-170.114.45.6-20
+  - US-64.23.193.180-19
+  - RELAY-170.114.46.6-20
   - US-209.126.84.189-21
-  - RELAY-172.67.197.47-22
-  - RELAY-104.18.17.77-23
+  - RELAY-104.21.76.158-22
+  - RELAY-172.64.80.1-23
   - US-107.175.87.207-24
   - US-67.21.83.58-25
   - US-67.21.85.228-26
   - US-157.230.155.184-27
-  - RELAY-104.26.15.137-28
-  - RELAY-172.67.197.47-29
-  - CN-183.232.137.13-30
-  - RU-176.123.168.79-31
-  - FI-212.193.18.144-32
-  - RELAY-172.67.197.47-33
-  - RELAY-104.26.15.137-34
-  - TW-220.130.58.136-35
-  - RELAY-104.26.14.137-36
-  - NO-80.173.231.254-37
-  - DE-63.180.254.10-38
-  - HK-1.64.25.192-39
-  - JP-13.114.51.135-40
-  - HK-16.162.118.238-41
-  - HK-43.198.185.201-42
-  - JP-3.112.214.167-43
-  - JP-160.16.138.24-44
-  - JP-43.207.87.46-45
-  - JP-57.181.39.159-46
-  - JP-160.16.85.33-47
-  - HK-43.198.17.4-48
-  - JP-160.16.68.250-49
-  - JP-13.231.123.180-50
-  - HK-16.162.118.238-51
-  - HK-103.181.164.111-52
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - Node
-  - SC-45.196.235.171-76
-  - RELAY-162.159.36.5-77
-  - RELAY-172.64.52.226-78
-  - RELAY-172.67.70.92-79
-  - NOWHERE-0.0.0.0-80
-  - RELAY-104.18.42.98-81
-  - RELAY-172.64.145.158-82
-  - RELAY-104.18.41.190-83
-  - RELAY-104.18.42.163-84
-  - CN-183.232.137.13-85
-  - US-38.135.24.131-86
-  - CN-183.232.137.13-87
-  - CN-36.141.117.92-88
-  - RELAY-172.66.44.230-89
-  - US-38.135.24.131-90
-  - GB-51.145.88.9-91
-  - GB-51.105.33.148-92
-  - GB-51.105.33.148-93
-  - CN-36.141.116.89-94
-  - US-216.24.57.250-95
+  - CN-36.141.116.68-28
+  - CN-183.232.137.13-29
+  - RELAY-104.26.15.137-30
+  - CN-183.232.137.13-31
+  - RELAY-172.67.156.83-32
+  - CH-38.180.161.123-33
+  - DE-82.198.246.97-34
+  - RELAY-104.26.14.137-35
+  - CN-183.232.137.13-36
+  - CN-183.232.137.13-37
+  - GB-82.38.31.199-38
+  - DE-63.180.254.10-39
+  - HK-112.118.97.142-40
+  - JP-13.231.143.120-41
+  - HK-43.198.101.173-42
+  - JP-13.115.229.23-43
+  - JP-13.231.58.134-44
+  - JP-160.16.231.103-45
+  - JP-54.250.241.85-46
+  - JP-153.121.65.107-47
+  - JP-35.77.90.248-48
+  - HK-16.163.102.116-49
+  - JP-153.121.65.107-50
+  - JP-153.121.65.107-51
+  - HK-43.198.101.173-52
+  - HK-103.181.164.108-53
+  - HK-103.181.164.108-54
+  - CN-36.141.117.93-55
+  - US-216.24.57.250-56
 rules:
 - MATCH,Proxy
