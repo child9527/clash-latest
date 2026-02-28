@@ -2,7 +2,6 @@ name: Update TG Laoshiji (Mirror)
 
 on:
   schedule:
-    # 修改分钟为 21，避开 GitHub 调度高峰
     # 北京时间：08:21, 12:21, 16:21, 20:21
     - cron: "21 0,4,8,12 * * *"
   workflow_dispatch:
@@ -19,27 +18,26 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Check Status
+      - name: 检查今日是否已更新
         id: check_status
         run: |
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           LAST_COMMIT=$(git log -1 --format=%s || echo "none")
           
-          echo "Current Date: $BEIJING_DATE"
-          echo "Last Commit: $LAST_COMMIT"
+          echo "当前日期：$BEIJING_DATE"
+          echo "最后一次提交信息：$LAST_COMMIT"
 
-          # 如果最后一次提交信息包含今天的日期，且不是手动触发，则跳过
           if [[ "$LAST_COMMIT" == *"tglaoshiji-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
-            echo "Already updated today. Skipping..."
+            echo "今天已经更新过，跳过本次任务。"
             echo "should_update=false" >> $GITHUB_ENV
           else
+            echo "需要执行更新任务。"
             echo "should_update=true" >> $GITHUB_ENV
           fi
 
-      - name: Download and Strategy Check
+      - name: 下载源文件并判断策略
         if: env.should_update == 'true'
         run: |
-          # 1. 变量准备（北京时间）
           YEAR=$(TZ='Asia/Shanghai' date +'%Y')
           MONTH=$(TZ='Asia/Shanghai' date +'%m' | sed 's/^0//')
           DAY_TODAY=$(TZ='Asia/Shanghai' date +'%Y%m%d')
@@ -50,37 +48,34 @@ jobs:
 
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
           
-          # 2. 尝试下载今天
           URL_TODAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${YEAR}/${MONTH}/${DAY_TODAY}.yaml"
-          echo "尝试下载今天的源: $URL_TODAY"
-          
-          # 使用 -f 确保 404 时报错退出，不保存文件
+          echo "尝试下载今日文件：$URL_TODAY"
+
           if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o temp.yml && [ $(stat -c%s temp.yml) -gt 2048 ]; then
             mv temp.yml tglaoshiji.yml
             echo "status=success" >> $GITHUB_ENV
-            echo "已下载今天的源"
+            echo "今日文件下载成功。"
           else
-            echo "今天的源还未发布"
-            
-            # 3. 核心逻辑判断
+            echo "今日文件暂不可用。"
+
             if [ -f tglaoshiji.yml ]; then
-              echo "已更新到最新"
+              echo "已有本地文件，暂不更新，等待下一次任务。"
               echo "status=skip_commit" >> $GITHUB_ENV
               rm -f temp.yml || true
             else
-              echo "未发现今日源，回滚到昨日"
+              echo "本地无备份，尝试下载昨日文件作为兜底。"
               URL_YESTERDAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${Y_YEAR}/${Y_MONTH}/${Y_DAY}.yaml"
               if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_YESTERDAY" -o tglaoshiji.yml && [ $(stat -c%s tglaoshiji.yml) -gt 2048 ]; then
                 echo "status=success" >> $GITHUB_ENV
-                echo "已回滚至昨日"
+                echo "昨日文件下载成功（兜底）。"
               else
-                echo "错误:检查源地址是否失效"
+                echo "错误：今日与昨日文件均不可用，且无本地备份。"
                 exit 1
               fi
             fi
           fi
 
-      - name: Commit and push
+      - name: 提交更新
         if: env.should_update == 'true' && env.status == 'success'
         run: |
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
@@ -89,8 +84,9 @@ jobs:
           git add tglaoshiji.yml
           
           if git diff --staged --quiet; then
-            echo "最新源已下载，但内容无变化，未更新"
+            echo "文件内容未变化，本次无需提交。"
           else
-            git commit -m "Update tglaoshiji-$DATE_STR"
+            echo "文件内容已更新，准备提交。"
+            git commit -m "更新 tglaoshiji-$DATE_STR"
             git push
           fi
