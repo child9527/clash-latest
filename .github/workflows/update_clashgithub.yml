@@ -1,0 +1,78 @@
+name: Update Clash RSS (Mirror)
+
+on:
+  schedule:
+    # 北京时间：每天 09:21、13:21、17:21、21:21 执行
+    - cron: "21 1,5,9,13 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 拉取仓库
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: 检查今日是否已更新
+        id: check_status
+        run: |
+          BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          LAST_COMMIT=$(git log -1 --format=%s || echo "none")
+          
+          echo "当前日期：$BEIJING_DATE"
+          echo "最后一次提交信息：$LAST_COMMIT"
+
+          if [[ "$LAST_COMMIT" == *"clashrss-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+            echo "今天已经更新过，跳过本次任务。"
+            echo "should_update=false" >> $GITHUB_ENV
+          else
+            echo "需要执行更新任务。"
+            echo "should_update=true" >> $GITHUB_ENV
+          fi
+
+      - name: 下载订阅文件
+        if: env.should_update == 'true'
+        run: |
+          YEAR=$(TZ='Asia/Shanghai' date +'%Y')
+          MONTH=$(TZ='Asia/Shanghai' date +'%m' | sed 's/^0//')
+          DAY_TODAY=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+          URL_TODAY="https://clashgithub.com/wp-content/uploads/rss/${DAY_TODAY}.txt"
+          echo "尝试下载今日订阅文件：$URL_TODAY"
+
+          if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o clashrss.txt && [ $(stat -c%s clashrss.txt) -gt 1024 ]; then
+            echo "status=success" >> $GITHUB_ENV
+            echo "今日订阅文件下载成功。"
+          else
+            echo "今日订阅文件暂不可用。"
+            if [ -f clashrss.txt ]; then
+              echo "已有本地文件，暂不更新，等待下一次任务。"
+              echo "status=skip_commit" >> $GITHUB_ENV
+            else
+              echo "错误：今日文件不可用，且无本地备份。"
+              exit 1
+            fi
+          fi
+
+      - name: 提交更新
+        if: env.should_update == 'true' && env.status == 'success'
+        run: |
+          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add clashrss.txt
+          
+          if git diff --staged --quiet; then
+            echo "文件内容未变化，本次无需提交。"
+          else
+            echo "文件内容已更新，准备提交。"
+            git commit -m "更新 clashrss-$DATE_STR"
+            git push
+          fi
