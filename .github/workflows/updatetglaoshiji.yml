@@ -52,29 +52,29 @@ jobs:
           
           # 2. 尝试下载今天
           URL_TODAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${YEAR}/${MONTH}/${DAY_TODAY}.yaml"
-          echo "Trying Today: $URL_TODAY"
+          echo "尝试下载今天的源: $URL_TODAY"
           
           # 使用 -f 确保 404 时报错退出，不保存文件
           if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o temp.yml && [ $(stat -c%s temp.yml) -gt 2048 ]; then
             mv temp.yml tglaoshiji.yml
             echo "status=success" >> $GITHUB_ENV
-            echo "Today's file downloaded."
+            echo "已下载今天的源"
           else
-            echo "Today's source NOT ready yet."
+            echo "今天的源还未发布"
             
             # 3. 核心逻辑判断
             if [ -f tglaoshiji.yml ]; then
-              echo "Existing local file is enough for now. Waiting for next cron."
+              echo "已更新到最新"
               echo "status=skip_commit" >> $GITHUB_ENV
               rm -f temp.yml || true
             else
-              echo "No local file! Fetching Yesterday's fallback..."
+              echo "未发现今日源，回滚到昨日"
               URL_YESTERDAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${Y_YEAR}/${Y_MONTH}/${Y_DAY}.yaml"
               if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_YESTERDAY" -o tglaoshiji.yml && [ $(stat -c%s tglaoshiji.yml) -gt 2048 ]; then
                 echo "status=success" >> $GITHUB_ENV
-                echo "Yesterday's file downloaded as fallback."
+                echo "已回滚至昨日"
               else
-                echo "Error: Both sources fail and no local backup."
+                echo "错误:检查源地址是否失效"
                 exit 1
               fi
             fi
@@ -89,7 +89,7 @@ jobs:
           git add tglaoshiji.yml
           
           if git diff --staged --quiet; then
-            echo "Content is identical to current repo version. No update needed."
+            echo "最新源已下载，但内容无变化，未更新"
           else
             git commit -m "Update tglaoshiji-$DATE_STR"
             git push
