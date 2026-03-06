@@ -43,7 +43,7 @@ jobs:
           for i in {0..2}; do
             TARGET_DATE=$(TZ='Asia/Shanghai' date -d "$i days ago" +'%Y%m%d')
             # 使用正确的 master 分支路径
-            URL="https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/master/clash${TARGET_DATE}.yml"
+            URL="https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/main/clash${TARGET_DATE}.yml"
             echo "🔍 正在尝试从 master 分支抓取: $TARGET_DATE"
             
             if curl -sLf "$URL" -o temp.yml && [ -s temp.yml ]; then
