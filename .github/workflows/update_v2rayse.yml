@@ -2,8 +2,8 @@ name: Update V2RaySE Nodes
 
 on:
   schedule:
-    - cron: '30 * * * *' # 每小时的第30分钟执行一次
-  workflow_dispatch:      # 允许手动触发
+    - cron: '30 * * * *' 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,27 +21,27 @@ jobs:
         run: npm install axios
 
       - name: Run Scraper
-        run: |
-          # 指向 scripts 目录下的脚本
-          node scripts/v2rayse.js
+        # 在根目录运行，但指向 scripts 文件夹内的脚本
+        # 这样生成的 v2rayse_raw.txt 会直接落在根目录
+        run: node scripts/v2rayse.js
 
       - name: Convert to Clash YAML
         run: |
-          # 下载并启动 subconverter 转换工具
           wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
           tar -zxvf subconverter.tar.gz
           chmod +x ./subconverter/subconverter
           nohup ./subconverter/subconverter > /dev/null 2>&1 &
           sleep 3
           
-          # 调用本地 subconverter 接口生成 v2rayse.yml
-          # 假设 v2rayse_raw.txt 是 base64 格式
+          # 注意：此时 v2rayse_raw.txt 在根目录 $(pwd)
+          # 输出目标 v2rayse.yml 也在根目录
           curl -o v2rayse.yml "http://127.0.0.1:25500/sub?target=clash&url=$(pwd)/v2rayse_raw.txt&insert=false"
 
       - name: Commit and Push
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
+          # 确保添加根目录下的 v2rayse.yml
           git add v2rayse.yml
           git commit -m "Auto Update V2RaySE Nodes $(date +'%Y-%m-%d %H:%M')" || exit 0
           git push
