@@ -1,47 +1,70 @@
-name: Update V2RaySE Nodes
+name: 自动更新 v2rayse 订阅文件
 
 on:
   schedule:
-    - cron: '30 * * * *' 
-  workflow_dispatch:
+    - cron: "0 */6 * * *"   # 每 6 小时自动运行一次
+  workflow_dispatch:        # 支持手动触发
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: 🧩 第一步：拉取仓库内容
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Install Dependencies
-        run: npm install axios
-
-      - name: Run Scraper
-        # 在根目录运行，但指向 scripts 文件夹内的脚本
-        # 这样生成的 v2rayse_raw.txt 会直接落在根目录
-        run: node scripts/v2rayse.js
-
-      - name: Convert to Clash YAML
+      - name: 📥 第二步：下载最新 Gist 内容
         run: |
-          wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
-          tar -zxvf subconverter.tar.gz
-          chmod +x ./subconverter/subconverter
-          nohup ./subconverter/subconverter > /dev/null 2>&1 &
-          sleep 3
-          
-          # 注意：此时 v2rayse_raw.txt 在根目录 $(pwd)
-          # 输出目标 v2rayse.yml 也在根目录
-          curl -o v2rayse.yml "http://127.0.0.1:25500/sub?target=clash&url=$(pwd)/v2rayse_raw.txt&insert=false"
+          echo "正在从源 Gist 下载最新内容……"
+          curl -L "https://gist.githubusercontent.com/guidongone/ea9aee33d0a522922de5238929b96e75/raw" -o latest_gist.yml
+          echo "下载完成：latest_gist.yml"
 
-      - name: Commit and Push
+      - name: 🔍 第三步：判断仓库是否已有 v2rayse.yml
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          # 确保添加根目录下的 v2rayse.yml
+          if [ -f "v2rayse.yml" ]; then
+            echo "检测到仓库已有 v2rayse.yml，进入对比模式……"
+            echo "has_file=true" >> $GITHUB_ENV
+          else
+            echo "仓库中不存在 v2rayse.yml，将直接创建新文件……"
+            echo "has_file=false" >> $GITHUB_ENV
+          fi
+
+      - name: 🔄 第四步：对比文件内容（如果存在）
+        if: env.has_file == 'true'
+        run: |
+          echo "正在对比仓库文件与最新源文件……"
+          if cmp -s "latest_gist.yml" "v2rayse.yml"; then
+            echo "内容一致，无需更新。"
+            echo "need_update=false" >> $GITHUB_ENV
+          else
+            echo "检测到内容变化，需要更新！"
+            echo "need_update=true" >> $GITHUB_ENV
+          fi
+
+      - name: 📝 第五步：写入新内容（首次创建）
+        if: env.has_file == 'false'
+        run: |
+          echo "正在写入新的 v2rayse.yml……"
+          mv latest_gist.yml v2rayse.yml
+          echo "need_update=true" >> $GITHUB_ENV
+
+      - name: 💾 第六步：覆盖旧文件（内容变化时）
+        if: env.need_update == 'true' && env.has_file == 'true'
+        run: |
+          echo "正在更新 v2rayse.yml……"
+          mv latest_gist.yml v2rayse.yml
+
+      - name: 🚀 第七步：提交并推送更新
+        if: env.need_update == 'true'
+        run: |
+          echo "正在提交更新到仓库……"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add v2rayse.yml
-          git commit -m "Auto Update V2RaySE Nodes $(date +'%Y-%m-%d %H:%M')" || exit 0
+          git commit -m "自动更新 v2rayse 订阅文件" || echo "没有可提交的内容"
           git push
+          echo "推送完成！"
+
+      - name: 🎉 完成
+        run: |
+          echo "任务执行完毕。"
