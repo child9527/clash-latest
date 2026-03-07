@@ -21,7 +21,9 @@ jobs:
         run: npm install axios
 
       - name: Run Scraper
-        run: node v2rayse.js
+        run: |
+          # 指向 scripts 目录下的脚本
+          node scripts/v2rayse.js
 
       - name: Convert to Clash YAML
         run: |
