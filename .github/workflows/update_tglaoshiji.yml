@@ -85,6 +85,7 @@ jobs:
           
           if git diff --staged --quiet; then
             echo "文件内容未变化，本次无需提交。"
+            git commit -m "检测到$DATE_STR的更新，但内容未变化，本次无需更新"
           else
             echo "文件内容已更新，准备提交。"
             git commit -m "更新 tglaoshiji-$DATE_STR"
