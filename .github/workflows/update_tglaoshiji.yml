@@ -83,11 +83,15 @@ jobs:
           git config user.email "github-actions@github.com"
           git add tglaoshiji.yml
           
+          # 检查是否有文件真正改变了
           if git diff --staged --quiet; then
-            echo "文件内容未变化，本次无需提交。"
-            git commit -m "检测到$DATE_STR的更新，但内容未变化，本次无需更新"
+            echo "内容没变化，稳如老狗，撤销 add 动作并跳过提交。"
+            git reset  # 这一步是为了清理暂存区，让 working tree 保持干净
           else
-            echo "文件内容已更新，准备提交。"
+            echo "发现新姿势！文件内容已更新，准备推送到仓库。"
             git commit -m "更新 tglaoshiji-$DATE_STR"
             git push
           fi
+          
+          # 哪怕什么都没做，也强制给 GitHub 一个成功的信号
+          exit 0
