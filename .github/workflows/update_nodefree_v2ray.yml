@@ -22,12 +22,10 @@ jobs:
 
           echo "📂 开始抓取订阅..."
 
-          # 抓取今天的两个订阅
           curl -s "$BASE/v${TODAY}1" -o sub1_today || true
           curl -s "$BASE/v${TODAY}2" -o sub2_today || true
           cat sub1_today sub2_today > "$FILE_TODAY"
 
-          # 判断今天文件是否有效（长度太短视为未更新）
           if [ $(wc -c <"$FILE_TODAY") -lt 50 ]; then
             echo "⚠️ 今天的订阅可能未更新，改为抓取昨天的"
             curl -s "$BASE/v${YESTERDAY}1" -o sub1_yesterday || true
