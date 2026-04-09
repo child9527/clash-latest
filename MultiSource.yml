@@ -4760,6 +4760,28 @@ proxies:
   tls: false
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- cipher: aes-128-gcm
+  name: 🇺🇸 美国 103
+  password: 5M7xnl^v9SLL
+  plugin: v2ray-plugin
+  plugin-opts:
+    host: v6.fjdd.shop
+    mode: websocket
+    mux: false
+    path: ''
+    skip-cert-verify: true
+    tls: false
+  port: 443
+  server: 104.16.77.52
+  type: ss
+  udp: true
+- cipher: aes-256-gcm
+  name: 🇨🇦 加拿大 10
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 179.49.5.114
+  type: ss
+  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -5262,6 +5284,8 @@ proxy-groups:
   - 🇸🇬 新加坡 56
   - 🇨🇦 加拿大 08
   - 🇨🇦 加拿大 09
+  - 🇺🇸 美国 103
+  - 🇨🇦 加拿大 10
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
