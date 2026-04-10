@@ -4790,18 +4790,8 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
-- alterId: 0
-  name: 🇨🇦 加拿大 08
-  password: 413fdb10-a596-4e7c-b081-54243d252894
-  port: 13388
-  server: 85.211.192.237
-  skip-cert-verify: true
-  sni: www.baidu.com
-  tls: true
-  type: trojan
-  udp: true
 - cipher: none
-  name: 🇨🇦 加拿大 09
+  name: 🇨🇦 加拿大 08
   password: 3e96ef7d-8637-42c2-ac73-75182196e755
   plugin: v2ray-plugin
   plugin-opts:
@@ -4814,34 +4804,60 @@ proxies:
   server: 199.181.197.38
   type: ss
   udp: true
-- name: 🇨🇦 加拿大 10
-  password: 0f408453-2589-4fc2-bf9d-22e0cef8b8d2
-  port: 20230
-  server: sg08.421421.xyz
+- alterId: 0
+  name: 🇨🇦 加拿大 09
+  password: 413fdb10-a596-4e7c-b081-54243d252894
+  port: 13388
+  server: 85.211.192.237
   skip-cert-verify: true
-  sni: 421421.xyz
+  sni: www.baidu.com
+  tls: true
   type: trojan
   udp: true
-- name: 🇺🇸 美国 94
-  password: pBmaAMoBqHGR
-  port: 17400
-  server: 18.118.163.183
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 10
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- alterId: 0
+  cipher: auto
+  client-fingerprint: chrome
+  name: 🇨🇦 加拿大 11
+  network: ws
+  port: 20086
+  server: 161.248.30.3
   skip-cert-verify: true
-  sni: appsvs.shop
-  type: trojan
-  udp: true
-- cipher: aes-256-cfb
-  name: 🇯🇵 日本 24
-  password: www.xbvpn.com
-  port: 443
-  server: 45.67.53.250
+  tls: false
+  type: vmess
+  uuid: 1006a928-2021-4a3b-beb5-d5853c6281c5
+  ws-opts:
+    headers:
+      host: ''
+    path: /
+- cipher: aes-256-gcm
+  name: 🇰🇷 韩国 07
+  password: qwerREWQ@@
+  port: 57743
+  server: 221.150.109.11
   type: ss
   udp: true
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 11
-  password: qwerREWQ@@
-  port: 57729
-  server: p228.panda004.net
+- name: 🇺🇸 美国 94
+  password: 669d0ac7b5b64ebbb1abb75d5d540a5c
+  port: 443
+  server: 104.17.147.3
+  skip-cert-verify: true
+  sni: jobscareerfortoday.com
+  type: trojan
+  udp: true
+- cipher: rc4-md5
+  name: 🇨🇦 加拿大 12
+  password: dbEcUJ
+  port: 24603
+  server: us07.ktp.wtf
   type: ss
   udp: true
 proxy-groups:
@@ -5346,9 +5362,10 @@ proxy-groups:
   - 🇨🇦 加拿大 08
   - 🇨🇦 加拿大 09
   - 🇨🇦 加拿大 10
-  - 🇺🇸 美国 94
-  - 🇯🇵 日本 24
   - 🇨🇦 加拿大 11
+  - 🇰🇷 韩国 07
+  - 🇺🇸 美国 94
+  - 🇨🇦 加拿大 12
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
