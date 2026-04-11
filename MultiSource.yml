@@ -5011,12 +5011,31 @@ proxies:
   tls: false
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- name: 🇨🇦 加拿大 11
-  password: 3016be06-2f91-4b8f-9e6a-bd55f2c55610
-  port: 36701
-  server: 5c1a01.a3b5wy.xyz
+- cipher: aes-128-gcm
+  name: 🇺🇸 美国 94
+  password: Yc2CtrIz8L
+  port: 16899
+  server: 38.180.80.187
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 11
+  password: 4a2rfixophdjffa8KVA4Aa
+  port: 8080
+  server: beesyar.org
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 95
+  password: 9Bvkw5aupNy8
+  port: 443
+  server: 205.134.180.147
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 12
+  password: 6e28f704-29a0-4c86-b25b-dd090603c741
+  port: 443
+  server: nl2-full.privateip.net
   skip-cert-verify: true
-  sni: ca01.abpilot.xyz
   type: trojan
   udp: true
 proxy-groups:
@@ -5523,7 +5542,10 @@ proxy-groups:
   - 🇨🇦 加拿大 08
   - 🇨🇦 加拿大 09
   - 🇨🇦 加拿大 10
+  - 🇺🇸 美国 94
   - 🇨🇦 加拿大 11
+  - 🇺🇸 美国 95
+  - 🇨🇦 加拿大 12
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
