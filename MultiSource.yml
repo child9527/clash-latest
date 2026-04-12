@@ -4817,16 +4817,8 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
-- name: 🇨🇦 加拿大 08
-  password: a1956156-b1d6-468e-b22f-59765172b07d
-  port: 443
-  server: hinet.mjt001.com
-  skip-cert-verify: true
-  sni: hinet.mjt001.com
-  type: trojan
-  udp: true
 - cipher: none
-  name: 🇨🇦 加拿大 09
+  name: 🇨🇦 加拿大 08
   password: 3e96ef7d-8637-42c2-ac73-75182196e755
   plugin: v2ray-plugin
   plugin-opts:
@@ -4841,7 +4833,7 @@ proxies:
   udp: true
 - alterId: 2
   cipher: auto
-  name: 🇨🇦 加拿大 10
+  name: 🇨🇦 加拿大 09
   port: 30807
   server: v10.hdacd.com
   skip-cert-verify: false
@@ -4849,27 +4841,33 @@ proxies:
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 10
+  password: be443689-bc64-49ff-85a5-8eecaa2235d3
+  port: 41049
+  server: hk2.fgmcx.top
+  tfo: false
+  type: ss
+- cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 11
-  password: 99301d55-a41f-4919-986b-1435996533aa
-  port: 26667
-  server: 120.238.122.208
+  password: 65af0e00-a583-31b3-a4d8-68bdb504d3a6
+  port: 50105
+  server: iepl2.forlive.live
   type: ss
   udp: true
-- name: 🇩🇪 德国 88
-  password: telegram-id-privatevpns
-  port: 22222
-  server: 3.73.168.90
+- name: 🇺🇸 美国 96
+  password: f0eb8c92ce8946aaba856569cff1a16b
+  port: 443
+  server: 104.19.171.3
   skip-cert-verify: true
-  sni: trojan.burgerip.co.uk
+  sni: sherasheba.com
   type: trojan
   udp: true
-- name: 🇺🇸 美国 96
-  password: 3305b050-c9fc-11ee-8cb6-1239d0255272
-  port: 443
-  server: 15.204.240.119
-  skip-cert-verify: true
-  sni: sourceforge.net
-  type: trojan
+- cipher: aes-128-gcm
+  name: 🇺🇸 美国 97
+  password: Yc2CtrIz8L
+  port: 16899
+  server: 103.124.107.178
+  type: ss
   udp: true
 proxy-groups:
 - name: Proxy
@@ -5386,8 +5384,8 @@ proxy-groups:
   - 🇨🇦 加拿大 09
   - 🇨🇦 加拿大 10
   - 🇨🇦 加拿大 11
-  - 🇩🇪 德国 88
   - 🇺🇸 美国 96
+  - 🇺🇸 美国 97
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
