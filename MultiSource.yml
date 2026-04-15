@@ -4292,7 +4292,7 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: 🇭🇰HK-47.76.254.70-4779 | 0.108MB
+  servername: 🇭🇰HK-47.76.254.70-4779 | 0.009MB
   network: ws
   ws-opts:
     path: /
@@ -4394,7 +4394,7 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-104.18.42.98-6823 | 0.014MB
+  servername: RELAY-104.18.42.98-6823 | 0.0MB
   network: ws
   ws-opts:
     path: /
@@ -4873,6 +4873,20 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
 - cipher: none
+  name: 🇭🇰 香港 39
+  password: 3e96ef7d-8637-42c2-ac73-75182196e755
+  plugin: v2ray-plugin
+  plugin-opts:
+    host: mfvpn.fuchen.indevs.in
+    mode: websocket
+    mux: false
+    path: 3e96ef7d-8637-42c2-ac73-75182196e755/?ed=2560
+    tls: true
+  port: 443
+  server: 47.57.182.141
+  type: ss
+  udp: true
+- cipher: none
   name: 🇨🇦 加拿大 12
   password: 3e96ef7d-8637-42c2-ac73-75182196e755
   plugin: v2ray-plugin
@@ -4886,37 +4900,49 @@ proxies:
   server: 199.181.197.38
   type: ss
   udp: true
-- alterId: 0
-  cipher: aes-256-gcm
-  name: 🇺🇸 美国 100
-  password: 8JCsPssfgS8tiRwiMlhARg==
-  port: 12000
-  server: 15.204.247.49
-  skip-cert-verify: true
-  tls: true
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 13
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 14
+  password: qGjmI8WQlF0tfhDbkLqGdN
+  port: 8080
+  server: passconf.xyz
   type: ss
-- name: 🇺🇸 美国 101
-  password: pBmaAMoBqHGR
-  port: 17400
-  server: 18.118.163.183
-  skip-cert-verify: true
-  sni: appsvs.shop
-  type: trojan
   udp: true
 - cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 13
+  name: 🇨🇦 加拿大 15
   password: 3016be06-2f91-4b8f-9e6a-bd55f2c55610
-  port: 36026
-  server: 8t6w01.a3b5wy.xyz
+  port: 36016
+  server: 8h2k01.a3b5wy.xyz
   type: ss
   udp: true
-- name: 🇺🇸 美国 102
-  password: wkmY1R4EcP
+- cipher: aes-256-gcm
+  name: 🇺🇸 美国 100
+  password: PCnnH6SQSnfoS27
+  port: 8091
+  server: 23.157.40.87
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 16
+  password: qwerREWQ@@
+  port: 42978
+  server: p230.panda004.net
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇺🇸 美国 101
+  password: 9d6cceaa373bf2c8acb22e60b6a58be6
   port: 443
-  server: 45.77.167.12
-  skip-cert-verify: true
-  sni: z-v2-003319.kailib.com
-  type: trojan
+  server: 45.33.93.207
+  type: ss
   udp: true
 proxy-groups:
 - name: Proxy
@@ -5432,11 +5458,14 @@ proxy-groups:
   - 🏳️ 其他 87
   - 🇸🇬 新加坡 59
   - 🇸🇬 新加坡 60
+  - 🇭🇰 香港 39
   - 🇨🇦 加拿大 12
-  - 🇺🇸 美国 100
-  - 🇺🇸 美国 101
   - 🇨🇦 加拿大 13
-  - 🇺🇸 美国 102
+  - 🇨🇦 加拿大 14
+  - 🇨🇦 加拿大 15
+  - 🇺🇸 美国 100
+  - 🇨🇦 加拿大 16
+  - 🇺🇸 美国 101
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
