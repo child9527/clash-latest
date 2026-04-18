@@ -38,7 +38,7 @@ jobs:
         run: |
           # 动态拼凑文件名，格式为 v202604181
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          FILE_NAME="v${DATE_STR}1"
+          FILE_NAME="v${DATE_STR}2"
           URL="https://github.com/free-nodes/v2rayfree/raw/refs/heads/main/${FILE_NAME}"
           
           echo "尝试抓取：$URL"
@@ -62,7 +62,6 @@ jobs:
           git config user.email "github-actions@github.com"
           
           git add nodev2ray.txt
-          
-          # 使用 --allow-empty，确保即使节点内容没变，也会刷出一个今日日期的 commit
-          git commit --allow-empty -m "更新 nodev2ray-$DATE_STR"
+                    
+          git commit -m "更新 nodev2ray-$DATE_STR"
           git push
