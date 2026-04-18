@@ -1,0 +1,68 @@
+name: Update V2Ray Nodes (Mirror)
+
+on:
+  schedule:
+    # 每天 09:21、13:21、17:21、21:21 执行（北京时间）
+    - cron: "21 1,5,9,13 * * *"
+  workflow_dispatch: # 方便你随时手动点击运行测试
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 拉取仓库
+        uses: actions/checkout@v4 # 升级到 v4，消灭 Node.js 警告
+        with:
+          fetch-depth: 2
+
+      - name: 检查今日是否已更新
+        id: check_status
+        run: |
+          BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          LAST_COMMIT=$(git log -1 --format=%s || echo "none")
+          
+          # 判断最后一次提交是否包含今天的日期，且不是手动触发
+          if [[ "$LAST_COMMIT" == *"nodev2ray-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+            echo "今天已经成功跑过任务，跳过本次。"
+            echo "should_update=false" >> $GITHUB_ENV
+          else
+            echo "准备抓取今日节点。"
+            echo "should_update=true" >> $GITHUB_ENV
+          fi
+
+      - name: 抓取最新节点
+        if: env.should_update == 'true'
+        run: |
+          # 动态拼凑文件名，格式为 v202604181
+          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          FILE_NAME="v${DATE_STR}1"
+          URL="https://github.com/free-nodes/v2rayfree/raw/refs/heads/main/${FILE_NAME}"
+          
+          echo "尝试抓取：$URL"
+          
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+          
+          # 下载并重命名为 nodev2ray.txt
+          if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL" -o nodev2ray.txt && [ $(stat -c%s nodev2ray.txt) -gt 512 ]; then
+            echo "status=success" >> $GITHUB_ENV
+            echo "节点抓取成功！"
+          else
+            echo "错误：今日节点库尚未更新，或者链接失效。"
+            exit 1 # 如果今天的东西还没出来，直接报错退出，不进行后续提交
+          fi
+
+      - name: 提交更新
+        if: env.should_update == 'true' && env.status == 'success'
+        run: |
+          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          
+          git add nodev2ray.txt
+          
+          # 使用 --allow-empty，确保即使节点内容没变，也会刷出一个今日日期的 commit
+          git commit --allow-empty -m "更新 nodev2ray-$DATE_STR"
+          git push
