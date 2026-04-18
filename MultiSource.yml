@@ -5415,20 +5415,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
-- cipher: none
-  name: 🇺🇸 美国 157
-  password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-  plugin: v2ray-plugin
-  plugin-opts:
-    host: ylnhh.us.ci
-    mode: websocket
-    mux: false
-    path: /14b02e2a-8930-4afb-8412-ea4a4954ca5b/?ed=2560
-    tls: true
-  port: 443
-  server: 198.12.144.16
-  type: ss
-  udp: true
 - cipher: aes-256-gcm
   name: 🇰🇷 韩国 12
   password: 63d7c17506d1f48b
@@ -5449,17 +5435,31 @@ proxies:
   server: 47.57.182.141
   type: ss
   udp: true
-- cipher: aes-256-gcm
-  name: 🇷🇺 俄罗斯 04
-  password: 9f3d1a6d31468599
-  port: 10990
-  server: 195.58.49.100
+- cipher: none
+  name: 🇺🇸 美国 157
+  password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  plugin: v2ray-plugin
+  plugin-opts:
+    host: ylnhh.us.ci
+    mode: websocket
+    mux: false
+    path: /14b02e2a-8930-4afb-8412-ea4a4954ca5b/?ed=2560
+    tls: true
+  port: 443
+  server: 198.12.144.16
   type: ss
+  udp: true
 - cipher: aes-256-gcm
   name: 🇨🇦 加拿大 07
   password: 9cdc6440d42cb19c
   port: 20129
   server: 89.125.103.52
+  type: ss
+- cipher: aes-256-gcm
+  name: 🇷🇺 俄罗斯 04
+  password: 9f3d1a6d31468599
+  port: 10990
+  server: 195.58.49.100
   type: ss
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 08
@@ -5467,15 +5467,28 @@ proxies:
   port: 13012
   server: usgpt.slianrk.com
   type: ss
-- alterId: 2
-  cipher: auto
+- cipher: rc4-md5
   name: 🇨🇦 加拿大 09
-  port: 30807
-  server: v10.hdacd.com
-  skip-cert-verify: false
-  tls: false
-  type: vmess
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  password: dbEcUJ
+  port: 24603
+  server: us08.ktp.wtf
+  type: ss
+  udp: true
+- cipher: aes-256-gcm
+  name: 🇺🇸 美国 158
+  password: e4FCWrgpkji3QY
+  port: 9101
+  server: 38.121.43.142
+  type: ss
+  udp: true
+- name: 🇰🇷 韩国 13
+  password: f0c910c3-d157-48a6-815c-b12fed163f12
+  port: 443
+  server: 152.67.217.187
+  skip-cert-verify: true
+  sni: 59amd2.1365365.xyz
+  type: trojan
+  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -6027,13 +6040,15 @@ proxy-groups:
   - 🇸🇬 新加坡 68
   - 🇸🇬 新加坡 69
   - 🇸🇬 新加坡 70
-  - 🇺🇸 美国 157
   - 🇰🇷 韩国 12
   - 🇭🇰 香港 31
-  - 🇷🇺 俄罗斯 04
+  - 🇺🇸 美国 157
   - 🇨🇦 加拿大 07
+  - 🇷🇺 俄罗斯 04
   - 🇨🇦 加拿大 08
   - 🇨🇦 加拿大 09
+  - 🇺🇸 美国 158
+  - 🇰🇷 韩国 13
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
