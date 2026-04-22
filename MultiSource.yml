@@ -5608,6 +5608,13 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 08
+  password: qYEN5HX4JKeVCdEC
+  port: 9039
+  server: 195.238.126.84
+  type: ss
+  udp: true
 - cipher: none
   name: 🇭🇰 香港 38
   password: 3e96ef7d-8637-42c2-ac73-75182196e755
@@ -5622,12 +5629,6 @@ proxies:
   server: 47.57.182.141
   type: ss
   udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 08
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  port: 50099
-  server: r3mrcg0011499tl.cybervena.com
-  type: ss
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -6206,8 +6207,8 @@ proxy-groups:
   - 🇯🇵 日本 14
   - 🇯🇵 日本 15
   - 🏳️ 其他 103
-  - 🇭🇰 香港 38
   - 🇨🇦 加拿大 08
+  - 🇭🇰 香港 38
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
