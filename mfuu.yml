@@ -14,7 +14,7 @@ proxies:
   alterId: 0
   network: ws
   tls: false
-- name: RELAY-172.67.197.47-002
+- name: RELAY-104.21.76.158-002
   server: t1.620720.xyz
   port: 8443
   type: vmess
@@ -152,7 +152,7 @@ proxies:
   network: ws
   ws-path: /api/v1/graphql
   tls: true
-- name: RELAY-170.114.45.6-020
+- name: RELAY-170.114.46.6-020
   server: support.zoom.us
   port: 8080
   type: vmess
@@ -171,7 +171,7 @@ proxies:
   network: ws
   ws-path: /vmessws
   tls: false
-- name: RELAY-104.21.76.158-022
+- name: RELAY-172.67.197.47-022
   server: sy4.620720.xyz
   port: 443
   type: vmess
@@ -227,48 +227,40 @@ proxies:
   network: ws
   ws-path: /api/v1/graphql
   tls: true
-- name: HK-103.181.164.145-028
-  server: 103.181.164.145
-  port: 54022
+- name: GB-82.38.31.214-028
+  server: 82.38.31.214
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: GB-82.38.31.101-029
+  server: 82.38.31.101
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: MD-94.131.108.36-030
+  server: 94.131.108.36
+  port: 443
   type: vmess
   cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.97-029
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  uuid: 9855f1f0-a800-40d4-8b38-c7d3eb79302d
   alterId: 0
-  network: tcp
+  network: ws
   ws-path: /
   tls: false
-- name: DE-82.198.246.233-030
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.97-031
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.214-032
+- name: DE-82.198.246.214-031
   server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-032
+  server: 82.198.246.37
   port: 180
   type: vmess
   cipher: auto
@@ -287,228 +279,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.37-034
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: FR-162.19.192.89-035
-  server: planb.mojcn.com
-  port: 16617
-  type: vmess
-  cipher: auto
-  uuid: c3bb4d48-63db-439e-bb4b-a541729c4f72
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-- name: FR-162.19.192.89-036
-  server: planb.mojcn.com
-  port: 16616
-  type: vmess
-  cipher: auto
-  uuid: c3bb4d48-63db-439e-bb4b-a541729c4f72
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-- name: TW-111.248.87.102-037
-  server: r3mrcg007147vhp.cybervena.com
-  port: 50099
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-- name: HK-103.181.164.145-038
-  server: 103.181.164.145
-  port: 51556
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.97-039
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: BG-78.159.131.12-040
-  server: 78.159.131.12
-  port: 28259
-  type: trojan
-  password: MeaDiUmPlkWbZJ2BON8tz
-  sni: ads.x5.ru
-- name: DE-82.198.246.233-041
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.37-042
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.97-043
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.37-044
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: FR-162.19.192.89-045
-  server: planb.mojcn.com
-  port: 16632
-  type: vmess
-  cipher: auto
-  uuid: c3bb4d48-63db-439e-bb4b-a541729c4f72
-  alterId: 0
-  network: ws
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.97-046
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: GB-20.90.87.141-047
-  server: series-a2.samanehha.co
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: W74XFALLLuw6m5IA
-- name: MY-85.211.242.47-048
-  server: v30.hdacd.com
-  port: 30830
-  type: vmess
-  cipher: auto
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-63.180.254.10-049
-  server: 63.180.254.10
-  port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-- name: HK-58.153.27.197-050
-  server: v10.hdacd.com
-  port: 30807
-  type: vmess
-  cipher: auto
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  network: tcp
-  ws-path: /
-  tls: false
-- name: JP-13.193.224.0-051
-  server: 13.193.224.0
-  port: 2008
-  type: trojan
-  password: 69ecb45889d99f31b8ccc10bf8f76a72
-  sni: www.nintendogames.net
-- name: JP-52.194.227.165-052
-  server: 52.194.227.165
-  port: 9211
-  type: trojan
-  password: BxceQaOe
-- name: HK-95.40.22.29-053
-  server: 95.40.22.29
-  port: 4886
-  type: trojan
-  password: BxceQaOe
-- name: JP-18.183.180.142-054
-  server: 18.183.180.142
-  port: 16919
-  type: trojan
-  password: BxceQaOe
-- name: HK-18.162.50.11-055
-  server: 18.162.50.11
-  port: 4380
-  type: trojan
-  password: 69ecb45889d99f31b8ccc10bf8f76a72
-  sni: www.nintendogames.net
-- name: JP-3.112.1.63-056
-  server: 3.112.1.63
-  port: 9201
-  type: trojan
-  password: 69ecb45889d99f31b8ccc10bf8f76a72
-  sni: www.nintendogames.net
-- name: JP-160.16.106.99-057
-  server: 160.16.106.99
-  port: 3057
-  type: trojan
-  password: 69ecb45889d99f31b8ccc10bf8f76a72
-  sni: www.nintendogames.net
-- name: JP-160.16.132.38-058
-  server: 160.16.132.38
-  port: 32876
-  type: trojan
-  password: 69ecb45889d99f31b8ccc10bf8f76a72
-  sni: www.nintendogames.net
-- name: HK-16.163.157.130-059
-  server: 16.163.157.130
-  port: 7337
-  type: trojan
-  password: BxceQaOe
-- name: JP-3.113.6.138-060
-  server: 3.113.6.138
-  port: 3057
-  type: trojan
-  password: 69ecb45889d99f31b8ccc10bf8f76a72
-  sni: www.nintendogames.net
-- name: JP-3.112.237.226-061
-  server: 3.112.237.226
-  port: 3057
-  type: trojan
-  password: 69ecb45889d99f31b8ccc10bf8f76a72
-  sni: www.nintendogames.net
-- name: HK-95.40.22.55-062
-  server: 95.40.22.55
-  port: 49534
-  type: trojan
-  password: BxceQaOe
-- name: DE-82.198.246.250-063
+- name: DE-82.198.246.250-034
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -518,13 +289,170 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: JP-140.238.43.40-064
+- name: HK-202.85.76.170-035
+  server: chengbai02.ascwt179.com
+  port: 13223
+  type: ss
+  cipher: aes-128-gcm
+  password: JVrsLLN1tkN8oXZO
+- name: GB-82.38.31.202-036
+  server: 82.38.31.202
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: GB-51.104.19.242-037
+  server: 51.104.19.242
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: W74XFALLLuw6m5IA
+- name: EC-38.76.141.9-038
+  server: hk0046.lv1.zero1890.com
+  port: 60045
+  type: vmess
+  cipher: auto
+  uuid: 813fbbe3-4679-4a7f-afd3-c2e5319b5e3b
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.233-039
+  server: 82.198.246.233
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: GB-82.38.31.208-040
+  server: 82.38.31.208
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: DE-82.198.246.37-041
+  server: 82.198.246.37
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-63.180.254.10-042
+  server: 63.180.254.10
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
+- name: HK-58.153.70.238-043
+  server: v10.hdacd.com
+  port: 30807
+  type: vmess
+  cipher: auto
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-18.163.114.87-044
+  server: 18.163.114.87
+  port: 2008
+  type: trojan
+  password: 69ecb45889d99f31b8ccc10bf8f76a72
+  sni: www.nintendogames.net
+- name: HK-18.167.37.186-045
+  server: 18.167.37.186
+  port: 5823
+  type: trojan
+  password: BxceQaOe
+- name: HK-18.167.37.186-046
+  server: 18.167.37.186
+  port: 5823
+  type: trojan
+  password: BxceQaOe
+- name: JP-18.183.75.181-047
+  server: 18.183.75.181
+  port: 16919
+  type: trojan
+  password: BxceQaOe
+- name: JP-13.230.197.150-048
+  server: 13.230.197.150
+  port: 2008
+  type: trojan
+  password: 69ecb45889d99f31b8ccc10bf8f76a72
+  sni: www.nintendogames.net
+- name: JP-3.112.1.63-049
+  server: 3.112.1.63
+  port: 9201
+  type: trojan
+  password: 69ecb45889d99f31b8ccc10bf8f76a72
+  sni: www.nintendogames.net
+- name: JP-160.16.106.99-050
+  server: 160.16.106.99
+  port: 3057
+  type: trojan
+  password: 69ecb45889d99f31b8ccc10bf8f76a72
+  sni: www.nintendogames.net
+- name: JP-160.16.132.38-051
+  server: 160.16.132.38
+  port: 32876
+  type: trojan
+  password: 69ecb45889d99f31b8ccc10bf8f76a72
+  sni: www.nintendogames.net
+- name: HK-43.199.202.143-052
+  server: 43.199.202.143
+  port: 7337
+  type: trojan
+  password: BxceQaOe
+- name: JP-18.182.15.66-053
+  server: 18.182.15.66
+  port: 4019
+  type: trojan
+  password: 69ecb45889d99f31b8ccc10bf8f76a72
+  sni: www.nintendogames.net
+- name: JP-3.112.224.75-054
+  server: 3.112.224.75
+  port: 3057
+  type: trojan
+  password: 69ecb45889d99f31b8ccc10bf8f76a72
+  sni: www.nintendogames.net
+- name: HK-43.199.202.143-055
+  server: 43.199.202.143
+  port: 14919
+  type: trojan
+  password: BxceQaOe
+- name: DE-82.198.246.250-056
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.233-057
+  server: 82.198.246.233
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: JP-140.238.43.40-058
   server: jp2-8sb.6121999.dpdns.org
   port: 24534
   type: trojan
   password: e136d465-0558-43b9-b50c-b1f45d4cb2c2
   sni: jp2-8sb.6121999.dpdns.org
-- name: HK-103.181.164.145-065
+- name: HK-103.181.164.145-059
   server: 103.181.164.145
   port: 54022
   type: vmess
@@ -534,7 +462,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.233-066
+- name: DE-82.198.246.233-060
   server: 82.198.246.233
   port: 180
   type: vmess
@@ -544,7 +472,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-067
+- name: HK-103.181.164.145-061
   server: 103.181.164.145
   port: 54022
   type: vmess
@@ -554,7 +482,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.97-068
+- name: DE-82.198.246.97-062
   server: 82.198.246.97
   port: 180
   type: vmess
@@ -564,7 +492,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.97-069
+- name: DE-82.198.246.97-063
   server: 82.198.246.97
   port: 180
   type: vmess
@@ -574,7 +502,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-070
+- name: HK-103.181.164.145-064
   server: 103.181.164.145
   port: 54022
   type: vmess
@@ -584,7 +512,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.9-071
+- name: DE-82.198.246.9-065
   server: 82.198.246.9
   port: 180
   type: vmess
@@ -594,8 +522,66 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-072
+- name: DE-82.198.246.214-066
   server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.97-067
+  server: 82.198.246.97
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: HK-103.181.164.145-068
+  server: 103.181.164.145
+  port: 54022
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-069
+  server: 82.198.246.37
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.97-070
+  server: 82.198.246.97
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.233-071
+  server: 82.198.246.233
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.9-072
+  server: 82.198.246.9
   port: 180
   type: vmess
   cipher: auto
@@ -612,28 +598,9 @@ proxies:
   uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
-  tls: false
-- name: HK-103.181.164.145-074
-  server: 103.181.164.145
-  port: 54022
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.37-075
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.97-076
+- name: DE-82.198.246.97-074
   server: 82.198.246.97
   port: 180
   type: vmess
@@ -641,8 +608,19 @@ proxies:
   uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
+  ws-path: /
   tls: false
-- name: DE-82.198.246.233-077
+- name: DE-82.198.246.97-075
+  server: 82.198.246.97
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.233-076
   server: 82.198.246.233
   port: 180
   type: vmess
@@ -652,7 +630,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.9-078
+- name: DE-82.198.246.9-077
   server: 82.198.246.9
   port: 180
   type: vmess
@@ -662,8 +640,8 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.97-079
-  server: 82.198.246.97
+- name: DE-82.198.246.214-078
+  server: 82.198.246.214
   port: 180
   type: vmess
   cipher: auto
@@ -672,8 +650,8 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.97-080
-  server: 82.198.246.97
+- name: DE-82.198.246.233-079
+  server: 82.198.246.233
   port: 180
   type: vmess
   cipher: auto
@@ -682,8 +660,18 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.97-081
-  server: 82.198.246.97
+- name: DE-82.198.246.214-080
+  server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.9-081
+  server: 82.198.246.9
   port: 180
   type: vmess
   cipher: auto
@@ -722,67 +710,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.233-085
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.214-086
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.9-087
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.233-088
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.9-089
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.214-090
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.97-091
+- name: DE-82.198.246.97-085
   server: 82.198.246.97
   port: 180
   type: vmess
@@ -792,7 +720,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.37-092
+- name: DE-82.198.246.37-086
   server: 82.198.246.37
   port: 180
   type: vmess
@@ -802,7 +730,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-093
+- name: DE-82.198.246.250-087
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -812,7 +740,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-094
+- name: DE-82.198.246.250-088
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -822,12 +750,12 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: RELAY-172.66.44.230-095
+- name: RELAY-172.66.44.230-089
   server: 172.66.44.230
   port: 8443
   type: trojan
   sni: Koma-YT.PAGeS.Dev
-- name: DE-82.198.246.250-096
+- name: DE-82.198.246.250-090
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -837,7 +765,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-097
+- name: HK-103.181.164.145-091
   server: 103.181.164.145
   port: 51556
   type: vmess
@@ -847,7 +775,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-098
+- name: HK-103.181.164.145-092
   server: 103.181.164.145
   port: 51556
   type: vmess
@@ -857,7 +785,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-099
+- name: HK-103.181.164.145-093
   server: 103.181.164.145
   port: 51556
   type: vmess
@@ -867,6 +795,56 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
+- name: HK-103.181.164.145-094
+  server: 103.181.164.145
+  port: 51556
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.250-095
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-38.22.93.20-096
+  server: 38.22.93.20
+  port: 15079
+  type: vmess
+  cipher: auto
+  uuid: 66e12acd-4f93-4e35-e229-5f93e2f379e1
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-38.22.93.20-097
+  server: 38.22.93.20
+  port: 55165
+  type: vmess
+  cipher: auto
+  uuid: 8108a7dc-6162-4366-d492-23dcd3553e38
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: NL-92.112.126.90-098
+  server: switcher-nick-croquet.freesocks.work
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 9tqhMdIrTkgQ46PvhyAtMH
+- name: US-38.135.24.131-099
+  server: tinkered-pennies-puppies.freesocks.work
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: hbGrpfvNrJsUmKmPbR3iY2
 - name: HK-103.181.164.145-100
   server: 103.181.164.145
   port: 51556
@@ -877,7 +855,22 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-101
+- name: HK-202.85.76.170-101
+  server: chengbai02.ascwt179.com
+  type: ss
+  cipher: aes-128-gcm
+  password: JVrsLLN1tkN8oXZO
+- name: NL-92.112.126.90-102
+  server: switcher-nick-croquet.freesocks.work
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: wwzVn2ZnHfqYa6l8EWh3eY
+- name: NL-92.112.126.90-103
+  server: switcher-nick-croquet.freesocks.work
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: RFK38Cg7APneSB5cWDcpbm
+- name: DE-82.198.246.250-104
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -887,37 +880,33 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-38.22.93.20-102
-  server: 38.22.93.20
-  port: 15079
+- name: DE-82.198.246.9-105
+  server: 82.198.246.9
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 66e12acd-4f93-4e35-e229-5f93e2f379e1
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-38.22.93.20-103
-  server: 38.22.93.20
-  port: 55165
+- name: DE-82.198.246.250-106
+  server: 82.198.246.250
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 8108a7dc-6162-4366-d492-23dcd3553e38
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: NL-92.112.126.90-104
-  server: switcher-nick-croquet.freesocks.work
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 9tqhMdIrTkgQ46PvhyAtMH
-- name: US-38.135.24.131-105
-  server: tinkered-pennies-puppies.freesocks.work
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: hbGrpfvNrJsUmKmPbR3iY2
-- name: HK-103.181.164.145-106
+- name: JP-140.238.43.40-107
+  server: jp2-8sb.6121999.dpdns.org
+  port: 24534
+  type: trojan
+  password: e136d465-0558-43b9-b50c-b1f45d4cb2c2
+  sni: jp2-8sb.6121999.dpdns.org
+- name: HK-103.181.164.145-108
   server: 103.181.164.145
   port: 51556
   type: vmess
@@ -927,28 +916,133 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-202.85.76.170-107
-  server: chengbai02.ascwt179.com
+- name: HK-43.198.72.195-109
+  server: 45e755.shlswe.xyz
+  port: 28308
   type: ss
   cipher: aes-128-gcm
-  password: JVrsLLN1tkN8oXZO
-- name: NL-92.112.126.90-108
+  password: f97cf7d99d
+- name: NL-92.112.126.90-110
   server: switcher-nick-croquet.freesocks.work
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: wwzVn2ZnHfqYa6l8EWh3eY
-- name: NL-92.112.126.90-109
-  server: switcher-nick-croquet.freesocks.work
+  port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
   password: RFK38Cg7APneSB5cWDcpbm
-- name: DE-80.253.249.66-110
-  server: 80.253.249.66
+- name: HK-103.181.164.145-111
+  server: 103.181.164.145
+  port: 54022
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-103.181.164.145-112
+  server: 103.181.164.145
+  port: 51556
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: NL-92.112.126.90-113
+  server: switcher-nick-croquet.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: wwzVn2ZnHfqYa6l8EWh3eY
+- name: US-38.135.24.131-114
+  server: tinkered-pennies-puppies.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: hbGrpfvNrJsUmKmPbR3iY2
+- name: NL-92.112.126.90-115
+  server: switcher-nick-croquet.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: RFK38Cg7APneSB5cWDcpbm
+- name: HK-103.181.164.145-116
+  server: 103.181.164.145
+  port: 54022
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: RELAY-104.20.5.134-117
+  server: 104.20.5.134
   port: 443
   type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: HK-103.181.164.145-111
+  password: mSzFVhUczD
+  sni: abest.api-tel.xyz
+- name: NL-92.112.126.90-118
+  server: switcher-nick-croquet.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 9tqhMdIrTkgQ46PvhyAtMH
+- name: HK-38.22.93.20-119
+  server: 38.22.93.20
+  port: 55165
+  type: vmess
+  cipher: auto
+  uuid: 8108a7dc-6162-4366-d492-23dcd3553e38
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: RELAY-167.68.4.199-120
+  server: 167.68.4.199
+  port: 2053
+  type: trojan
+  password: Aimer
+  sni: epge.muarua.filegear-sg.me
+- name: RELAY-167.68.4.199-121
+  server: 167.68.4.199
+  port: 2053
+  type: trojan
+  password: Aimer
+  sni: epge.muarua.filegear-sg.me
+- name: US-38.135.24.131-122
+  server: tinkered-pennies-puppies.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: hbGrpfvNrJsUmKmPbR3iY2
+- name: HK-38.22.93.20-123
+  server: 38.22.93.20
+  port: 15079
+  type: vmess
+  cipher: auto
+  uuid: 66e12acd-4f93-4e35-e229-5f93e2f379e1
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: RELAY-167.68.4.199-124
+  server: 167.68.4.199
+  port: 2053
+  type: trojan
+  password: Aimer
+  sni: epge.muarua.filegear-sg.me
+- name: HK-188.253.126.251-125
+  server: efan.dnsefan04881.com
+  port: 7754
+  type: vmess
+  cipher: auto
+  uuid: 009e558d-3cf4-49d8-b5e4-82c9e14fe1a4
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-103.181.164.145-126
   server: 103.181.164.145
   port: 54022
   type: vmess
@@ -958,90 +1052,14 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-80.253.249.66-112
-  server: 80.253.249.66
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.87.163-113
-  server: 138.124.87.163
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.122.102.26-114
-  server: 220.122.102.26
-  port: 30017
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-89.169.9.177-115
-  server: 89.169.9.177
-  port: 2053
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-167.17.182.98-116
-  server: 167.17.182.98
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AT-77.110.116.7-117
-  server: 77.110.116.7
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-167.17.182.98-118
-  server: 167.17.182.98
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-80.244.13.157-119
-  server: 80.244.13.157
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-89.169.9.177-120
-  server: 89.169.9.177
-  port: 2053
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-59.4.161.71-121
-  server: 59.4.161.71
-  port: 28017
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-14.55.153.119-122
-  server: 14.55.153.119
-  port: 50001
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-84.200.192.87-123
-  server: 84.200.192.87
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: HK-188.253.126.251-124
-  server: vm51544542.dns8656815.com
-  port: 7754
-  type: vmess
-  cipher: auto
-  uuid: 7cd96dbe-ecec-4937-9e05-87ab70af2f30
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.233-125
-  server: 82.198.246.233
+- name: GB-82.38.31.61-127
+  server: 82.38.31.61
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: DE-82.198.246.97-128
+  server: 82.198.246.97
   port: 180
   type: vmess
   cipher: auto
@@ -1050,14 +1068,8 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: KR-61.79.126.130-126
-  server: 61.79.126.130
-  port: 32894
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-82.198.246.37-127
-  server: 82.198.246.37
+- name: DE-82.198.246.97-129
+  server: 82.198.246.97
   port: 180
   type: vmess
   cipher: auto
@@ -1066,22 +1078,6 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-128
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: KR-222.113.18.218-129
-  server: 222.113.18.218
-  port: 16010
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
 - name: DE-82.198.246.9-130
   server: 82.198.246.9
   port: 180
@@ -1092,251 +1088,29 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: KR-220.125.240.77-131
-  server: 220.125.240.77
-  port: 23424
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-115.21.30.245-132
-  server: 115.21.30.245
-  port: 22105
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-222.119.19.248-133
-  server: 222.119.19.248
-  port: 32770
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-152.53.119.132-134
-  server: 152.53.119.132
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.70.233-135
-  server: 64.188.70.233
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-222.121.232.215-136
-  server: 222.121.232.215
-  port: 22335
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.87.108.247-137
-  server: 220.87.108.247
-  port: 18000
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-59.3.62.210-138
-  server: 59.3.62.210
-  port: 10332
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: HK-103.181.164.145-139
-  server: 103.181.164.145
-  port: 54022
+- name: US-149.28.255.6-131
+  server: 149.28.255.6
+  port: 816
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: GyZ5Xo0ht41vYmW3H4
+- name: DE-82.198.246.37-132
+  server: 82.198.246.37
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: KR-221.167.19.89-140
-  server: 221.167.19.89
-  port: 34567
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-103.109.234.41-141
-  server: 103.109.234.41
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.85.254.226-142
-  server: 220.85.254.226
-  port: 38241
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.93.106.4-143
-  server: 220.93.106.4
-  port: 12345
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-121.162.61.37-144
-  server: 121.162.61.37
-  port: 20031
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.118.193-145
-  server: 64.188.118.193
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-185.170.153.115-146
-  server: 185.170.153.115
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-222.113.157.240-147
-  server: 222.113.157.240
-  port: 20000
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-148.253.208.19-148
-  server: 148.253.208.19
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AT-152.53.138.238-149
-  server: 152.53.138.238
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.125.207.242-150
-  server: 220.125.207.242
-  port: 25565
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: NL-92.112.126.90-151
-  server: switcher-nick-croquet.freesocks.work
+- name: GB-51.104.19.242-133
+  server: series-a2.samanehha.co
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 9tqhMdIrTkgQ46PvhyAtMH
-- name: CZ-194.87.77.2-152
-  server: 194.87.77.2
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.98.216-153
-  server: 144.31.98.216
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-138.124.240.36-154
-  server: 138.124.240.36
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.125.207.242-155
-  server: 220.125.207.242
-  port: 25565
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.87.185.18-156
-  server: 220.87.185.18
-  port: 25448
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-183.106.76.116-157
-  server: 183.106.76.116
-  port: 30005
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: TR-185.39.204.196-158
-  server: 185.39.204.196
-  port: 7918
-  type: ss
-  cipher: aes-256-gcm
-  password: HGlzsKUqaTiC0PSLHn6jT83OZvGiLnpI
-- name: DE-144.31.191.159-159
-  server: 144.31.191.159
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-14.55.153.119-160
-  server: 14.55.153.119
-  port: 50001
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.87.185.18-161
-  server: 220.87.185.18
-  port: 25448
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-211.195.227.57-162
-  server: 211.195.227.57
-  port: 15891
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-159.195.44.151-163
-  server: 159.195.44.151
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.87.152.138-164
-  server: 220.87.152.138
-  port: 30005
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-218.147.66.126-165
-  server: 218.147.66.126
-  port: 33338
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-121.132.124.22-166
-  server: 121.132.124.22
-  port: 15000
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.98.216-167
-  server: 144.31.98.216
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-138.124.230.45-168
-  server: 138.124.230.45
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-59.16.213.86-169
-  server: 59.16.213.86
-  port: 12300
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-121.132.124.22-170
-  server: 121.132.124.22
-  port: 15000
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-82.198.246.97-171
+  password: W74XFALLLuw6m5IA
+- name: DE-82.198.246.97-134
   server: 82.198.246.97
   port: 180
   type: vmess
@@ -1344,1255 +1118,34 @@ proxies:
   uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
-  tls: false
-- name: SE-138.124.49.137-172
-  server: 138.124.49.137
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.95.25.188-173
-  server: 220.95.25.188
-  port: 10250
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-14.53.107.138-174
-  server: 14.53.107.138
-  port: 29999
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.87.108.247-175
-  server: 220.87.108.247
-  port: 18000
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-221.168.213.173-176
-  server: 221.168.213.173
-  port: 32677
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.141.123.243-177
-  server: 94.141.123.243
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: SE-138.124.34.36-178
-  server: 138.124.34.36
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-112.170.127.240-179
-  server: 112.170.127.240
-  port: 38241
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-222.113.18.218-180
-  server: 222.113.18.218
-  port: 16010
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-221.168.213.173-181
-  server: 221.168.213.173
-  port: 32677
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-138.124.230.45-182
-  server: 138.124.230.45
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-59.4.161.71-183
-  server: 59.4.161.71
-  port: 28017
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-115.22.166.208-184
-  server: 115.22.166.208
-  port: 11434
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: SE-138.124.34.36-185
-  server: 138.124.34.36
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-222.106.130.37-186
-  server: 222.106.130.37
-  port: 20332
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.125.240.77-187
-  server: 220.125.240.77
-  port: 23424
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: HK-103.181.164.145-188
-  server: 103.181.164.145
-  port: 54022
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  network: tcp
   ws-path: /
   tls: false
-- name: DE-84.200.192.87-189
-  server: 84.200.192.87
-  port: 2053
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-14.32.205.160-190
-  server: 14.32.205.160
-  port: 10035
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-118.47.197.17-191
-  server: 118.47.197.17
-  port: 10088
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-222.110.67.145-192
-  server: 222.110.67.145
-  port: 29090
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-59.4.161.71-193
-  server: 59.4.161.71
-  port: 28017
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.76.161.128-194
-  server: 220.76.161.128
-  port: 30303
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.87.185.18-195
-  server: 220.87.185.18
-  port: 25448
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: JP-37.202.200.27-196
-  server: 76c3.earthdraft.onezz.top
-  port: 20010
-  type: vmess
-  cipher: auto
-  uuid: 7d81d7ed-03f4-331a-ab0d-e9a7425f05e0
-  alterId: 0
-  network: ws
-  ws-path: /chat
-  tls: false
-- name: KR-121.128.161.235-197
-  server: 121.128.161.235
-  port: 10002
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-218.147.66.126-198
-  server: 218.147.66.126
-  port: 33338
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-183.101.103.179-199
-  server: 183.101.103.179
-  port: 10003
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.127.68.28-200
-  server: 220.127.68.28
-  port: 50001
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-14.32.205.160-201
-  server: 14.32.205.160
-  port: 10035
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-222.113.157.240-202
-  server: 222.113.157.240
-  port: 20000
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-59.27.228.160-203
-  server: 59.27.228.160
-  port: 34567
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-221.165.212.251-204
-  server: 221.165.212.251
-  port: 27016
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-183.101.103.179-205
-  server: 183.101.103.179
-  port: 10003
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.124.181.251-206
-  server: 220.124.181.251
-  port: 12300
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-185.219.84.221-207
-  server: 185.219.84.221
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-185.219.84.221-208
-  server: 185.219.84.221
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.105.7-209
-  server: 64.188.105.7
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-210.123.143.214-210
-  server: 210.123.143.214
-  port: 18789
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AE-104.128.139.68-211
-  server: 104.128.139.68
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-93.123.84.194-212
-  server: 93.123.84.194
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-193.23.218.192-213
-  server: 193.23.218.192
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AT-152.53.227.239-214
-  server: 152.53.227.239
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.116.8-215
-  server: 144.31.116.8
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-103.109.234.64-216
-  server: 103.109.234.64
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.70.233-217
-  server: 64.188.70.233
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.70.233-218
-  server: 64.188.70.233
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-194.164.198.156-219
-  server: 194.164.198.156
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-148.253.208.19-220
-  server: 148.253.208.19
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IR-213.176.77.30-221
-  server: 213.176.77.30
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IR-213.176.77.30-222
-  server: 213.176.77.30
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-84.200.192.87-223
-  server: 84.200.192.87
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.28.173-224
-  server: 138.124.28.173
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.118.170-225
-  server: 144.31.118.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IR-213.176.78.192-226
-  server: 213.176.78.192
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-2.27.35.199-227
-  server: 2.27.35.199
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-185.170.153.115-228
-  server: 185.170.153.115
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-144.31.51.34-229
-  server: 144.31.51.34
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-202.61.226.121-230
-  server: 202.61.226.121
-  port: 2053
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-202.61.226.121-231
-  server: 202.61.226.121
-  port: 2053
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-144.31.51.34-232
-  server: 144.31.51.34
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.32.78-233
-  server: 138.124.32.78
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-185.170.153.115-234
-  server: 185.170.153.115
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.28.78-235
-  server: 138.124.28.78
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: NL-92.112.126.90-236
-  server: switcher-nick-croquet.freesocks.work
-  port: 443
+- name: GB-82.38.31.208-135
+  server: 82.38.31.208
+  port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: RFK38Cg7APneSB5cWDcpbm
-- name: CH-138.124.32.78-237
-  server: 138.124.32.78
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CZ-95.85.234.43-238
-  server: 95.85.234.43
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IR-213.176.77.231-239
-  server: 213.176.77.231
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-152.53.119.132-240
-  server: 152.53.119.132
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: NL-92.112.126.90-241
-  server: switcher-nick-croquet.freesocks.work
-  port: 443
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: GB-82.38.31.217-136
+  server: 82.38.31.217
+  port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: RFK38Cg7APneSB5cWDcpbm
-- name: DE-94.125.101.103-242
-  server: 94.125.101.103
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-159.195.5.181-243
-  server: 159.195.5.181
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IQ-178.17.48.78-244
-  server: 178.17.48.78
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.218.10-245
-  server: 144.31.218.10
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CZ-194.87.77.2-246
-  server: 194.87.77.2
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IQ-178.17.48.170-247
-  server: 178.17.48.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-148.253.210.141-248
-  server: 148.253.210.141
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IR-213.176.78.192-249
-  server: 213.176.78.192
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-138.124.240.36-250
-  server: 138.124.240.36
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.191.159-251
-  server: 144.31.191.159
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: HK-188.253.126.251-252
-  server: efan.dnsefan04881.com
-  port: 7754
-  type: vmess
-  cipher: auto
-  uuid: 7cd96dbe-ecec-4937-9e05-87ab70af2f30
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-144.31.188.6-253
-  server: 144.31.188.6
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.141.123.243-254
-  server: 94.141.123.243
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.191.159-255
-  server: 144.31.191.159
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-64.188.115.82-256
-  server: 64.188.115.82
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.32.121-257
-  server: 138.124.32.121
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CZ-95.85.234.43-258
-  server: 95.85.234.43
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-138.124.230.45-259
-  server: 138.124.230.45
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-84.200.192.87-260
-  server: 84.200.192.87
-  port: 2053
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-31.58.85.103-261
-  server: 31.58.85.103
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-193.23.218.192-262
-  server: 193.23.218.192
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CZ-194.87.77.91-263
-  server: 194.87.77.91
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-138.124.230.45-264
-  server: 138.124.230.45
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-143.20.160.200-265
-  server: 143.20.160.200
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.122.42.198-266
-  server: 220.122.42.198
-  port: 18781
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.98.216-267
-  server: 144.31.98.216
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IQ-178.17.48.170-268
-  server: 178.17.48.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-64.188.115.82-269
-  server: 64.188.115.82
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IQ-178.17.48.170-270
-  server: 178.17.48.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.141.123.243-271
-  server: 94.141.123.243
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-138.124.240.36-272
-  server: 138.124.240.36
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-64.188.115.82-273
-  server: 64.188.115.82
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.32.121-274
-  server: 138.124.32.121
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-45.144.55.148-275
-  server: 45.144.55.148
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-152.53.118.28-276
-  server: 152.53.118.28
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-23.251.50.142-277
-  server: 23.251.50.142
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AT-152.53.227.239-278
-  server: 152.53.227.239
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.156.114.13-279
-  server: 94.156.114.13
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.156.114.13-280
-  server: 94.156.114.13
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-202.61.195.167-281
-  server: 202.61.195.167
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-89.169.9.177-282
-  server: 89.169.9.177
-  port: 2053
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.62.181-283
-  server: 144.31.62.181
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.125.101.103-284
-  server: 94.125.101.103
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-193.23.218.192-285
-  server: 193.23.218.192
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IR-62.60.153.10-286
-  server: 62.60.153.10
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-202.61.195.167-287
-  server: 202.61.195.167
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AE-104.128.139.68-288
-  server: 104.128.139.68
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-103.109.234.64-289
-  server: 103.109.234.64
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.85.254.226-290
-  server: 220.85.254.226
-  port: 20201
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-148.253.215.61-291
-  server: 148.253.215.61
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.87.152.138-292
-  server: 220.87.152.138
-  port: 14000
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-80.253.249.66-293
-  server: 80.253.249.66
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.70.233-294
-  server: 64.188.70.233
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.62.181-295
-  server: 144.31.62.181
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-80.253.249.66-296
-  server: 80.253.249.66
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.118.170-297
-  server: 144.31.118.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.105.7-298
-  server: 64.188.105.7
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.118.170-299
-  server: 144.31.118.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.138.127-300
-  server: 144.31.138.127
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.118.170-301
-  server: 144.31.118.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.70.233-302
-  server: 64.188.70.233
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-103.109.234.41-303
-  server: 103.109.234.41
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-159.195.79.8-304
-  server: 159.195.79.8
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.116.8-305
-  server: 144.31.116.8
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.105.7-306
-  server: 64.188.105.7
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AE-104.128.139.68-307
-  server: 104.128.139.68
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: TR-185.39.204.196-308
-  server: 185.39.204.196
-  port: 7918
-  type: ss
-  cipher: aes-256-gcm
-  password: HGlzsKUqaTiC0PSLHn6jT83OZvGiLnpI
-- name: DE-94.125.101.103-309
-  server: 94.125.101.103
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-103.109.234.64-310
-  server: 103.109.234.64
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: HK-103.181.164.145-311
-  server: 103.181.164.145
-  port: 51556
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: KR-220.95.85.46-312
-  server: 220.95.85.46
-  port: 24289
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: RELAY-167.68.4.199-313
-  server: 167.68.4.199
-  port: 2053
-  type: trojan
-  password: Aimer
-  sni: epge.muarua.filegear-sg.me
-- name: IR-213.176.77.30-314
-  server: 213.176.77.30
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: RELAY-167.68.4.199-315
-  server: 167.68.4.199
-  port: 2053
-  type: trojan
-  password: Aimer
-  sni: epge.muarua.filegear-sg.me
-- name: CH-138.124.28.173-316
-  server: 138.124.28.173
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.85.254.226-317
-  server: 220.85.254.226
-  port: 38241
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-159.195.5.181-318
-  server: 159.195.5.181
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CZ-194.87.77.2-319
-  server: 194.87.77.2
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-59.18.139.84-320
-  server: 59.18.139.84
-  port: 18086
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-64.188.118.193-321
-  server: 64.188.118.193
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.28.173-322
-  server: 138.124.28.173
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-2.27.35.199-323
-  server: 2.27.35.199
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-31.58.85.103-324
-  server: 31.58.85.103
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.216.160-325
-  server: 144.31.216.160
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.28.78-326
-  server: 138.124.28.78
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: SE-109.120.134.104-327
-  server: 109.120.134.104
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: RU-195.58.49.26-328
-  server: 195.58.49.26
-  port: 40210
-  type: ss
-  cipher: aes-256-gcm
-  password: 3150466568eda87b
-- name: IR-213.176.77.231-329
-  server: 213.176.77.231
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-143.20.175.77-330
-  server: 143.20.175.77
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.98.216-331
-  server: 144.31.98.216
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-158.101.190.78-332
-  server: 158.101.190.78
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CZ-194.87.77.2-333
-  server: 194.87.77.2
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-143.20.175.77-334
-  server: 143.20.175.77
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.188.6-335
-  server: 144.31.188.6
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-2.27.120.108-336
-  server: 2.27.120.108
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: IQ-178.17.48.78-337
-  server: 178.17.48.78
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: SE-77.110.96.220-338
-  server: 77.110.96.220
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-148.253.210.141-339
-  server: 148.253.210.141
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-152.53.118.28-340
-  server: 152.53.118.28
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AT-152.53.138.238-341
-  server: 152.53.138.238
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AT-152.53.228.86-342
-  server: 152.53.228.86
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-159.195.44.151-343
-  server: 159.195.44.151
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-77.239.127.77-344
-  server: 77.239.127.77
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: RU-195.58.49.26-345
-  server: 195.58.49.26
-  port: 40210
-  type: ss
-  cipher: aes-256-gcm
-  password: 3150466568eda87b
-- name: IQ-178.17.48.170-346
-  server: 178.17.48.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.98.216-347
-  server: 144.31.98.216
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: AT-77.110.116.7-348
-  server: 77.110.116.7
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-77.239.127.77-349
-  server: 77.239.127.77
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.141.123.243-350
-  server: 94.141.123.243
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CZ-194.87.77.91-351
-  server: 194.87.77.91
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.218.10-352
-  server: 144.31.218.10
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-2.27.120.108-353
-  server: 2.27.120.108
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-150.241.66.81-354
-  server: 150.241.66.81
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.216.160-355
-  server: 144.31.216.160
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: SE-92.246.137.150-356
-  server: 92.246.137.150
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-144.31.118.170-357
-  server: 144.31.118.170
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-143.20.160.200-358
-  server: 143.20.160.200
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.156.114.13-359
-  server: 94.156.114.13
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-188.245.161.141-360
-  server: 188.245.161.141
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: US-38.135.24.131-361
-  server: tinkered-pennies-puppies.freesocks.work
-  port: 443
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: GB-82.38.31.210-137
+  server: 82.38.31.210
+  port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: hbGrpfvNrJsUmKmPbR3iY2
-- name: US-38.135.24.131-362
-  server: tinkered-pennies-puppies.freesocks.work
-  port: 443
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: GB-82.38.31.62-138
+  server: 82.38.31.62
+  port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: hbGrpfvNrJsUmKmPbR3iY2
-- name: RELAY-167.68.4.199-363
-  server: 167.68.4.199
-  port: 2053
-  type: trojan
-  password: Aimer
-  sni: epge.muarua.filegear-sg.me
-- name: DE-93.123.84.194-364
-  server: 93.123.84.194
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: RELAY-167.68.4.199-365
-  server: 167.68.4.199
-  port: 2053
-  type: trojan
-  password: Aimer
-  sni: epge.muarua.filegear-sg.me
-- name: DE-93.123.84.194-366
-  server: 93.123.84.194
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.122.42.198-367
-  server: 220.122.42.198
-  port: 10995
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: KR-220.93.106.4-368
-  server: 220.93.106.4
-  port: 11001
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-94.125.101.103-369
-  server: 94.125.101.103
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: DE-103.109.234.64-370
-  server: 103.109.234.64
-  port: 443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: CH-138.124.87.163-371
-  server: 138.124.87.163
-  port: 8443
-  type: trojan
-  password: '1234567890'
-  sni: kfm-bn0.pages.dev
-- name: HK-188.253.126.251-372
-  server: efan.dnsefan04881.com
-  port: 7754
-  type: vmess
-  cipher: auto
-  uuid: 009e558d-3cf4-49d8-b5e4-82c9e14fe1a4
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.145-373
-  server: 103.181.164.145
-  port: 54022
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.145-374
-  server: 103.181.164.145
-  port: 54022
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.233-375
-  server: 82.198.246.233
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: DE-82.198.246.97-139
+  server: 82.198.246.97
   port: 180
   type: vmess
   cipher: auto
@@ -2601,33 +1154,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.37-376
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: GB-20.90.87.141-377
-  server: admin.c1.havij.co
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 1kVr0KATIJI7mwOF
-- name: DE-82.198.246.37-378
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.214-379
+- name: DE-82.198.246.214-140
   server: 82.198.246.214
   port: 180
   type: vmess
@@ -2637,7 +1164,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.9-380
+- name: DE-82.198.246.9-141
   server: 82.198.246.9
   port: 180
   type: vmess
@@ -2647,34 +1174,20 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-381
-  server: 103.181.164.145
-  port: 51556
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.9-382
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: TW-111.248.87.102-383
-  server: r3mrcg007147vhp.cybervena.com
-  port: 50099
+- name: GB-51.104.19.242-142
+  server: series-a1.samanehha.co
+  port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-- name: DE-82.198.246.214-384
-  server: 82.198.246.214
+  password: W74XFALLLuw6m5IA
+- name: GB-82.38.31.122-143
+  server: 82.38.31.122
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: DE-82.198.246.97-144
+  server: 82.198.246.97
   port: 180
   type: vmess
   cipher: auto
@@ -2683,23 +1196,13 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-385
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: NOWHERE-0.0.0.0-386
+- name: NOWHERE-0.0.0.0-145
   server: mofacpdd.til69.com
   port: 41921
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 5d68d91f-ccc5-4c00-b1f6-0d764937f4f6
-- name: US-216.24.57.250-387
+- name: US-216.24.57.250-146
   server: 216.24.57.250
   port: 443
   type: trojan
@@ -2711,7 +1214,7 @@ proxy-groups:
   proxies:
   - CA-144.217.164.29-000
   - NOWHERE-0.0.0.0-001
-  - RELAY-172.67.197.47-002
+  - RELAY-104.21.76.158-002
   - CA-45.154.204.7-003
   - US-146.19.49.251-004
   - CA-15.235.41.200-005
@@ -2729,373 +1232,132 @@ proxy-groups:
   - US-198.23.174.168-017
   - CA-79.127.233.170-018
   - US-23.170.40.235-019
-  - RELAY-170.114.45.6-020
+  - RELAY-170.114.46.6-020
   - US-209.126.84.189-021
-  - RELAY-104.21.76.158-022
+  - RELAY-172.67.197.47-022
   - RELAY-104.18.16.77-023
   - US-107.175.87.207-024
   - US-67.21.83.58-025
   - US-67.21.85.228-026
   - US-91.149.239.165-027
-  - HK-103.181.164.145-028
-  - DE-82.198.246.97-029
-  - DE-82.198.246.233-030
-  - DE-82.198.246.97-031
-  - DE-82.198.246.214-032
+  - GB-82.38.31.214-028
+  - GB-82.38.31.101-029
+  - MD-94.131.108.36-030
+  - DE-82.198.246.214-031
+  - DE-82.198.246.37-032
   - DE-82.198.246.9-033
-  - DE-82.198.246.37-034
-  - FR-162.19.192.89-035
-  - FR-162.19.192.89-036
-  - TW-111.248.87.102-037
-  - HK-103.181.164.145-038
-  - DE-82.198.246.97-039
-  - BG-78.159.131.12-040
-  - DE-82.198.246.233-041
-  - DE-82.198.246.37-042
-  - DE-82.198.246.97-043
-  - DE-82.198.246.37-044
-  - FR-162.19.192.89-045
-  - DE-82.198.246.97-046
-  - GB-20.90.87.141-047
-  - MY-85.211.242.47-048
-  - DE-63.180.254.10-049
-  - HK-58.153.27.197-050
-  - JP-13.193.224.0-051
-  - JP-52.194.227.165-052
-  - HK-95.40.22.29-053
-  - JP-18.183.180.142-054
-  - HK-18.162.50.11-055
-  - JP-3.112.1.63-056
-  - JP-160.16.106.99-057
-  - JP-160.16.132.38-058
-  - HK-16.163.157.130-059
-  - JP-3.113.6.138-060
-  - JP-3.112.237.226-061
-  - HK-95.40.22.55-062
-  - DE-82.198.246.250-063
-  - JP-140.238.43.40-064
-  - HK-103.181.164.145-065
-  - DE-82.198.246.233-066
-  - HK-103.181.164.145-067
-  - DE-82.198.246.97-068
-  - DE-82.198.246.97-069
-  - HK-103.181.164.145-070
-  - DE-82.198.246.9-071
-  - DE-82.198.246.214-072
+  - DE-82.198.246.250-034
+  - HK-202.85.76.170-035
+  - GB-82.38.31.202-036
+  - GB-51.104.19.242-037
+  - EC-38.76.141.9-038
+  - DE-82.198.246.233-039
+  - GB-82.38.31.208-040
+  - DE-82.198.246.37-041
+  - DE-63.180.254.10-042
+  - HK-58.153.70.238-043
+  - HK-18.163.114.87-044
+  - HK-18.167.37.186-045
+  - HK-18.167.37.186-046
+  - JP-18.183.75.181-047
+  - JP-13.230.197.150-048
+  - JP-3.112.1.63-049
+  - JP-160.16.106.99-050
+  - JP-160.16.132.38-051
+  - HK-43.199.202.143-052
+  - JP-18.182.15.66-053
+  - JP-3.112.224.75-054
+  - HK-43.199.202.143-055
+  - DE-82.198.246.250-056
+  - DE-82.198.246.233-057
+  - JP-140.238.43.40-058
+  - HK-103.181.164.145-059
+  - DE-82.198.246.233-060
+  - HK-103.181.164.145-061
+  - DE-82.198.246.97-062
+  - DE-82.198.246.97-063
+  - HK-103.181.164.145-064
+  - DE-82.198.246.9-065
+  - DE-82.198.246.214-066
+  - DE-82.198.246.97-067
+  - HK-103.181.164.145-068
+  - DE-82.198.246.37-069
+  - DE-82.198.246.97-070
+  - DE-82.198.246.233-071
+  - DE-82.198.246.9-072
   - DE-82.198.246.97-073
-  - HK-103.181.164.145-074
-  - DE-82.198.246.37-075
-  - DE-82.198.246.97-076
-  - DE-82.198.246.233-077
-  - DE-82.198.246.9-078
-  - DE-82.198.246.97-079
-  - DE-82.198.246.97-080
-  - DE-82.198.246.97-081
+  - DE-82.198.246.97-074
+  - DE-82.198.246.97-075
+  - DE-82.198.246.233-076
+  - DE-82.198.246.9-077
+  - DE-82.198.246.214-078
+  - DE-82.198.246.233-079
+  - DE-82.198.246.214-080
+  - DE-82.198.246.9-081
   - DE-82.198.246.233-082
   - DE-82.198.246.9-083
   - DE-82.198.246.214-084
-  - DE-82.198.246.233-085
-  - DE-82.198.246.214-086
-  - DE-82.198.246.9-087
-  - DE-82.198.246.233-088
-  - DE-82.198.246.9-089
-  - DE-82.198.246.214-090
-  - DE-82.198.246.97-091
-  - DE-82.198.246.37-092
-  - DE-82.198.246.250-093
-  - DE-82.198.246.250-094
-  - RELAY-172.66.44.230-095
-  - DE-82.198.246.250-096
-  - HK-103.181.164.145-097
-  - HK-103.181.164.145-098
-  - HK-103.181.164.145-099
+  - DE-82.198.246.97-085
+  - DE-82.198.246.37-086
+  - DE-82.198.246.250-087
+  - DE-82.198.246.250-088
+  - RELAY-172.66.44.230-089
+  - DE-82.198.246.250-090
+  - HK-103.181.164.145-091
+  - HK-103.181.164.145-092
+  - HK-103.181.164.145-093
+  - HK-103.181.164.145-094
+  - DE-82.198.246.250-095
+  - HK-38.22.93.20-096
+  - HK-38.22.93.20-097
+  - NL-92.112.126.90-098
+  - US-38.135.24.131-099
   - HK-103.181.164.145-100
-  - DE-82.198.246.250-101
-  - HK-38.22.93.20-102
-  - HK-38.22.93.20-103
-  - NL-92.112.126.90-104
-  - US-38.135.24.131-105
-  - HK-103.181.164.145-106
-  - HK-202.85.76.170-107
-  - NL-92.112.126.90-108
-  - NL-92.112.126.90-109
-  - DE-80.253.249.66-110
+  - HK-202.85.76.170-101
+  - NL-92.112.126.90-102
+  - NL-92.112.126.90-103
+  - DE-82.198.246.250-104
+  - DE-82.198.246.9-105
+  - DE-82.198.246.250-106
+  - JP-140.238.43.40-107
+  - HK-103.181.164.145-108
+  - HK-43.198.72.195-109
+  - NL-92.112.126.90-110
   - HK-103.181.164.145-111
-  - DE-80.253.249.66-112
-  - CH-138.124.87.163-113
-  - KR-220.122.102.26-114
-  - DE-89.169.9.177-115
-  - DE-167.17.182.98-116
-  - AT-77.110.116.7-117
-  - DE-167.17.182.98-118
-  - DE-80.244.13.157-119
-  - DE-89.169.9.177-120
-  - KR-59.4.161.71-121
-  - KR-14.55.153.119-122
-  - DE-84.200.192.87-123
-  - HK-188.253.126.251-124
-  - DE-82.198.246.233-125
-  - KR-61.79.126.130-126
-  - DE-82.198.246.37-127
-  - DE-82.198.246.250-128
-  - KR-222.113.18.218-129
+  - HK-103.181.164.145-112
+  - NL-92.112.126.90-113
+  - US-38.135.24.131-114
+  - NL-92.112.126.90-115
+  - HK-103.181.164.145-116
+  - RELAY-104.20.5.134-117
+  - NL-92.112.126.90-118
+  - HK-38.22.93.20-119
+  - RELAY-167.68.4.199-120
+  - RELAY-167.68.4.199-121
+  - US-38.135.24.131-122
+  - HK-38.22.93.20-123
+  - RELAY-167.68.4.199-124
+  - HK-188.253.126.251-125
+  - HK-103.181.164.145-126
+  - GB-82.38.31.61-127
+  - DE-82.198.246.97-128
+  - DE-82.198.246.97-129
   - DE-82.198.246.9-130
-  - KR-220.125.240.77-131
-  - KR-115.21.30.245-132
-  - KR-222.119.19.248-133
-  - DE-152.53.119.132-134
-  - DE-64.188.70.233-135
-  - KR-222.121.232.215-136
-  - KR-220.87.108.247-137
-  - KR-59.3.62.210-138
-  - HK-103.181.164.145-139
-  - KR-221.167.19.89-140
-  - DE-103.109.234.41-141
-  - KR-220.85.254.226-142
-  - KR-220.93.106.4-143
-  - KR-121.162.61.37-144
-  - DE-64.188.118.193-145
-  - US-185.170.153.115-146
-  - KR-222.113.157.240-147
-  - DE-148.253.208.19-148
-  - AT-152.53.138.238-149
-  - KR-220.125.207.242-150
-  - NL-92.112.126.90-151
-  - CZ-194.87.77.2-152
-  - DE-144.31.98.216-153
-  - DE-138.124.240.36-154
-  - KR-220.125.207.242-155
-  - KR-220.87.185.18-156
-  - KR-183.106.76.116-157
-  - TR-185.39.204.196-158
-  - DE-144.31.191.159-159
-  - KR-14.55.153.119-160
-  - KR-220.87.185.18-161
-  - KR-211.195.227.57-162
-  - DE-159.195.44.151-163
-  - KR-220.87.152.138-164
-  - KR-218.147.66.126-165
-  - KR-121.132.124.22-166
-  - DE-144.31.98.216-167
-  - DE-138.124.230.45-168
-  - KR-59.16.213.86-169
-  - KR-121.132.124.22-170
-  - DE-82.198.246.97-171
-  - SE-138.124.49.137-172
-  - KR-220.95.25.188-173
-  - KR-14.53.107.138-174
-  - KR-220.87.108.247-175
-  - KR-221.168.213.173-176
-  - DE-94.141.123.243-177
-  - SE-138.124.34.36-178
-  - KR-112.170.127.240-179
-  - KR-222.113.18.218-180
-  - KR-221.168.213.173-181
-  - DE-138.124.230.45-182
-  - KR-59.4.161.71-183
-  - KR-115.22.166.208-184
-  - SE-138.124.34.36-185
-  - KR-222.106.130.37-186
-  - KR-220.125.240.77-187
-  - HK-103.181.164.145-188
-  - DE-84.200.192.87-189
-  - KR-14.32.205.160-190
-  - KR-118.47.197.17-191
-  - KR-222.110.67.145-192
-  - KR-59.4.161.71-193
-  - KR-220.76.161.128-194
-  - KR-220.87.185.18-195
-  - JP-37.202.200.27-196
-  - KR-121.128.161.235-197
-  - KR-218.147.66.126-198
-  - KR-183.101.103.179-199
-  - KR-220.127.68.28-200
-  - KR-14.32.205.160-201
-  - KR-222.113.157.240-202
-  - KR-59.27.228.160-203
-  - KR-221.165.212.251-204
-  - KR-183.101.103.179-205
-  - KR-220.124.181.251-206
-  - DE-185.219.84.221-207
-  - DE-185.219.84.221-208
-  - DE-64.188.105.7-209
-  - KR-210.123.143.214-210
-  - AE-104.128.139.68-211
-  - DE-93.123.84.194-212
-  - DE-193.23.218.192-213
-  - AT-152.53.227.239-214
-  - DE-144.31.116.8-215
-  - DE-103.109.234.64-216
-  - DE-64.188.70.233-217
-  - DE-64.188.70.233-218
-  - DE-194.164.198.156-219
-  - DE-148.253.208.19-220
-  - IR-213.176.77.30-221
-  - IR-213.176.77.30-222
-  - DE-84.200.192.87-223
-  - CH-138.124.28.173-224
-  - DE-144.31.118.170-225
-  - IR-213.176.78.192-226
-  - US-2.27.35.199-227
-  - US-185.170.153.115-228
-  - US-144.31.51.34-229
-  - DE-202.61.226.121-230
-  - DE-202.61.226.121-231
-  - US-144.31.51.34-232
-  - CH-138.124.32.78-233
-  - US-185.170.153.115-234
-  - CH-138.124.28.78-235
-  - NL-92.112.126.90-236
-  - CH-138.124.32.78-237
-  - CZ-95.85.234.43-238
-  - IR-213.176.77.231-239
-  - DE-152.53.119.132-240
-  - NL-92.112.126.90-241
-  - DE-94.125.101.103-242
-  - DE-159.195.5.181-243
-  - IQ-178.17.48.78-244
-  - DE-144.31.218.10-245
-  - CZ-194.87.77.2-246
-  - IQ-178.17.48.170-247
-  - DE-148.253.210.141-248
-  - IR-213.176.78.192-249
-  - DE-138.124.240.36-250
-  - DE-144.31.191.159-251
-  - HK-188.253.126.251-252
-  - DE-144.31.188.6-253
-  - DE-94.141.123.243-254
-  - DE-144.31.191.159-255
-  - US-64.188.115.82-256
-  - CH-138.124.32.121-257
-  - CZ-95.85.234.43-258
-  - DE-138.124.230.45-259
-  - DE-84.200.192.87-260
-  - DE-31.58.85.103-261
-  - DE-193.23.218.192-262
-  - CZ-194.87.77.91-263
-  - DE-138.124.230.45-264
-  - DE-143.20.160.200-265
-  - KR-220.122.42.198-266
-  - DE-144.31.98.216-267
-  - IQ-178.17.48.170-268
-  - US-64.188.115.82-269
-  - IQ-178.17.48.170-270
-  - DE-94.141.123.243-271
-  - DE-138.124.240.36-272
-  - US-64.188.115.82-273
-  - CH-138.124.32.121-274
-  - DE-45.144.55.148-275
-  - DE-152.53.118.28-276
-  - DE-23.251.50.142-277
-  - AT-152.53.227.239-278
-  - DE-94.156.114.13-279
-  - DE-94.156.114.13-280
-  - DE-202.61.195.167-281
-  - DE-89.169.9.177-282
-  - DE-144.31.62.181-283
-  - DE-94.125.101.103-284
-  - DE-193.23.218.192-285
-  - IR-62.60.153.10-286
-  - DE-202.61.195.167-287
-  - AE-104.128.139.68-288
-  - DE-103.109.234.64-289
-  - KR-220.85.254.226-290
-  - DE-148.253.215.61-291
-  - KR-220.87.152.138-292
-  - DE-80.253.249.66-293
-  - DE-64.188.70.233-294
-  - DE-144.31.62.181-295
-  - DE-80.253.249.66-296
-  - DE-144.31.118.170-297
-  - DE-64.188.105.7-298
-  - DE-144.31.118.170-299
-  - DE-144.31.138.127-300
-  - DE-144.31.118.170-301
-  - DE-64.188.70.233-302
-  - DE-103.109.234.41-303
-  - DE-159.195.79.8-304
-  - DE-144.31.116.8-305
-  - DE-64.188.105.7-306
-  - AE-104.128.139.68-307
-  - TR-185.39.204.196-308
-  - DE-94.125.101.103-309
-  - DE-103.109.234.64-310
-  - HK-103.181.164.145-311
-  - KR-220.95.85.46-312
-  - RELAY-167.68.4.199-313
-  - IR-213.176.77.30-314
-  - RELAY-167.68.4.199-315
-  - CH-138.124.28.173-316
-  - KR-220.85.254.226-317
-  - DE-159.195.5.181-318
-  - CZ-194.87.77.2-319
-  - KR-59.18.139.84-320
-  - DE-64.188.118.193-321
-  - CH-138.124.28.173-322
-  - US-2.27.35.199-323
-  - DE-31.58.85.103-324
-  - DE-144.31.216.160-325
-  - CH-138.124.28.78-326
-  - SE-109.120.134.104-327
-  - RU-195.58.49.26-328
-  - IR-213.176.77.231-329
-  - DE-143.20.175.77-330
-  - DE-144.31.98.216-331
-  - DE-158.101.190.78-332
-  - CZ-194.87.77.2-333
-  - DE-143.20.175.77-334
-  - DE-144.31.188.6-335
-  - DE-2.27.120.108-336
-  - IQ-178.17.48.78-337
-  - SE-77.110.96.220-338
-  - DE-148.253.210.141-339
-  - DE-152.53.118.28-340
-  - AT-152.53.138.238-341
-  - AT-152.53.228.86-342
-  - DE-159.195.44.151-343
-  - DE-77.239.127.77-344
-  - RU-195.58.49.26-345
-  - IQ-178.17.48.170-346
-  - DE-144.31.98.216-347
-  - AT-77.110.116.7-348
-  - DE-77.239.127.77-349
-  - DE-94.141.123.243-350
-  - CZ-194.87.77.91-351
-  - DE-144.31.218.10-352
-  - DE-2.27.120.108-353
-  - US-150.241.66.81-354
-  - DE-144.31.216.160-355
-  - SE-92.246.137.150-356
-  - DE-144.31.118.170-357
-  - DE-143.20.160.200-358
-  - DE-94.156.114.13-359
-  - DE-188.245.161.141-360
-  - US-38.135.24.131-361
-  - US-38.135.24.131-362
-  - RELAY-167.68.4.199-363
-  - DE-93.123.84.194-364
-  - RELAY-167.68.4.199-365
-  - DE-93.123.84.194-366
-  - KR-220.122.42.198-367
-  - KR-220.93.106.4-368
-  - DE-94.125.101.103-369
-  - DE-103.109.234.64-370
-  - CH-138.124.87.163-371
-  - HK-188.253.126.251-372
-  - HK-103.181.164.145-373
-  - HK-103.181.164.145-374
-  - DE-82.198.246.233-375
-  - DE-82.198.246.37-376
-  - GB-20.90.87.141-377
-  - DE-82.198.246.37-378
-  - DE-82.198.246.214-379
-  - DE-82.198.246.9-380
-  - HK-103.181.164.145-381
-  - DE-82.198.246.9-382
-  - TW-111.248.87.102-383
-  - DE-82.198.246.214-384
-  - DE-82.198.246.214-385
-  - NOWHERE-0.0.0.0-386
-  - US-216.24.57.250-387
+  - US-149.28.255.6-131
+  - DE-82.198.246.37-132
+  - GB-51.104.19.242-133
+  - DE-82.198.246.97-134
+  - GB-82.38.31.208-135
+  - GB-82.38.31.217-136
+  - GB-82.38.31.210-137
+  - GB-82.38.31.62-138
+  - DE-82.198.246.97-139
+  - DE-82.198.246.214-140
+  - DE-82.198.246.9-141
+  - GB-51.104.19.242-142
+  - GB-82.38.31.122-143
+  - DE-82.198.246.97-144
+  - NOWHERE-0.0.0.0-145
+  - US-216.24.57.250-146
 rules:
 - MATCH,Proxy
