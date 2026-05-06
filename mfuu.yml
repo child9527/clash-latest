@@ -14,7 +14,7 @@ proxies:
   alterId: 0
   network: ws
   tls: false
-- name: RELAY-172.67.197.47-02
+- name: RELAY-104.21.76.158-02
   server: t1.620720.xyz
   port: 8443
   type: vmess
@@ -171,7 +171,7 @@ proxies:
   network: ws
   ws-path: /vmessws
   tls: false
-- name: RELAY-104.21.76.158-22
+- name: RELAY-172.67.197.47-22
   server: sy4.620720.xyz
   port: 443
   type: vmess
@@ -181,7 +181,7 @@ proxies:
   network: ws
   ws-path: /
   tls: true
-- name: RELAY-104.18.17.77-23
+- name: RELAY-104.18.16.77-23
   server: hgtrojan.zabc.net
   port: 2083
   type: vmess
@@ -227,180 +227,65 @@ proxies:
   network: ws
   ws-path: /api/v1/graphql
   tls: true
-- name: GB-82.38.31.190-28
-  server: 82.38.31.190
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: DE-82.198.246.37-29
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.250-30
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: GB-40.120.39.171-31
-  server: admin.c1.havij.co
+- name: GB-51.11.158.132-28
+  server: 51.11.158.132
   port: 443
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 1kVr0KATIJI7mwOF
-- name: HK-103.181.164.145-32
+  password: W74XFALLLuw6m5IA
+- name: GB-51.11.158.132-29
+  server: admin.c1.webramz.co
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: W74XFALLLuw6m5IA
+- name: BG-78.159.131.12-30
+  server: 78.159.131.12
+  port: 28259
+  type: trojan
+  password: MeaDiUmPlkWbZJ2BON8tz
+  sni: ads.x5.ru
+- name: DE-82.198.246.97-31
+  server: 82.198.246.97
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: RELAY-104.18.42.54-32
+  server: cf.scpnb.top
+  port: 443
+  type: vmess
+  cipher: auto
+  uuid: bee9e6f4-5731-43dc-a826-0c14e0c7111b
+  alterId: 0
+  network: ws
+  ws-path: /bee9e6f4-5731-43dc-a826-0c14e0c7111b-vm
+  tls: true
+- name: DE-82.198.246.97-33
+  server: 82.198.246.97
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-103.181.164.145-34
   server: 103.181.164.145
   port: 54022
   type: vmess
   cipher: auto
   uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  network: tcp
-  ws-path: /
-  tls: false
-- name: GB-82.38.31.191-33
-  server: 82.38.31.191
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: US-149.28.255.6-34
-  server: 149.28.255.6
-  port: 816
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: GyZ5Xo0ht41vYmW3H4
-- name: DE-82.198.246.250-35
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.37-36
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: GB-40.120.39.171-37
-  server: series-a1.samanehha.co
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: W74XFALLLuw6m5IA
-- name: DE-63.180.254.10-38
-  server: 63.180.254.10
-  port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-- name: HK-119.236.15.112-39
-  server: v10.hdacd.com
-  port: 30807
-  type: vmess
-  cipher: auto
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  network: tcp
-  ws-path: /
-  tls: false
-- name: JP-54.250.182.223-40
-  server: 54.250.182.223
-  port: 2008
-  type: trojan
-  password: ba62c023f9bce796ae334fecb20ef7cc
-  sni: www.nintendogames.net
-- name: HK-43.199.41.19-41
-  server: 43.199.41.19
-  port: 5383
-  type: trojan
-  password: BxceQaOe
-- name: HK-43.199.41.19-42
-  server: 43.199.41.19
-  port: 5383
-  type: trojan
-  password: BxceQaOe
-- name: JP-116.80.80.121-43
-  server: 116.80.80.121
-  port: 443
-  type: trojan
-  password: BxceQaOe
-- name: JP-52.194.186.225-44
-  server: 52.194.186.225
-  port: 11541
-  type: trojan
-  password: ba62c023f9bce796ae334fecb20ef7cc
-  sni: www.nintendogames.net
-- name: JP-52.194.186.225-45
-  server: 52.194.186.225
-  port: 11541
-  type: trojan
-  password: ba62c023f9bce796ae334fecb20ef7cc
-  sni: www.nintendogames.net
-- name: HK-54.46.53.46-46
-  server: 54.46.53.46
-  port: 49559
-  type: trojan
-  password: ba62c023f9bce796ae334fecb20ef7cc
-  sni: www.nintendogames.net
-- name: HK-54.46.53.46-47
-  server: 54.46.53.46
-  port: 49559
-  type: trojan
-  password: ba62c023f9bce796ae334fecb20ef7cc
-  sni: www.nintendogames.net
-- name: HK-43.199.41.19-48
-  server: 43.199.41.19
-  port: 4203
-  type: trojan
-  password: BxceQaOe
-- name: JP-54.250.182.223-49
-  server: 54.250.182.223
-  port: 4019
-  type: trojan
-  password: ba62c023f9bce796ae334fecb20ef7cc
-  sni: www.nintendogames.net
-- name: JP-54.250.182.223-50
-  server: 54.250.182.223
-  port: 4019
-  type: trojan
-  password: ba62c023f9bce796ae334fecb20ef7cc
-  sni: www.nintendogames.net
-- name: HK-43.199.67.7-51
-  server: 43.199.67.7
-  port: 23255
-  type: trojan
-  password: BxceQaOe
-- name: DE-82.198.246.250-52
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.233-53
+- name: DE-82.198.246.233-35
   server: 82.198.246.233
   port: 180
   type: vmess
@@ -410,17 +295,13 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-188.253.126.251-54
-  server: efan.dnsefan04881.com
-  port: 7754
-  type: vmess
-  cipher: auto
-  uuid: 009e558d-3cf4-49d8-b5e4-82c9e14fe1a4
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.9-55
+- name: FR-35.180.106.124-36
+  server: 35.180.106.124
+  port: 22222
+  type: trojan
+  password: telegram-id-privatevpns
+  sni: trojan.burgerip.co.uk
+- name: DE-82.198.246.9-37
   server: 82.198.246.9
   port: 180
   type: vmess
@@ -430,19 +311,96 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: GB-82.38.31.190-56
-  server: 82.38.31.190
+- name: GB-82.38.31.191-38
+  server: 82.38.31.191
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: FR-35.181.209.187-57
-  server: 35.181.209.187
-  port: 22222
+- name: DE-63.180.254.10-39
+  server: 63.180.254.10
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
+- name: HK-218.250.1.4-40
+  server: v10.hdacd.com
+  port: 30807
+  type: vmess
+  cipher: auto
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-18.163.28.173-41
+  server: 18.163.28.173
+  port: 53018
   type: trojan
-  password: telegram-id-privatevpns
-  sni: trojan.burgerip.co.uk
-- name: DE-82.198.246.250-58
+  password: ba62c023f9bce796ae334fecb20ef7cc
+  sni: www.nintendogames.net
+- name: JP-13.231.158.129-42
+  server: 13.231.158.129
+  port: 63131
+  type: trojan
+  password: BxceQaOe
+- name: JP-13.231.158.129-43
+  server: 13.231.158.129
+  port: 63131
+  type: trojan
+  password: BxceQaOe
+- name: HK-43.199.202.188-44
+  server: bb.bejkn.cn
+  port: 6463
+  type: trojan
+  password: BxceQaOe
+- name: HK-16.163.148.1-45
+  server: 16.163.148.1
+  port: 11541
+  type: trojan
+  password: ba62c023f9bce796ae334fecb20ef7cc
+  sni: www.nintendogames.net
+- name: HK-16.163.148.1-46
+  server: 16.163.148.1
+  port: 8066
+  type: trojan
+  password: ba62c023f9bce796ae334fecb20ef7cc
+  sni: www.nintendogames.net
+- name: HK-16.163.148.1-47
+  server: 16.163.148.1
+  port: 4840
+  type: trojan
+  password: ba62c023f9bce796ae334fecb20ef7cc
+  sni: www.nintendogames.net
+- name: JP-13.231.182.84-48
+  server: 13.231.182.84
+  port: 2511
+  type: trojan
+  password: ba62c023f9bce796ae334fecb20ef7cc
+  sni: www.nintendogames.net
+- name: JP-13.231.251.168-49
+  server: 13.231.251.168
+  port: 2074
+  type: trojan
+  password: BxceQaOe
+- name: JP-13.158.137.151-50
+  server: 13.158.137.151
+  port: 52249
+  type: trojan
+  password: ba62c023f9bce796ae334fecb20ef7cc
+  sni: www.nintendogames.net
+- name: HK-16.163.148.1-51
+  server: 16.163.148.1
+  port: 4019
+  type: trojan
+  password: ba62c023f9bce796ae334fecb20ef7cc
+  sni: www.nintendogames.net
+- name: JP-54.64.8.213-52
+  server: 54.64.8.213
+  port: 38692
+  type: trojan
+  password: BxceQaOe
+- name: DE-82.198.246.250-53
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -452,33 +410,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: FR-52.47.165.159-59
-  server: 52.47.165.159
-  port: 22222
-  type: trojan
-  password: telegram-id-privatevpns
-  sni: trojan.burgerip.co.uk
-- name: DE-82.198.246.37-60
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.214-61
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.233-62
+- name: DE-82.198.246.233-54
   server: 82.198.246.233
   port: 180
   type: vmess
@@ -488,7 +420,87 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-63
+- name: HK-188.253.126.251-55
+  server: efan.dnsefan04881.com
+  port: 7754
+  type: vmess
+  cipher: auto
+  uuid: 009e558d-3cf4-49d8-b5e4-82c9e14fe1a4
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-56
+  server: 82.198.246.37
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: GB-51.11.158.132-57
+  server: series-a1.samanehha.co
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: W74XFALLLuw6m5IA
+- name: GB-51.11.158.132-58
+  server: admin.c1.havij.co
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 1kVr0KATIJI7mwOF
+- name: DE-82.198.246.233-59
+  server: 82.198.246.233
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: US-149.28.255.6-60
+  server: 149.28.255.6
+  port: 816
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: GyZ5Xo0ht41vYmW3H4
+- name: FR-35.180.106.124-61
+  server: 35.180.106.124
+  port: 22222
+  type: trojan
+  password: telegram-id-privatevpns
+  sni: trojan.burgerip.co.uk
+- name: GB-40.120.39.171-62
+  server: 40.120.39.171
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: W74XFALLLuw6m5IA
+- name: DE-82.198.246.233-63
+  server: 82.198.246.233
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-64
+  server: 82.198.246.37
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.250-65
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -498,23 +510,23 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-64
-  server: 103.181.164.145
-  port: 51556
+- name: DE-82.198.246.250-66
+  server: 82.198.246.250
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: NOWHERE-0.0.0.0-65
+- name: NOWHERE-0.0.0.0-67
   server: mofacpdd.til69.com
   port: 41921
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 5d68d91f-ccc5-4c00-b1f6-0d764937f4f6
-- name: US-216.24.57.250-66
+- name: US-216.24.57.250-68
   server: 216.24.57.250
   port: 443
   type: trojan
@@ -526,7 +538,7 @@ proxy-groups:
   proxies:
   - CA-144.217.164.29-00
   - NOWHERE-0.0.0.0-01
-  - RELAY-172.67.197.47-02
+  - RELAY-104.21.76.158-02
   - CA-45.154.204.7-03
   - US-146.19.49.251-04
   - CA-15.235.41.200-05
@@ -546,50 +558,52 @@ proxy-groups:
   - US-23.170.40.235-19
   - RELAY-170.114.46.6-20
   - US-209.126.84.189-21
-  - RELAY-104.21.76.158-22
-  - RELAY-104.18.17.77-23
+  - RELAY-172.67.197.47-22
+  - RELAY-104.18.16.77-23
   - US-107.175.87.207-24
   - US-67.21.83.58-25
   - US-67.21.85.228-26
   - US-91.149.239.165-27
-  - GB-82.38.31.190-28
-  - DE-82.198.246.37-29
-  - DE-82.198.246.250-30
-  - GB-40.120.39.171-31
-  - HK-103.181.164.145-32
-  - GB-82.38.31.191-33
-  - US-149.28.255.6-34
-  - DE-82.198.246.250-35
-  - DE-82.198.246.37-36
-  - GB-40.120.39.171-37
-  - DE-63.180.254.10-38
-  - HK-119.236.15.112-39
-  - JP-54.250.182.223-40
-  - HK-43.199.41.19-41
-  - HK-43.199.41.19-42
-  - JP-116.80.80.121-43
-  - JP-52.194.186.225-44
-  - JP-52.194.186.225-45
-  - HK-54.46.53.46-46
-  - HK-54.46.53.46-47
-  - HK-43.199.41.19-48
-  - JP-54.250.182.223-49
-  - JP-54.250.182.223-50
-  - HK-43.199.67.7-51
-  - DE-82.198.246.250-52
-  - DE-82.198.246.233-53
-  - HK-188.253.126.251-54
-  - DE-82.198.246.9-55
-  - GB-82.38.31.190-56
-  - FR-35.181.209.187-57
-  - DE-82.198.246.250-58
-  - FR-52.47.165.159-59
-  - DE-82.198.246.37-60
-  - DE-82.198.246.214-61
-  - DE-82.198.246.233-62
-  - DE-82.198.246.250-63
-  - HK-103.181.164.145-64
-  - NOWHERE-0.0.0.0-65
-  - US-216.24.57.250-66
+  - GB-51.11.158.132-28
+  - GB-51.11.158.132-29
+  - BG-78.159.131.12-30
+  - DE-82.198.246.97-31
+  - RELAY-104.18.42.54-32
+  - DE-82.198.246.97-33
+  - HK-103.181.164.145-34
+  - DE-82.198.246.233-35
+  - FR-35.180.106.124-36
+  - DE-82.198.246.9-37
+  - GB-82.38.31.191-38
+  - DE-63.180.254.10-39
+  - HK-218.250.1.4-40
+  - HK-18.163.28.173-41
+  - JP-13.231.158.129-42
+  - JP-13.231.158.129-43
+  - HK-43.199.202.188-44
+  - HK-16.163.148.1-45
+  - HK-16.163.148.1-46
+  - HK-16.163.148.1-47
+  - JP-13.231.182.84-48
+  - JP-13.231.251.168-49
+  - JP-13.158.137.151-50
+  - HK-16.163.148.1-51
+  - JP-54.64.8.213-52
+  - DE-82.198.246.250-53
+  - DE-82.198.246.233-54
+  - HK-188.253.126.251-55
+  - DE-82.198.246.37-56
+  - GB-51.11.158.132-57
+  - GB-51.11.158.132-58
+  - DE-82.198.246.233-59
+  - US-149.28.255.6-60
+  - FR-35.180.106.124-61
+  - GB-40.120.39.171-62
+  - DE-82.198.246.233-63
+  - DE-82.198.246.37-64
+  - DE-82.198.246.250-65
+  - DE-82.198.246.250-66
+  - NOWHERE-0.0.0.0-67
+  - US-216.24.57.250-68
 rules:
 - MATCH,Proxy
