@@ -4802,19 +4802,33 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
-- cipher: aes-256-cfb
+- cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 08
+  password: 7b56aeaa-8e2d-4bdf-b1d7-233ecca15f56
+  port: 50099
+  server: namrcg001640lrm.cybervena.com
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 09
   password: f8f7aCzcPKbsF8p3
   port: 989
   server: 134.209.147.198
   type: ss
 - cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 09
+  name: 🇨🇦 加拿大 10
   password: k1dBOmOB4oqi7Ump37a1bQ
   port: '8080'
   server: 82.38.31.186
   type: ss
   udp: true
+- name: 🇨🇦 加拿大 11
+  password: fa850c23-457a-4819-9604-c5c315198a20
+  port: 50000
+  server: jp200m.jiasu.asia
+  sni: jp200m.jiasu.asia
+  tls: true
+  type: trojan
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -5325,6 +5339,8 @@ proxy-groups:
   - 🇸🇬 新加坡 63
   - 🇨🇦 加拿大 08
   - 🇨🇦 加拿大 09
+  - 🇨🇦 加拿大 10
+  - 🇨🇦 加拿大 11
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
