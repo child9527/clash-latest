@@ -5413,8 +5413,16 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: G!yBwPWH3Vao
+- name: 🇨🇦 加拿大 08
+  password: abb011d5-2749-4fba-9a66-0eb7b1b14d1e
+  port: 37043
+  server: lt-sin.ltdns.top
+  skip-cert-verify: true
+  sni: www.ithome.com
+  tls: true
+  type: trojan
 - cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 08
+  name: 🇨🇦 加拿大 09
   password: oZIoA69Q8yhcQV8ka3Pa3A
   port: '8080'
   server: 82.38.31.155
@@ -5430,6 +5438,32 @@ proxies:
   tls: true
   type: trojan
   udp: true
+- name: 🇯🇵 日本 15
+  network: ws
+  password: '162534'
+  port: 443
+  server: 31.57.172.187
+  skip-cert-verify: true
+  sni: cchh2.pages.dev
+  tls: true
+  type: trojan
+  ws-opts:
+    headers:
+      Host: cchh2.pages.dev
+    path: /?ed=2560&https://t.me/WangCai2🇨🇳
+- name: 🇨🇦 加拿大 10
+  network: ws
+  password: '162534'
+  port: 443
+  server: 138.124.111.115
+  skip-cert-verify: true
+  sni: cchh2.pages.dev
+  tls: true
+  type: trojan
+  ws-opts:
+    headers:
+      Host: cchh2.pages.dev
+    path: /?ed=2560&https://t.me/WangCai2🇨🇳
 - name: 🇸🇬 新加坡 52
   network: ws
   password: '162534'
@@ -5443,11 +5477,11 @@ proxies:
     headers:
       Host: cchh2.pages.dev
     path: /?ed=2560&https://t.me/WangCai2🇨🇳
-- name: 🇨🇦 加拿大 09
+- name: 🇸🇬 新加坡 53
   network: ws
   password: '162534'
   port: 443
-  server: 138.124.111.115
+  server: 101.32.244.117
   skip-cert-verify: true
   sni: cchh2.pages.dev
   tls: true
@@ -5456,33 +5490,30 @@ proxies:
     headers:
       Host: cchh2.pages.dev
     path: /?ed=2560&https://t.me/WangCai2🇨🇳
-- name: 🇯🇵 日本 15
-  network: ws
-  password: '162534'
-  port: 443
-  server: 198.13.37.176
+- alterId: 0
+  name: 🇭🇰 香港 24
+  password: BxceQaOe
+  port: 44386
+  server: 43.198.240.167
   skip-cert-verify: true
-  sni: cchh2.pages.dev
+  sni: t.me/ripaojiedian
   tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: cchh2.pages.dev
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-- name: 🇭🇰 香港 24
-  network: ws
-  password: '162534'
-  port: 443
-  server: 46.8.226.108
-  skip-cert-verify: false
-  sni: cchh2.pages.dev
   type: trojan
   udp: true
+- name: 🇯🇵 日本 16
+  network: ws
+  password: '162534'
+  port: 443
+  server: 138.2.31.37
+  skip-cert-verify: true
+  sni: cchh2.pages.dev
+  tls: true
+  type: trojan
   ws-opts:
     headers:
       Host: cchh2.pages.dev
-    path: /?ed=2560
-- name: 🇨🇦 加拿大 10
+    path: /?ed=2560&https://t.me/WangCai2🇨🇳
+- name: 🇨🇦 加拿大 11
   network: ws
   password: '162534'
   port: 8443
@@ -5495,27 +5526,6 @@ proxies:
     headers:
       Host: cchh2.pages.dev
     path: /?ed=2560&https://t.me/WangCai2🇨🇳
-- name: 🇯🇵 日本 16
-  network: ws
-  password: '162534'
-  port: 443
-  server: 31.57.172.187
-  skip-cert-verify: true
-  sni: cchh2.pages.dev
-  tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: cchh2.pages.dev
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 11
-  password: amazonskr05
-  port: 443
-  server: 51.20.135.154
-  skip-cert-verify: false
-  type: ss
-  udp: false
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -6069,12 +6079,13 @@ proxy-groups:
   - 🇸🇬 新加坡 50
   - 🇸🇬 新加坡 51
   - 🇨🇦 加拿大 08
-  - 🇭🇰 香港 23
-  - 🇸🇬 新加坡 52
   - 🇨🇦 加拿大 09
+  - 🇭🇰 香港 23
   - 🇯🇵 日本 15
-  - 🇭🇰 香港 24
   - 🇨🇦 加拿大 10
+  - 🇸🇬 新加坡 52
+  - 🇸🇬 新加坡 53
+  - 🇭🇰 香港 24
   - 🇯🇵 日本 16
   - 🇨🇦 加拿大 11
   url: http://www.gstatic.com/generate_204
