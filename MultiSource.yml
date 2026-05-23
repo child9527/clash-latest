@@ -14533,14 +14533,14 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 10
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  port: 38388
-  server: 103.186.155.150
+- name: 🇨🇦 加拿大 10
+  password: I0shjZ
+  port: 4433
+  server: xxxmg1.xiaoliebao.club
   skip-cert-verify: false
-  type: ss
-  udp: false
+  sni: xxxmg1.xiaoliebao.club
+  type: trojan
+  udp: true
 - cipher: aes-256-cfb
   name: 🇨🇦 加拿大 11
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
@@ -14549,38 +14549,19 @@ proxies:
   skip-cert-verify: false
   type: ss
   udp: false
-- cipher: none
-  name: 🇰🇷 韩国 14
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    host: woshinidie-et3.pages.dev
-    mode: websocket
-    mux: false
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-  port: 18081
-  server: 220.124.181.77
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 12
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.155.150
+  skip-cert-verify: false
   type: ss
-  udp: true
-- name: 🇨🇦 加拿大 12
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 91.211.114.208
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳 @WangCai2
+  udp: false
 - name: 🇩🇪 德国 943
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
-  server: 89.167.100.106
+  server: 185.239.142.215
   skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   tls: true
@@ -14589,27 +14570,11 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳 @WangCai2
-- alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: randomized
-  name: 🇺🇸 美国 101
-  network: ws
-  password: :U]2hAN7Y[Ka0Eb_
-  port: 8443
-  server: 104.17.148.22
-  sni: TEst-63W.PaGEs.deV
-  tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: test-63w.pages.dev
-    path: /tre6QQRE1ue6YL7k30/NzIuMTMuMTIyLjEzNw==?ed=2560
-- name: 🇨🇦 加拿大 13
+- name: 🇩🇪 德国 944
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
-  server: 84.19.3.83
+  server: 64.188.93.200
   skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   tls: true
@@ -15866,11 +15831,9 @@ proxy-groups:
   - 🏳️ 其他 116
   - 🇨🇦 加拿大 10
   - 🇨🇦 加拿大 11
-  - 🇰🇷 韩国 14
   - 🇨🇦 加拿大 12
   - 🇩🇪 德国 943
-  - 🇺🇸 美国 101
-  - 🇨🇦 加拿大 13
+  - 🇩🇪 德国 944
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
