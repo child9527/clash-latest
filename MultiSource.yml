@@ -14533,14 +14533,14 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: 🇨🇦 加拿大 10
-  password: I0shjZ
-  port: 4433
-  server: xxxmg1.xiaoliebao.club
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 10
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.155.150
   skip-cert-verify: false
-  sni: xxxmg1.xiaoliebao.club
-  type: trojan
-  udp: true
+  type: ss
+  udp: false
 - cipher: aes-256-cfb
   name: 🇨🇦 加拿大 11
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
@@ -14549,19 +14549,48 @@ proxies:
   skip-cert-verify: false
   type: ss
   udp: false
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 12
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  port: 38388
-  server: 103.186.155.150
-  skip-cert-verify: false
-  type: ss
-  udp: false
+- name: 🇺🇸 美国 101
+  network: ws
+  password: 8r<[9'l6hAO#8ZQi
+  port: 2096
+  server: 172.64.147.106
+  skip-cert-verify: true
+  sni: Koma-YT.PAGeS.Dev
+  type: trojan
+  ws-opts:
+    headers:
+      Host: Koma-YT.PAGeS.Dev
+    path: /tr
 - name: 🇩🇪 德国 943
   network: ws
   password: 8r<[9'l6hAO#8ZQi
+  port: 2053
+  server: 194.76.173.184
+  sni: Koma-YT.PAGeS.Dev
+  type: trojan
+  ws-opts:
+    headers:
+      Host: Koma-YT.PAGeS.Dev
+    path: /trTelegram🇨🇳+@WangCai2
+- cipher: none
+  name: 🇰🇷 韩国 14
+  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
+  plugin: v2ray-plugin
+  plugin-opts:
+    host: woshinidie-et3.pages.dev
+    mode: websocket
+    mux: false
+    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
+    tls: true
+  port: 18081
+  server: 220.124.181.77
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 12
+  network: ws
+  password: 8r<[9'l6hAO#8ZQi
   port: 443
-  server: 185.239.142.215
+  server: 91.211.114.208
   skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   tls: true
@@ -14570,11 +14599,11 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳 @WangCai2
-- name: 🇩🇪 德国 944
+- name: 🇨🇦 加拿大 13
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
-  server: 64.188.93.200
+  server: 84.19.3.83
   skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   tls: true
@@ -15831,9 +15860,11 @@ proxy-groups:
   - 🏳️ 其他 116
   - 🇨🇦 加拿大 10
   - 🇨🇦 加拿大 11
-  - 🇨🇦 加拿大 12
+  - 🇺🇸 美国 101
   - 🇩🇪 德国 943
-  - 🇩🇪 德国 944
+  - 🇰🇷 韩国 14
+  - 🇨🇦 加拿大 12
+  - 🇨🇦 加拿大 13
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
