@@ -14213,59 +14213,41 @@ proxies:
   password: RexnBgU7EV5ADxG
 - cipher: aes-256-cfb
   name: 🇨🇦 加拿大 12
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  port: 38388
-  server: 103.186.154.59
+  password: qYEN5HX4JKeVCdEC
+  port: 9039
+  server: 195.238.126.84
   type: ss
+  udp: true
 - cipher: aes-256-cfb
   name: 🇨🇦 加拿大 13
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  port: 38388
-  server: 103.186.155.150
-  skip-cert-verify: false
-  type: ss
-  udp: false
-- name: 🇯🇵 日本 05
-  network: ws
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  port: 20770
-  server: 219.103.68.164
-  sni: vpn1.rnmcnm.com
-  tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: vpn1.rnmcnm.com
-    path: /trj-ws
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 14
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   port: 38388
   server: 103.186.155.115
   skip-cert-verify: false
   type: ss
   udp: false
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 14
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.155.150
+  skip-cert-verify: false
+  type: ss
+  udp: false
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 15
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  port: 38388
+  server: 103.186.154.59
+  type: ss
 - name: 🇸🇬 新加坡 14
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
-  server: 178.128.209.190
+  server: 139.59.239.116
   skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Linux; Android 6.0; vivo 1610 Build/MMB29M) AppleWebKit/537.36
-        (KHTML, like Gecko) Chrome/53.0.2785.124 Mobile Safari/537.36
-    path: /trTelegram🇨🇳 @WangCai2
-- name: 🇨🇦 加拿大 15
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 8443
-  server: 95.164.55.80
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
+  tls: true
   type: trojan
   ws-opts:
     headers:
@@ -14274,14 +14256,56 @@ proxies:
 - name: 🇩🇪 德国 905
   network: ws
   password: 8r<[9'l6hAO#8ZQi
-  port: 2053
-  server: 194.76.173.184
+  port: 443
+  server: 89.167.100.106
+  skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
+  tls: true
   type: trojan
   ws-opts:
     headers:
       Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳+@WangCai2
+    path: /trTelegram🇨🇳 @WangCai2
+- cipher: none
+  name: 🇰🇷 韩国 16
+  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
+  plugin: v2ray-plugin
+  plugin-opts:
+    host: woshinidie-et3.pages.dev
+    mode: websocket
+    mux: false
+    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
+    tls: true
+  port: 18081
+  server: 220.124.181.77
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 16
+  network: ws
+  password: 8r<[9'l6hAO#8ZQi
+  port: 8443
+  server: 95.85.245.152
+  skip-cert-verify: true
+  sni: Koma-YT.PAGeS.Dev
+  tls: true
+  type: trojan
+  ws-opts:
+    headers:
+      Host: Koma-YT.PAGeS.Dev
+    path: /trTelegram🇨🇳 @WangCai2
+- name: 🇺🇸 美国 106
+  network: ws
+  password: 8r<[9'l6hAO#8ZQi
+  port: 443
+  server: 193.23.201.26
+  skip-cert-verify: true
+  sni: Koma-YT.PAGeS.Dev
+  tls: true
+  type: trojan
+  ws-opts:
+    headers:
+      Host: Koma-YT.PAGeS.Dev
+    path: /trTelegram🇨🇳 @WangCai2
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -15502,11 +15526,13 @@ proxy-groups:
   - 🇨🇦 加拿大 11
   - 🇨🇦 加拿大 12
   - 🇨🇦 加拿大 13
-  - 🇯🇵 日本 05
   - 🇨🇦 加拿大 14
-  - 🇸🇬 新加坡 14
   - 🇨🇦 加拿大 15
+  - 🇸🇬 新加坡 14
   - 🇩🇪 德国 905
+  - 🇰🇷 韩国 16
+  - 🇨🇦 加拿大 16
+  - 🇺🇸 美国 106
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
