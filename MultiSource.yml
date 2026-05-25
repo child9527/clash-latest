@@ -14926,7 +14926,7 @@ proxies:
     host: 817aa69.default.nintendo.com:112719
     mode: tls
   port: 2377
-  server: 88.210.36.108
+  server: 88.210.36.109
   type: ss
   udp: true
 - cipher: chacha20-ietf-poly1305
@@ -14948,7 +14948,7 @@ proxies:
     host: 817aa69.default.nintendo.com:112719
     mode: tls
   port: 2377
-  server: 88.210.36.109
+  server: 88.210.36.108
   type: ss
   udp: true
 - cipher: aes-256-cfb
@@ -14959,63 +14959,45 @@ proxies:
   skip-cert-verify: false
   type: ss
   udp: false
-- name: 🇨🇦 加拿大 19
+- alterId: 0
+  cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 19
+  password: D1oFY5dskhFuI8PNbSA35s
+  port: 34898
+  server: 195.133.2.2
+  skip-cert-verify: true
+  tls: true
+  type: ss
+- name: 🇨🇦 加拿大 20
+  network: ws
+  password: 8r<[9'l6hAO#8ZQi
+  port: 8443
+  server: 95.85.245.152
+  skip-cert-verify: true
+  sni: Koma-YT.PAGeS.Dev
+  tls: true
+  type: trojan
+  ws-opts:
+    headers:
+      Host: Koma-YT.PAGeS.Dev
+    path: /trTelegram🇨🇳 @WangCai2
+- name: 🇨🇦 加拿大 21
+  network: ws
+  password: 8r<[9'l6hAO#8ZQi
+  port: 443
+  server: 194.59.5.253
+  skip-cert-verify: true
+  sni: Koma-YT.PAGeS.Dev
+  type: trojan
+  ws-opts:
+    headers:
+      Host: Koma-YT.PAGeS.Dev
+    path: /trTelegram🇨🇳 @WangCai2
+- name: 🇨🇦 加拿大 22
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
   server: 91.211.114.208
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳 @WangCai2
-- name: 🇸🇬 新加坡 07
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 139.59.239.116
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳 @WangCai2
-- name: 🇸🇬 新加坡 08
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 43.160.207.33
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳 @WangCai2
-- name: 🇨🇦 加拿大 20
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 185.207.198.253
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  tls: true
-  type: trojan
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳 @WangCai2
-- name: 🇺🇸 美国 139
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 193.23.201.26
   skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   tls: true
@@ -16288,10 +16270,9 @@ proxy-groups:
   - 🇺🇸 美国 138
   - 🇨🇦 加拿大 18
   - 🇨🇦 加拿大 19
-  - 🇸🇬 新加坡 07
-  - 🇸🇬 新加坡 08
   - 🇨🇦 加拿大 20
-  - 🇺🇸 美国 139
+  - 🇨🇦 加拿大 21
+  - 🇨🇦 加拿大 22
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
