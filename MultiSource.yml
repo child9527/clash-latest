@@ -14030,21 +14030,6 @@ proxies:
   alpn:
   - h3
   udp: true
-- name: 🇯🇵 日本 02
-  server: 103.127.243.54
-  port: 53229
-  type: vmess
-  uuid: 2f50f5ef-1a3a-4585-a3c9-3a860d37b134
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: http
-  http-opts:
-    method: GET
-    path:
-    - /ABCDE
-  udp: true
 - name: 🇺🇸 美国 90
   server: 13.218.172.80
   port: 443
@@ -15096,7 +15081,7 @@ proxies:
   type: ss
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-- name: 🇯🇵 日本 03
+- name: 🇯🇵 日本 02
   server: ddns.shcn2.paolu.icu
   port: 19096
   type: vmess
@@ -15110,7 +15095,7 @@ proxies:
     path: /
     headers:
       Host: ddns.shcn2.paolu.icu
-- name: 🇯🇵 日本 04
+- name: 🇯🇵 日本 03
   server: ddns.cscncu.paolu.icu
   port: 20038
   type: vmess
@@ -15152,48 +15137,15 @@ proxies:
     path: /
     headers:
       Host: 51jp1.fans8.xyz
-- cipher: aes-128-gcm
-  name: 🇭🇰 香港 11
-  password: a-wym4ovY4Yw
-  port: 81
-  server: 8.210.89.240
-  type: ss
-  udp: true
-- name: 🇨🇦 加拿大 13
-  password: 3016be06-2f91-4b8f-9e6a-bd55f2c55610
-  port: 36877
-  server: 6i2r01.a3b5wy.xyz
+- alterId: 0
+  name: 🇸🇬 新加坡 08
+  password: BxceQaOe
+  port: 443
+  server: 140.235.140.105
   skip-cert-verify: true
-  sni: br01.abpilot.xyz
+  sni: t.me%2Fripaojiedian
+  tls: true
   type: trojan
-  udp: true
-- name: 🇺🇸 美国 122
-  password: T8vhlS29hZ
-  port: 38483
-  server: 45.81.18.85
-  skip-cert-verify: true
-  type: trojan
-  udp: true
-- cipher: aes-256-gcm
-  name: 🇨🇦 加拿大 14
-  password: TEzjfAYq2IjtuoS
-  port: 6679
-  server: 23.162.200.149
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 15
-  password: d3c7f55f-e2af-4114-b0a3-058d219e2992
-  port: 27268
-  server: 120.199.94.29
-  type: ss
-  udp: true
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 16
-  password: qwerREWQ@@
-  port: 54345
-  server: p110.panda001.net
-  type: ss
   udp: true
 proxy-groups:
 - name: Proxy
@@ -16328,7 +16280,6 @@ proxy-groups:
   - 🏳️ 其他 24
   - 🏳️ 其他 25
   - 🇩🇪 德国 981
-  - 🇯🇵 日本 02
   - 🇺🇸 美国 90
   - 🇨🇦 加拿大 04
   - 🇺🇸 美国 91
@@ -16479,16 +16430,11 @@ proxy-groups:
   - 🇺🇸 美国 120
   - 🇫🇷 法国 02
   - 🏳️ 其他 100
+  - 🇯🇵 日本 02
   - 🇯🇵 日本 03
-  - 🇯🇵 日本 04
   - 🏳️ 其他 101
   - 🇺🇸 美国 121
-  - 🇭🇰 香港 11
-  - 🇨🇦 加拿大 13
-  - 🇺🇸 美国 122
-  - 🇨🇦 加拿大 14
-  - 🇨🇦 加拿大 15
-  - 🇨🇦 加拿大 16
+  - 🇸🇬 新加坡 08
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
