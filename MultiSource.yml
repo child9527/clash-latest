@@ -13891,13 +13891,6 @@ proxies:
   - h3
   udp: true
 - name: 🇺🇸 美国 87
-  server: 13.218.172.80
-  port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-  udp: true
-- name: 🇺🇸 美国 88
   server: 45.63.7.19
   port: 49632
   type: vmess
@@ -13909,42 +13902,48 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇺🇸 美国 89
+- name: 🇺🇸 美国 88
   server: 156.146.38.169
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇺🇸 美国 90
+- name: 🇺🇸 美国 89
   server: 37.19.198.236
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇺🇸 美国 91
+- name: 🇺🇸 美国 90
   server: 37.19.198.244
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇺🇸 美国 92
+- name: 🇺🇸 美国 91
   server: 100.27.193.207
   port: 443
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-- name: 🇺🇸 美国 93
+- name: 🇺🇸 美国 92
   server: 156.146.38.167
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇺🇸 美国 94
+- name: 🇺🇸 美国 93
   server: 156.146.38.170
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
+- name: 🇺🇸 美国 94
+  server: 13.218.172.80
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
 - name: 🏳️ 其他 26
   server: 82.38.31.218
   port: 8080
@@ -14944,6 +14943,28 @@ proxies:
   sni: yazhou10.dynu.net
   tls: true
   type: trojan
+- name: 🇸🇬 新加坡 05
+  password: d30ab83dbde4480082048fb315bedebd
+  port: 443
+  server: 5.180.78.22
+  skip-cert-verify: true
+  sni: 5.180.78.22
+  tls: true
+  type: trojan
+- cipher: aes-128-gcm
+  name: 🇨🇦 加拿大 15
+  password: d9c577328fb349fe
+  port: 43641
+  server: bff6ce3.xvvrkb.lol
+  type: ss
+  udp: true
+- cipher: aes-256-gcm
+  name: 🇺🇸 美国 120
+  password: faBAoD54k87UJG7
+  port: 2376
+  server: 38.121.43.51
+  type: ss
+  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -16210,6 +16231,9 @@ proxy-groups:
   - 🏳️ 其他 88
   - 🏳️ 其他 89
   - 🇹🇼 台湾 05
+  - 🇸🇬 新加坡 05
+  - 🇨🇦 加拿大 15
+  - 🇺🇸 美国 120
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
