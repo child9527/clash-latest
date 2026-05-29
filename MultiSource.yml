@@ -15854,20 +15854,35 @@ proxies:
   tls: true
   type: trojan
   udp: true
-- name: 🇰🇷 韩国 10
-  network: ws
-  password: 433e785b-2077-47f7-a43d-985f63dd18d1
-  port: '12000'
-  server: 218.152.227.25
-  skip-cert-verify: false
-  sni: vpn.rnmcnm.com
+- cipher: chacha20-ietf-poly1305
+  name: 🇷🇺 俄罗斯 05
+  password: LLVD6lbENjzG1vj15Fvq7r
+  port: 15174
+  server: 62.113.110.233
+  type: ss
+  udp: true
+- cipher: aes-256-gcm
+  name: 🇺🇸 美国 107
+  password: kDWvXYZoTBcGkC4
+  port: 8882
+  server: 38.86.135.141
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 108
+  password: 9Bvkw5aupNy8
+  port: 443
+  server: 205.134.180.147
+  type: ss
+  udp: true
+- name: 🇺🇸 美国 109
+  password: e9edd1db-e6f0-4c37-9be7-135335a81e6c
+  port: 30020
+  server: 128.199.13.40
+  skip-cert-verify: true
+  sni: us05.freeflyingcloud.xyz
   type: trojan
   udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36
-        (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
-    path: /trojan
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -17204,7 +17219,10 @@ proxy-groups:
   - 🇨🇦 加拿大 15
   - 🇩🇪 德国 1072
   - 🇹🇼 台湾 05
-  - 🇰🇷 韩国 10
+  - 🇷🇺 俄罗斯 05
+  - 🇺🇸 美国 107
+  - 🇺🇸 美国 108
+  - 🇺🇸 美国 109
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
