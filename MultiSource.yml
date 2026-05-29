@@ -16127,69 +16127,98 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- cipher: aes-256-cfb
+- cipher: chacha20-ietf-poly1305
   name: 🇩🇪 德国 1103
-  password: amazonskr05
+  password: 453u6Gcei04NyXbrWLKa0M
   port: '443'
-  server: 63.180.239.185
+  server: 5.230.184.16
   type: ss
   udp: true
-- alpn:
-  - http/1.1
-  name: 🇺🇸 美国 104
+- name: 🇰🇷 韩国 09
   network: ws
-  password: Mitivpn
-  port: 2053
-  server: 104.17.121.71
-  skip-cert-verify: true
-  sni: dash.hitgram.ir
+  password: 433e785b-2077-47f7-a43d-985f63dd18d1
+  port: 18000
+  server: 121.154.96.50
+  sni: vpn.rnmcnm.com
   tls: true
   type: trojan
   ws-opts:
     headers:
-      Host: dash.hitgram.ir
-    path: /?ed=2048
-- name: 🇹🇼 台湾 05
+      Host: vpn.rnmcnm.com
+    path: /trojan
+- alterId: 0
+  name: 🇹🇼 台湾 05
   password: gcuCpQfaiVeDBdWG
   port: 19128
   server: 211.76.176.98
+  skip-cert-verify: true
   sni: yazhou10.dynu.net
   tls: true
   type: trojan
-- cipher: aes-256-gcm
-  name: 🇺🇸 美国 105
-  password: cdBIDV42DCwnfIN
-  port: 8118
-  server: 38.86.135.117
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 15
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 46.183.184.62
   type: ss
   udp: true
-- name: 🇨🇦 加拿大 15
-  password: MyYoZhfX
-  port: 51000
-  server: 112.16.228.100
+- name: 🇨🇦 加拿大 16
+  password: telegram-id-directvpn
+  port: 22222
+  server: 13.49.197.205
+  skip-cert-verify: true
+  sni: trojan.burgerip.co.uk
+  type: trojan
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 17
+  password: qwerREWQ@@
+  port: 42185
+  server: p220.panda001.net
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 18
+  password: 54acbfdc-34ec-3d72-8182-3b437e4747eb
+  port: 520
+  server: taiwjing.kuli888.xyz
   skip-cert-verify: true
   type: trojan
   udp: true
 - cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 16
-  password: f8f7aCzcPKbsF8p3
-  port: 989
-  server: 23.92.127.134
+  name: 🇰🇷 韩国 10
+  password: qwerREWQ@@
+  port: 42978
+  server: 221.150.109.81
   type: ss
   udp: true
 - cipher: aes-256-gcm
-  name: 🇰🇷 韩国 09
-  password: qwerREWQ@@
-  port: 57743
-  server: 221.150.109.11
+  name: 🇺🇸 美国 104
+  password: g5MeD6Ft3CWlJId
+  port: 5003
+  server: 38.110.1.197
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 19
+  password: 861de7db-5ada-4b36-903c-0ad6ba25d75a
+  port: 33998
+  server: 4349ufu.54jvd5y6ojams-us02.my777999.top
   type: ss
   udp: true
 - cipher: rc4-md5
-  name: 🇨🇦 加拿大 17
+  name: 🇨🇦 加拿大 20
   password: dbEcUJ
   port: 24603
-  server: tw14.ktp.wtf
+  server: 211.99.97.20
   type: ss
+  udp: true
+- name: 🇨🇦 加拿大 21
+  password: cd7239af-77ad-4628-a871-00acfa219f02
+  port: 56366
+  server: ip0axv1bbsu02k7-my.1ytnode.com
+  skip-cert-verify: true
+  type: trojan
   udp: true
 proxy-groups:
 - name: Proxy
@@ -17548,13 +17577,17 @@ proxy-groups:
   - 🏳️ 其他 77
   - 🏳️ 其他 78
   - 🇩🇪 德国 1103
-  - 🇺🇸 美国 104
+  - 🇰🇷 韩国 09
   - 🇹🇼 台湾 05
-  - 🇺🇸 美国 105
   - 🇨🇦 加拿大 15
   - 🇨🇦 加拿大 16
-  - 🇰🇷 韩国 09
   - 🇨🇦 加拿大 17
+  - 🇨🇦 加拿大 18
+  - 🇰🇷 韩国 10
+  - 🇺🇸 美国 104
+  - 🇨🇦 加拿大 19
+  - 🇨🇦 加拿大 20
+  - 🇨🇦 加拿大 21
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
