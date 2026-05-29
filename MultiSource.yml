@@ -14130,19 +14130,6 @@ proxies:
   alpn:
   - h3
   udp: true
-- name: 🇰🇷 韩国 03
-  server: 121.191.33.84
-  port: 30303
-  type: trojan
-  password: 433e785b-2077-47f7-a43d-985f63dd18d1
-  sni: vpn.rnmcnm.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /trojan
-    headers:
-      Host: vpn.rnmcnm.com
-  udp: true
 - name: 🇺🇸 美国 68
   server: 156.146.38.167
   port: 443
@@ -14305,13 +14292,13 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇰🇷 韩国 04
+- name: 🇰🇷 韩国 03
   server: p141.panda001.net
   port: 4652
   type: ss
   cipher: aes-256-cfb
   password: qwerREWQ@@
-- name: 🇰🇷 韩国 05
+- name: 🇰🇷 韩国 04
   server: 218.237.185.230
   port: 4652
   type: ss
@@ -14408,7 +14395,7 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: cvII85TrW6n0OGyfpHVS1u
-- name: 🇰🇷 韩国 06
+- name: 🇰🇷 韩国 05
   server: 221.139.79.57
   port: 13979
   type: ss
@@ -14610,7 +14597,7 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: zDLmeWRsfcFdKT1Tpy02xodEToqCldTxvZcRoPIZZtBdnIEL
-- name: 🇰🇷 韩国 07
+- name: 🇰🇷 韩国 06
   server: 141.164.45.187
   port: 7001
   type: ss
@@ -14684,13 +14671,13 @@ proxies:
     path: /
     headers:
       Host: sg.wweblog.pw
-- name: 🇰🇷 韩国 08
+- name: 🇰🇷 韩国 07
   server: 141.164.45.187
   port: 6679
   type: ss
   cipher: aes-256-gcm
   password: TEzjfAYq2IjtuoS
-- name: 🇰🇷 韩国 09
+- name: 🇰🇷 韩国 08
   server: 211.178.105.134
   port: 6123
   type: ss
@@ -14840,7 +14827,7 @@ proxies:
     path: /
     headers:
       Host: ahdaeph8.com
-- name: 🇰🇷 韩国 10
+- name: 🇰🇷 韩国 09
   server: 132.145.80.230
   port: 80
   type: vmess
@@ -15282,6 +15269,55 @@ proxies:
   sni: yazhou10.dynu.net
   tls: true
   type: trojan
+  udp: true
+- name: 🇰🇷 韩国 10
+  network: ws
+  password: 433e785b-2077-47f7-a43d-985f63dd18d1
+  port: 30303
+  server: 121.191.33.84
+  skip-cert-verify: false
+  sni: vpn.rnmcnm.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: vpn.rnmcnm.com
+    path: /trojan
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 14
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 77.72.5.150
+  type: ss
+  udp: true
+- name: 🇺🇸 美国 103
+  password: 241f01b9-8dfc-474f-8342-3fbd5c46417e
+  port: 2087
+  server: 104.21.51.242
+  skip-cert-verify: true
+  sni: grpcfr.arminhadadi.site
+  type: trojan
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 15
+  password: CkMpBwWZ0Cr1RhVVNSXXMp
+  port: 64930
+  server: 5.44.42.60
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 16
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 193.182.144.240
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇩🇪 德国 1046
+  password: 5UyVcx4jYrcbFwmhPkhzim
+  port: 58603
+  server: 95.164.89.142
+  type: ss
   udp: true
 proxy-groups:
 - name: Proxy
@@ -16437,7 +16473,6 @@ proxy-groups:
   - 🇺🇸 美国 66
   - 🇺🇸 美国 67
   - 🇩🇪 德国 1039
-  - 🇰🇷 韩国 03
   - 🇺🇸 美国 68
   - 🇺🇸 美国 69
   - 🇺🇸 美国 70
@@ -16464,8 +16499,8 @@ proxy-groups:
   - 🏳️ 其他 28
   - 🇹🇼 台湾 02
   - 🇨🇦 加拿大 05
+  - 🇰🇷 韩国 03
   - 🇰🇷 韩国 04
-  - 🇰🇷 韩国 05
   - 🇳🇱 荷兰 08
   - 🏳️ 其他 29
   - 🇺🇸 美国 75
@@ -16477,7 +16512,7 @@ proxy-groups:
   - 🇳🇱 荷兰 10
   - 🏳️ 其他 33
   - 🇳🇱 荷兰 11
-  - 🇰🇷 韩国 06
+  - 🇰🇷 韩国 05
   - 🏳️ 其他 34
   - 🇭🇰 香港 08
   - 🇺🇸 美国 76
@@ -16503,15 +16538,15 @@ proxy-groups:
   - 🇺🇸 美国 83
   - 🇳🇱 荷兰 14
   - 🏳️ 其他 41
-  - 🇰🇷 韩国 07
+  - 🇰🇷 韩国 06
   - 🏳️ 其他 42
   - 🏳️ 其他 43
   - 🇺🇸 美国 84
   - 🏳️ 其他 44
   - 🏳️ 其他 45
   - 🏳️ 其他 46
+  - 🇰🇷 韩国 07
   - 🇰🇷 韩国 08
-  - 🇰🇷 韩国 09
   - 🇺🇸 美国 85
   - 🇨🇦 加拿大 09
   - 🇺🇸 美国 86
@@ -16532,7 +16567,7 @@ proxy-groups:
   - 🇹🇼 台湾 04
   - 🏳️ 其他 53
   - 🇫🇷 法国 02
-  - 🇰🇷 韩国 10
+  - 🇰🇷 韩国 09
   - 🇺🇸 美国 91
   - 🇺🇸 美国 92
   - 🏳️ 其他 54
@@ -16581,6 +16616,12 @@ proxy-groups:
   - 🏳️ 其他 78
   - 🇩🇪 德国 1045
   - 🇹🇼 台湾 06
+  - 🇰🇷 韩国 10
+  - 🇨🇦 加拿大 14
+  - 🇺🇸 美国 103
+  - 🇨🇦 加拿大 15
+  - 🇨🇦 加拿大 16
+  - 🇩🇪 德国 1046
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
