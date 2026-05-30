@@ -14,7 +14,7 @@ proxies:
   alterId: 0
   network: ws
   tls: false
-- name: RELAY-172.67.197.47-002
+- name: RELAY-104.21.76.158-002
   server: t1.620720.xyz
   port: 8443
   type: vmess
@@ -181,7 +181,7 @@ proxies:
   network: ws
   ws-path: /
   tls: true
-- name: RELAY-104.18.16.77-023
+- name: RELAY-104.18.17.77-023
   server: hgtrojan.zabc.net
   port: 2083
   type: vmess
@@ -227,63 +227,23 @@ proxies:
   network: ws
   ws-path: /api/v1/graphql
   tls: true
-- name: HK-103.181.164.55-028
-  server: dotu-krv1.kunlun03dns.com
-  port: 11145
+- name: US-149.104.109.74-028
+  server: 149.104.109.74
+  port: 21273
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: Ll6cYfXM5DzQbdtMMb72A_jqVnNljU3yqe
+- name: JP-109.61.109.204-029
+  server: 109.61.109.204
+  port: 30030
   type: vmess
   cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  uuid: 4f3cfda3-a255-40eb-8801-71f9fffb19d6
   alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.56-029
-  server: dotu-krv1.kunlun03dns.com
-  port: 11143
-  type: vmess
-  cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.55-030
-  server: dotu-usv1.kunlun03dns.com
-  port: 11127
-  type: vmess
-  cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.56-031
-  server: dotu-usv1.kunlun03dns.com
-  port: 11128
-  type: vmess
-  cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.55-032
-  server: dotu-jpv1.kunlun03dns.com
-  port: 11119
-  type: vmess
-  cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: RELAY-104.20.6.134-033
-  server: 104.20.6.134
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.calmloud.com
-- name: US-155.254.126.249-034
+  network: ws
+  ws-path: /speedtest
+  tls: true
+- name: US-155.254.126.249-030
   server: gtm-sg-cc54q7d1q01.365cloud0285.com
   port: 6001
   type: vmess
@@ -293,23 +253,29 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.56-035
-  server: dotu-sgv1.kunlun03dns.com
-  port: 11135
+- name: RELAY-104.21.95.187-031
+  server: 22b.net
+  port: 2087
+  type: trojan
+  password: trojan
+  sni: store.timimi.dpdns.org
+- name: JP-109.61.109.204-032
+  server: 109.61.109.204
+  port: 39953
   type: vmess
   cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  uuid: d0e97ee2-c6de-48f8-bd4a-8e63a9cd9e89
   alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-63.180.254.10-036
+  network: ws
+  ws-path: /speedtest
+  tls: true
+- name: DE-63.180.254.10-033
   server: 63.180.254.10
   port: 443
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-- name: HK-112.119.108.64-037
+- name: HK-119.237.146.159-034
   server: v10.hdacd.com
   port: 30807
   type: vmess
@@ -319,74 +285,74 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: JP-52.69.114.14-038
+- name: JP-52.69.114.14-035
   server: 52.69.114.14
   port: 2008
   type: trojan
   password: f6d3aa07a52dbcedcb4731029e2fb6ae
   sni: www.nintendogames.net
-- name: JP-54.168.196.137-039
+- name: JP-54.168.196.137-036
   server: 54.168.196.137
   port: 4327
   type: trojan
   password: BxceQaOe
-- name: HK-18.162.145.230-040
+- name: HK-18.162.145.230-037
   server: 18.162.145.230
   port: 11233
   type: trojan
   password: BxceQaOe
-- name: JP-13.231.225.85-041
+- name: JP-13.231.225.85-038
   server: 13.231.225.85
   port: 4099
   type: trojan
   password: BxceQaOe
-- name: HK-16.163.29.124-042
+- name: HK-16.163.29.124-039
   server: 16.163.29.124
   port: 8066
   type: trojan
   password: f6d3aa07a52dbcedcb4731029e2fb6ae
   sni: www.nintendogames.net
-- name: HK-16.163.29.124-043
+- name: HK-16.163.29.124-040
   server: 16.163.29.124
   port: 11541
   type: trojan
   password: f6d3aa07a52dbcedcb4731029e2fb6ae
   sni: www.nintendogames.net
-- name: HK-95.40.114.115-044
+- name: HK-95.40.114.115-041
   server: 95.40.114.115
   port: 4840
   type: trojan
   password: f6d3aa07a52dbcedcb4731029e2fb6ae
   sni: www.nintendogames.net
-- name: HK-16.163.29.124-045
+- name: HK-16.163.29.124-042
   server: 16.163.29.124
   port: 3842
   type: trojan
   password: f6d3aa07a52dbcedcb4731029e2fb6ae
   sni: www.nintendogames.net
-- name: JP-35.78.121.219-046
+- name: JP-35.78.121.219-043
   server: 35.78.121.219
   port: 39756
   type: trojan
   password: BxceQaOe
-- name: HK-95.40.114.115-047
+- name: HK-95.40.114.115-044
   server: 95.40.114.115
   port: 2663
   type: trojan
   password: f6d3aa07a52dbcedcb4731029e2fb6ae
   sni: www.nintendogames.net
-- name: JP-52.69.114.14-048
+- name: JP-52.69.114.14-045
   server: 52.69.114.14
   port: 2663
   type: trojan
   password: f6d3aa07a52dbcedcb4731029e2fb6ae
   sni: www.nintendogames.net
-- name: JP-43.206.155.159-049
+- name: JP-43.206.155.159-046
   server: 43.206.155.159
   port: 2702
   type: trojan
   password: BxceQaOe
-- name: DE-82.198.246.250-050
+- name: DE-82.198.246.250-047
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -396,7 +362,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.233-051
+- name: DE-82.198.246.233-048
   server: 82.198.246.233
   port: 180
   type: vmess
@@ -406,59 +372,89 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.56-052
-  server: dotu-krv1.kunlun03dns.com
-  port: 11143
+- name: MY-85.211.198.201-049
+  server: v36.hdacd.com
+  port: 30836
   type: vmess
   cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.250-050
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /usavm
+  tls: false
+- name: DE-82.198.246.214-051
+  server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.55-053
-  server: dotu-krv1.kunlun03dns.com
-  port: 11144
+- name: DE-82.198.246.214-052
+  server: 82.198.246.214
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.56-054
-  server: dotu-krv1.kunlun03dns.com
-  port: 11145
+- name: DE-82.198.246.214-053
+  server: 82.198.246.214
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.56-055
-  server: dotu-krv1.kunlun03dns.com
-  port: 11146
+- name: DE-82.198.246.214-054
+  server: 82.198.246.214
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.56-056
+- name: DE-82.198.246.214-055
+  server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.250-056
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-103.181.164.55-057
   server: dotu-sgv1.kunlun03dns.com
-  port: 11135
-  type: vmess
-  cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.56-057
-  server: dotu-sgv1.kunlun03dns.com
-  port: 11136
+  port: 11137
   type: vmess
   cipher: auto
   uuid: 6b989fce-172e-37a6-b324-3922008b17f9
@@ -468,7 +464,7 @@ proxies:
   tls: false
 - name: HK-103.181.164.55-058
   server: dotu-sgv1.kunlun03dns.com
-  port: 11137
+  port: 11136
   type: vmess
   cipher: auto
   uuid: 6b989fce-172e-37a6-b324-3922008b17f9
@@ -486,345 +482,27 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: KR-112.166.213.102-060
-  server: 112.166.213.102
-  port: 16993
-  type: trojan
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  sni: vpn1.rnmcnm.com
-- name: US-71.19.148.74-061
-  server: hackney-latest-strike.freesocks.work
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: XUMTygEM1jVYIvysXKqA5T
-- name: KR-59.21.203.65-062
-  server: 59.21.203.65
-  port: 10443
-  type: trojan
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  sni: vpn1.rnmcnm.com
-- name: KR-121.178.83.161-063
-  server: 121.178.83.161
-  port: 26214
-  type: trojan
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  sni: vpn1.rnmcnm.com
-- name: KR-121.180.171.43-064
-  server: 121.180.171.43
-  port: 11310
-  type: trojan
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  sni: vpn1.rnmcnm.com
-- name: TW-111.248.73.29-065
-  server: r3mrcg007117fb8.cybervena.com
-  port: 50099
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-- name: RELAY-104.21.40.34-066
-  server: 104.21.40.34
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.gossipglove.com
-- name: US-147.90.234.133-067
-  server: tinkered-pennies-puppies.freesocks.work
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: hbGrpfvNrJsUmKmPbR3iY2
-- name: DE-82.198.246.37-068
-  server: 82.198.246.37
-  port: 180
+- name: HK-103.181.164.56-060
+  server: dotu-sgv1.kunlun03dns.com
+  port: 11135
   type: vmess
   cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-069
-  server: 82.198.246.214
-  port: 180
+- name: CN-144.79.11.154-061
+  server: yd3.ainivp.com
+  port: 33402
   type: vmess
   cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.37-070
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.214-071
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  tls: false
-- name: US-71.19.148.74-072
-  server: hackney-latest-strike.freesocks.work
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: XUMTygEM1jVYIvysXKqA5T
-- name: DE-82.198.246.250-073
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.250-074
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  tls: false
-- name: DE-82.198.246.250-075
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  tls: false
-- name: DE-82.198.246.250-076
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.250-077
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  tls: false
-- name: DE-82.198.246.250-078
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  tls: false
-- name: DE-82.198.246.250-079
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  tls: false
-- name: DE-82.198.246.250-080
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.37-081
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: TW-211.76.176.98-082
-  server: 211.76.176.98
-  port: 19128
-  type: trojan
-  password: gcuCpQfaiVeDBdWG
-  sni: yazhou10.dynu.net
-- name: RELAY-104.21.40.34-083
-  server: 104.21.40.34
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.gossipglove.com
-- name: RELAY-104.18.1.55-084
-  server: www.gossipglove.com
-  port: 443
-  type: trojan
-  password: humanity
-- name: RELAY-172.66.44.211-085
-  server: v1.dabache.top
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.multiplydose.com
-- name: KR-121.180.171.43-086
-  server: 121.180.171.43
-  port: 11310
-  type: trojan
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  sni: vpn1.rnmcnm.com
-- name: KR-59.21.203.65-087
-  server: 59.21.203.65
-  port: 10443
-  type: trojan
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  sni: vpn1.rnmcnm.com
-- name: KR-112.166.213.102-088
-  server: 112.166.213.102
-  port: 16993
-  type: trojan
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  sni: vpn1.rnmcnm.com
-- name: KR-121.178.83.161-089
-  server: 121.178.83.161
-  port: 26214
-  type: trojan
-  password: GKHWMe2R4qwNcNxu6l3KMkdd
-  sni: vpn1.rnmcnm.com
-- name: US-45.63.7.19-090
-  server: 45.63.7.19
-  port: 49632
-  type: vmess
-  cipher: auto
-  uuid: 05f2bbe3-f29a-480f-ebfb-0deebb80741d
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
   alterId: 0
   network: ws
-  ws-path: /05f2bbe3-f29a-480f-ebfb-0deebb80741d
-  tls: false
-- name: US-155.254.126.249-091
-  server: gtm-sg-cc54q7d1q01.365cloud0285.com
-  port: 6004
-  type: vmess
-  cipher: auto
-  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: US-147.90.234.133-092
-  server: tinkered-pennies-puppies.freesocks.work
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: hbGrpfvNrJsUmKmPbR3iY2
-- name: MY-85.211.240.119-093
-  server: v4.hdacd.com
-  port: 30804
-  type: vmess
-  cipher: auto
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.145-094
-  server: 103.181.164.145
-  port: 51556
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- port: 24202
-  type: vmess
-  cipher: auto
-  uuid: b20a7042-70ff-4376-a79f-b68f9edb7519
-  alterId: 0
-  network: ws
-  ws-path: /github.com/Alvin9999-newpac/fanqiang
-  tls: false
-  name: Node
-- name: DE-82.198.246.250-096
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- port: 24202
-  type: vmess
-  cipher: auto
-  uuid: b20a7042-70ff-4376-a79f-b68f9edb7519
-  alterId: 0
-  network: ws
-  ws-path: /github.com/Alvin9999-newpac/fanqiang
-  tls: false
-  name: Node
-- name: DE-82.198.246.214-098
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  tls: false
-- name: MY-85.211.217.175-099
-  server: v24.hdacd.com
-  port: 30824
-  type: vmess
-  cipher: auto
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.37-100
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: MY-85.211.196.134-101
-  server: v35.hdacd.com
-  port: 30835
-  type: vmess
-  cipher: auto
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-112.119.108.64-102
+  ws-path: /ray
+  tls: true
+- name: HK-119.237.146.159-062
   server: v10.hdacd.com
   port: 30807
   type: vmess
@@ -834,17 +512,17 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: US-155.254.126.249-103
-  server: gtm-sg-cc54q7d1q01.365cloud0285.com
-  port: 6001
+- name: HK-103.181.164.145-063
+  server: 103.181.164.145
+  port: 51556
   type: vmess
   cipher: auto
-  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-104
+- name: HK-103.181.164.145-064
   server: 103.181.164.145
   port: 54022
   type: vmess
@@ -854,27 +532,87 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.37-105
-  server: 82.198.246.37
-  port: 180
+- name: CN-58.20.254.26-065
+  server: cu7.ainivp.com
+  port: 33414
   type: vmess
   cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  network: ws
+  ws-path: /ray
+  tls: true
+- name: HK-103.181.164.55-066
+  server: dotu-twv1.kunlun03dns.com
+  port: 11113
+  type: vmess
+  cipher: auto
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-106
-  server: 82.198.246.250
-  port: 180
+- name: HK-103.181.164.56-067
+  server: dotu-jpv1.kunlun03dns.com
+  port: 11121
   type: vmess
   cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: ID-70.153.148.135-107
+- name: HK-103.181.164.56-068
+  server: dotu-krv1.kunlun03dns.com
+  port: 11144
+  type: vmess
+  cipher: auto
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: CN-183.194.133.153-069
+  server: cu2.ainivp.com
+  port: 33203
+  type: vmess
+  cipher: auto
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  network: ws
+  ws-path: /ray
+  tls: true
+- name: DK-193.180.209.21-070
+  server: 193.180.209.21
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  sni: vpn5.rnmcnm.com
+- name: AM-2.56.204.246-071
+  server: 2.56.204.246
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  sni: vpn5.rnmcnm.com
+- name: AU-125.7.24.251-072
+  server: 125.7.24.251
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  sni: vpn5.rnmcnm.com
+- name: CH-103.63.30.230-073
+  server: 103.63.30.230
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  sni: vpn5.rnmcnm.com
+- name: BG-104.152.48.205-074
+  server: 104.152.48.205
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  sni: vpn5.rnmcnm.com
+- name: MY-85.211.198.201-075
   server: v36.hdacd.com
   port: 30836
   type: vmess
@@ -884,23 +622,41 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: TW-211.76.176.98-108
-  server: jpbgp.netvigor.cc
-  port: 19128
-  type: trojan
-  password: gcuCpQfaiVeDBdWG
-  sni: yazhou10.dynu.net
-- name: DE-82.198.246.250-109
-  server: 82.198.246.250
-  port: 180
+- name: ID-70.153.149.216-076
+  server: v4.hdacd.com
+  port: 30804
   type: vmess
   cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
   network: tcp
   ws-path: /
   tls: false
-- name: GOOGLE-34.143.138.208-110
+- name: US-147.90.234.133-077
+  server: tinkered-pennies-puppies.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: hbGrpfvNrJsUmKmPbR3iY2
+- port: 24202
+  type: vmess
+  cipher: auto
+  uuid: b20a7042-70ff-4376-a79f-b68f9edb7519
+  alterId: 0
+  network: ws
+  ws-path: /github.com/Alvin9999-newpac/fanqiang
+  tls: false
+  name: Node
+- port: 24202
+  type: vmess
+  cipher: auto
+  uuid: b20a7042-70ff-4376-a79f-b68f9edb7519
+  alterId: 0
+  network: ws
+  ws-path: /github.com/Alvin9999-newpac/fanqiang
+  tls: false
+  name: Node
+- name: US-103.182.97.10-080
   server: v29.hdacd.com
   port: 30829
   type: vmess
@@ -910,7 +666,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-111
+- name: DE-82.198.246.214-081
   server: 82.198.246.214
   port: 180
   type: vmess
@@ -918,10 +674,61 @@ proxies:
   uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
+  tls: false
+- name: US-155.254.126.249-082
+  server: gtm-sg-cc54q7d1q01.365cloud0285.com
+  port: 6001
+  type: vmess
+  cipher: auto
+  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
+  alterId: 0
+  network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.37-112
-  server: 82.198.246.37
+- name: HK-119.237.146.159-083
+  server: v10.hdacd.com
+  port: 30807
+  type: vmess
+  cipher: auto
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: TW-211.76.176.98-084
+  server: jpbgp.netvigor.cc
+  port: 19128
+  type: trojan
+  password: gcuCpQfaiVeDBdWG
+  sni: yazhou10.dynu.net
+- name: TW-211.76.176.98-085
+  server: 211.76.176.98
+  port: 19128
+  type: trojan
+  password: gcuCpQfaiVeDBdWG
+  sni: yazhou10.dynu.net
+- name: MY-85.211.198.201-086
+  server: v24.hdacd.com
+  port: 30824
+  type: vmess
+  cipher: auto
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: US-155.254.126.249-087
+  server: gtm-sg-cc54q7d1q01.365cloud0285.com
+  port: 6004
+  type: vmess
+  cipher: auto
+  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.250-088
+  server: 82.198.246.250
   port: 180
   type: vmess
   cipher: auto
@@ -930,37 +737,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.37-113
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.145-114
-  server: 103.181.164.145
-  port: 54022
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.37-115
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: MY-85.211.217.175-116
+- name: ID-48.193.44.154-089
   server: v9.hdacd.com
   port: 30809
   type: vmess
@@ -970,8 +747,28 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-117
-  server: 82.198.246.214
+- name: ID-70.153.149.216-090
+  server: v4.hdacd.com
+  port: 30804
+  type: vmess
+  cipher: auto
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: MY-85.211.198.201-091
+  server: v35.hdacd.com
+  port: 30835
+  type: vmess
+  cipher: auto
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-092
+  server: 82.198.246.37
   port: 180
   type: vmess
   cipher: auto
@@ -980,8 +777,220 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-118
-  server: 82.198.246.214
+- name: DE-82.198.246.250-093
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-216.38.170.155-094
+  server: chengbai02.ascwt179.com
+  port: 13223
+  type: ss
+  cipher: aes-128-gcm
+  password: JVrsLLN1tkN8oXZO
+- name: HK-202.85.76.170-095
+  server: 202.85.76.170
+  port: 13223
+  type: ss
+  cipher: aes-128-gcm
+  password: JVrsLLN1tkN8oXZO
+- name: HK-103.181.164.145-096
+  server: 103.181.164.145
+  port: 51556
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-103.181.164.145-097
+  server: 103.181.164.145
+  port: 54022
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  network: tcp
+  ws-path: /
+  tls: false
+- name: HK-103.181.164.145-098
+  server: 103.181.164.145
+  port: 54022
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: MY-85.211.198.201-099
+  server: v24.hdacd.com
+  port: 30824
+  type: vmess
+  cipher: auto
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: US-103.182.97.10-100
+  server: v29.hdacd.com
+  port: 30829
+  type: vmess
+  cipher: auto
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  network: tcp
+  ws-path: /
+  tls: false
+- name: KR-121.178.83.161-101
+  server: 121.178.83.161
+  port: 26214
+  type: trojan
+  password: GKHWMe2R4qwNcNxu6l3KMkdd
+  sni: vpn1.rnmcnm.com
+- name: HK-103.181.164.56-102
+  server: dotu-krv1.kunlun03dns.com
+  port: 11146
+  type: vmess
+  cipher: auto
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: KR-59.21.203.65-103
+  server: 59.21.203.65
+  port: 10443
+  type: trojan
+  password: GKHWMe2R4qwNcNxu6l3KMkdd
+  sni: vpn1.rnmcnm.com
+- name: HK-103.181.164.56-104
+  server: dotu-krv1.kunlun03dns.com
+  port: 11144
+  type: vmess
+  cipher: auto
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: CN-112.19.8.11-105
+  server: yd4.ainivp.com
+  port: 33204
+  type: vmess
+  cipher: auto
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  network: ws
+  ws-path: /ray
+  tls: true
+- name: HK-103.181.164.55-106
+  server: dotu-usv1.kunlun03dns.com
+  port: 11129
+  type: vmess
+  cipher: auto
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: RELAY-104.21.40.34-107
+  server: 104.21.40.34
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.gossipglove.com
+- name: RELAY-104.18.0.55-108
+  server: www.gossipglove.com
+  port: 443
+  type: trojan
+  password: humanity
+- name: KR-59.30.42.194-109
+  server: 59.30.42.194
+  port: 12345
+  type: trojan
+  password: 433e785b-2077-47f7-a43d-985f63dd18d1
+  sni: vpn.rnmcnm.com
+- name: DE-82.198.246.250-110
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.250-111
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.250-112
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.250-113
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.250-114
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.250-115
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: US-71.19.148.74-116
+  server: hackney-latest-strike.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: XUMTygEM1jVYIvysXKqA5T
+- name: DE-82.198.246.250-117
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.37-118
+  server: 82.198.246.37
   port: 180
   type: vmess
   cipher: auto
@@ -998,6 +1007,7 @@ proxies:
   uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
+  ws-path: /
   tls: false
 - name: DE-82.198.246.250-120
   server: 82.198.246.250
@@ -1009,58 +1019,60 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-121
-  server: 103.181.164.145
-  port: 54022
+- name: DE-82.198.246.37-121
+  server: 82.198.246.37
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  network: tcp
-  ws-path: /
-  tls: false
-- name: JP-103.127.243.59-122
-  server: 103.127.243.59
-  port: 56738
-  type: vmess
-  cipher: auto
-  uuid: 5f49c80e-7770-4bd1-9c86-43c2068a3a26
-  alterId: 0
-  network: tcp
-  ws-path: /ABCDE
-  tls: false
-- name: TW-111.248.73.29-123
-  server: r3mrcg007117fb8.cybervena.com
-  port: 50099
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-- name: HK-103.181.164.145-124
-  server: 103.181.164.145
-  port: 54022
-  type: vmess
-  cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-112.119.108.64-125
-  server: v10.hdacd.com
-  port: 30807
+- name: DE-82.198.246.250-122
+  server: 82.198.246.250
+  port: 180
   type: vmess
   cipher: auto
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.214-123
+  server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.145-126
-  server: 103.181.164.145
-  port: 51556
+- name: DE-82.198.246.37-124
+  server: 82.198.246.37
+  port: 180
   type: vmess
   cipher: auto
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.214-125
+  server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.250-126
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   network: tcp
   ws-path: /
@@ -1075,13 +1087,27 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: GB-89.185.84.34-128
-  server: 89.185.84.34
-  port: 31348
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: AQGAAMQLZoxMT4EUxNPuFwKImsAviZTHTEMmHFlRrDKJpMnS
-- name: DE-82.198.246.37-129
+- name: DE-82.198.246.214-128
+  server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.214-129
+  server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-130
   server: 82.198.246.37
   port: 180
   type: vmess
@@ -1091,7 +1117,16 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-130
+- name: DE-82.198.246.214-131
+  server: 82.198.246.214
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  tls: false
+- name: DE-82.198.246.214-132
   server: 82.198.246.214
   port: 180
   type: vmess
@@ -1101,17 +1136,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: ID-70.153.148.135-131
-  server: v36.hdacd.com
-  port: 30836
-  type: vmess
-  cipher: auto
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.250-132
+- name: DE-82.198.246.250-133
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -1121,7 +1146,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-133
+- name: DE-82.198.246.214-134
   server: 82.198.246.214
   port: 180
   type: vmess
@@ -1131,36 +1156,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-134
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.214-135
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  tls: false
-- name: DE-82.198.246.214-136
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.37-137
+- name: DE-82.198.246.37-135
   server: 82.198.246.37
   port: 180
   type: vmess
@@ -1170,8 +1166,28 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-138
-  server: 82.198.246.214
+- name: DE-82.198.246.250-136
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.250-137
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-138
+  server: 82.198.246.37
   port: 180
   type: vmess
   cipher: auto
@@ -1200,8 +1216,18 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-141
-  server: 82.198.246.250
+- name: HK-103.181.164.145-141
+  server: 103.181.164.145
+  port: 54022
+  type: vmess
+  cipher: auto
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-142
+  server: 82.198.246.37
   port: 180
   type: vmess
   cipher: auto
@@ -1209,16 +1235,6 @@ proxies:
   alterId: 0
   network: tcp
   ws-path: /
-  tls: false
-- name: DE-82.198.246.250-142
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /usavm
   tls: false
 - name: DE-82.198.246.214-143
   server: 82.198.246.214
@@ -1230,7 +1246,27 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-144
+- name: DE-82.198.246.37-144
+  server: 82.198.246.37
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.37-145
+  server: 82.198.246.37
+  port: 180
+  type: vmess
+  cipher: auto
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  network: tcp
+  ws-path: /
+  tls: false
+- name: DE-82.198.246.214-146
   server: 82.198.246.214
   port: 180
   type: vmess
@@ -1240,7 +1276,42 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.214-145
+- name: US-147.90.234.133-147
+  server: tinkered-pennies-puppies.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: hbGrpfvNrJsUmKmPbR3iY2
+- name: RELAY-104.21.40.34-148
+  server: 104.21.40.34
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.gossipglove.com
+- name: RELAY-104.18.1.55-149
+  server: www.gossipglove.com
+  port: 443
+  type: trojan
+  password: humanity
+- name: KR-121.180.171.43-150
+  server: 121.180.171.43
+  port: 11310
+  type: trojan
+  password: GKHWMe2R4qwNcNxu6l3KMkdd
+  sni: vpn1.rnmcnm.com
+- name: KR-59.21.203.65-151
+  server: 59.21.203.65
+  port: 10443
+  type: trojan
+  password: GKHWMe2R4qwNcNxu6l3KMkdd
+  sni: vpn1.rnmcnm.com
+- name: US-71.19.148.74-152
+  server: hackney-latest-strike.freesocks.work
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: XUMTygEM1jVYIvysXKqA5T
+- name: DE-82.198.246.214-153
   server: 82.198.246.214
   port: 180
   type: vmess
@@ -1250,27 +1321,7 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: DE-82.198.246.250-146
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: DE-82.198.246.214-147
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-188.253.126.251-148
+- name: HK-188.253.126.251-154
   server: efan.dnsefan04881.com
   port: 7754
   type: vmess
@@ -1280,44 +1331,28 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.56-149
-  server: dotu-hkv1.kunlun03dns.com
-  port: 11101
+- name: JP-109.61.109.204-155
+  server: 109.61.109.204
+  port: 32818
   type: vmess
   cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  uuid: 254551f6-ec28-4938-ad0e-0aa4aa1965ec
+  alterId: 0
+  network: ws
+  ws-path: /speedtest
+  tls: true
+- name: US-155.254.126.249-156
+  server: gtm-sg-cc54q7d1q01.365cloud0285.com
+  port: 6004
+  type: vmess
+  cipher: auto
+  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
   alterId: 0
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.56-150
-  server: dotu-twv1.kunlun03dns.com
-  port: 11114
-  type: vmess
-  cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.56-151
-  server: dotu-krv1.kunlun03dns.com
-  port: 11146
-  type: vmess
-  cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: KR-218.152.227.25-152
-  server: 218.152.227.25
-  port: 12000
-  type: trojan
-  password: 433e785b-2077-47f7-a43d-985f63dd18d1
-  sni: vpn.rnmcnm.com
-- name: DE-82.198.246.250-153
-  server: 82.198.246.250
+- name: DE-82.198.246.37-157
+  server: 82.198.246.37
   port: 180
   type: vmess
   cipher: auto
@@ -1326,33 +1361,23 @@ proxies:
   network: tcp
   ws-path: /
   tls: false
-- name: HK-103.181.164.56-154
-  server: dotu-jpv1.kunlun03dns.com
-  port: 11122
+- name: JP-109.61.109.204-158
+  server: 109.61.109.204
+  port: 12706
   type: vmess
   cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  uuid: 3b475934-cb2a-4d96-b260-5e50cca5d430
   alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: HK-103.181.164.55-155
-  server: dotu-usv1.kunlun03dns.com
-  port: 11129
-  type: vmess
-  cipher: auto
-  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
-  alterId: 0
-  network: tcp
-  ws-path: /
-  tls: false
-- name: NOWHERE-0.0.0.0-156
+  network: ws
+  ws-path: /speedtest
+  tls: true
+- name: NOWHERE-0.0.0.0-159
   server: mofacpdd.til69.com
   port: 41921
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 5d68d91f-ccc5-4c00-b1f6-0d764937f4f6
-- name: US-216.24.57.250-157
+- name: US-216.24.57.250-160
   server: 216.24.57.250
   port: 443
   type: trojan
@@ -1364,7 +1389,7 @@ proxy-groups:
   proxies:
   - CA-144.217.164.29-000
   - NOWHERE-0.0.0.0-001
-  - RELAY-172.67.197.47-002
+  - RELAY-104.21.76.158-002
   - CA-45.154.204.7-003
   - US-146.19.49.251-004
   - CA-15.235.41.200-005
@@ -1385,140 +1410,143 @@ proxy-groups:
   - RELAY-170.114.46.6-020
   - US-209.126.84.189-021
   - RELAY-104.21.76.158-022
-  - RELAY-104.18.16.77-023
+  - RELAY-104.18.17.77-023
   - US-107.175.87.207-024
   - US-67.21.83.58-025
   - US-67.21.85.228-026
   - US-91.149.239.165-027
-  - HK-103.181.164.55-028
-  - HK-103.181.164.56-029
-  - HK-103.181.164.55-030
-  - HK-103.181.164.56-031
-  - HK-103.181.164.55-032
-  - RELAY-104.20.6.134-033
-  - US-155.254.126.249-034
-  - HK-103.181.164.56-035
-  - DE-63.180.254.10-036
-  - HK-112.119.108.64-037
-  - JP-52.69.114.14-038
-  - JP-54.168.196.137-039
-  - HK-18.162.145.230-040
-  - JP-13.231.225.85-041
+  - US-149.104.109.74-028
+  - JP-109.61.109.204-029
+  - US-155.254.126.249-030
+  - RELAY-104.21.95.187-031
+  - JP-109.61.109.204-032
+  - DE-63.180.254.10-033
+  - HK-119.237.146.159-034
+  - JP-52.69.114.14-035
+  - JP-54.168.196.137-036
+  - HK-18.162.145.230-037
+  - JP-13.231.225.85-038
+  - HK-16.163.29.124-039
+  - HK-16.163.29.124-040
+  - HK-95.40.114.115-041
   - HK-16.163.29.124-042
-  - HK-16.163.29.124-043
+  - JP-35.78.121.219-043
   - HK-95.40.114.115-044
-  - HK-16.163.29.124-045
-  - JP-35.78.121.219-046
-  - HK-95.40.114.115-047
-  - JP-52.69.114.14-048
-  - JP-43.206.155.159-049
+  - JP-52.69.114.14-045
+  - JP-43.206.155.159-046
+  - DE-82.198.246.250-047
+  - DE-82.198.246.233-048
+  - MY-85.211.198.201-049
   - DE-82.198.246.250-050
-  - DE-82.198.246.233-051
-  - HK-103.181.164.56-052
-  - HK-103.181.164.55-053
-  - HK-103.181.164.56-054
-  - HK-103.181.164.56-055
-  - HK-103.181.164.56-056
-  - HK-103.181.164.56-057
+  - DE-82.198.246.214-051
+  - DE-82.198.246.214-052
+  - DE-82.198.246.214-053
+  - DE-82.198.246.214-054
+  - DE-82.198.246.214-055
+  - DE-82.198.246.250-056
+  - HK-103.181.164.55-057
   - HK-103.181.164.55-058
   - HK-103.181.164.56-059
-  - KR-112.166.213.102-060
-  - US-71.19.148.74-061
-  - KR-59.21.203.65-062
-  - KR-121.178.83.161-063
-  - KR-121.180.171.43-064
-  - TW-111.248.73.29-065
-  - RELAY-104.21.40.34-066
-  - US-147.90.234.133-067
-  - DE-82.198.246.37-068
-  - DE-82.198.246.214-069
-  - DE-82.198.246.37-070
-  - DE-82.198.246.214-071
-  - US-71.19.148.74-072
-  - DE-82.198.246.250-073
-  - DE-82.198.246.250-074
-  - DE-82.198.246.250-075
-  - DE-82.198.246.250-076
-  - DE-82.198.246.250-077
-  - DE-82.198.246.250-078
-  - DE-82.198.246.250-079
-  - DE-82.198.246.250-080
-  - DE-82.198.246.37-081
-  - TW-211.76.176.98-082
-  - RELAY-104.21.40.34-083
-  - RELAY-104.18.1.55-084
-  - RELAY-172.66.44.211-085
-  - KR-121.180.171.43-086
-  - KR-59.21.203.65-087
-  - KR-112.166.213.102-088
-  - KR-121.178.83.161-089
-  - US-45.63.7.19-090
-  - US-155.254.126.249-091
-  - US-147.90.234.133-092
-  - MY-85.211.240.119-093
-  - HK-103.181.164.145-094
+  - HK-103.181.164.56-060
+  - CN-144.79.11.154-061
+  - HK-119.237.146.159-062
+  - HK-103.181.164.145-063
+  - HK-103.181.164.145-064
+  - CN-58.20.254.26-065
+  - HK-103.181.164.55-066
+  - HK-103.181.164.56-067
+  - HK-103.181.164.56-068
+  - CN-183.194.133.153-069
+  - DK-193.180.209.21-070
+  - AM-2.56.204.246-071
+  - AU-125.7.24.251-072
+  - CH-103.63.30.230-073
+  - BG-104.152.48.205-074
+  - MY-85.211.198.201-075
+  - ID-70.153.149.216-076
+  - US-147.90.234.133-077
   - Node
-  - DE-82.198.246.250-096
   - Node
-  - DE-82.198.246.214-098
-  - MY-85.211.217.175-099
-  - DE-82.198.246.37-100
-  - MY-85.211.196.134-101
-  - HK-112.119.108.64-102
-  - US-155.254.126.249-103
-  - HK-103.181.164.145-104
-  - DE-82.198.246.37-105
-  - DE-82.198.246.250-106
-  - ID-70.153.148.135-107
-  - TW-211.76.176.98-108
-  - DE-82.198.246.250-109
-  - GOOGLE-34.143.138.208-110
-  - DE-82.198.246.214-111
-  - DE-82.198.246.37-112
-  - DE-82.198.246.37-113
-  - HK-103.181.164.145-114
-  - DE-82.198.246.37-115
-  - MY-85.211.217.175-116
-  - DE-82.198.246.214-117
-  - DE-82.198.246.214-118
+  - US-103.182.97.10-080
+  - DE-82.198.246.214-081
+  - US-155.254.126.249-082
+  - HK-119.237.146.159-083
+  - TW-211.76.176.98-084
+  - TW-211.76.176.98-085
+  - MY-85.211.198.201-086
+  - US-155.254.126.249-087
+  - DE-82.198.246.250-088
+  - ID-48.193.44.154-089
+  - ID-70.153.149.216-090
+  - MY-85.211.198.201-091
+  - DE-82.198.246.37-092
+  - DE-82.198.246.250-093
+  - HK-216.38.170.155-094
+  - HK-202.85.76.170-095
+  - HK-103.181.164.145-096
+  - HK-103.181.164.145-097
+  - HK-103.181.164.145-098
+  - MY-85.211.198.201-099
+  - US-103.182.97.10-100
+  - KR-121.178.83.161-101
+  - HK-103.181.164.56-102
+  - KR-59.21.203.65-103
+  - HK-103.181.164.56-104
+  - CN-112.19.8.11-105
+  - HK-103.181.164.55-106
+  - RELAY-104.21.40.34-107
+  - RELAY-104.18.0.55-108
+  - KR-59.30.42.194-109
+  - DE-82.198.246.250-110
+  - DE-82.198.246.250-111
+  - DE-82.198.246.250-112
+  - DE-82.198.246.250-113
+  - DE-82.198.246.250-114
+  - DE-82.198.246.250-115
+  - US-71.19.148.74-116
+  - DE-82.198.246.250-117
+  - DE-82.198.246.37-118
   - DE-82.198.246.250-119
   - DE-82.198.246.250-120
-  - HK-103.181.164.145-121
-  - JP-103.127.243.59-122
-  - TW-111.248.73.29-123
-  - HK-103.181.164.145-124
-  - HK-112.119.108.64-125
-  - HK-103.181.164.145-126
+  - DE-82.198.246.37-121
+  - DE-82.198.246.250-122
+  - DE-82.198.246.214-123
+  - DE-82.198.246.37-124
+  - DE-82.198.246.214-125
+  - DE-82.198.246.250-126
   - DE-82.198.246.214-127
-  - GB-89.185.84.34-128
-  - DE-82.198.246.37-129
-  - DE-82.198.246.214-130
-  - ID-70.153.148.135-131
-  - DE-82.198.246.250-132
-  - DE-82.198.246.214-133
-  - DE-82.198.246.250-134
-  - DE-82.198.246.214-135
-  - DE-82.198.246.214-136
-  - DE-82.198.246.37-137
-  - DE-82.198.246.214-138
+  - DE-82.198.246.214-128
+  - DE-82.198.246.214-129
+  - DE-82.198.246.37-130
+  - DE-82.198.246.214-131
+  - DE-82.198.246.214-132
+  - DE-82.198.246.250-133
+  - DE-82.198.246.214-134
+  - DE-82.198.246.37-135
+  - DE-82.198.246.250-136
+  - DE-82.198.246.250-137
+  - DE-82.198.246.37-138
   - DE-82.198.246.214-139
   - DE-82.198.246.250-140
-  - DE-82.198.246.250-141
-  - DE-82.198.246.250-142
+  - HK-103.181.164.145-141
+  - DE-82.198.246.37-142
   - DE-82.198.246.214-143
-  - DE-82.198.246.214-144
-  - DE-82.198.246.214-145
-  - DE-82.198.246.250-146
-  - DE-82.198.246.214-147
-  - HK-188.253.126.251-148
-  - HK-103.181.164.56-149
-  - HK-103.181.164.56-150
-  - HK-103.181.164.56-151
-  - KR-218.152.227.25-152
-  - DE-82.198.246.250-153
-  - HK-103.181.164.56-154
-  - HK-103.181.164.55-155
-  - NOWHERE-0.0.0.0-156
-  - US-216.24.57.250-157
+  - DE-82.198.246.37-144
+  - DE-82.198.246.37-145
+  - DE-82.198.246.214-146
+  - US-147.90.234.133-147
+  - RELAY-104.21.40.34-148
+  - RELAY-104.18.1.55-149
+  - KR-121.180.171.43-150
+  - KR-59.21.203.65-151
+  - US-71.19.148.74-152
+  - DE-82.198.246.214-153
+  - HK-188.253.126.251-154
+  - JP-109.61.109.204-155
+  - US-155.254.126.249-156
+  - DE-82.198.246.37-157
+  - JP-109.61.109.204-158
+  - NOWHERE-0.0.0.0-159
+  - US-216.24.57.250-160
 rules:
 - MATCH,Proxy
