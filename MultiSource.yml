@@ -4291,24 +4291,26 @@ proxies:
   tls: true
   type: trojan
   udp: true
-- cipher: chacha20-ietf
+- cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 12
-  obfs: tls1.2_ticket_auth
-  obfs-param: ''
-  password: dongtaiwang.com
-  port: 33336
-  protocol: auth_chain_a
-  protocol-param: ''
-  server: ssr2.762988.xyz
-  type: ssr
+  password: 861de7db-5ada-4b36-903c-0ad6ba25d75a
+  port: 33998
+  server: 4349ufu.54jvd5y6ojams-us02.my777999.top
+  type: ss
   udp: true
-- name: 🇷🇺 俄罗斯 07
-  password: ebd1c3e8-a136-49a5-a76c-88c4bf0a23aa
-  port: 30002
-  server: 45.140.169.83
-  skip-cert-verify: true
-  sni: ru01.freeflyingcloud.xyz
-  type: trojan
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 13
+  password: qwerREWQ@@
+  port: 49032
+  server: p227.panda004.net
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 14
+  password: d3c7f55f-e2af-4114-b0a3-058d219e2992
+  port: 27261
+  server: 36.212.237.146
+  type: ss
   udp: true
 proxy-groups:
 - name: Proxy
@@ -4751,7 +4753,8 @@ proxy-groups:
   - 🏳️ 其他 76
   - 🇨🇦 加拿大 11
   - 🇨🇦 加拿大 12
-  - 🇷🇺 俄罗斯 07
+  - 🇨🇦 加拿大 13
+  - 🇨🇦 加拿大 14
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
