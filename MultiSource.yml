@@ -2999,19 +2999,6 @@ proxies:
   network: tcp
   udp: true
 - name: 🇩🇪 德国 145
-  server: 87.120.93.69
-  port: 443
-  type: vless
-  uuid: 2001daf3-5c56-4bef-8ea6-8dd0493c5a4c
-  tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: ZHEMPjSWslk6_qD2JNQzd5enUPz8nY9mYRRuM6NkZmU
-  servername: www.deepl.com
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
-- name: 🇩🇪 德国 146
   server: 5.83.129.90
   port: 54177
   type: hysteria
@@ -3024,6 +3011,34 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
+  udp: true
+- name: 🇩🇪 德国 146
+  server: 87.120.93.69
+  port: 443
+  type: vless
+  uuid: 2001daf3-5c56-4bef-8ea6-8dd0493c5a4c
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: ZHEMPjSWslk6_qD2JNQzd5enUPz8nY9mYRRuM6NkZmU
+  servername: www.deepl.com
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+- name: 🇯🇵 日本 08
+  server: 103.127.243.54
+  port: 53229
+  type: vmess
+  uuid: 2f50f5ef-1a3a-4585-a3c9-3a860d37b134
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /ABCDE
   udp: true
 - name: 🇺🇸 美国 72
   server: 156.146.38.170
@@ -3273,7 +3288,7 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: QTmLViU4VEmuwbOxUw4IXd
-- name: 🇯🇵 日本 08
+- name: 🇯🇵 日本 09
   server: 149.22.87.204
   port: 443
   type: ss
@@ -3285,7 +3300,7 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: CJmTCCx7Ltud
-- name: 🇯🇵 日本 09
+- name: 🇯🇵 日本 10
   server: 149.22.87.240
   port: 443
   type: ss
@@ -3303,7 +3318,7 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇯🇵 日本 10
+- name: 🇯🇵 日本 11
   server: 149.22.87.241
   port: 443
   type: ss
@@ -3315,7 +3330,7 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 1hhrqrokj3ag
-- name: 🇯🇵 日本 11
+- name: 🇯🇵 日本 12
   server: 103.106.228.175
   port: 8009
   type: ss
@@ -3439,7 +3454,7 @@ proxies:
     path: /
     headers:
       Host: 152.67.218.38
-- name: 🇯🇵 日本 12
+- name: 🇯🇵 日本 13
   server: jp01.a0a.xyz
   port: 80
   type: vmess
@@ -3762,7 +3777,7 @@ proxies:
     path: /
     headers:
       Host: usa-dallas.lvuft.com
-- name: 🇯🇵 日本 13
+- name: 🇯🇵 日本 14
   server: 20.243.69.62
   port: 80
   type: vmess
@@ -3951,7 +3966,7 @@ proxies:
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-- name: 🇯🇵 日本 14
+- name: 🇯🇵 日本 15
   server: 20.243.71.225
   port: 80
   type: vmess
@@ -4192,7 +4207,7 @@ proxies:
     path: /
     headers:
       Host: xr-4.herokuapp.com
-- name: 🇯🇵 日本 15
+- name: 🇯🇵 日本 16
   server: 20.222.106.239
   port: 80
   type: vmess
@@ -4282,6 +4297,16 @@ proxies:
   network: ws
   ws-opts:
     path: /
+- alpn:
+  - http/1.1
+  name: 🇺🇸 美国 122
+  network: tcp
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  port: 45619
+  server: 155.117.198.83
+  skip-cert-verify: true
+  sni: fr.01.naiun.bilibili.com
+  type: trojan
 - name: 🇨🇦 加拿大 11
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   port: 46424
@@ -4291,25 +4316,25 @@ proxies:
   tls: true
   type: trojan
   udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 12
-  password: 861de7db-5ada-4b36-903c-0ad6ba25d75a
-  port: 33998
-  server: 4349ufu.54jvd5y6ojams-us02.my777999.top
+- cipher: aes-256-gcm
+  name: 🇺🇸 美国 123
+  password: kDWvXYZoTBcGkC4
+  port: 8882
+  server: 38.75.137.42
   type: ss
   udp: true
 - cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 13
+  name: 🇰🇷 韩国 11
   password: qwerREWQ@@
-  port: 49032
-  server: p227.panda004.net
+  port: 51472
+  server: 221.150.109.88
   type: ss
   udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 14
-  password: d3c7f55f-e2af-4114-b0a3-058d219e2992
-  port: 27261
-  server: 36.212.237.146
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 12
+  password: qwerREWQ@@
+  port: 49032
+  server: p221.panda001.net
   type: ss
   udp: true
 proxy-groups:
@@ -4588,6 +4613,7 @@ proxy-groups:
   - 🏳️ 其他 25
   - 🇩🇪 德国 145
   - 🇩🇪 德国 146
+  - 🇯🇵 日本 08
   - 🇺🇸 美国 72
   - 🇺🇸 美国 73
   - 🇺🇸 美国 74
@@ -4625,13 +4651,13 @@ proxy-groups:
   - 🇨🇦 加拿大 04
   - 🏳️ 其他 35
   - 🇺🇸 美国 86
-  - 🇯🇵 日本 08
-  - 🇳🇱 荷兰 09
   - 🇯🇵 日本 09
-  - 🇨🇦 加拿大 05
+  - 🇳🇱 荷兰 09
   - 🇯🇵 日本 10
-  - 🇩🇪 德国 147
+  - 🇨🇦 加拿大 05
   - 🇯🇵 日本 11
+  - 🇩🇪 德国 147
+  - 🇯🇵 日本 12
   - 🏳️ 其他 36
   - 🏳️ 其他 37
   - 🏳️ 其他 38
@@ -4650,7 +4676,7 @@ proxy-groups:
   - 🏳️ 其他 49
   - 🇹🇼 台湾 05
   - 🇰🇷 韩国 04
-  - 🇯🇵 日本 12
+  - 🇯🇵 日本 13
   - 🇩🇪 德国 149
   - 🇹🇼 台湾 06
   - 🇳🇱 荷兰 10
@@ -4693,7 +4719,7 @@ proxy-groups:
   - 🇳🇱 荷兰 16
   - 🇫🇷 法国 02
   - 🇺🇸 美国 91
-  - 🇯🇵 日本 13
+  - 🇯🇵 日本 14
   - 🏳️ 其他 65
   - 🇺🇸 美国 92
   - 🇺🇸 美国 93
@@ -4717,7 +4743,7 @@ proxy-groups:
   - 🇨🇦 加拿大 08
   - 🏳️ 其他 67
   - 🇨🇦 加拿大 09
-  - 🇯🇵 日本 14
+  - 🇯🇵 日本 15
   - 🇩🇪 德国 151
   - 🏳️ 其他 68
   - 🇩🇪 德国 152
@@ -4741,7 +4767,7 @@ proxy-groups:
   - 🇺🇸 美国 115
   - 🇺🇸 美国 116
   - 🏳️ 其他 72
-  - 🇯🇵 日本 15
+  - 🇯🇵 日本 16
   - 🇺🇸 美国 117
   - 🏳️ 其他 73
   - 🏳️ 其他 74
@@ -4751,10 +4777,11 @@ proxy-groups:
   - 🇺🇸 美国 120
   - 🇺🇸 美国 121
   - 🏳️ 其他 76
+  - 🇺🇸 美国 122
   - 🇨🇦 加拿大 11
+  - 🇺🇸 美国 123
+  - 🇰🇷 韩国 11
   - 🇨🇦 加拿大 12
-  - 🇨🇦 加拿大 13
-  - 🇨🇦 加拿大 14
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
