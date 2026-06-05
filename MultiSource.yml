@@ -4192,7 +4192,36 @@ proxies:
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-- name: 🇺🇸 美国 111
+- cipher: aes-128-gcm
+  name: 🇨🇦 加拿大 15
+  password: phizo046s4oqsm33sfvm
+  port: '13265'
+  server: 86.106.84.198
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 16
+  network: tcp
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  port: '443'
+  server: ch-2.bexum.fun
+  skip-cert-verify: false
+  sni: ch-2.bexum.fun
+  type: trojan
+  udp: true
+- cipher: aes-128-gcm
+  name: 🇺🇸 美国 111
+  password: 3px0wmx0e81145g568ga
+  port: '10880'
+  server: 69.164.240.86
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇩🇪 德国 156
+  password: 4a4cb575-15bd-4664-b94d-2e6a6b4ccda8
+  port: 28655
+  server: 109.120.138.95
+  type: ss
+- name: 🇺🇸 美国 112
   network: tcp
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   port: 46424
@@ -4200,15 +4229,31 @@ proxies:
   skip-cert-verify: true
   sni: de.01.naiun.bilibili.com
   type: trojan
-- name: 🇨🇦 加拿大 15
+- cipher: aes-256-cfb
+  name: 🇩🇪 德国 157
+  password: amazonskr05
+  port: 443
+  server: 18.159.210.129
+  skip-cert-verify: false
+  type: ss
+  udp: false
+- name: 🇨🇦 加拿大 17
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  port: 46424
+  port: 48697
   server: 90081bb25c.node.tro.cac.cab
   skip-cert-verify: true
-  sni: de.01.naiun.bilibili.com
+  sni: gh.01.naiun.bilibili.com
   tls: true
   type: trojan
   udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 18
+  password: amazonskr05
+  port: 443
+  server: 15.223.63.40
+  skip-cert-verify: false
+  type: ss
+  udp: false
 - alterId: 0
   name: 🇹🇼 台湾 10
   password: gcuCpQfaiVeDBdWG
@@ -4219,22 +4264,6 @@ proxies:
   tls: true
   type: trojan
   udp: true
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 16
-  password: amazonskr05
-  port: 443
-  server: 3.99.174.90
-  skip-cert-verify: false
-  type: ss
-  udp: false
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 17
-  password: amazonskr05
-  port: 443
-  server: 35.183.93.91
-  skip-cert-verify: false
-  type: ss
-  udp: false
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -4676,11 +4705,15 @@ proxy-groups:
   - 🇩🇪 德国 153
   - 🇩🇪 德国 154
   - 🇩🇪 德国 155
-  - 🇺🇸 美国 111
   - 🇨🇦 加拿大 15
-  - 🇹🇼 台湾 10
   - 🇨🇦 加拿大 16
+  - 🇺🇸 美国 111
+  - 🇩🇪 德国 156
+  - 🇺🇸 美国 112
+  - 🇩🇪 德国 157
   - 🇨🇦 加拿大 17
+  - 🇨🇦 加拿大 18
+  - 🇹🇼 台湾 10
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
