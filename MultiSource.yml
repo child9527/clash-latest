@@ -4082,12 +4082,23 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- cipher: chacha20-ietf-poly1305
+- cipher: aes-256-cfb
   name: 🇨🇦 加拿大 10
-  password: CULuHB2PKuvK6yEN
+  password: amazonskr05
   port: 443
-  server: 40.123.244.72
+  server: 52.60.99.199
+  skip-cert-verify: false
   type: ss
+  udp: false
+- name: 🇨🇦 加拿大 11
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  port: 45619
+  server: 90081bb25c.node.tro.cac.cab
+  skip-cert-verify: true
+  sni: fr.01.naiun.bilibili.com
+  tls: false
+  type: trojan
+  udp: true
 - name: 🇺🇸 美国 115
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   port: '48697'
@@ -4106,23 +4117,35 @@ proxies:
   sni: fr.01.naiun.bilibili.com
   type: trojan
   udp: true
-- name: 🇨🇦 加拿大 11
-  password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  port: 45619
-  server: 90081bb25c.node.tro.cac.cab
+- cipher: chacha20-ietf-poly1305
+  name: 🇷🇺 俄罗斯 05
+  password: NC7jORVNrruV/+3+PwOJrnnOeG7n75X1
+  port: 8388
+  server: 89.19.216.18
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 12
+  password: 8f70fde3-a04c-4f6a-b705-aef7406f6ac1
+  port: 443
+  server: tj2.dalazhi.cyou
   skip-cert-verify: true
-  sni: fr.01.naiun.bilibili.com
-  tls: false
   type: trojan
   udp: true
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 12
-  password: amazonskr05
-  port: 443
-  server: 52.60.99.199
-  skip-cert-verify: false
+- cipher: aes-256-gcm
+  name: 🇩🇪 德国 133
+  password: FoOiGlkAA9yPEGP
+  port: 7307
+  server: 23.158.56.17
   type: ss
-  udp: false
+  udp: true
+- name: 🇨🇦 加拿大 13
+  password: telegram-id-privatevpns
+  port: 22222
+  server: 35.176.117.240
+  skip-cert-verify: true
+  sni: trojan.burgerip.co.uk
+  type: trojan
+  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -4552,10 +4575,13 @@ proxy-groups:
   - 🏳️ 其他 80
   - 🏳️ 其他 81
   - 🇨🇦 加拿大 10
+  - 🇨🇦 加拿大 11
   - 🇺🇸 美国 115
   - 🇺🇸 美国 116
-  - 🇨🇦 加拿大 11
+  - 🇷🇺 俄罗斯 05
   - 🇨🇦 加拿大 12
+  - 🇩🇪 德国 133
+  - 🇨🇦 加拿大 13
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
