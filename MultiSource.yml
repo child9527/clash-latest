@@ -4297,45 +4297,56 @@ proxies:
   skip-cert-verify: true
   sni: fr.01.naiun.bilibili.com
   type: trojan
-- cipher: aes-256-cfb
-  name: 🇰🇷 韩国 09
-  password: qwerREWQ@@
-  port: 13979
-  server: 221.139.79.57
-  type: ss
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 33
-  password: cvII85TrW6n0OGyfpHVS1u
-  port: 8080
-  server: 45.87.175.178
-  type: ss
-- name: 🇸🇬 新加坡 04
-  password: af7d4ea7-e793-4030-9766-9a13e1f099f5
+  password: ODfxioK0VkKxTdpVQJ4rv8HglAu0vzv6
   port: 443
-  server: 139.162.50.211
-  skip-cert-verify: true
-  type: trojan
-  udp: true
+  server: 146.19.49.251
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 125
+  password: p78naCf2EfOlRSLTX0wFVx
+  port: 443
+  server: 71.19.148.143
+  type: ss
+- cipher: rc4-md5
+  name: 🇺🇸 美国 126
+  obfs: plain
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  protocol: origin
+  server: 107.151.182.253
+  type: ssr
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 127
+  password: qFvn2fNEvBgM5knffrN96q
+  port: 9483
+  server: 92.118.112.101
+  type: ss
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 34
-  password: hnRXsWFscwBEAvGnqQQoU2
-  port: 25091
-  server: 94.142.138.56
+  password: p78naCf2EfOlRSLTX0wFVx
+  port: 443
+  server: pupas-shirting-unsung.freesocks.work
   type: ss
-  udp: true
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 35
-  password: f8f7aCzcPKbsF8p3
-  port: 989
-  server: 213.169.137.221
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 128
+  password: NDRySIABARbErNIVsCNVkyYAHiBzhveT
+  port: 443
+  server: 23.95.75.146
   type: ss
-  udp: true
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 36
-  password: qwerREWQ@@
-  port: 5304
-  server: p078.panda001.net
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 129
+  password: 86039b71-ba82-4ca8-838e-87086ae666de
+  port: 10011
+  server: 107.175.87.207
   type: ss
+- name: 🇨🇦 加拿大 35
+  password: xxoo
+  port: 443
+  server: us.blazeppn.info
+  skip-cert-verify: true
+  type: trojan
   udp: true
 proxy-groups:
 - name: Proxy
@@ -4814,12 +4825,14 @@ proxy-groups:
   - 🏳️ 其他 125
   - 🇩🇪 德国 134
   - 🇭🇰 香港 06
-  - 🇰🇷 韩国 09
   - 🇨🇦 加拿大 33
-  - 🇸🇬 新加坡 04
+  - 🇺🇸 美国 125
+  - 🇺🇸 美国 126
+  - 🇺🇸 美国 127
   - 🇨🇦 加拿大 34
+  - 🇺🇸 美国 128
+  - 🇺🇸 美国 129
   - 🇨🇦 加拿大 35
-  - 🇨🇦 加拿大 36
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
