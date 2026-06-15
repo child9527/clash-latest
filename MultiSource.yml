@@ -3003,20 +3003,6 @@ proxies:
     headers:
       Host: max-gb1.global.ssl.fastly.net
   udp: true
-- name: 🇩🇪 德国 125
-  server: 5.83.129.90
-  port: 54177
-  type: hysteria
-  auth_str: dongtaiwang.com
-  auth-str: dongtaiwang.com
-  up: 500
-  down: 1000
-  protocol: udp
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  udp: true
 - name: 🇺🇸 美国 85
   server: 37.19.198.160
   port: 443
@@ -3245,7 +3231,7 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: QTmLViU4VEmuwbOxUw4IXd
-- name: 🇩🇪 德国 126
+- name: 🇩🇪 德国 125
   server: 209.46.102.22
   port: 8388
   type: ss
@@ -3275,7 +3261,7 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: FjG3IPbny+0ZYU4/p1vULP84GcKpGoZpWKAay16VhIw=
-- name: 🇩🇪 德国 127
+- name: 🇩🇪 德国 126
   server: 8.209.74.72
   port: 20001
   type: ss
@@ -3365,27 +3351,27 @@ proxies:
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇩🇪 德国 128
+- name: 🇩🇪 德国 127
   server: 2.26.54.174
   port: 8448
   type: trojan
   password: TrojanPass2026%21
   sni: foolsland.ru
   skip-cert-verify: false
-- name: 🇩🇪 德国 129
+- name: 🇩🇪 德国 128
   server: 91.233.8.138
   port: 443
   type: trojan
   password: qDVh0NalwefxyZlHh3Ni2JSlhErcuC3Wiq
   sni: www.homelywebs.click
   skip-cert-verify: false
-- name: 🇩🇪 德国 130
+- name: 🇩🇪 德国 129
   server: 213.202.208.199
   port: 7001
   type: ss
   cipher: aes-256-gcm
   password: RexnBgU7EV5ADxG
-- name: 🇩🇪 德国 131
+- name: 🇩🇪 德国 130
   server: 185.137.157.254
   port: 443
   type: trojan
@@ -3727,14 +3713,14 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: dada1203
-- name: 🇩🇪 德国 132
+- name: 🇩🇪 德国 131
   server: 91.233.8.25
   port: 443
   type: trojan
   password: I1vtf6pjYsAu-nFnraWAMjKTy90AHitdAz
   sni: fra34.tracker-ws.click
   skip-cert-verify: false
-- name: 🇩🇪 德国 133
+- name: 🇩🇪 德国 132
   server: 63.183.200.172
   port: 443
   type: ss
@@ -4275,7 +4261,7 @@ proxies:
     path: /
     headers:
       Host: 6654c734ccab8f440ff0825eb443dc7f.qos.onl
-- name: 🇩🇪 德国 134
+- name: 🇩🇪 德国 133
   server: data-hk-v1.heisey.cn
   port: 50205
   type: vmess
@@ -4297,57 +4283,88 @@ proxies:
   skip-cert-verify: true
   sni: fr.01.naiun.bilibili.com
   type: trojan
+- cipher: aes-256-cfb
+  name: 🇩🇪 德国 134
+  password: amazonskr05
+  port: 443
+  server: 63.180.254.10
+  type: ss
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 33
-  password: ODfxioK0VkKxTdpVQJ4rv8HglAu0vzv6
-  port: 443
-  server: 146.19.49.251
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 125
-  password: p78naCf2EfOlRSLTX0wFVx
-  port: 443
-  server: 71.19.148.143
+  password: DLW8QqdfAvfUHSeucMIF4E
+  port: 2636
+  server: 45.8.98.163
   type: ss
 - cipher: rc4-md5
-  name: 🇺🇸 美国 126
-  obfs: plain
-  password: 14fFPrbezE3HDZzsMOr6
-  port: 8080
-  protocol: origin
-  server: 107.151.182.253
-  type: ssr
-- cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 127
-  password: qFvn2fNEvBgM5knffrN96q
-  port: 9483
-  server: 92.118.112.101
-  type: ss
-- cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 34
-  password: p78naCf2EfOlRSLTX0wFVx
-  port: 443
-  server: pupas-shirting-unsung.freesocks.work
+  password: efanccyun
+  plugin: obfs
+  plugin-opts:
+    host: 202503181464410-9tCwc1fdZ3.download.microsoft.com
+    mode: http
+  port: 8765
+  server: cn01.efan8867801.xyz
+  tfo: false
   type: ss
 - cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 128
-  password: NDRySIABARbErNIVsCNVkyYAHiBzhveT
+  name: 🇨🇦 加拿大 35
+  password: mps3FwmDjLrWaOVg
   port: 443
-  server: 23.95.75.146
+  server: series-a2.varzesh360.co
   type: ss
+- name: 🇯🇵 日本 11
+  network: ws
+  password: ji0612uenfs
+  port: 8080
+  server: 103.232.213.117
+  skip-cert-verify: false
+  sni: ji0612e.nfjunka.xyz
+  type: trojan
+  ws-opts:
+    headers:
+      Host: ji0612e.nfjunka.xyz
+    path: /?ed=2560&proxyip=103.232.213.117:8080
 - cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 129
-  password: 86039b71-ba82-4ca8-838e-87086ae666de
-  port: 10011
-  server: 107.175.87.207
+  name: 🇨🇦 加拿大 36
+  password: iy8HtZILMHFwxH16LYFqkS
+  port: 65262
+  server: 62.133.63.21
   type: ss
-- name: 🇨🇦 加拿大 35
-  password: xxoo
-  port: 443
-  server: us.blazeppn.info
+- cipher: aes-256-gcm
+  name: 🇨🇦 加拿大 37
+  password: feng3d@ss2025
+  port: 8388
+  server: li.feng3d.com
+  type: ss
+  udp: true
+- alterId: 0
+  cipher: aes-256-gcm
+  name: 🇺🇸 美国 125
+  password: 8JCsPssfgS8tiRwiMlhARg==
+  port: 12000
+  server: 15.204.247.49
   skip-cert-verify: true
+  tls: true
+  type: ss
+- alterId: 0
+  name: 🇨🇦 加拿大 38
+  password: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+  port: 443
+  server: blackshadow.dpdns.org
+  skip-cert-verify: true
+  sni: blackshadow.dpdns.org
+  tls: true
   type: trojan
   udp: true
+- alterId: 0
+  cipher: aes-256-gcm
+  name: 🇨🇦 加拿大 39
+  password: 8JCsPssfgS8tiRwiMlhARg==
+  port: 12000
+  server: 144.217.164.29
+  skip-cert-verify: true
+  tls: true
+  type: ss
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -4642,7 +4659,6 @@ proxy-groups:
   - 🇹🇼 台湾 01
   - 🇺🇸 美国 83
   - 🇺🇸 美国 84
-  - 🇩🇪 德国 125
   - 🇺🇸 美国 85
   - 🇺🇸 美国 86
   - 🇺🇸 美国 87
@@ -4681,12 +4697,12 @@ proxy-groups:
   - 🇳🇱 荷兰 11
   - 🇺🇸 美国 96
   - 🇺🇸 美国 97
-  - 🇩🇪 德国 126
+  - 🇩🇪 德国 125
   - 🇨🇦 加拿大 26
   - 🏳️ 其他 58
   - 🏳️ 其他 59
   - 🇫🇷 法国 08
-  - 🇩🇪 德国 127
+  - 🇩🇪 德国 126
   - 🏳️ 其他 60
   - 🏳️ 其他 61
   - 🇳🇱 荷兰 12
@@ -4701,10 +4717,10 @@ proxy-groups:
   - 🏳️ 其他 65
   - 🏳️ 其他 66
   - 🏳️ 其他 67
+  - 🇩🇪 德国 127
   - 🇩🇪 德国 128
   - 🇩🇪 德国 129
   - 🇩🇪 德国 130
-  - 🇩🇪 德国 131
   - 🇳🇱 荷兰 13
   - 🇸🇬 新加坡 02
   - 🇺🇸 美国 99
@@ -4750,8 +4766,8 @@ proxy-groups:
   - 🇺🇸 美国 102
   - 🇺🇸 美国 103
   - 🏳️ 其他 86
+  - 🇩🇪 德国 131
   - 🇩🇪 德国 132
-  - 🇩🇪 德国 133
   - 🏳️ 其他 87
   - 🏳️ 其他 88
   - 🏳️ 其他 89
@@ -4823,16 +4839,18 @@ proxy-groups:
   - 🏳️ 其他 124
   - 🇨🇦 加拿大 32
   - 🏳️ 其他 125
-  - 🇩🇪 德国 134
+  - 🇩🇪 德国 133
   - 🇭🇰 香港 06
+  - 🇩🇪 德国 134
   - 🇨🇦 加拿大 33
-  - 🇺🇸 美国 125
-  - 🇺🇸 美国 126
-  - 🇺🇸 美国 127
   - 🇨🇦 加拿大 34
-  - 🇺🇸 美国 128
-  - 🇺🇸 美国 129
   - 🇨🇦 加拿大 35
+  - 🇯🇵 日本 11
+  - 🇨🇦 加拿大 36
+  - 🇨🇦 加拿大 37
+  - 🇺🇸 美国 125
+  - 🇨🇦 加拿大 38
+  - 🇨🇦 加拿大 39
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
