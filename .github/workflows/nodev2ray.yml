@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: 拉取仓库
-        uses: actions/checkout@v4 # 升级到 v4，消灭 Node.js 警告
+        uses: actions/checkout@v6 # 升级到 v6，彻底消灭 Node.js 20 弃用警告
         with:
           fetch-depth: 2
 
