@@ -4431,75 +4431,62 @@ proxies:
   skip-cert-verify: true
   sni: fr.01.naiun.bilibili.com
   type: trojan
-- cipher: aes-256-cfb
+- cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 32
-  password: qYEN5HX4JKeVCdEC
-  port: 9039
-  server: 195.238.126.84
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 193.29.139.202
   type: ss
-  udp: true
-- name: 🇨🇦 加拿大 33
-  password: cd7239af-77ad-4628-a871-00acfa219f02
-  port: 56373
-  server: ip0axv1bbsu02k7-uk.1ytnode.com
-  skip-cert-verify: true
-  type: trojan
-  udp: true
-- name: 🇸🇬 新加坡 06
-  password: 557340ab-4ae8-4593-989f-a8053bec73b6
-  port: 443
-  server: 139.162.39.206
-  skip-cert-verify: true
-  type: trojan
-  udp: true
-- cipher: aes-256-gcm
-  name: 🇺🇸 美国 127
-  password: e4FCWrgpkji3QY
-  port: 9102
-  server: 38.68.134.9
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 33
+  password: JIhN6rBKkaEboLNXVSv5rq
+  port: 80
+  server: 142.4.216.225
   type: ss
-  udp: true
-- cipher: rc4-md5
+- cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 34
-  password: dbEcUJ
-  port: 24603
-  server: 211.99.97.8
+  password: 1RWwXhwfAB5gAEozU4G2Pg
+  port: 8080
+  server: 45.87.175.164
   type: ss
-  udp: true
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 35
-  password: 8z9R4FiU9Ttgpl6it_pJPw
-  port: 1080
-  server: 104.248.169.207
+  password: MnEw5zo2ZhdS8Gy9fAMPfbhoguuv8biNYpoyHoNQLH2oZXWA4U4y6iNTYMexjaiBvQWv2N4b43gp9SVEG3nYvMf75p46K3He
+  port: 40565
+  server: imap.roomyinmita.name
   type: ss
-  udp: true
-- name: 🇺🇸 美国 128
-  password: dba20dcb635e430fa4d3bfc303a149d2
-  port: 443
-  server: 104.19.171.4
-  skip-cert-verify: true
-  sni: jobscareertoday.com
-  type: trojan
-  udp: true
-- cipher: rc4-md5
-  name: 🇨🇦 加拿大 36
-  password: dbEcUJ
-  port: 24603
-  server: 211.99.97.21
-  type: ss
-  udp: true
-- cipher: aes-256-gcm
-  name: 🇨🇦 加拿大 37
-  password: 20ff026e-e9c7-4147-bf3c-d6e21063f92c
-  port: 34815
-  server: zus1.capoonetwork.com
-  type: ss
-  udp: true
-- cipher: aes-256-cfb
+- cipher: chacha20-ietf-poly1305
   name: 🇫🇷 法国 10
-  password: f8f7aCzcPKbsF8p3
-  port: 989
-  server: 195.154.169.198
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 45.158.171.70
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 36
+  password: eUh4lSpi7nOYj0vSrqLUh0
+  port: 8506
+  server: 95.163.176.37
+  type: ss
+- alterId: 0
+  cipher: auto
+  client-fingerprint: chrome
+  name: 🇨🇦 加拿大 37
+  network: ws
+  port: 443
+  server: www.speedtest.net
+  skip-cert-verify: true
+  tls: true
+  type: vmess
+  uuid: e2fb28b8-a457-4bd2-801e-56fdcccbd88e
+  ws-opts:
+    headers:
+      host: blaze-cana-126.blazeservers1.site
+    path: /
+- cipher: aes-128-gcm
+  name: 🇯🇵 日本 11
+  password: Yc2CtrIz8L
+  port: 16899
+  server: 74.226.208.42
   type: ss
   udp: true
 proxy-groups:
@@ -4988,14 +4975,12 @@ proxy-groups:
   - 🇭🇰 香港 07
   - 🇨🇦 加拿大 32
   - 🇨🇦 加拿大 33
-  - 🇸🇬 新加坡 06
-  - 🇺🇸 美国 127
   - 🇨🇦 加拿大 34
   - 🇨🇦 加拿大 35
-  - 🇺🇸 美国 128
+  - 🇫🇷 法国 10
   - 🇨🇦 加拿大 36
   - 🇨🇦 加拿大 37
-  - 🇫🇷 法国 10
+  - 🇯🇵 日本 11
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
