@@ -4605,17 +4605,6 @@ proxies:
   type: ss
   cipher: aes-128-gcm
   password: f65324a4-f64b-4f22-bf88-8a151db0909c
-- name: 🇭🇰 香港 05
-  network: ws
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
-  port: 443
-  server: 45.77.21.104
-  sni: tjsp.hhxaf.cc.cd
-  type: trojan
-  ws-opts:
-    headers:
-      Host: tjsp.hhxaf.cc.cd
-    path: /
 - name: 🇺🇸 美国 123
   network: ws
   password: eeb6823c-b926-4ea2-866a-5542edd26e59
@@ -4628,7 +4617,7 @@ proxies:
       Host: tjsp.hhxaf.cc.cd
     path: /
 - alterId: 0
-  name: 🇭🇰 香港 06
+  name: 🇭🇰 香港 05
   network: ws
   password: eeb6823c-b926-4ea2-866a-5542edd26e59
   port: 8443
@@ -4665,6 +4654,65 @@ proxies:
       User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/62.0.3202.94 Safari/537.36
     path: /
+- name: 🇭🇰 香港 06
+  network: ws
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: 45.77.21.104
+  sni: tjsp.hhxaf.cc.cd
+  type: trojan
+  ws-opts:
+    headers:
+      Host: tjsp.hhxaf.cc.cd
+    path: /
+- alpn:
+  - http/1.1
+  name: 🇯🇵 日本 27
+  network: ws
+  password: 4c3164ee-abcf-4091-abea-d1cd4937a68d
+  port: '443'
+  server: 154.83.95.129
+  skip-cert-verify: false
+  sni: jy.hhllfly.kdns.fr
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/51.0.2704.103 Safari/537.36
+    path: /?ed=2048
+- alpn:
+  - http/1.1
+  name: 🇯🇵 日本 28
+  network: ws
+  password: 4c3164ee-abcf-4091-abea-d1cd4937a68d
+  port: '443'
+  server: 35.72.81.216
+  skip-cert-verify: false
+  sni: jy.hhllfly.kdns.fr
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/48.0.2564.109 Safari/537.36
+    path: /?ed=2048
+- alpn:
+  - http/1.1
+  name: 🇯🇵 日本 29
+  network: ws
+  password: 4c3164ee-abcf-4091-abea-d1cd4937a68d
+  port: '443'
+  server: 13.231.33.243
+  skip-cert-verify: false
+  sni: jy.hhllfly.kdns.fr
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Linux; Android 7.1.2; Redmi 4X Build/N2G47H) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/63.0.3239.111 Mobile Safari/537.36
+    path: /?ed=2048
 - name: 🇭🇰 香港 07
   network: tcp
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
@@ -4673,16 +4721,6 @@ proxies:
   skip-cert-verify: true
   sni: fr.01.naiun.bilibili.com
   type: trojan
-- alterId: 0
-  name: 🇩🇪 德国 148
-  password: fFj7MAGy1VlAWmB_gMBG_27oPYTSHvV6MX
-  port: 443
-  server: 185.137.157.59
-  skip-cert-verify: true
-  sni: www.lateralio.click
-  tls: true
-  type: trojan
-  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -5181,13 +5219,15 @@ proxy-groups:
   - 🇺🇸 美国 121
   - 🇺🇸 美国 122
   - 🏳️ 其他 105
-  - 🇭🇰 香港 05
   - 🇺🇸 美国 123
-  - 🇭🇰 香港 06
+  - 🇭🇰 香港 05
   - 🇯🇵 日本 26
   - 🇨🇦 加拿大 44
+  - 🇭🇰 香港 06
+  - 🇯🇵 日本 27
+  - 🇯🇵 日本 28
+  - 🇯🇵 日本 29
   - 🇭🇰 香港 07
-  - 🇩🇪 德国 148
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
