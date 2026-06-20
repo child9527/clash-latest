@@ -5447,6 +5447,17 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: kDWvXYZoTBcGkC4
+- name: 🇺🇸 美国 135
+  network: ws
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: 69.63.217.6
+  sni: hhcm.hhxaf.cc.cd
+  type: trojan
+  ws-opts:
+    headers:
+      Host: hhcm.hhxaf.cc.cd
+    path: /
 - name: 🇭🇰 香港 08
   network: ws
   password: eeb6823c-b926-4ea2-866a-5542edd26e59
@@ -5461,17 +5472,6 @@ proxies:
       User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/50.0.2661.102 Safari/537.36
     path: /
-- name: 🇺🇸 美国 135
-  network: ws
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
-  port: 443
-  server: 69.63.217.6
-  sni: hhcm.hhxaf.cc.cd
-  type: trojan
-  ws-opts:
-    headers:
-      Host: hhcm.hhxaf.cc.cd
-    path: /
 - name: 🇭🇰 香港 09
   network: tcp
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
@@ -5480,6 +5480,42 @@ proxies:
   skip-cert-verify: true
   sni: de.01.naiun.bilibili.com
   type: trojan
+  udp: true
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 61
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 62
+  password: zI7kiNZ0UfV9cXB73a4nRD
+  port: 24206
+  server: 164.92.156.41
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇸🇬 新加坡 04
+  password: df30da54-317f-4726-98bd-8bc8ec8140c9
+  port: 20177
+  server: 139.59.119.251
+  type: ss
+  udp: true
+- cipher: aes-256-gcm
+  name: 🇨🇦 加拿大 63
+  password: lGqs95QkFHo2NV
+  port: 5499
+  server: 23.162.200.77
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 64
+  password: f8f7aCzcPKbsF8p3
+  port: 989
+  server: 213.169.137.221
+  type: ss
   udp: true
 proxy-groups:
 - name: Proxy
@@ -6051,9 +6087,14 @@ proxy-groups:
   - 🇺🇸 美国 133
   - 🇺🇸 美国 134
   - 🇨🇦 加拿大 60
-  - 🇭🇰 香港 08
   - 🇺🇸 美国 135
+  - 🇭🇰 香港 08
   - 🇭🇰 香港 09
+  - 🇨🇦 加拿大 61
+  - 🇨🇦 加拿大 62
+  - 🇸🇬 新加坡 04
+  - 🇨🇦 加拿大 63
+  - 🇨🇦 加拿大 64
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
