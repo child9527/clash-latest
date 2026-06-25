@@ -5613,45 +5613,6 @@ proxies:
   alpn:
   - h3
   udp: true
-- name: 🇩🇪 德国 241
-  server: 151.101.38.151
-  port: 80
-  type: vless
-  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
-  tls: false
-  servername: max-gb1.global.ssl.fastly.net
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: max-gb1.global.ssl.fastly.net
-  udp: true
-- name: 🇩🇪 德国 242
-  server: speedtest.net
-  port: 80
-  type: vless
-  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
-  tls: false
-  servername: max-gb1.global.ssl.fastly.net
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: max-gb1.global.ssl.fastly.net
-  udp: true
-- name: 🇩🇪 德国 243
-  server: 151.101.109.223
-  port: 80
-  type: vless
-  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
-  tls: false
-  servername: max-gb1.global.ssl.fastly.net
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: max-gb1.global.ssl.fastly.net
-  udp: true
 - name: 🇺🇸 美国 143
   server: 37.19.198.244
   port: 443
@@ -5814,7 +5775,7 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: CJmTCCx7Ltud
-- name: 🇩🇪 德国 244
+- name: 🇩🇪 德国 241
   server: 209.46.102.22
   port: 8388
   type: ss
@@ -5856,7 +5817,7 @@ proxies:
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇩🇪 德国 245
+- name: 🇩🇪 德国 242
   server: 8.209.74.72
   port: 20001
   type: ss
@@ -5922,7 +5883,7 @@ proxies:
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- name: 🇩🇪 德国 246
+- name: 🇩🇪 德国 243
   server: de-1.hysteria.ltd
   port: 9443
   type: trojan
@@ -5953,7 +5914,7 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇩🇪 德国 247
+- name: 🇩🇪 德国 244
   server: 185.137.157.250
   port: 443
   type: trojan
@@ -6016,7 +5977,7 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇩🇪 德国 248
+- name: 🇩🇪 德国 245
   server: 213.202.208.199
   port: 7001
   type: ss
@@ -6254,7 +6215,7 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇩🇪 德国 249
+- name: 🇩🇪 德国 246
   server: 2.26.54.174
   port: 8448
   type: trojan
@@ -6387,7 +6348,7 @@ proxies:
   password: f5362b9a-812f-4d77-89a3-09f7d0851bfb
   sni: 67sg01.fans8.xyz
   skip-cert-verify: false
-- name: 🇩🇪 德国 250
+- name: 🇩🇪 德国 247
   server: data-hk-v1.heisey.cn
   port: 50205
   type: vmess
@@ -6401,7 +6362,7 @@ proxies:
     path: /
     headers:
       Host: tv.cctv.com
-- name: 🇩🇪 德国 251
+- name: 🇩🇪 德国 248
   server: data-hk-v2.heisey.cn
   port: 50207
   type: vmess
@@ -6628,7 +6589,7 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇩🇪 德国 252
+- name: 🇩🇪 德国 249
   server: 161.35.69.20
   port: 811
   type: ss
@@ -6869,7 +6830,46 @@ proxies:
   type: trojan
   password: dfbf0d67-f03d-4184-a224-c2d64a571f99
   skip-cert-verify: false
-- name: 🇨🇦 加拿大 37
+- name: 🇰🇷 韩国 10
+  network: ws
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: 211.49.57.178
+  skip-cert-verify: false
+  sni: hhcm.hhxaf.cc.cd
+  type: trojan
+  ws-opts:
+    headers:
+      Host: hhcm.hhxaf.cc.cd
+    path: /
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 37
+  network: ws
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: saas.sin.fan
+  sni: hhcm.hhxaf.cc.cd
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: hhcm.hhxaf.cc.cd
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/66.0.3359.117 Safari/537.36
+    path: /
+- name: 🇰🇷 韩国 11
+  network: ws
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: 211.49.57.179
+  skip-cert-verify: false
+  sni: tjsp.hhxaf.cc.cd
+  type: trojan
+  ws-opts:
+    headers:
+      Host: tjsp.hhxaf.cc.cd
+    path: /
+- name: 🇨🇦 加拿大 38
   network: ws
   password: eeb6823c-b926-4ea2-866a-5542edd26e59
   port: 443
@@ -6882,49 +6882,22 @@ proxies:
       Host: tjsp.hhxaf.cc.cd
     path: /
 - client-fingerprint: chrome
-  name: 🇺🇸 美国 181
+  name: 🇨🇦 加拿大 39
   network: ws
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  password: 6c862415-30d2-4813-8e49-42e99a0bd415
   port: 443
-  server: 154.17.28.152
-  sni: hhcm.hhxaf.cc.cd
+  server: 188.164.248.122
+  sni: space.byu.id.yxls.eu.cc
   type: trojan
   udp: true
   ws-opts:
     headers:
-      Host: hhcm.hhxaf.cc.cd
+      Host: space.byu.id.yxls.eu.cc
       User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/68.0.3440.106 Safari/537.36
-    path: /
+        like Gecko) Chrome/62.0.3202.89 Safari/537.36
+    path: /us-gllc
 - client-fingerprint: chrome
-  name: 🇺🇸 美国 182
-  network: ws
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
-  port: 443
-  server: 154.26.187.6
-  sni: hhcm.hhxaf.cc.cd
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      Host: hhcm.hhxaf.cc.cd
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/43.0.2357.65 Safari/537.36
-    path: /
-- name: 🇰🇷 韩国 10
-  network: ws
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
-  port: 443
-  server: 211.49.57.179
-  skip-cert-verify: false
-  sni: tjsp.hhxaf.cc.cd
-  type: trojan
-  ws-opts:
-    headers:
-      Host: tjsp.hhxaf.cc.cd
-    path: /
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 183
+  name: 🇺🇸 美国 181
   network: ws
   password: eeb6823c-b926-4ea2-866a-5542edd26e59
   port: 443
@@ -6938,41 +6911,63 @@ proxies:
       User-Agent: Mozilla/5.0 (Linux; Android 5.1.1; SM-J111M Build/LMY47V) AppleWebKit/537.36
         (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
     path: /
-- name: 🇨🇦 加拿大 38
-  password: telegram-id-privatevpns
-  port: 22222
-  server: 13.51.46.95
-  skip-cert-verify: true
-  sni: trojan.burgerip.co.uk
-  type: trojan
-  udp: true
-- name: 🇺🇸 美国 184
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 40
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- client-fingerprint: chrome
+  name: 🇯🇵 日本 17
   network: ws
-  password: qG9K8AGnn9XH5jUqeFu96g
-  port: 2083
-  server: 104.16.123.175
-  skip-cert-verify: true
-  sni: cdn13.cdn2cdn.com
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: 108.160.132.132
+  sni: tjsp.hhxaf.cc.cd
   type: trojan
   udp: true
   ws-opts:
     headers:
-      Host: cdn13.cdn2cdn.com
-    path: '%2525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252F'
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 39
-  password: f8f7aCzcPKbsF8p3
-  port: 989
-  server: 46.183.184.60
-  type: ss
-  udp: true
-- name: 🇨🇦 加拿大 40
-  password: 17fdf23d-2cc4-48bb-a8d4-6d0cabda51f9
-  port: 443
-  server: kz-full.privateip.net
+      Host: tjsp.hhxaf.cc.cd
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/62.0.3202.89 Safari/537.36
+    path: /
+- name: 🇺🇸 美国 182
+  network: ws
+  password: 0e81a9cd-d849-4101-8d64-574c283207de
+  port: 2083
+  server: 172.67.204.84
   skip-cert-verify: true
+  sni: de1.trojanvpn.de
   type: trojan
   udp: true
+  ws-opts:
+    headers:
+      Host: de1.trojanvpn.de
+    path: '%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252Fwebsocket'
+- name: 🇺🇸 美国 183
+  network: ws
+  password: cb1f26aa437d4bfa9b841d28503ce8cc
+  port: 443
+  server: 104.19.171.5
+  skip-cert-verify: true
+  sni: jobscareerforlawyers.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: jobscareerforlawyers.com
+    path: 6b777a91
+- name: 🇺🇸 美国 184
+  network: tcp
+  password: 20bc0771-1fde-45ee-8052-3c26249c43dc
+  port: 34865
+  server: 144.24.4.176
+  sni: zurich.678789.xyz
+  type: trojan
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -7455,9 +7450,6 @@ proxy-groups:
   - 🇺🇸 美国 141
   - 🇺🇸 美国 142
   - 🇩🇪 德国 240
-  - 🇩🇪 德国 241
-  - 🇩🇪 德国 242
-  - 🇩🇪 德国 243
   - 🇺🇸 美国 143
   - 🇺🇸 美国 144
   - 🇺🇸 美国 145
@@ -7485,14 +7477,14 @@ proxy-groups:
   - 🇺🇸 美国 152
   - 🇨🇦 加拿大 16
   - 🇳🇱 荷兰 09
-  - 🇩🇪 德国 244
+  - 🇩🇪 德国 241
   - 🏳️ 其他 61
   - 🇳🇱 荷兰 10
   - 🇳🇱 荷兰 11
   - 🇳🇱 荷兰 12
   - 🏳️ 其他 62
   - 🇺🇸 美国 153
-  - 🇩🇪 德国 245
+  - 🇩🇪 德国 242
   - 🏳️ 其他 63
   - 🇯🇵 日本 01
   - 🇯🇵 日本 02
@@ -7503,19 +7495,19 @@ proxy-groups:
   - 🇯🇵 日本 04
   - 🏳️ 其他 67
   - 🏳️ 其他 68
-  - 🇩🇪 德国 246
+  - 🇩🇪 德国 243
   - 🏳️ 其他 69
   - 🏳️ 其他 70
   - 🏳️ 其他 71
   - 🏳️ 其他 72
-  - 🇩🇪 德国 247
+  - 🇩🇪 德国 244
   - 🇯🇵 日本 05
   - 🇨🇦 加拿大 17
   - 🇹🇼 台湾 01
   - 🇺🇸 美国 154
   - 🇺🇸 美国 155
   - 🇰🇷 韩国 03
-  - 🇩🇪 德国 248
+  - 🇩🇪 德国 245
   - 🏳️ 其他 73
   - 🇺🇸 美国 156
   - 🏳️ 其他 74
@@ -7551,7 +7543,7 @@ proxy-groups:
   - 🇺🇸 美国 158
   - 🇯🇵 日本 07
   - 🏳️ 其他 88
-  - 🇩🇪 德国 249
+  - 🇩🇪 德国 246
   - 🏳️ 其他 89
   - 🇳🇱 荷兰 17
   - 🇨🇦 加拿大 18
@@ -7569,8 +7561,8 @@ proxy-groups:
   - 🇯🇵 日本 12
   - 🇺🇸 美国 164
   - 🇺🇸 美国 165
-  - 🇩🇪 德国 250
-  - 🇩🇪 德国 251
+  - 🇩🇪 德国 247
+  - 🇩🇪 德国 248
   - 🇺🇸 美国 166
   - 🇨🇦 加拿大 19
   - 🇨🇦 加拿大 20
@@ -7604,7 +7596,7 @@ proxy-groups:
   - 🇺🇸 美国 173
   - 🇷🇺 俄罗斯 03
   - 🇷🇺 俄罗斯 04
-  - 🇩🇪 德国 252
+  - 🇩🇪 德国 249
   - 🏳️ 其他 95
   - 🇺🇸 美国 174
   - 🏳️ 其他 96
@@ -7631,15 +7623,17 @@ proxy-groups:
   - 🇺🇸 美国 180
   - 🏳️ 其他 101
   - 🏳️ 其他 102
-  - 🇨🇦 加拿大 37
-  - 🇺🇸 美国 181
-  - 🇺🇸 美国 182
   - 🇰🇷 韩国 10
-  - 🇺🇸 美国 183
+  - 🇨🇦 加拿大 37
+  - 🇰🇷 韩国 11
   - 🇨🇦 加拿大 38
-  - 🇺🇸 美国 184
   - 🇨🇦 加拿大 39
+  - 🇺🇸 美国 181
   - 🇨🇦 加拿大 40
+  - 🇯🇵 日本 17
+  - 🇺🇸 美国 182
+  - 🇺🇸 美国 183
+  - 🇺🇸 美国 184
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
