@@ -8374,38 +8374,32 @@ proxies:
   sni: vn2.yuntong.click
   type: hysteria2
   udp: true
-- name: 🇨🇦 加拿大 27
-  network: ws
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
-  port: 443
-  server: saas.sin.fan
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 27
+  port: 30807
+  server: v10.hdacd.com
   skip-cert-verify: false
-  sni: hhcm.hhxaf.cc.cd
-  type: trojan
-  ws-opts:
-    headers:
-      Host: hhcm.hhxaf.cc.cd
-    path: /
-- client-fingerprint: chrome
-  name: 🇯🇵 日本 29
-  network: ws
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
-  port: 443
-  server: 64.176.36.17
-  sni: tjsp.hhxaf.cc.cd
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      Host: tjsp.hhxaf.cc.cd
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/65.0.3325.181 Safari/537.36
-    path: /
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - name: 🇺🇸 美国 179
   network: ws
   password: eeb6823c-b926-4ea2-866a-5542edd26e59
   port: 443
-  server: 104.18.42.163
+  server: 154.17.28.152
+  skip-cert-verify: false
+  sni: hhcm.hhxaf.cc.cd
+  type: trojan
+  ws-opts:
+    headers:
+      Host: hhcm.hhxaf.cc.cd
+    path: /
+- name: 🇺🇸 美国 180
+  network: ws
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: 154.17.26.148
   skip-cert-verify: false
   sni: tjsp.hhxaf.cc.cd
   type: trojan
@@ -8414,22 +8408,7 @@ proxies:
       Host: tjsp.hhxaf.cc.cd
     path: /
 - client-fingerprint: chrome
-  name: 🇺🇸 美国 180
-  network: ws
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
-  port: 443
-  server: 162.159.36.20
-  sni: hhcm.hhxaf.cc.cd
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      Host: hhcm.hhxaf.cc.cd
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/41.0.2272.76 Safari/537.36
-    path: /
-- client-fingerprint: chrome
-  name: 🇯🇵 日本 30
+  name: 🇯🇵 日本 29
   network: ws
   password: eeb6823c-b926-4ea2-866a-5542edd26e59
   port: 443
@@ -8443,11 +8422,41 @@ proxies:
       User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
         like Gecko) Chrome/58.0.3029.81 Safari/537.36
     path: /
-- name: 🇰🇷 韩国 20
+- client-fingerprint: chrome
+  name: 🇯🇵 日本 30
   network: ws
   password: eeb6823c-b926-4ea2-866a-5542edd26e59
   port: 443
-  server: 211.49.57.179
+  server: 64.176.36.17
+  sni: tjsp.hhxaf.cc.cd
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: tjsp.hhxaf.cc.cd
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/65.0.3325.181 Safari/537.36
+    path: /
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 181
+  network: ws
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: 162.159.36.20
+  sni: hhcm.hhxaf.cc.cd
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: hhcm.hhxaf.cc.cd
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/41.0.2272.76 Safari/537.36
+    path: /
+- name: 🇺🇸 美国 182
+  network: ws
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  port: 443
+  server: 104.18.42.163
   skip-cert-verify: false
   sni: tjsp.hhxaf.cc.cd
   type: trojan
@@ -8455,6 +8464,21 @@ proxies:
     headers:
       Host: tjsp.hhxaf.cc.cd
     path: /
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 183
+  network: ws
+  password: 86957ec0-b213-433b-a43b-51f2175e0ec3
+  port: 443
+  server: 104.16.72.70
+  sni: space.byu.id.yxls.eu.cc
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: space.byu.id.yxls.eu.cc
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/64.0.3282.186 Safari/537.36
+    path: /au-do
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -9219,11 +9243,13 @@ proxy-groups:
   - 🏳️ 其他 107
   - 🇨🇦 加拿大 26
   - 🇨🇦 加拿大 27
-  - 🇯🇵 日本 29
   - 🇺🇸 美国 179
   - 🇺🇸 美国 180
+  - 🇯🇵 日本 29
   - 🇯🇵 日本 30
-  - 🇰🇷 韩国 20
+  - 🇺🇸 美国 181
+  - 🇺🇸 美国 182
+  - 🇺🇸 美国 183
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
