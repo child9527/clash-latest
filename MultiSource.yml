@@ -9436,6 +9436,13 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 6e100615-e69c-4c43-b9eb-2e8b6a8b5d8d
 - name: 🇨🇦 加拿大 53
+  password: PI36027154
+  port: '443'
+  server: large-baboon.rooster465.autos
+  skip-cert-verify: false
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 54
   obfs: salamander
   obfs-password: EsimObfs_9mK2x7
   password: EsimHy2Game_7xK9mPq2
@@ -9453,82 +9460,61 @@ proxies:
   sni: vpn-sg-001.fastervpn.world
   type: hysteria2
   udp: true
-- name: 🇨🇦 加拿大 54
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 55
+  network: tcp
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: true
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  ws-headers:
+    Host: v10.hdacd.com
+  ws-path: /
+- name: 🇨🇦 加拿大 56
   password: PI36027154
   port: '443'
   server: ethical-raccoon.rooster465.autos
   skip-cert-verify: false
   type: trojan
   udp: true
-- alterId: 0
-  name: 🇨🇦 加拿大 55
-  password: t1k169n5zmvvwn96r9ft
-  port: 57452
-  server: 146.70.90.195
-  skip-cert-verify: true
-  sni: api-yandex.maps.ru
-  tls: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 57
+  password: ODfxioK0VkKxTdpVQJ4rv8HglAu0vzv6
+  port: 443
+  server: 146.19.49.251
+  type: ss
+- name: 🇺🇸 美国 149
+  network: tcp
+  password: 20bc0771-1fde-45ee-8052-3c26249c43dc
+  port: 34865
+  server: 144.24.4.176
+  sni: zurich.678789.xyz
   type: trojan
-  udp: true
-- cipher: rc4-md5
-  name: 🇨🇦 加拿大 56
-  password: efanccyun
-  plugin: obfs
-  plugin-opts:
-    host: 202503181464410-9tCwc1fdZ3.download.microsoft.com
-    mode: http
-  port: 8765
-  server: cn01.efan8867801.xyz
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 58
+  password: cdc48a7a-b618-45af-a831-5afbd686b02f
+  port: 12202
+  server: gg21.hangfengjiasu.com
   tfo: false
   type: ss
 - cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 57
-  password: iy8HtZILMHFwxH16LYFqkS
-  port: 65262
-  server: 62.133.63.21
+  client-fingerprint: chrome
+  name: 🇷🇺 俄罗斯 01
+  password: RiPuKJJl18ZgvLpTjWxBwSfKiPkt9gzFKyxGCY8eHtOcDb2X
+  port: 31348
+  server: 5.189.201.250
   type: ss
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 149
-  network: ws
-  password: 6c862415-30d2-4813-8e49-42e99a0bd415
-  port: 443
-  server: 104.16.72.70
-  sni: space.byu.id.yxls.eu.cc
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      Host: space.byu.id.yxls.eu.cc
-      User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; SM-J700M Build/MMB29K) AppleWebKit/537.36
-        (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
-    path: /us-gllc
 - name: 🇺🇸 美国 150
-  network: ws
-  password: 64559da0-f51c-11ee-8db0-1239d0255272
+  password: humanity
   port: 443
-  server: 104.21.41.21
+  server: 104.16.174.121
   skip-cert-verify: true
-  sni: fr1.test3.net
+  sni: www.ignitelimit.com
   type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      Host: fr1.test3.net
-    path: '%252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252Fhowdy'
-- name: 🇺🇸 美国 151
-  network: ws
-  password: a8fce442-ae9a-4cc1-a0cc-20308ff0a0db
-  port: 443
-  server: 104.21.64.1
-  skip-cert-verify: true
-  sni: 1g.890699.xyZ
-  tfo: false
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      Host: 1g.890699.xyZ
-    path: /lXENb74xF4ylXngZ
+  ws-path: h=%2Fassignment
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -10370,14 +10356,15 @@ proxy-groups:
   - 🇺🇸 美国 147
   - 🇺🇸 美国 148
   - 🇨🇦 加拿大 53
-  - 🇸🇬 新加坡 08
   - 🇨🇦 加拿大 54
+  - 🇸🇬 新加坡 08
   - 🇨🇦 加拿大 55
   - 🇨🇦 加拿大 56
   - 🇨🇦 加拿大 57
   - 🇺🇸 美国 149
+  - 🇨🇦 加拿大 58
+  - 🇷🇺 俄罗斯 01
   - 🇺🇸 美国 150
-  - 🇺🇸 美国 151
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
