@@ -11967,17 +11967,6 @@ proxies:
   password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
   plugin: obfs
   plugin-opts:
-    host: (Telegram🇨🇳 @VPNine1)6db9d46:44797
-    mode: tls
-  port: '2377'
-  server: 88.210.36.109
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 149
-  password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-  plugin: obfs
-  plugin-opts:
     host: (Telegram🇨🇳 @WangCai2)f6e348d:70852
     mode: tls
   port: 2377
@@ -11986,60 +11975,22 @@ proxies:
   type: ss
   udp: true
 - name: 🇨🇦 加拿大 45
-  network: raw
   password: OD90375861
-  port: '443'
-  server: together-insect.rooster465.autos
-  skip-cert-verify: false
-  sni: together-insect.rooster465.autos
+  port: 443
+  server: busy-hermit.rooster465.autos
+  skip-cert-verify: true
+  sni: busy-hermit.rooster465.autos
+  tls: false
   type: trojan
   udp: true
-- name: 🇨🇦 加拿大 46
-  network: tcp
-  password: XG59623478
-  port: 443
-  server: enabling-asp.rooster465.autos
-  skip-cert-verify: false
-  sni: enabling-asp.rooster465.autos
-  type: trojan
+- cipher: aes-256-gcm
+  name: 🇨🇦 加拿大 46
+  password: 2803361d6c196af8
+  port: '20111'
+  server: 50.114.177.235
+  type: ss
   udp: true
 - name: 🇨🇦 加拿大 47
-  network: tcp
-  password: OD90375861
-  port: '443'
-  server: busy-hermit.rooster465.autos
-  skip-cert-verify: false
-  sni: busy-hermit.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 48
-  network: tcp
-  password: OD90375861
-  port: '443'
-  server: wired-tick.rooster465.autos
-  skip-cert-verify: false
-  sni: wired-tick.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 49
-  network: tcp
-  password: OD90375861
-  port: '443'
-  server: fit-calf.rooster465.autos
-  skip-cert-verify: false
-  sni: fit-calf.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 50
-  network: tcp
-  password: KV63147582
-  port: '443'
-  server: electric-sturgeon.rooster465.autos
-  skip-cert-verify: false
-  sni: electric-sturgeon.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 51
   network: tcp
   password: KV63147582
   port: '443'
@@ -12048,7 +11999,18 @@ proxies:
   sni: game-firefly.rooster465.autos
   type: trojan
   udp: true
-- name: 🇨🇦 加拿大 52
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 149
+  password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
+  plugin: obfs
+  plugin-opts:
+    host: (Telegram🇨🇳 @VPNine1)6db9d46:44797
+    mode: tls
+  port: '2377'
+  server: 88.210.36.109
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 48
   network: ws
   password: dfdse334053vuohm
   port: 443
@@ -12067,15 +12029,32 @@ proxies:
   server: 18.190.176.112
   type: ss
   udp: true
-- alterId: 2
-  cipher: auto
-  name: 🇨🇦 加拿大 53
-  port: 30807
-  server: v10.hdacd.com
+- name: 🇨🇦 加拿大 49
+  network: tcp
+  password: OD90375861
+  port: '443'
+  server: wired-tick.rooster465.autos
   skip-cert-verify: false
+  sni: wired-tick.rooster465.autos
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 50
+  password: KV63147582
+  port: 443
+  server: electric-sturgeon.rooster465.autos
+  skip-cert-verify: true
+  sni: electric-sturgeon.rooster465.autos
   tls: false
-  type: vmess
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 51
+  password: c0aa0cee-e855-4bcc-9afc-46241cb17990
+  port: 443
+  server: fast88.screw.page
+  skip-cert-verify: true
+  sni: fast88.screw.page
+  type: hysteria2
+  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -13114,17 +13093,15 @@ proxy-groups:
   - 🇺🇸 美国 146
   - 🇺🇸 美国 147
   - 🇺🇸 美国 148
-  - 🇺🇸 美国 149
   - 🇨🇦 加拿大 45
   - 🇨🇦 加拿大 46
   - 🇨🇦 加拿大 47
+  - 🇺🇸 美国 149
   - 🇨🇦 加拿大 48
+  - 🇺🇸 美国 150
   - 🇨🇦 加拿大 49
   - 🇨🇦 加拿大 50
   - 🇨🇦 加拿大 51
-  - 🇨🇦 加拿大 52
-  - 🇺🇸 美国 150
-  - 🇨🇦 加拿大 53
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
