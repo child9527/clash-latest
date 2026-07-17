@@ -11727,20 +11727,6 @@ proxies:
     path: /
     headers:
       Host: 152.67.218.38
-- cipher: aes-256-cfb
-  name: 🇩🇪 德国 610
-  password: amazonskr05
-  port: '443'
-  server: 3.122.115.111
-  type: ss
-  udp: true
-- cipher: aes-256-cfb
-  name: 🇩🇪 德国 611
-  password: amazonskr05
-  port: '443'
-  server: 63.183.207.82
-  type: ss
-  udp: true
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 43
   password: oZIoA69Q8yhcQV8ka3Pa3A
@@ -11748,18 +11734,13 @@ proxies:
   server: 82.38.31.46
   type: ss
   udp: true
-- name: 🇨🇦 加拿大 44
-  network: ws
-  password: dfdse334053vuohm
-  port: 443
-  server: auto.mhjstudio.ir
-  skip-cert-verify: false
-  sni: alternative.mhjstudio.ir
-  type: trojan
-  ws-opts:
-    headers:
-      Host: alternative.mhjstudio.ir
-    path: /
+- cipher: aes-256-cfb
+  name: 🇩🇪 德国 610
+  password: amazonskr05
+  port: '443'
+  server: 63.183.207.82
+  type: ss
+  udp: true
 - cipher: aes-256-cfb
   name: 🇺🇸 美国 108
   password: amazonskr05
@@ -11768,62 +11749,35 @@ proxies:
   type: ss
   udp: true
 - cipher: aes-256-cfb
-  name: 🇺🇸 美国 109
+  name: 🇩🇪 德国 611
   password: amazonskr05
   port: '443'
-  server: 18.190.176.112
+  server: 3.122.115.111
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇩🇪 德国 612
+  password: amazonskr05
+  port: '443'
+  server: 18.159.196.187
   type: ss
   udp: true
 - cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 45
+  name: 🇨🇦 加拿大 44
   password: Vr06rU_v1vFPYeXq9zbsAA
   port: '1080'
   server: 156.146.40.84
   type: ss
   udp: true
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 46
-  password: qwerREWQ@@
-  port: 51472
-  server: p232.panda004.net
-  type: ss
-  udp: true
-- name: 🇨🇦 加拿大 47
-  password: BZjkHMao
+- alterId: 0
+  name: 🇺🇸 美国 109
+  password: S.ibYdZshHTF-ne.M+.Fznp_-hyFFnCSix
   port: 443
-  server: 38.180.127.194
+  server: 149.104.104.58
   skip-cert-verify: true
+  sni: 149.104.104.58
+  tls: true
   type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 48
-  password: ebd1c3e8-a136-49a5-a76c-88c4bf0a23aa
-  port: 30502
-  server: fr01.freeflyingcloud.xyz
-  skip-cert-verify: true
-  sni: fr01.freeflyingcloud.xyz
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 49
-  password: 71ab3866-4c8b-4a0b-a4bd-a64f110afe0b
-  port: 443
-  server: ca-full.privateip.net
-  skip-cert-verify: true
-  type: trojan
-  udp: true
-- cipher: aes-128-gcm
-  name: 🇺🇸 美国 110
-  password: SwPfc22G83_s
-  plugin: v2ray-plugin
-  plugin-opts:
-    host: v3.fjdd.shop
-    mode: websocket
-    mux: false
-    path: ''
-    skip-cert-verify: true
-    tls: false
-  port: 443
-  server: 104.16.96.41
-  type: ss
   udp: true
 proxy-groups:
 - name: Proxy
@@ -12835,18 +12789,13 @@ proxy-groups:
   - 🇺🇸 美国 107
   - 🏳️ 其他 45
   - 🇰🇷 韩国 32
-  - 🇩🇪 德国 610
-  - 🇩🇪 德国 611
   - 🇨🇦 加拿大 43
-  - 🇨🇦 加拿大 44
+  - 🇩🇪 德国 610
   - 🇺🇸 美国 108
+  - 🇩🇪 德国 611
+  - 🇩🇪 德国 612
+  - 🇨🇦 加拿大 44
   - 🇺🇸 美国 109
-  - 🇨🇦 加拿大 45
-  - 🇨🇦 加拿大 46
-  - 🇨🇦 加拿大 47
-  - 🇨🇦 加拿大 48
-  - 🇨🇦 加拿大 49
-  - 🇺🇸 美国 110
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
