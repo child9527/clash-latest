@@ -12064,52 +12064,14 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: RexnBgU7EV5ADxG
-- name: 🇨🇦 加拿大 43
-  network: tcp
-  password: NQ26071394
-  port: '443'
-  server: bold-eagle.rooster465.autos
-  skip-cert-verify: false
-  sni: bold-eagle.rooster465.autos
-  type: trojan
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 43
+  password: Vr06rU_v1vFPYeXq9zbsAA
+  port: '1080'
+  server: 194.187.251.2
+  type: ss
   udp: true
 - name: 🇨🇦 加拿大 44
-  network: tcp
-  password: NQ26071394
-  port: '443'
-  server: amazing-troll.rooster465.autos
-  skip-cert-verify: false
-  sni: amazing-troll.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 45
-  network: tcp
-  password: NQ26071394
-  port: '443'
-  server: topical-shark.rooster465.autos
-  skip-cert-verify: false
-  sni: topical-shark.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 46
-  network: tcp
-  password: NQ26071394
-  port: '443'
-  server: thorough-foxhound.rooster465.autos
-  skip-cert-verify: false
-  sni: thorough-foxhound.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 47
-  network: tcp
-  password: NQ26071394
-  port: '443'
-  server: gentle-platypus.rooster465.autos
-  skip-cert-verify: false
-  sni: gentle-platypus.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 48
   network: ws
   password: dfdse334053vuohm
   port: 443
@@ -12121,21 +12083,62 @@ proxies:
     headers:
       Host: alternative.mhjstudio.ir
     path: /
-- name: 🇨🇦 加拿大 49
-  network: tcp
-  password: NQ26071394
-  port: '443'
-  server: ace-liger.rooster465.autos
-  skip-cert-verify: false
-  sni: ace-liger.rooster465.autos
-  type: trojan
-  udp: true
 - cipher: aes-256-cfb
   name: 🇩🇪 德国 622
   password: amazonskr05
-  port: 443
-  server: 63.180.254.10
+  port: '443'
+  server: 63.183.207.82
   type: ss
+  udp: true
+- name: 🇨🇦 加拿大 45
+  network: tcp
+  password: NQ26071394
+  port: '443'
+  server: bold-eagle.rooster465.autos
+  skip-cert-verify: false
+  sni: bold-eagle.rooster465.autos
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 127
+  network: tcp
+  password: S.ibYdZshHTF-ne.M+.Fznp_-hyFFnCSix
+  port: 443
+  server: 149.104.104.58
+  skip-cert-verify: false
+  sni: 149.104.104.58
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 46
+  network: tcp
+  password: NQ26071394
+  port: '443'
+  server: amazing-troll.rooster465.autos
+  skip-cert-verify: false
+  sni: amazing-troll.rooster465.autos
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 47
+  password: ba74833c-8c0f-4dcd-8cbc-13e3c32d3765
+  port: 2053
+  server: 185.236.233.111
+  skip-cert-verify: true
+  type: trojan
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇷🇺 俄罗斯 01
+  password: LLVD6lbENjzG1vj15Fvq7r
+  port: 15174
+  server: 62.113.110.233
+  type: ss
+  udp: true
+- cipher: aes-256-gcm
+  name: 🇺🇸 美国 128
+  password: cdBIDV42DCwnfIN
+  port: 8118
+  server: 23.157.40.16
+  type: ss
+  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -13174,12 +13177,13 @@ proxy-groups:
   - 🇩🇪 德国 621
   - 🇨🇦 加拿大 43
   - 🇨🇦 加拿大 44
+  - 🇩🇪 德国 622
   - 🇨🇦 加拿大 45
+  - 🇺🇸 美国 127
   - 🇨🇦 加拿大 46
   - 🇨🇦 加拿大 47
-  - 🇨🇦 加拿大 48
-  - 🇨🇦 加拿大 49
-  - 🇩🇪 德国 622
+  - 🇷🇺 俄罗斯 01
+  - 🇺🇸 美国 128
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
