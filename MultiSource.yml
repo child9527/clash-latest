@@ -11940,21 +11940,12 @@ proxies:
   network: tcp
   password: JA96378052
   port: '443'
-  server: brave-muskox.rooster465.autos
+  server: normal-cow.rooster465.autos
   skip-cert-verify: false
-  sni: brave-muskox.rooster465.autos
+  sni: normal-cow.rooster465.autos
   type: trojan
   udp: true
 - name: 🇨🇦 加拿大 42
-  network: tcp
-  password: JA96378052
-  port: '443'
-  server: willing-eagle.rooster465.autos
-  skip-cert-verify: false
-  sni: willing-eagle.rooster465.autos
-  type: trojan
-  udp: true
-- name: 🇨🇦 加拿大 43
   network: tcp
   password: JA96378052
   port: '443'
@@ -11963,13 +11954,13 @@ proxies:
   sni: inspired-goshawk.rooster465.autos
   type: trojan
   udp: true
-- name: 🇨🇦 加拿大 44
+- name: 🇨🇦 加拿大 43
   network: tcp
   password: JA96378052
   port: '443'
-  server: normal-cow.rooster465.autos
+  server: willing-eagle.rooster465.autos
   skip-cert-verify: false
-  sni: normal-cow.rooster465.autos
+  sni: willing-eagle.rooster465.autos
   type: trojan
   udp: true
 - cipher: aes-256-cfb
@@ -11980,28 +11971,37 @@ proxies:
   skip-cert-verify: true
   type: ss
   udp: true
+- cipher: aes-256-cfb
+  name: 🇩🇪 德国 636
+  password: amazonskr05
+  port: '443'
+  server: 3.77.54.36
+  type: ss
+  udp: true
 - cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 45
+  name: 🇨🇦 加拿大 44
   password: Vr06rU_v1vFPYeXq9zbsAA
   port: '1080'
   server: 156.146.40.84
   type: ss
   udp: true
-- name: 🇨🇦 加拿大 46
+- name: 🇨🇦 加拿大 45
   network: tcp
-  password: HW85960347
-  port: 443
-  server: exciting-turtle.rooster465.autos
+  password: JA96378052
+  port: '443'
+  server: modest-coral.rooster465.autos
   skip-cert-verify: false
-  sni: exciting-turtle.rooster465.autos
+  sni: modest-coral.rooster465.autos
   type: trojan
   udp: true
-- cipher: aes-256-cfb
-  name: 🇩🇪 德国 636
-  password: amazonskr05
+- name: 🇨🇦 加拿大 46
+  password: PD07395842
   port: 443
-  server: 63.180.254.10
-  type: ss
+  server: excited-sole.rooster465.autos
+  skip-cert-verify: true
+  sni: excited-sole.rooster465.autos
+  type: trojan
+  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -13060,11 +13060,11 @@ proxy-groups:
   - 🇨🇦 加拿大 41
   - 🇨🇦 加拿大 42
   - 🇨🇦 加拿大 43
-  - 🇨🇦 加拿大 44
   - 🇩🇪 德国 635
+  - 🇩🇪 德国 636
+  - 🇨🇦 加拿大 44
   - 🇨🇦 加拿大 45
   - 🇨🇦 加拿大 46
-  - 🇩🇪 德国 636
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
