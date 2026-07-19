@@ -12212,57 +12212,74 @@ proxies:
   port: 443
   server: 63.177.252.44
   type: ss
-- cipher: aes-128-gcm
-  name: 🇺🇸 美国 120
-  password: v9443iEa9gWv
-  plugin: v2ray-plugin
-  plugin-opts:
-    host: v1.fjdd.shop
-    mode: websocket
-    mux: false
-    path: ''
-    skip-cert-verify: true
-    tls: false
+- alterId: 0
+  name: 🇨🇦 加拿大 45
+  password: JA96378052
   port: 443
-  server: 104.16.100.23
-  type: ss
-  udp: true
-- name: 🇨🇦 加拿大 45
-  password: telegram-id-directvpn
-  port: 22222
-  server: 51.21.28.221
+  server: primary-mallard.rooster465.autos
   skip-cert-verify: true
-  sni: trojan.burgerip.co.uk
+  sni: primary-mallard.rooster465.autos
+  tls: true
   type: trojan
   udp: true
-- name: 🇨🇦 加拿大 46
-  password: 57afed5a-5a70-4a8b-bb40-4d81c26e65dd
+- alterId: 0
+  name: 🇩🇪 德国 668
+  password: OD90375861
   port: 443
-  server: uk-full.privateip.net
+  server: 3.67.171.41
   skip-cert-verify: true
+  sni: busy-hermit.rooster465.autos
+  tls: true
   type: trojan
   udp: true
-- cipher: aes-256-cfb
-  name: 🇰🇷 韩国 38
-  password: qwerREWQ@@
-  port: 10218
-  server: 125.141.26.11
-  type: ss
-  udp: true
-- name: 🇨🇦 加拿大 47
-  password: pjdnqv
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 46
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- alterId: 0
+  name: 🇨🇦 加拿大 47
+  password: OD90375861
   port: 443
-  server: aws-us-dallas-1.f1rocketnode.com
+  server: big-bonefish.rooster465.autos
   skip-cert-verify: true
-  sni: aws-us-dallas-1.f1rocketnode.com
+  sni: big-bonefish.rooster465.autos
+  tls: true
   type: trojan
   udp: true
-- cipher: aes-256-gcm
-  name: 🇺🇸 美国 121
-  password: 06gZKkeC2J
-  port: 51981
-  server: 23.94.76.55
-  type: ss
+- name: 🇨🇦 加拿大 48
+  obfs: salamander
+  obfs-password: eNM/NfxTsBqQIKcN0ezARS1z0f5mIxRd9GSwhVsyJlo=
+  password: f7cb07a0-e6f9-4d22-a60e-c61854450c89
+  port: 443
+  server: ff2.yuntong.click
+  skip-cert-verify: true
+  sni: ff2.yuntong.click
+  type: hysteria2
+  udp: true
+- client-fingerprint: chrome
+  name: 🇯🇵 日本 22
+  network: tcp
+  password: PI36027154
+  port: 443
+  server: 52.194.192.245
+  skip-cert-verify: false
+  sni: exciting-grizzly.rooster465.autos
+  type: trojan
+  udp: true
+- alterId: 0
+  name: 🇩🇪 德国 669
+  network: tcp
+  password: dh-Ws-YoJIgTYLZ-A5VljeduVse-vhDl7Q
+  port: 443
+  server: 185.137.157.128
+  skip-cert-verify: true
+  tls: true
+  type: trojan
   udp: true
 proxy-groups:
 - name: Proxy
@@ -13308,12 +13325,13 @@ proxy-groups:
   - 🇰🇷 韩国 37
   - 🇨🇦 加拿大 44
   - 🇩🇪 德国 667
-  - 🇺🇸 美国 120
   - 🇨🇦 加拿大 45
+  - 🇩🇪 德国 668
   - 🇨🇦 加拿大 46
-  - 🇰🇷 韩国 38
   - 🇨🇦 加拿大 47
-  - 🇺🇸 美国 121
+  - 🇨🇦 加拿大 48
+  - 🇯🇵 日本 22
+  - 🇩🇪 德国 669
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
