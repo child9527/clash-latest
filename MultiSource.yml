@@ -4105,37 +4105,27 @@ proxies:
   server: 18.159.53.205
   type: ss
   udp: true
-- alterId: 0
-  cipher: aes-256-gcm
-  name: 🇸🇬 新加坡 15
-  password: a172cf0d-ae89-42f3-8505-0c51dae293a1
-  port: 443
-  server: 8.210.171.48
-  skip-cert-verify: true
-  tls: true
-  type: ss
-- alterId: 0
+- client-fingerprint: chrome
   name: 🇨🇦 加拿大 45
-  password: c206d543-023d-46cc-9d5a-1f0f2fc16323
+  network: tcp
+  password: CF68213490
   port: 443
-  server: 188.164.248.122
-  skip-cert-verify: true
-  sni: space.byu.id.yxls.eu.cc
-  tls: true
+  server: capable-eel.rooster465.autos
+  skip-cert-verify: false
+  sni: capable-eel.rooster465.autos
   type: trojan
   udp: true
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 46
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - client-fingerprint: chrome
   name: 🇺🇸 美国 109
-  network: tcp
-  password: NQ26071394
-  port: 443
-  server: 35.164.15.250
-  skip-cert-verify: false
-  sni: emerging-hagfish.rooster465.autos
-  type: trojan
-  udp: true
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 110
   network: tcp
   password: KV63147582
   port: 443
@@ -4144,45 +4134,71 @@ proxies:
   sni: winning-manatee.rooster465.autos
   type: trojan
   udp: true
-- name: 🇨🇦 加拿大 46
-  password: IQ68037294
+- name: 🇨🇦 加拿大 47
+  network: ws
+  password: Mitivpn
   port: 443
-  server: pet-albacore.rooster465.autos
-  skip-cert-verify: true
-  sni: pet-albacore.rooster465.autos
-  type: trojan
-- alterId: 0
-  name: 🇨🇦 加拿大 47
-  password: IQ68037294
-  port: 443
-  server: sterling-vervet.rooster465.autos
-  skip-cert-verify: true
-  tls: true
+  server: iranpoems.ir
+  skip-cert-verify: false
+  sni: www.gamingdll.ir
   type: trojan
   udp: true
-- alterId: 0
+  ws-opts:
+    headers:
+      Host: www.gamingdll.ir
+    path: /usa=mitivpn
+- client-fingerprint: chrome
   name: 🇨🇦 加拿大 48
+  network: tcp
+  password: NQ26071394
+  port: 443
+  server: pretty-mollusk.rooster465.autos
+  skip-cert-verify: false
+  sni: pretty-mollusk.rooster465.autos
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 110
+  network: tcp
+  password: CF68213490
+  port: 443
+  server: 54.245.167.246
+  skip-cert-verify: false
+  sni: tolerant-rattler.rooster465.autos
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 49
+  network: ws
+  password: c206d543-023d-46cc-9d5a-1f0f2fc16323
+  port: 443
+  server: 188.164.248.122
+  skip-cert-verify: true
+  sni: space.byu.id.yxls.eu.cc
+  type: trojan
+  ws-opts:
+    headers:
+      Host: space.byu.id.yxls.eu.cc
+    path: /in-pdr
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 50
+  network: tcp
+  password: PI36027154
+  port: 443
+  server: upright-hamster.rooster465.autos
+  skip-cert-verify: false
+  sni: upright-hamster.rooster465.autos
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 51
+  network: tcp
   password: XG59623478
   port: 443
-  server: stirring-dane.rooster465.autos
-  skip-cert-verify: true
+  server: 82.117.225.56
+  skip-cert-verify: false
   sni: stirring-dane.rooster465.autos
-  tls: true
   type: trojan
   udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 49
-  password: ODfxioK0VkKxTdpVQJ4rv8HglAu0vzv6
-  port: 443
-  server: 146.19.49.251
-  type: ss
-- name: 🇺🇸 美国 111
-  network: tcp
-  password: 20bc0771-1fde-45ee-8052-3c26249c43dc
-  port: 34865
-  server: 144.24.4.176
-  sni: zurich.678789.xyz
-  type: trojan
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -4614,15 +4630,15 @@ proxy-groups:
   - 🇺🇸 美国 107
   - 🇺🇸 美国 108
   - 🇩🇪 德国 32
-  - 🇸🇬 新加坡 15
   - 🇨🇦 加拿大 45
-  - 🇺🇸 美国 109
-  - 🇺🇸 美国 110
   - 🇨🇦 加拿大 46
+  - 🇺🇸 美国 109
   - 🇨🇦 加拿大 47
   - 🇨🇦 加拿大 48
+  - 🇺🇸 美国 110
   - 🇨🇦 加拿大 49
-  - 🇺🇸 美国 111
+  - 🇨🇦 加拿大 50
+  - 🇨🇦 加拿大 51
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
