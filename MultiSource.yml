@@ -11152,13 +11152,24 @@ proxies:
   password: amazonskr05
   port: 443
   server: 54.167.54.100
+  skip-cert-verify: true
   type: ss
+  udp: true
 - cipher: aes-256-cfb
   name: 🇺🇸 美国 108
   password: amazonskr05
   port: 443
   server: 34.207.112.128
   type: ss
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 43
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - name: 🇺🇸 美国 109
   network: ws
   password: humanity
@@ -11171,62 +11182,6 @@ proxies:
     headers:
       Host: www.calmlunch.com
     path: /assignment
-- alterId: 2
-  cipher: auto
-  name: 🇨🇦 加拿大 43
-  port: 30807
-  server: v10.hdacd.com
-  skip-cert-verify: false
-  tls: false
-  type: vmess
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- cipher: aes-256-gcm
-  client-fingerprint: chrome
-  name: 🇨🇦 加拿大 44
-  password: ad2114ca-1c75-4607-ad14-1a1824a6dde9
-  port: 10182
-  server: 36.139.183.164
-  tfo: false
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 45
-  password: be443689-bc64-49ff-85a5-8eecaa2235d3
-  port: 41049
-  server: hk2.fgmcx.top
-  tfo: false
-  type: ss
-- name: 🇰🇷 韩国 12
-  network: ws
-  password: ji0612uenfs
-  port: 50004
-  server: 110.9.4.54
-  skip-cert-verify: true
-  sni: ji0612e.nfjunka.xyz
-  type: trojan
-  ws-opts:
-    headers:
-      Host: ji0612e.nfjunka.xyz
-    path: '%2F%3Fed%3D2560%26proxyip%3D110.9.4.54%3A50004'
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 46
-  password: be443689-bc64-49ff-85a5-8eecaa2235d3
-  port: 41068
-  server: zz5.fgmcx.top
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 47
-  password: 2be0c954-4291-45ea-b47d-ca713180550b
-  port: 52612
-  server: 111.29.57.125
-  tfo: false
-  type: ss
-- cipher: aes-256-gcm
-  client-fingerprint: chrome
-  name: 🇫🇷 法国 21
-  password: 7BcLdsO1WweoGD0X
-  port: 40368
-  server: 193.243.147.128
-  type: ss
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -12202,14 +12157,8 @@ proxy-groups:
   - 🇩🇪 德国 638
   - 🇺🇸 美国 107
   - 🇺🇸 美国 108
-  - 🇺🇸 美国 109
   - 🇨🇦 加拿大 43
-  - 🇨🇦 加拿大 44
-  - 🇨🇦 加拿大 45
-  - 🇰🇷 韩国 12
-  - 🇨🇦 加拿大 46
-  - 🇨🇦 加拿大 47
-  - 🇫🇷 法国 21
+  - 🇺🇸 美国 109
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
