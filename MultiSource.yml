@@ -9763,21 +9763,9 @@ proxies:
   port: 443
   server: 54.197.30.38
   type: ss
-- name: 🇨🇦 加拿大 43
-  network: ws
-  password: c206d543-023d-46cc-9d5a-1f0f2fc16323
-  port: 443
-  server: 188.164.248.122
-  skip-cert-verify: true
-  sni: space.byu.id.yxls.eu.cc
-  type: trojan
-  ws-opts:
-    headers:
-      Host: space.byu.id.yxls.eu.cc
-    path: /in-pdr
 - alterId: 2
   cipher: auto
-  name: 🇨🇦 加拿大 44
+  name: 🇨🇦 加拿大 43
   port: 30807
   server: v10.hdacd.com
   skip-cert-verify: false
@@ -9785,6 +9773,18 @@ proxies:
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - name: 🇺🇸 美国 77
+  network: ws
+  password: humanity
+  port: 443
+  server: 198.62.62.23
+  skip-cert-verify: false
+  sni: www.calmlunch.com
+  type: trojan
+  ws-opts:
+    headers:
+      Host: www.calmlunch.com
+    path: /assignment
+- name: 🇺🇸 美国 78
   network: ws
   password: humanity
   port: 443
@@ -9796,58 +9796,32 @@ proxies:
     headers:
       Host: www.ignitelimit.com
     path: /assignment
-- name: 🇨🇦 加拿大 45
-  password: telegram-id-privatevpns
-  port: 22222
-  server: 52.208.218.51
-  skip-cert-verify: true
-  sni: trojan.burgerip.co.uk
-  type: trojan
-  udp: true
-- cipher: aes-128-gcm
-  name: 🇺🇸 美国 78
-  password: Yc2CtrIz8L
-  port: 16899
-  server: 45.63.1.9
-  type: ss
-  udp: true
-- name: 🇫🇷 法国 22
-  password: telegram-id-privatevpns
-  port: 22222
-  server: 15.236.156.123
-  skip-cert-verify: true
-  sni: trojan.burgerip.co.uk
-  type: trojan
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 46
-  password: EBxFSacCME71CQSjiOyJ3J
-  port: 35152
-  server: 188.94.155.82
-  type: ss
-  udp: true
-- cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 47
-  password: f8f7aCzcPKbsF8p3
-  port: 989
-  server: 23.92.127.134
-  type: ss
-  udp: true
-- name: 🇨🇦 加拿大 48
-  password: pjdnqv
+- name: 🇨🇦 加拿大 44
+  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
   port: 443
-  server: aws-us-dallas-1.f1rocketnode.com
+  server: vpn-us-002.fastervpn.world
   skip-cert-verify: true
-  sni: aws-us-dallas-1.f1rocketnode.com
+  sni: vpn-us-002.fastervpn.world
+  type: hysteria2
+  udp: true
+- name: 🇺🇸 美国 79
+  network: ws
+  password: humanity
+  port: 443
+  server: 104.18.152.143
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
   type: trojan
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 49
-  password: 9NJugkSe6yoPFJiS4dvLRRg07K92JEvAJSRfLr75VHxd7KM5
-  port: 51348
-  server: 209.182.232.30
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- cipher: aes-256-cfb
+  name: 🇩🇪 德国 633
+  password: amazonskr05
+  port: 443
+  server: 63.180.254.10
   type: ss
-  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -10718,15 +10692,11 @@ proxy-groups:
   - 🇩🇪 德国 632
   - 🇺🇸 美国 76
   - 🇨🇦 加拿大 43
-  - 🇨🇦 加拿大 44
   - 🇺🇸 美国 77
-  - 🇨🇦 加拿大 45
   - 🇺🇸 美国 78
-  - 🇫🇷 法国 22
-  - 🇨🇦 加拿大 46
-  - 🇨🇦 加拿大 47
-  - 🇨🇦 加拿大 48
-  - 🇨🇦 加拿大 49
+  - 🇨🇦 加拿大 44
+  - 🇺🇸 美国 79
+  - 🇩🇪 德国 633
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
