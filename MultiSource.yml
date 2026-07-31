@@ -13199,22 +13199,12 @@ proxies:
   udp-relay-mode: native
   uuid: 3ebac90b-6977-47c0-bef5-b2e37554432c
 - name: 🇺🇸 美国 173
-  password: VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
-  port: 8080
-  server: 23.95.75.151
+  network: tcp
+  password: i99Cef
+  port: 28101
+  server: 209.248.32.115
   skip-cert-verify: true
-  sni: hopp-us.yyuyy.com
-  type: hysteria2
-  udp: true
-- alterId: 0
-  name: 🇨🇦 加拿大 29
-  network: ws
-  password: 87d1bfd4-574e-4c96-ad42-0426f27461ff
-  port: 443
-  server: join.my.telegram.channel.cmliussss.to.unlock.more.premium.nodes.cf.090227.xyz
-  skip-cert-verify: true
-  sni: _acme-challenge.sb.cloudns.biz
-  tls: true
+  sni: download.windowsupdate.com
   type: trojan
   udp: true
 - name: 🇺🇸 美国 174
@@ -13226,20 +13216,77 @@ proxies:
   sni: download.windowsupdate.com
   type: trojan
   udp: true
-- name: 🇺🇸 美国 175
-  network: tcp
-  password: i99Cef
-  port: 28101
-  server: 209.248.32.115
-  skip-cert-verify: true
-  sni: download.windowsupdate.com
+- name: 🇨🇦 加拿大 29
+  network: ws
+  password: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
+  port: '2096'
+  server: jumao91.shop
+  skip-cert-verify: false
+  sni: jumao91.shop
   type: trojan
   udp: true
-- cipher: chacha20-ietf-poly1305
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
+        Chrome/57.0.2987.133 Safari/537.36
+    path: /proxyip=45.207.156.255
+- alterId: 2
+  cipher: auto
   name: 🇨🇦 加拿大 30
-  password: ODfxioK0VkKxTdpVQJ4rv8HglAu0vzv6
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- alterId: 0
+  name: 🇨🇦 加拿大 31
+  network: ws
+  password: 87d1bfd4-574e-4c96-ad42-0426f27461ff
   port: 443
-  server: 146.19.49.251
+  server: join.my.telegram.channel.cmliussss.to.unlock.more.premium.nodes.cf.090227.xyz
+  skip-cert-verify: true
+  sni: _acme-challenge.sb.cloudns.biz
+  tls: true
+  type: trojan
+  udp: true
+- cipher: rc4-md5
+  name: 🇺🇸 美国 175
+  obfs: plain
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  protocol: origin
+  server: 107.151.182.253
+  type: ssr
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 176
+  password: qFvn2fNEvBgM5knffrN96q
+  port: 9483
+  server: 92.118.112.101
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 32
+  password: p78naCf2EfOlRSLTX0wFVx
+  port: 443
+  server: pupas-shirting-unsung.freesocks.work
+  type: ss
+- name: 🇺🇸 美国 177
+  network: ws
+  password: humanity
+  port: 443
+  server: 208.103.161.101
+  skip-cert-verify: false
+  sni: www.creationlong.org
+  type: trojan
+  ws-opts:
+    headers:
+      Host: www.creationlong.org
+    path: /assignment
+- cipher: chacha20-ietf-poly1305
+  name: 🇺🇸 美国 178
+  password: NDRySIABARbErNIVsCNVkyYAHiBzhveT
+  port: 443
+  server: 23.95.75.146
   type: ss
 proxy-groups:
 - name: Proxy
@@ -14379,10 +14426,15 @@ proxy-groups:
   - 🏳️ 其他 57
   - 🇩🇪 德国 763
   - 🇺🇸 美国 173
-  - 🇨🇦 加拿大 29
   - 🇺🇸 美国 174
-  - 🇺🇸 美国 175
+  - 🇨🇦 加拿大 29
   - 🇨🇦 加拿大 30
+  - 🇨🇦 加拿大 31
+  - 🇺🇸 美国 175
+  - 🇺🇸 美国 176
+  - 🇨🇦 加拿大 32
+  - 🇺🇸 美国 177
+  - 🇺🇸 美国 178
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
