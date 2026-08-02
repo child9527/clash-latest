@@ -14128,14 +14128,15 @@ proxies:
   server: 54.196.207.151
   type: ss
   udp: true
-- cipher: aes-256-gcm
+- alterId: 2
+  cipher: auto
   name: 🇨🇦 加拿大 45
-  password: '123'
-  port: 1001
-  server: 61.171.92.202
-  skip-cert-verify: true
-  type: ss
-  udp: true
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - cipher: aes-256-cfb
   name: 🇰🇷 韩国 16
   password: qwerREWQ@@
@@ -14144,19 +14145,14 @@ proxies:
   skip-cert-verify: false
   type: ss
   udp: false
-- name: 🇨🇦 加拿大 46
-  network: ws
-  password: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
-  port: 2096
-  server: jumao91.shop
+- cipher: aes-256-gcm
+  name: 🇨🇦 加拿大 46
+  password: '123'
+  port: 1001
+  server: 61.171.92.202
   skip-cert-verify: true
-  sni: jumao91.shop
-  type: trojan
+  type: ss
   udp: true
-  ws-opts:
-    headers:
-      Host: jumao91.shop
-    path: /proxyip=45.207.156.255
 - cipher: chacha20-ietf-poly1305
   name: 🇺🇸 美国 186
   password: ljqdalu13..
@@ -14164,6 +14160,26 @@ proxies:
   server: 38.180.135.39
   type: ss
   udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 47
+  password: be443689-bc64-49ff-85a5-8eecaa2235d3
+  port: 41068
+  server: zz5.fgmcx.top
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 48
+  password: 2be0c954-4291-45ea-b47d-ca713180550b
+  port: 52612
+  server: 111.29.57.125
+  tfo: false
+  type: ss
+- cipher: aes-256-gcm
+  client-fingerprint: chrome
+  name: 🇫🇷 法国 18
+  password: 7BcLdsO1WweoGD0X
+  port: 40368
+  server: 193.243.147.128
+  type: ss
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -15381,6 +15397,9 @@ proxy-groups:
   - 🇰🇷 韩国 16
   - 🇨🇦 加拿大 46
   - 🇺🇸 美国 186
+  - 🇨🇦 加拿大 47
+  - 🇨🇦 加拿大 48
+  - 🇫🇷 法国 18
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
