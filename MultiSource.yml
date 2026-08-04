@@ -13538,11 +13538,18 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
+- cipher: chacha20-ietf-poly1305
+  name: 🇩🇪 德国 791
+  password: OWVhYWM4OTFlNGFhNTFiNjY5NDNlODI3ZDE5Njc0ZmE=
+  port: '59924'
+  server: 130.61.178.208
+  type: ss
+  udp: true
 - alpn:
   - h3
   congestion-controller: bbr
   disable-sni: false
-  name: 🇩🇪 德国 791
+  name: 🇩🇪 德国 792
   password: 3ebac90b-6977-47c0-bef5-b2e37554432c
   port: 17306
   server: 89.144.35.232
@@ -13552,21 +13559,12 @@ proxies:
   udp: true
   udp-relay-mode: native
   uuid: 3ebac90b-6977-47c0-bef5-b2e37554432c
-- name: 🇺🇸 美国 185
-  password: VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
-  port: 8080
-  server: 23.95.75.151
-  skip-cert-verify: true
-  sni: hopp-us.yyuyy.com
-  type: hysteria2
-  udp: true
-- name: 🇨🇦 加拿大 49
-  password: ND91608427
-  port: 443
-  server: eager-louse.rooster465.autos
-  skip-cert-verify: true
-  sni: eager-louse.rooster465.autos
-  type: trojan
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 49
+  password: MGU4ZjVkMGNhY2Y3YzM0NmIxMDgyNDQ5OGVjZjY2Y2Y=
+  port: '61312'
+  server: 129.151.76.103
+  type: ss
   udp: true
 - cipher: aes-256-cfb
   name: 🇰🇷 韩国 14
@@ -13576,70 +13574,48 @@ proxies:
   skip-cert-verify: false
   type: ss
   udp: false
-- cipher: aes-256-cfb
-  name: 🇯🇵 日本 15
-  password: amazonskr05
-  port: 443
-  server: 13.231.162.164
-  type: ss
-  udp: true
-- name: 🇨🇦 加拿大 50
-  password: 158141ca-528d-407d-88f2-c0ddca399b26
-  port: 9755
-  server: b12.ntbq.dynu.net
-  skip-cert-verify: true
-  sni: b12.ntbq.dynu.net
-  type: trojan
-  udp: true
-- cipher: aes-256-cfb
-  name: 🇰🇷 韩国 15
-  password: qwerREWQ@@
-  port: 54345
-  server: 211.201.169.70
-  type: ss
-  udp: true
-- cipher: rc4-md5
-  name: 🇩🇪 德国 792
-  password: dbEcUJ
-  port: 24603
-  server: jp01.ktp.wtf
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 50
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- cipher: aes-256-gcm
+  client-fingerprint: chrome
   name: 🇨🇦 加拿大 51
-  password: R9Xc4dHXGv3c
-  port: 443
-  server: www.outline.network.ak1949.fr8678825324247b8176d59f83c30bd94d23d2e3ac5cd4a743bkwqeikvdyufr.cyou
+  password: ad2114ca-1c75-4607-ad14-1a1824a6dde9
+  port: 10182
+  server: 36.139.183.164
+  tfo: false
   type: ss
-  udp: true
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 52
-  password: 8z9R4FiU9Ttgpl6it_pJPw
-  port: 1080
-  server: 104.248.169.207
+  password: be443689-bc64-49ff-85a5-8eecaa2235d3
+  port: 41049
+  server: hk2.fgmcx.top
+  tfo: false
   type: ss
-  udp: true
-- cipher: aes-256-gcm
-  name: 🇺🇸 美国 186
-  password: g5MeD6Ft3CWlJId
-  port: 5004
-  server: 23.157.40.29
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 187
-  password: hgLCgfLRgB6d
-  port: 443
-  server: 205.134.180.145
-  type: ss
-  udp: true
+- name: 🇰🇷 韩国 15
+  network: ws
+  password: ji0612uenfs
+  port: 50004
+  server: 110.9.4.54
+  skip-cert-verify: true
+  sni: ji0612e.nfjunka.xyz
+  type: trojan
+  ws-opts:
+    headers:
+      Host: ji0612e.nfjunka.xyz
+    path: '%2F%3Fed%3D2560%26proxyip%3D110.9.4.54%3A50004'
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 53
-  password: Rad33xaT
-  port: 10001
-  server: 47.96.69.161
+  password: be443689-bc64-49ff-85a5-8eecaa2235d3
+  port: 41068
+  server: zz5.fgmcx.top
   type: ss
-  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -14832,17 +14808,13 @@ proxy-groups:
   - 🏳️ 其他 72
   - 🏳️ 其他 73
   - 🇩🇪 德国 791
-  - 🇺🇸 美国 185
+  - 🇩🇪 德国 792
   - 🇨🇦 加拿大 49
   - 🇰🇷 韩国 14
-  - 🇯🇵 日本 15
   - 🇨🇦 加拿大 50
-  - 🇰🇷 韩国 15
-  - 🇩🇪 德国 792
   - 🇨🇦 加拿大 51
   - 🇨🇦 加拿大 52
-  - 🇺🇸 美国 186
-  - 🇺🇸 美国 187
+  - 🇰🇷 韩国 15
   - 🇨🇦 加拿大 53
   url: http://www.gstatic.com/generate_204
   interval: 300
