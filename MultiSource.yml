@@ -12777,6 +12777,33 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: PCnnH6SQSnfoS27
+- client-fingerprint: chrome
+  name: 🇭🇰 香港 15
+  network: tcp
+  password: tFjD2X1F6i9FfWp2GDU5Vbi1conuaChDKIYbw9zMFrqvMoSz
+  port: 443
+  server: 43.249.172.27
+  skip-cert-verify: true
+  sni: hongkong.kingonestar.com
+  tls: true
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 06
+  password: gf1:gfhysteria2024
+  port: 443
+  server: 5.129.235.85
+  skip-cert-verify: true
+  sni: www.linux.com
+  type: hysteria2
+  udp: true
+- name: 🇨🇦 加拿大 07
+  password: 9d3356a0-c07e-43cc-b30e-450bd50521b8
+  port: 2056
+  server: db1.mangshe.xyz
+  skip-cert-verify: true
+  sni: db1.mangshe.xyz
+  type: hysteria2
+  udp: true
 - alpn:
   - h3
   congestion-controller: bbr
@@ -12791,62 +12818,54 @@ proxies:
   udp: true
   udp-relay-mode: native
   uuid: 3ebac90b-6977-47c0-bef5-b2e37554432c
-- name: 🇨🇦 加拿大 06
-  password: 9d3356a0-c07e-43cc-b30e-450bd50521b8
-  port: 2056
-  server: db1.mangshe.xyz
-  skip-cert-verify: true
-  sni: db1.mangshe.xyz
-  type: hysteria2
-  udp: true
 - cipher: aes-256-cfb
   name: 🇺🇸 美国 101
   password: amazonskr05
   port: 443
   server: 98.89.48.191
   type: ss
-- cipher: aes-256-cfb
-  name: 🇯🇵 日本 26
-  password: amazonskr05
-  port: 443
-  server: 13.114.17.103
-  type: ss
 - alterId: 2
   cipher: auto
-  name: 🇨🇦 加拿大 07
+  name: 🇨🇦 加拿大 08
   port: 30807
   server: v10.hdacd.com
   skip-cert-verify: false
   tls: false
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- name: 🇺🇸 美国 102
-  network: ws
-  password: chrysanthemum
-  port: 443
-  server: 104.20.48.11
-  skip-cert-verify: true
-  sni: cmee.ezbiz.dynv6.net
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      Host: cmee.ezbiz.dynv6.net
-    path: /
-- name: 🇨🇦 加拿大 08
-  password: gf1:gfhysteria2024
-  port: 443
-  server: 5.129.235.85
-  skip-cert-verify: true
-  sni: www.linux.com
-  type: hysteria2
-  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 09
+  password: 2be0c954-4291-45ea-b47d-ca713180550b
+  port: 52612
+  server: hk02.x.quickcht3.club
+  tfo: false
+  type: ss
 - cipher: aes-256-cfb
-  name: 🇩🇪 德国 875
+  name: 🇯🇵 日本 26
   password: amazonskr05
   port: 443
-  server: 63.180.254.10
+  server: 18.179.174.138
+  tfo: false
   type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 10
+  password: be443689-bc64-49ff-85a5-8eecaa2235d3
+  port: 41049
+  server: hk2.fgmcx.top
+  tfo: false
+  type: ss
+- name: 🇰🇷 韩国 18
+  network: ws
+  password: ji0612uenfs
+  port: 50004
+  server: 110.9.4.54
+  skip-cert-verify: true
+  sni: ji0612e.nfjunka.xyz
+  type: trojan
+  ws-opts:
+    headers:
+      Host: ji0612e.nfjunka.xyz
+    path: '%2F%3Fed%3D2560%26proxyip%3D110.9.4.54%3A50004'
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -13989,14 +14008,16 @@ proxy-groups:
   - 🇰🇷 韩国 17
   - 🇺🇸 美国 99
   - 🇺🇸 美国 100
-  - 🇩🇪 德国 874
+  - 🇭🇰 香港 15
   - 🇨🇦 加拿大 06
-  - 🇺🇸 美国 101
-  - 🇯🇵 日本 26
   - 🇨🇦 加拿大 07
-  - 🇺🇸 美国 102
+  - 🇩🇪 德国 874
+  - 🇺🇸 美国 101
   - 🇨🇦 加拿大 08
-  - 🇩🇪 德国 875
+  - 🇨🇦 加拿大 09
+  - 🇯🇵 日本 26
+  - 🇨🇦 加拿大 10
+  - 🇰🇷 韩国 18
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
