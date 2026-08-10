@@ -12256,90 +12256,73 @@ proxies:
   port: 443
   server: 98.89.48.191
   type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 08
-  password: ODfxioK0VkKxTdpVQJ4rv8HglAu0vzv6
-  port: 443
-  server: 146.19.49.251
-  type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 71
-  password: p78naCf2EfOlRSLTX0wFVx
-  port: 443
-  server: 71.19.148.143
-  type: ss
 - alterId: 2
   cipher: auto
-  name: 🇨🇦 加拿大 09
+  name: 🇨🇦 加拿大 08
   port: 30807
   server: v10.hdacd.com
   skip-cert-verify: false
   tls: false
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- cipher: rc4-md5
-  name: 🇺🇸 美国 72
-  obfs: plain
-  password: 14fFPrbezE3HDZzsMOr6
-  port: 8080
-  protocol: origin
-  server: 107.151.182.253
-  type: ssr
 - cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 73
-  password: qFvn2fNEvBgM5knffrN96q
-  port: 9483
-  server: 92.118.112.101
+  name: 🇨🇦 加拿大 09
+  password: be443689-bc64-49ff-85a5-8eecaa2235d3
+  port: 41068
+  server: zz5.fgmcx.top
   type: ss
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 10
-  password: p78naCf2EfOlRSLTX0wFVx
-  port: 443
-  server: pupas-shirting-unsung.freesocks.work
+  password: 2be0c954-4291-45ea-b47d-ca713180550b
+  port: 52612
+  server: 111.29.57.125
+  tfo: false
   type: ss
-- cipher: chacha20-ietf-poly1305
-  name: 🇺🇸 美国 74
-  password: NDRySIABARbErNIVsCNVkyYAHiBzhveT
-  port: 443
-  server: 23.95.75.146
+- cipher: aes-256-gcm
+  client-fingerprint: chrome
+  name: 🇫🇷 法国 27
+  password: 7BcLdsO1WweoGD0X
+  port: 40368
+  server: 193.243.147.128
   type: ss
+- name: 🇺🇸 美国 71
+  network: tcp
+  password: 20bc0771-1fde-45ee-8052-3c26249c43dc
+  port: 34865
+  server: 144.24.4.176
+  sni: zurich.678789.xyz
+  type: trojan
 - cipher: chacha20-ietf-poly1305
   name: 🇨🇦 加拿大 11
-  password: 861de7db-5ada-4b36-903c-0ad6ba25d75a
-  port: 37999
-  server: j90r55t0im2kfwz6.3a-sg01.my777999.top
+  password: cdc48a7a-b618-45af-a831-5afbd686b02f
+  port: 12202
+  server: gg21.hangfengjiasu.com
+  tfo: false
   type: ss
-  udp: true
-- name: 🇨🇦 加拿大 12
-  password: telegram-id-privatevpns
-  port: 22222
-  server: 54.72.213.33
-  skip-cert-verify: true
-  sni: trojan.burgerip.co.uk
-  type: trojan
-  udp: true
-- cipher: aes-128-gcm
-  name: 🇭🇰 香港 07
-  password: a-wym4ovY4Yw
-  plugin: v2ray-plugin
-  plugin-opts:
-    host: h5.podds.store
-    mode: websocket
-    mux: false
-    path: ''
-    skip-cert-verify: true
-    tls: false
-  port: 443
-  server: 47.238.168.203
+- cipher: chacha20-ietf-poly1305
+  client-fingerprint: chrome
+  name: 🇷🇺 俄罗斯 05
+  password: RiPuKJJl18ZgvLpTjWxBwSfKiPkt9gzFKyxGCY8eHtOcDb2X
+  port: 31348
+  server: 5.189.201.250
   type: ss
-  udp: true
-- cipher: aes-256-cfb
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 12
+  password: DLW8QqdfAvfUHSeucMIF4E
+  port: 2636
+  server: 45.8.98.163
+  type: ss
+- cipher: rc4-md5
   name: 🇨🇦 加拿大 13
-  password: f8f7aCzcPKbsF8p3
-  port: 989
-  server: 192.71.211.161
+  password: efanccyun
+  plugin: obfs
+  plugin-opts:
+    host: 202503181464410-9tCwc1fdZ3.download.microsoft.com
+    mode: http
+  port: 8765
+  server: cn01.efan8867801.xyz
+  tfo: false
   type: ss
-  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -13460,15 +13443,13 @@ proxy-groups:
   - 🇨🇦 加拿大 07
   - 🇺🇸 美国 70
   - 🇨🇦 加拿大 08
-  - 🇺🇸 美国 71
   - 🇨🇦 加拿大 09
-  - 🇺🇸 美国 72
-  - 🇺🇸 美国 73
   - 🇨🇦 加拿大 10
-  - 🇺🇸 美国 74
+  - 🇫🇷 法国 27
+  - 🇺🇸 美国 71
   - 🇨🇦 加拿大 11
+  - 🇷🇺 俄罗斯 05
   - 🇨🇦 加拿大 12
-  - 🇭🇰 香港 07
   - 🇨🇦 加拿大 13
   url: http://www.gstatic.com/generate_204
   interval: 300
