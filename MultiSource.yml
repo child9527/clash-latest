@@ -13731,54 +13731,6 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
-- cipher: aes-256-gcm
-  name: 🇷🇺 俄罗斯 01
-  password: 81a20429165df87e
-  port: 30331
-  server: 195.133.23.200
-  skip-cert-verify: true
-  type: ss
-  udp: true
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 157
-  network: ws
-  password: humanity
-  port: '443'
-  server: 130.250.137.171
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7
-        (KHTML, like Gecko) Chrome/7.0.517.44 Safari/534.7
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 158
-  network: ws
-  password: humanity
-  port: '443'
-  server: 104.26.15.137
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.3
-        (KHTML, like Gecko) Chrome/6.0.472.63 Safari/534.3
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇨🇦 加拿大 05
-  network: tcp
-  password: 0010996f-3eab-4804-9b3a-3a889d6767fc
-  port: 20088
-  server: a8zbx9xj.catcat321.com
-  skip-cert-verify: true
-  sni: iepl.krz3.cat.bilibili.com
-  type: trojan
-  udp: true
 - alpn:
   - h3
   congestion-controller: bbr
@@ -13793,7 +13745,55 @@ proxies:
   udp: true
   udp-relay-mode: native
   uuid: 3ebac90b-6977-47c0-bef5-b2e37554432c
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 157
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.26.15.137
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.3
+        (KHTML, like Gecko) Chrome/6.0.472.63 Safari/534.3
+    path: /assignment
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 158
+  network: ws
+  password: humanity
+  port: '443'
+  server: 130.250.137.171
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7
+        (KHTML, like Gecko) Chrome/7.0.517.44 Safari/534.7
+    path: /assignment
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 05
+  network: tcp
+  password: 0010996f-3eab-4804-9b3a-3a889d6767fc
+  port: 20088
+  server: a8zbx9xj.catcat321.com
+  skip-cert-verify: true
+  sni: iepl.krz3.cat.bilibili.com
+  type: trojan
+  udp: true
 - name: 🇨🇦 加拿大 06
+  password: gf1:gfhysteria2024
+  port: 443
+  server: 5.129.235.85
+  skip-cert-verify: true
+  sni: www.linux.com
+  type: hysteria2
+  udp: true
+- name: 🇨🇦 加拿大 07
   obfs: salamander
   obfs-password: 8zzng75tz4tf82pj
   password: 22j0d00lev7mq0yv
@@ -13803,14 +13803,15 @@ proxies:
   sni: musicclips.videolinks.ru
   type: hysteria2
   udp: true
-- name: 🇨🇦 加拿大 07
-  password: gf1:gfhysteria2024
-  port: 443
-  server: 5.129.235.85
-  skip-cert-verify: true
-  sni: www.linux.com
-  type: hysteria2
-  udp: true
+- alterId: 2
+  cipher: auto
+  name: 🇨🇦 加拿大 08
+  port: 30807
+  server: v10.hdacd.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -15060,13 +15061,13 @@ proxy-groups:
   - 🇺🇸 美国 154
   - 🇺🇸 美国 155
   - 🇺🇸 美国 156
-  - 🇷🇺 俄罗斯 01
+  - 🇩🇪 德国 891
   - 🇺🇸 美国 157
   - 🇺🇸 美国 158
   - 🇨🇦 加拿大 05
-  - 🇩🇪 德国 891
   - 🇨🇦 加拿大 06
   - 🇨🇦 加拿大 07
+  - 🇨🇦 加拿大 08
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
