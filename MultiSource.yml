@@ -13910,33 +13910,76 @@ proxies:
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- alterId: 0
+- client-fingerprint: chrome
   name: 🇨🇦 加拿大 08
-  password: 0010996f-3eab-4804-9b3a-3a889d6767fc
-  port: 20088
-  server: a8zbx9xj.catcat321.com
-  skip-cert-verify: true
-  sni: iepl.krz3.cat.bilibili.com
-  tls: true
+  network: tcp
+  password: FH72359861
+  port: '443'
+  server: absolute-bobcat.rooster465.autos
+  skip-cert-verify: false
   type: trojan
   udp: true
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 09
+  network: tcp
+  password: FH72359861
+  port: '443'
+  server: fit-marten.rooster465.autos
+  skip-cert-verify: false
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 10
+  network: tcp
+  password: FH72359861
+  port: '443'
+  server: charming-puma.rooster465.autos
+  skip-cert-verify: false
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 11
+  network: tcp
+  password: FH72359861
+  port: '443'
+  server: good-hound.rooster465.autos
+  skip-cert-verify: false
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 12
+  network: tcp
+  password: FH72359861
+  port: '443'
+  server: great-wasp.rooster465.autos
+  skip-cert-verify: false
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 13
+  network: tcp
+  password: FH72359861
+  port: '443'
+  server: fond-chipmunk.rooster465.autos
+  skip-cert-verify: false
+  type: trojan
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: 🇩🇪 德国 916
+  password: 3ebac90b-6977-47c0-bef5-b2e37554432c
+  port: 17306
+  server: 89.144.35.232
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: 3ebac90b-6977-47c0-bef5-b2e37554432c
 - client-fingerprint: chrome
   name: 🇺🇸 美国 140
-  network: ws
-  password: humanity
-  port: '443'
-  server: 130.250.137.171
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7
-        (KHTML, like Gecko) Chrome/7.0.517.44 Safari/534.7
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 141
   network: ws
   password: humanity
   port: '443'
@@ -13950,16 +13993,36 @@ proxies:
       User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
         Gecko) Chrome/49.0.2623.110 Safari/537.36
     path: /assignment
-- name: 🇨🇦 加拿大 09
-  obfs: salamander
-  obfs-password: 8zzng75tz4tf82pj
-  password: 22j0d00lev7mq0yv
-  port: 8443
-  server: musicclips.videolinks.ru
-  skip-cert-verify: true
-  sni: musicclips.videolinks.ru
-  type: hysteria2
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 141
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.16.174.6
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
   udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/70.0.3538.67 Safari/537.36
+    path: /assignment
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 142
+  network: ws
+  password: humanity
+  port: '443'
+  server: 130.250.137.171
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7
+        (KHTML, like Gecko) Chrome/7.0.517.44 Safari/534.7
+    path: /assignment
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -15243,9 +15306,15 @@ proxy-groups:
   - 🇯🇵 日本 53
   - 🇺🇸 美国 139
   - 🇨🇦 加拿大 08
+  - 🇨🇦 加拿大 09
+  - 🇨🇦 加拿大 10
+  - 🇨🇦 加拿大 11
+  - 🇨🇦 加拿大 12
+  - 🇨🇦 加拿大 13
+  - 🇩🇪 德国 916
   - 🇺🇸 美国 140
   - 🇺🇸 美国 141
-  - 🇨🇦 加拿大 09
+  - 🇺🇸 美国 142
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
