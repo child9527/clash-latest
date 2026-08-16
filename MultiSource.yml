@@ -13654,6 +13654,23 @@ proxies:
   password: ND91608427
   sni: ace-starling.rooster465.autos
   skip-cert-verify: false
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 04
+  network: tcp
+  password: PQ05174892
+  port: '443'
+  server: merry-falcon.rooster465.autos
+  skip-cert-verify: false
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 05
+  password: gf1:gfhysteria2024
+  port: 443
+  server: 5.129.235.85
+  skip-cert-verify: true
+  sni: www.linux.com
+  type: hysteria2
+  udp: true
 - alpn:
   - h3
   congestion-controller: bbr
@@ -13673,36 +13690,6 @@ proxies:
   network: ws
   password: humanity
   port: '443'
-  server: 130.250.137.171
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7
-        (KHTML, like Gecko) Chrome/7.0.517.44 Safari/534.7
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇨🇦 加拿大 04
-  network: ws
-  password: humanity
-  port: '443'
-  server: render.com
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/60.0.3112.90 Safari/537.36
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 150
-  network: ws
-  password: humanity
-  port: '443'
   server: 104.16.174.117
   skip-cert-verify: false
   sni: www.ignitelimit.com
@@ -13714,22 +13701,22 @@ proxies:
         like Gecko) Chrome/54.0.2840.99 Safari/537.36
     path: /assignment
 - client-fingerprint: chrome
-  name: 🇺🇸 美国 151
+  name: 🇺🇸 美国 150
   network: ws
   password: humanity
   port: '443'
-  server: 104.16.174.6
+  server: 130.250.137.171
   skip-cert-verify: false
   sni: www.ignitelimit.com
   type: trojan
   udp: true
   ws-opts:
     headers:
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/70.0.3538.67 Safari/537.36
+      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7
+        (KHTML, like Gecko) Chrome/7.0.517.44 Safari/534.7
     path: /assignment
 - client-fingerprint: chrome
-  name: 🇺🇸 美国 152
+  name: 🇺🇸 美国 151
   network: ws
   password: humanity
   port: '443'
@@ -13742,6 +13729,21 @@ proxies:
     headers:
       User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
         Gecko) Chrome/49.0.2623.110 Safari/537.36
+    path: /assignment
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 152
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.16.174.6
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/70.0.3538.67 Safari/537.36
     path: /assignment
 proxy-groups:
 - name: Proxy
@@ -15011,9 +15013,10 @@ proxy-groups:
   - 🇭🇰 香港 14
   - 🇫🇷 法国 26
   - 🇭🇰 香港 15
+  - 🇨🇦 加拿大 04
+  - 🇨🇦 加拿大 05
   - 🇩🇪 德国 931
   - 🇺🇸 美国 149
-  - 🇨🇦 加拿大 04
   - 🇺🇸 美国 150
   - 🇺🇸 美国 151
   - 🇺🇸 美国 152
