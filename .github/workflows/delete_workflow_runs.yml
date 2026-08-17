@@ -1,22 +1,67 @@
-name: Delete old workflow runs
+name: Full Cleanup (runs + artifacts + logs + workflow history)
+
 on:
   schedule:
-    # 每月 1 号和 16 号运行（约 15 天一次）
     - cron: '0 0 1,16 * *'
-  workflow_dispatch: # 允许手动点击运行
+  workflow_dispatch:
 
 jobs:
-  del_runs:
+  cleanup:
     runs-on: ubuntu-latest
     permissions:
-      actions: write # 必须赋予写权限
+      actions: write
+      contents: write
+
     steps:
-      - name: Delete workflow runs
+      - name: Delete workflow runs (all workflows)
         uses: Mattraks/delete-workflow-runs@v2
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          # --- 以下是修改建议 ---
-          retain_days: 3             # 改为只保留最近 3 天的记录（原为 7 天）
-          keep_minimum_runs: 12       # 每个工作流仅保留最近 12 次记录（原为 15 次）
-          # ----------------------
+
+          # 保留最近 3 天
+          retain_days: 3
+
+          # 每个 workflow 至少保留 12 条
+          keep_minimum_runs: 12
+
+          # 删除所有状态（包括失败、取消、跳过）
+          delete_workflow_by_state: all
+
+          # 删除所有结论（包括 failure、cancelled、skipped）
+          delete_run_by_conclusion: all
+
+          # 自动重试删除失败的 run
+          retry_count: 3
+          retry_wait_seconds: 6
+
+      - name: Delete artifacts (all workflows)
+        uses: geekyeggo/delete-artifacts@v4
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+
+          # 删除所有 artifacts
+          # 如果你想保留最近几天，可以改成 retain_days: 3
+          delete_all_artifacts: true
+
+      - name: Delete workflow file history (cleanup old workflow versions)
+        run: |
+          echo "清理 workflow 文件历史版本（不会删除当前版本）"
+
+          # 删除 .github/workflows 下的旧版本（只保留当前 HEAD）
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git fetch --prune --unshallow || true
+
+          # 删除 workflow 文件的历史版本，只保留最新版本
+          for wf in .github/workflows/*.yml; do
+            echo "清理历史版本: $wf"
+            git log --pretty=format:"%h" -- $wf | tail -n +2 | while read commit; do
+              git rm --cached $wf || true
+            done
+          done
+
+          git commit -m "清理 workflow 文件历史版本" || echo "没有可清理的 workflow 历史版本"
+          git push || echo "没有可推送的内容"
