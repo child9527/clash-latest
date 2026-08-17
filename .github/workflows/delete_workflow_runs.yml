@@ -19,14 +19,17 @@ jobs:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
 
+          # 保留最近 3 天
           retain_days: 3
+
+          # 每个 workflow 至少保留 12 条
           keep_minimum_runs: 12
 
-          delete_workflow_by_state: all
-          delete_run_by_conclusion: all
+          # 删除所有状态的 workflow（用 pattern）
+          delete_workflow_by_state_pattern: "completed|cancelled|failure|skipped"
 
-          retry_count: 3
-          retry_wait_seconds: 6
+          # 删除所有结论的 run（用 pattern）
+          delete_run_by_conclusion_pattern: "success|failure|cancelled|skipped"
 
       - name: Delete all artifacts (via GitHub API)
         env:
