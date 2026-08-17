@@ -36,7 +36,6 @@ jobs:
       - name: 抓取最新节点
         if: env.should_update == 'true'
         run: |
-          # 新命名规则：v20260817（无 1/2 后缀）
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           FILE_NAME="v${DATE_STR}"
           URL="https://github.com/free-nodes/v2rayfree/raw/refs/heads/main/${FILE_NAME}"
@@ -45,13 +44,13 @@ jobs:
           
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
           
-          # 下载并重命名为 nodev2ray.txt
           if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL" -o nodev2ray.txt && [ $(stat -c%s nodev2ray.txt) -gt 512 ]; then
             echo "status=success" >> $GITHUB_ENV
             echo "节点抓取成功！"
           else
-            echo "错误：今日节点库尚未更新，或者链接失效。"
-            exit
+            echo "今日节点库尚未更新，跳过本次任务（不报错、不发邮件）。"
+            echo "status=skip" >> $GITHUB_ENV
+            exit 0
           fi
 
 
