@@ -36,9 +36,9 @@ jobs:
       - name: 抓取最新节点
         if: env.should_update == 'true'
         run: |
-          # 动态拼凑文件名，格式为 v202604181
+          # 新命名规则：v20260817（无 1/2 后缀）
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          FILE_NAME="v${DATE_STR}2"
+          FILE_NAME="v${DATE_STR}"
           URL="https://github.com/free-nodes/v2rayfree/raw/refs/heads/main/${FILE_NAME}"
           
           echo "尝试抓取：$URL"
@@ -51,8 +51,9 @@ jobs:
             echo "节点抓取成功！"
           else
             echo "错误：今日节点库尚未更新，或者链接失效。"
-            exit 1 # 如果今天的东西还没出来，直接报错退出，不进行后续提交
+            exit 1
           fi
+
 
       - name: 提交更新
         if: env.should_update == 'true' && env.status == 'success'
