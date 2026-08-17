@@ -1,4 +1,4 @@
-name: Full Cleanup (runs + artifacts + logs + workflow history)
+name: Full Cleanup (runs + artifacts + workflow history)
 
 on:
   schedule:
@@ -28,11 +28,29 @@ jobs:
           retry_count: 3
           retry_wait_seconds: 6
 
-      - name: Delete all artifacts
-        uses: actions/delete-artifact@v4
-        with:
-          # 删除所有 artifacts
-          name: '*'
+      - name: Delete all artifacts (via GitHub API)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "开始清理所有 artifacts..."
+
+          # 获取所有 artifacts
+          artifacts=$(gh api repos/${{ github.repository }}/actions/artifacts --jq '.artifacts[].id')
+
+          if [ -z "$artifacts" ]; then
+            echo "没有 artifacts 可清理。"
+            exit 0
+          fi
+
+          for id in $artifacts; do
+            echo "删除 artifact: $id"
+            gh api \
+              --method DELETE \
+              repos/${{ github.repository }}/actions/artifacts/$id \
+              || echo "删除失败（跳过）"
+          done
+
+          echo "所有 artifacts 清理完成。"
 
       - name: Delete workflow file history
         run: |
