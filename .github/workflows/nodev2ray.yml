@@ -62,6 +62,12 @@ jobs:
           git config user.email "github-actions@github.com"
           
           git add nodev2ray.txt
+
+          # 如果没有任何变化，则跳过提交（不会报错）
+          if git diff --cached --quiet; then
+            echo "今日节点内容无变化，跳过提交（不会报错，不会发邮件）。"
+            exit 0
+          fi
                     
           git commit -m "更新 nodev2ray-$DATE_STR"
           git push
