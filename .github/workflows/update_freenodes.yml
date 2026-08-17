@@ -44,7 +44,7 @@ jobs:
             TARGET_DATE=$(TZ='Asia/Shanghai' date -d "$i days ago" +'%Y%m%d')
             # 使用正确的 master 分支路径
             URL="https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/main/clash${TARGET_DATE}.yml"
-            echo "🔍 正在尝试从 master 分支抓取: $TARGET_DATE"
+            echo "🔍 正在尝试抓取: https://raw.githubusercontent.com/free-nodes/clashfree/refs/heads/main/clash${TARGET_DATE}.yml"
             
             if curl -sLf "$URL" -o temp.yml && [ -s temp.yml ]; then
               echo "✅ 成功找到可用源: $TARGET_DATE"
