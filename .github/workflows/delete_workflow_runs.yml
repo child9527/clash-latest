@@ -17,6 +17,6 @@ jobs:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
           # --- 以下是修改建议 ---
-          retain_days: 7             # 改为只保留最近 7 天的记录（原为 30 天）
-          keep_minimum_runs: 2       # 每个工作流仅保留最近 2 次记录（原为 6 次）
+          retain_days: 3             # 改为只保留最近 3 天的记录（原为 7 天）
+          keep_minimum_runs: 12       # 每个工作流仅保留最近 12 次记录（原为 15 次）
           # ----------------------
