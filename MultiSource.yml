@@ -14341,11 +14341,102 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: ytw2awn
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 05
+  password: 7eadc6dbe2ae
+  port: '65443'
+  server: 121.46.230.235
+  type: ss
+  udp: true
+- alterId: 0
+  name: 🇨🇦 加拿大 06
+  password: fg20mtCFHy
+  port: 5750
+  server: 157.245.99.215
+  skip-cert-verify: true
+  sni: inyct.southbyte.xyz
+  tls: true
+  type: trojan
+  udp: true
+- name: 🇨🇦 加拿大 07
+  password: gf1:gfhysteria2024
+  port: 443
+  server: 5.129.235.85
+  skip-cert-verify: true
+  sni: www.linux.com
+  type: hysteria2
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 08
+  password: 9325a345-c72f-4637-a8f4-34f9effb7ba6
+  port: '21114'
+  server: 211.91.158.24
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦 加拿大 09
+  password: 9325a345-c72f-4637-a8f4-34f9effb7ba6
+  port: '21119'
+  server: 211.91.158.27
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇩🇪 德国 969
+  password: amazonskr05
+  port: 443
+  server: 3.79.230.55
+  type: ss
+  udp: true
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 10
+  network: tcp
+  password: fg20mtCFHy
+  port: '1921'
+  server: 137.184.172.41
+  skip-cert-verify: true
+  sni: sfecv.southbyte.xyz
+  type: trojan
+  udp: true
+- alterId: 0
+  name: 🇨🇦 加拿大 11
+  password: fg20mtCFHy
+  port: 5575
+  server: 172.233.107.18
+  skip-cert-verify: true
+  sni: fgrsd.southbyte.xyz
+  tls: true
+  type: trojan
+  udp: true
+- alterId: 0
+  name: 🇨🇦 加拿大 12
+  password: fg20mtCFHy
+  port: 5624
+  server: 104.248.167.79
+  skip-cert-verify: true
+  sni: dsgvc.southbyte.xyz
+  tls: true
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: 🇨🇦 加拿大 13
+  network: ws
+  password: humanity
+  port: '443'
+  server: render.com
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/60.0.3112.90 Safari/537.36
+    path: /assignment
 - alpn:
   - h3
   congestion-controller: bbr
   disable-sni: false
-  name: 🇩🇪 德国 969
+  name: 🇩🇪 德国 970
   password: 3ebac90b-6977-47c0-bef5-b2e37554432c
   port: 17306
   server: 89.144.35.232
@@ -14355,79 +14446,8 @@ proxies:
   udp: true
   udp-relay-mode: native
   uuid: 3ebac90b-6977-47c0-bef5-b2e37554432c
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 05
-  password: 9325a345-c72f-4637-a8f4-34f9effb7ba6
-  port: '21109'
-  server: 211.91.158.27
-  type: ss
-  udp: true
-- name: 🇨🇦 加拿大 06
-  password: gf1:gfhysteria2024
-  port: 443
-  server: 5.129.235.85
-  skip-cert-verify: true
-  sni: www.linux.com
-  type: hysteria2
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 🇨🇦 加拿大 07
-  password: 9325a345-c72f-4637-a8f4-34f9effb7ba6
-  port: '21109'
-  server: 211.91.158.24
-  type: ss
-  udp: true
 - client-fingerprint: chrome
   name: 🇺🇸 美国 127
-  network: ws
-  password: humanity
-  port: '443'
-  server: 104.16.174.109
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.3
-        (KHTML, like Gecko) Chrome/6.0.472.63 Safari/534.3
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 128
-  network: ws
-  password: humanity
-  port: '443'
-  server: 104.16.174.6
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/70.0.3538.67 Safari/537.36
-    path: /assignment
-- alpn:
-  - h3
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  name: 🇺🇸 美国 129
-  network: ws
-  password: humanity
-  port: '443'
-  server: 172.67.221.242
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/64.0.3282.186 Safari/537.36
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 130
   network: ws
   password: humanity
   port: '443'
@@ -15779,14 +15799,18 @@ proxy-groups:
   - 🇭🇰 香港 22
   - 🏳️ 其他 50
   - 🇫🇷 法国 22
-  - 🇩🇪 德国 969
   - 🇨🇦 加拿大 05
   - 🇨🇦 加拿大 06
   - 🇨🇦 加拿大 07
+  - 🇨🇦 加拿大 08
+  - 🇨🇦 加拿大 09
+  - 🇩🇪 德国 969
+  - 🇨🇦 加拿大 10
+  - 🇨🇦 加拿大 11
+  - 🇨🇦 加拿大 12
+  - 🇨🇦 加拿大 13
+  - 🇩🇪 德国 970
   - 🇺🇸 美国 127
-  - 🇺🇸 美国 128
-  - 🇺🇸 美国 129
-  - 🇺🇸 美国 130
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
