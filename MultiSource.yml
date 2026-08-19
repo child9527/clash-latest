@@ -14610,32 +14610,99 @@ proxies:
   password: FH72359861
   sni: complete-narwhal.rooster465.autos
   skip-cert-verify: false
-- name: 🇨🇦 加拿大 06
-  password: EQ30679154
-  port: 443
-  server: wealthy-gobbler.rooster465.autos
-  skip-cert-verify: true
-  sni: wealthy-gobbler.rooster465.autos
-  type: trojan
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 06
+  password: 7eadc6dbe2ae
+  port: '65443'
+  server: 121.46.230.235
+  type: ss
+  udp: true
 - client-fingerprint: chrome
-  name: 🇯🇵 日本 82
+  name: 🇸🇬 新加坡 12
   network: tcp
   password: EQ30679154
   port: '443'
-  server: 3.113.25.197
-  skip-cert-verify: true
-  sni: wealthy-gobbler.rooster465.autos
+  server: 18.143.129.104
+  skip-cert-verify: false
+  sni: picked-hamster.rooster465.autos
   type: trojan
   udp: true
 - cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 07
+  name: 🇩🇪 德国 986
+  password: amazonskr05
+  port: 443
+  server: 3.79.230.55
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 07
+  password: gf1:gfhysteria2024
+  port: 443
+  server: 5.129.235.85
+  skip-cert-verify: true
+  sni: www.linux.com
+  type: hysteria2
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 08
+  password: 7eadc6dbe2ae
+  port: 65443
+  server: 121.46.230.234
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 09
   password: 7eadc6dbe2ae
   port: '65443'
   server: 120.232.250.163
   type: ss
   udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: 🇩🇪 德国 987
+  password: 3ebac90b-6977-47c0-bef5-b2e37554432c
+  port: 17306
+  server: 89.144.35.232
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: 3ebac90b-6977-47c0-bef5-b2e37554432c
+- client-fingerprint: chrome
+  name: 🇸🇬 新加坡 13
+  network: tcp
+  password: EQ30679154
+  port: '443'
+  server: 47.128.217.39
+  skip-cert-verify: false
+  sni: modest-bat.rooster465.autos
+  type: trojan
+  udp: true
 - client-fingerprint: chrome
   name: 🇺🇸 美国 136
+  network: ws
+  password: humanity
+  port: '443'
+  server: 104.17.111.1
+  skip-cert-verify: false
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/40.0.2214.111 Safari/537.36
+    path: /assignment
+- cipher: aes-256-cfb
+  name: 🇺🇸 美国 137
+  password: amazonskr05
+  port: 443
+  server: 3.144.19.187
+  type: ss
+- client-fingerprint: chrome
+  name: 🇺🇸 美国 138
   network: ws
   password: humanity
   port: '443'
@@ -14650,22 +14717,7 @@ proxies:
         like Gecko) Chrome/70.0.3538.67 Safari/537.36
     path: /assignment
 - client-fingerprint: chrome
-  name: 🇺🇸 美国 137
-  network: ws
-  password: humanity
-  port: '443'
-  server: 104.16.174.109
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.3
-        (KHTML, like Gecko) Chrome/6.0.472.63 Safari/534.3
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 138
+  name: 🇺🇸 美国 139
   network: ws
   password: humanity
   port: '443'
@@ -14678,89 +14730,6 @@ proxies:
     headers:
       User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7
         (KHTML, like Gecko) Chrome/7.0.517.44 Safari/534.7
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 139
-  network: ws
-  password: humanity
-  port: '443'
-  server: 104.18.152.233
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/49.0.2623.110 Safari/537.36
-    path: /assignment
-- alpn:
-  - h3
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  name: 🇨🇦 加拿大 08
-  network: ws
-  password: humanity
-  port: '443'
-  server: join-telegram-channel-tirexnet.trex.kdns.fr
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/57.0.2987.133 Safari/537.36
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇨🇦 加拿大 09
-  network: ws
-  password: humanity
-  port: '443'
-  server: render.com
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/60.0.3112.90 Safari/537.36
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 140
-  network: ws
-  password: humanity
-  port: '443'
-  server: 216.24.57.1
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/36.0.1985.143 Safari/537.36
-    path: /assignment
-- alpn:
-  - http/1.1
-  - h2
-  - h3
-  client-fingerprint: chrome
-  name: 🇺🇸 美国 141
-  network: ws
-  password: humanity
-  port: '443'
-  server: 198.41.223.96
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/54.0.2840.71 Safari/537.36
     path: /assignment
 proxy-groups:
 - name: Proxy
@@ -16139,16 +16108,17 @@ proxy-groups:
   - 🇰🇷 韩国 25
   - 🇰🇷 韩国 26
   - 🇨🇦 加拿大 06
-  - 🇯🇵 日本 82
+  - 🇸🇬 新加坡 12
+  - 🇩🇪 德国 986
   - 🇨🇦 加拿大 07
+  - 🇨🇦 加拿大 08
+  - 🇨🇦 加拿大 09
+  - 🇩🇪 德国 987
+  - 🇸🇬 新加坡 13
   - 🇺🇸 美国 136
   - 🇺🇸 美国 137
   - 🇺🇸 美国 138
   - 🇺🇸 美国 139
-  - 🇨🇦 加拿大 08
-  - 🇨🇦 加拿大 09
-  - 🇺🇸 美国 140
-  - 🇺🇸 美国 141
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
