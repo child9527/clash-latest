@@ -15310,7 +15310,14 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
-- name: 🇨🇦 加拿大 13
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 13
+  password: amazonskr05
+  port: 443
+  server: 18.175.227.220
+  type: ss
+  udp: true
+- name: 🇨🇦 加拿大 14
   password: gf1:gfhysteria2024
   port: 443
   server: 5.129.235.85
@@ -15319,42 +15326,12 @@ proxies:
   type: hysteria2
   udp: true
 - cipher: aes-256-cfb
-  name: 🇨🇦 加拿大 14
-  password: amazonskr05
-  port: 443
-  server: 18.175.227.220
+  name: 🇨🇦 加拿大 15
+  password: 7eadc6dbe2ae
+  port: 65443
+  server: 121.46.230.138
   type: ss
   udp: true
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 164
-  network: ws
-  password: humanity
-  port: '443'
-  server: 104.17.111.1
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/40.0.2214.111 Safari/537.36
-    path: /assignment
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 165
-  network: ws
-  password: humanity
-  port: '443'
-  server: 104.21.46.3
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/65.0.3325.181 Safari/537.36
-    path: /assignment
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -16800,8 +16777,7 @@ proxy-groups:
   - 🇫🇷 法国 12
   - 🇨🇦 加拿大 13
   - 🇨🇦 加拿大 14
-  - 🇺🇸 美国 164
-  - 🇺🇸 美国 165
+  - 🇨🇦 加拿大 15
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
