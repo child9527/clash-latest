@@ -13,23 +13,20 @@ jobs:
       contents: write
 
     steps:
+      - name: Install GitHub CLI
+        uses: actions/setup-gh-cli@v3
+
       - name: Delete ALL workflow runs (cross-workflow, cross-pages, with retention rules)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           echo "开始清理所有 workflow run（跨分页 + 跨 workflow）..."
 
-          # 当前时间（UTC）
           NOW=$(date -u +%s)
-
-          # 保留天数（3天）
           RETAIN_DAYS=3
           RETAIN_SECONDS=$((RETAIN_DAYS * 24 * 3600))
-
-          # 每个 workflow 最多保留 5 条 run
           MAX_RUNS=5
 
-          # 用于记录每个 workflow 已保留的 run 数量
           declare -A workflow_count
 
           page=1
@@ -50,24 +47,19 @@ jobs:
               wf_name=$(echo "$run" | jq -r '.name')
               created_at=$(echo "$run" | jq -r '.created_at')
 
-              # 转换为时间戳
               run_ts=$(date -u -d "$created_at" +%s)
               age=$((NOW - run_ts))
 
-              # 初始化 workflow 计数
               if [ -z "${workflow_count[$wf_name]}" ]; then
                 workflow_count[$wf_name]=0
               fi
 
-              # 判断是否保留
               keep=false
 
-              # 规则 1：保留最近 3 天
               if [ $age -lt $RETAIN_SECONDS ]; then
                 keep=true
               fi
 
-              # 规则 2：每个 workflow 最多保留 5 条
               if [ ${workflow_count[$wf_name]} -lt $MAX_RUNS ]; then
                 keep=true
               fi
