@@ -14,7 +14,9 @@ jobs:
 
     steps:
       - name: Install GitHub CLI
-        uses: actions/setup-gh-cli@v3
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
 
       - name: Delete ALL workflow runs (cross-workflow, cross-pages, with retention rules)
         env:
