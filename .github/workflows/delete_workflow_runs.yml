@@ -1,107 +1,22 @@
-name: Full Cleanup (runs + artifacts)
+name: Auto Clean Workflow Runs
 
 on:
   schedule:
-    - cron: '0 0 1,16 * *'
-  workflow_dispatch:
+    # 每半个月运行一次（每月 1 号和 15 号的 00:00 UTC 执行）
+    - cron: '0 0 1,15 * *'
+  workflow_dispatch: # 保留手动触发按钮，方便随时测试
 
 jobs:
-  cleanup:
+  del_runs:
     runs-on: ubuntu-latest
     permissions:
-      actions: write
-      contents: write
-
+      actions: write  # 必须授予写权限，才能通过 API 删除历史日志
+      contents: read
     steps:
-      - name: Install GitHub CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gh
-
-      - name: Delete ALL workflow runs (cross-workflow, cross-pages, with retention rules)
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          echo "开始清理所有 workflow run（跨分页 + 跨 workflow）..."
-
-          NOW=$(date -u +%s)
-          RETAIN_DAYS=3
-          RETAIN_SECONDS=$((RETAIN_DAYS * 24 * 3600))
-          MAX_RUNS=5
-
-          declare -A workflow_count
-
-          page=1
-          while true; do
-            runs=$(gh api \
-              repos/${{ github.repository }}/actions/runs \
-              -F per_page=100 \
-              -F page=$page \
-              --jq '.workflow_runs[] | {id: .id, name: .name, created_at: .created_at}')
-
-            if [ -z "$runs" ]; then
-              echo "没有更多 run。"
-              break
-            fi
-
-            echo "$runs" | jq -c '.' | while read -r run; do
-              run_id=$(echo "$run" | jq -r '.id')
-              wf_name=$(echo "$run" | jq -r '.name')
-              created_at=$(echo "$run" | jq -r '.created_at')
-
-              run_ts=$(date -u -d "$created_at" +%s)
-              age=$((NOW - run_ts))
-
-              if [ -z "${workflow_count[$wf_name]}" ]; then
-                workflow_count[$wf_name]=0
-              fi
-
-              keep=false
-
-              if [ $age -lt $RETAIN_SECONDS ]; then
-                keep=true
-              fi
-
-              if [ ${workflow_count[$wf_name]} -lt $MAX_RUNS ]; then
-                keep=true
-              fi
-
-              if [ "$keep" = true ]; then
-                echo "保留 run: $run_id (workflow: $wf_name)"
-                workflow_count[$wf_name]=$((workflow_count[$wf_name] + 1))
-              else
-                echo "删除 run: $run_id (workflow: $wf_name)"
-                gh api \
-                  --method DELETE \
-                  repos/${{ github.repository }}/actions/runs/$run_id \
-                  || echo "删除失败（跳过）"
-              fi
-            done
-
-            page=$((page+1))
-          done
-
-          echo "所有 workflow run 清理完成。"
-
-      - name: Delete all artifacts
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          echo "开始清理所有 artifacts..."
-
-          artifacts=$(gh api repos/${{ github.repository }}/actions/artifacts --jq '.artifacts[].id')
-
-          if [ -z "$artifacts" ]; then
-            echo "没有 artifacts 可清理。"
-            exit 0
-          fi
-
-          for id in $artifacts; do
-            echo "删除 artifact: $id"
-            gh api \
-              --method DELETE \
-              repos/${{ github.repository }}/actions/artifacts/$id \
-              || echo "删除失败（跳过）"
-          done
-
-          echo "所有 artifacts 清理完成。"
+      - name: Delete old workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          retain_days: 3          # 只保留最近 3 天的日志
+          keep_minimum_runs: 10   # 每个工作流最多保留 10 条日志
