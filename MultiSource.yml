@@ -16408,21 +16408,28 @@ proxies:
   sni: www.broadcom.com
   type: hysteria2
   udp: true
-- client-fingerprint: chrome
-  name: 🇺🇸 美国 172
-  network: ws
-  password: humanity
-  port: '443'
-  server: 104.21.46.3
-  skip-cert-verify: false
-  sni: www.ignitelimit.com
-  type: trojan
+- name: 🇨🇦 加拿大 17
+  password: gf1:gfhysteria2024
+  port: 443
+  server: 5.129.235.85
+  skip-cert-verify: true
+  sni: www.linux.com
+  type: hysteria2
   udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/65.0.3325.181 Safari/537.36
-    path: /assignment
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 18
+  password: amazonskr05
+  port: '443'
+  server: 18.132.203.206
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: 🇨🇦 加拿大 19
+  password: amazonskr05
+  port: 443
+  server: 18.133.240.229
+  type: ss
+  udp: true
 proxy-groups:
 - name: Proxy
   type: url-test
@@ -17948,7 +17955,9 @@ proxy-groups:
   - 🏳️ 其他 81
   - 🏳️ 其他 82
   - 🇺🇸 美国 171
-  - 🇺🇸 美国 172
+  - 🇨🇦 加拿大 17
+  - 🇨🇦 加拿大 18
+  - 🇨🇦 加拿大 19
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
