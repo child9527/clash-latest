@@ -15,7 +15,7 @@ LOCAL_SOURCES = [
 REMOTE_SOURCES = [
     "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml",
     "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml",
-    "https://raw.githubusercontent.com/free18/v2ray/main/source/c.yaml",
+    "https://raw.githubusercontent.com/free18/v2ray/main/c.yaml",
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml",
     "https://github.com/PuddinCat/BestClash/raw/refs/heads/main/proxies.yaml"
 ]
