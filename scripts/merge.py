@@ -11,12 +11,17 @@ LOCAL_SOURCES = [
 ]
 
 # 2. 剩下的远程订阅源 (移除了本地已有的两个)
+from datetime import datetime
+# 自动生成当天日期
+today = datetime.now().strftime("%Y%m%d")
 REMOTE_SOURCES = [
+    f"https://free.datiya.com/uploads/{today}-clash.yaml",
     "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml",
     "https://raw.githubusercontent.com/free18/v2ray/main/c.yaml",
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml",
     "https://github.com/PuddinCat/BestClash/raw/refs/heads/main/proxies.yaml"
 ]
+
 
 # 国家关键词与表情包映射
 COUNTRY_MAP = {
