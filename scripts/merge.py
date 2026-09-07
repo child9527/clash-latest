@@ -7,13 +7,11 @@ from datetime import datetime
 
 # 1. 定义本地镜像文件列表 (都在仓库根目录)
 LOCAL_SOURCES = [
-    "free-nodes.yml",
-    "tglaoshiji.yml"
+    "free-nodes.yml"
 ]
 
 # 2. 剩下的远程订阅源 (移除了本地已有的两个)
 REMOTE_SOURCES = [
-    "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml",
     "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml",
     "https://raw.githubusercontent.com/free18/v2ray/main/c.yaml",
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml",
