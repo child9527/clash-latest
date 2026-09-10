@@ -4,7 +4,7 @@ on:
   schedule:
     # 每天 09:21、13:21、17:21、21:21 执行（北京时间）
     - cron: "21 1,5,9,13 * * *"
-  workflow_dispatch: # 方便你随时手动点击运行测试
+  workflow_dispatch:
 
 jobs:
   update:
@@ -67,8 +67,11 @@ jobs:
             exit 0
           fi
 
-          # ⭐ 关键修复：避免 push 被拒绝
+          # ⭐ 先 commit，再 pull，避免 rebase 报错
+          git commit -m "更新 nodev2ray-$DATE_STR"
+
+          # ⭐ 再拉取远程更新，避免 push 被拒绝
           git pull --rebase
 
-          git commit -m "更新 nodev2ray-$DATE_STR"
+          # ⭐ 最后推送
           git push
