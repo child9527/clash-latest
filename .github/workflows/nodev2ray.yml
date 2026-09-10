@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: 拉取仓库
-        uses: actions/checkout@v6 # 升级到 v6，彻底消灭 Node.js 20 弃用警告
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
 
@@ -24,7 +24,6 @@ jobs:
           BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           LAST_COMMIT=$(git log -1 --format=%s || echo "none")
           
-          # 判断最后一次提交是否包含今天的日期，且不是手动触发
           if [[ "$LAST_COMMIT" == *"nodev2ray-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "今天已经成功跑过任务，跳过本次。"
             echo "should_update=false" >> $GITHUB_ENV
@@ -53,7 +52,6 @@ jobs:
             exit 0
           fi
 
-
       - name: 提交更新
         if: env.should_update == 'true' && env.status == 'success'
         run: |
@@ -63,11 +61,14 @@ jobs:
           
           git add nodev2ray.txt
 
-          # 如果没有任何变化，则跳过提交（不会报错）
+          # 如果没有任何变化，则跳过提交
           if git diff --cached --quiet; then
             echo "今日节点内容无变化，跳过提交（不会报错，不会发邮件）。"
             exit 0
           fi
-                    
+
+          # ⭐ 关键修复：避免 push 被拒绝
+          git pull --rebase
+
           git commit -m "更新 nodev2ray-$DATE_STR"
           git push
