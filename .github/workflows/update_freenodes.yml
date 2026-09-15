@@ -21,13 +21,15 @@ jobs:
       - name: 检查今日更新状态
         id: check_status
         run: |
-          BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          # 获取格式为 YYYY-MM-DD 的当天日期
+          BEIJING_DATE_FMT=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
           LAST_COMMIT_MSG=$(git log -1 --format=%s || echo "初始提交")
           
-          echo "📅 当前北京日期: $BEIJING_DATE"
+          echo "📅 当前北京日期: $BEIJING_DATE_FMT"
           echo "📝 最后提交记录: $LAST_COMMIT_MSG"
           
-          if [[ "$LAST_COMMIT_MSG" == *"$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+          # 检查最近一次提交信息中是否已包含今天的日期 (YYYY-MM-DD)
+          if [[ "$LAST_COMMIT_MSG" == *"$BEIJING_DATE_FMT"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "✅ 今日数据已同步，跳过执行。"
             echo "should_update=false" >> $GITHUB_ENV
           else
@@ -42,14 +44,14 @@ jobs:
           # 循环尝试最近 3 天
           for i in {0..2}; do
             TARGET_DATE=$(TZ='Asia/Shanghai' date -d "$i days ago" +'%Y%m%d')
-            # 使用正确的 master 分支路径
             URL="https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${TARGET_DATE}.yml"
-            echo "🔍 正在尝试抓取: https://raw.githubusercontent.com/free-nodes/clashfree/main/clash${TARGET_DATE}.yml"
+            echo "🔍 正在尝试抓取: $URL"
             
-            if curl -sLf "$URL" -o temp.yml && [ -s temp.yml ]; then
+            UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            
+            if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL" -o temp.yml && [ -s temp.yml ]; then
               echo "✅ 成功找到可用源: $TARGET_DATE"
               mv temp.yml free-nodes.yml
-              echo "final_msg=自动同步：FreeNodes-$TARGET_DATE" >> $GITHUB_ENV
               FOUND=true
               break
             fi
@@ -70,14 +72,20 @@ jobs:
       - name: 提交更新到仓库
         if: env.should_update == 'true' && env.skip_commit != 'true'
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          NOW_TIME=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add free-nodes.yml
           
           if git diff --staged --quiet; then
             echo "ℹ️ 内容无变化，跳过提交。"
           else
-            git commit -m "${{ env.final_msg }}"
+            # 统一显示的提交信息：更新于: 北京时间 [skip ci]
+            git commit -m "更新于: ${NOW_TIME} [skip ci]"
+            
+            # 拉取远程最新变更防冲突
+            git pull --rebase
             git push
             echo "✨ 仓库已更新完毕。"
           fi
