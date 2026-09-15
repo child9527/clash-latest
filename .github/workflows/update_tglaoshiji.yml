@@ -21,13 +21,13 @@ jobs:
       - name: 检查今日是否已更新
         id: check_status
         run: |
-          BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          BEIJING_DATE_FMT=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
           LAST_COMMIT=$(git log -1 --format=%s || echo "none")
           
-          echo "当前日期：$BEIJING_DATE"
+          echo "当前日期：$BEIJING_DATE_FMT"
           echo "最后一次提交信息：$LAST_COMMIT"
 
-          if [[ "$LAST_COMMIT" == *"tglaoshiji-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+          if [[ "$LAST_COMMIT" == *"$BEIJING_DATE_FMT"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "今天已经更新过，跳过本次任务。"
             echo "should_update=false" >> $GITHUB_ENV
           else
@@ -51,7 +51,7 @@ jobs:
           URL_TODAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${YEAR}/${MONTH}/${DAY_TODAY}.yaml"
           echo "尝试下载今日文件：$URL_TODAY"
 
-          if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o temp.yml && [ $(stat -c%s temp.yml) -gt 2048 ]; then
+          if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o temp.yml && [ $(stat -c%s temp.yml) -gt 2048 ]; then
             mv temp.yml tglaoshiji.yml
             echo "status=success" >> $GITHUB_ENV
             echo "今日文件下载成功。"
@@ -65,7 +65,7 @@ jobs:
             else
               echo "本地无备份，尝试下载昨日文件作为兜底。"
               URL_YESTERDAY="https://sfdr.zaixianyouxi.dpdns.org/uploads/${Y_YEAR}/${Y_MONTH}/${Y_DAY}.yaml"
-              if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_YESTERDAY" -o tglaoshiji.yml && [ $(stat -c%s tglaoshiji.yml) -gt 2048 ]; then
+              if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_YESTERDAY" -o tglaoshiji.yml && [ $(stat -c%s tglaoshiji.yml) -gt 2048 ]; then
                 echo "status=success" >> $GITHUB_ENV
                 echo "昨日文件下载成功（兜底）。"
               else
@@ -78,20 +78,21 @@ jobs:
       - name: 提交更新
         if: env.should_update == 'true' && env.status == 'success'
         run: |
-          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          NOW_TIME=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add tglaoshiji.yml
           
           # 检查是否有文件真正改变了
           if git diff --staged --quiet; then
             echo "内容没变化，稳如老狗，撤销 add 动作并跳过提交。"
-            git reset  # 这一步是为了清理暂存区，让 working tree 保持干净
+            git reset
           else
             echo "发现新姿势！文件内容已更新，准备推送到仓库。"
-            git commit -m "更新 tglaoshiji-$DATE_STR"
+            git commit -m "更新于: ${NOW_TIME} [skip ci]"
+            git pull --rebase
             git push
           fi
           
-          # 哪怕什么都没做，也强制给 GitHub 一个成功的信号
           exit 0
