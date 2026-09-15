@@ -68,7 +68,7 @@ jobs:
           fi
 
           # ⭐ 先 commit，再 pull，避免 rebase 报错
-          git commit -m "更新 nodev2ray-$DATE_STR"
+          git commit -m "更新于: $(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
 
           # ⭐ 再拉取远程更新，避免 push 被拒绝
           git pull --rebase
