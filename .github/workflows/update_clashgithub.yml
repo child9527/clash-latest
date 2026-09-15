@@ -21,14 +21,16 @@ jobs:
       - name: 检查今日是否已更新
         id: check_status
         run: |
-          BEIJING_DATE=$(TZ='Asia/Shanghai' date +'%Y%m%d')
+          # 获取当天日期格式：YYYY-MM-DD
+          BEIJING_DATE_FMT=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
           LAST_COMMIT=$(git log -1 --format=%s || echo "none")
           
-          echo "当前日期：$BEIJING_DATE"
-          echo "最后一次提交信息：$LAST_COMMIT"
+          echo "当前检查日期：$BEIJING_DATE_FMT"
+          echo "最近一次提交信息：$LAST_COMMIT"
 
-          if [[ "$LAST_COMMIT" == *"clashrss-$BEIJING_DATE"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
-            echo "今天已经更新过，跳过本次任务。"
+          # 检查最近一次提交信息中是否已经包含今天的日期 (YYYY-MM-DD)
+          if [[ "$LAST_COMMIT" == *"$BEIJING_DATE_FMT"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+            echo "今天已经成功更新过，跳过本次任务。"
             echo "should_update=false" >> $GITHUB_ENV
           else
             echo "需要执行更新任务。"
@@ -38,8 +40,6 @@ jobs:
       - name: 下载订阅文件
         if: env.should_update == 'true'
         run: |
-          YEAR=$(TZ='Asia/Shanghai' date +'%Y')
-          MONTH=$(TZ='Asia/Shanghai' date +'%m' | sed 's/^0//')
           DAY_TODAY=$(TZ='Asia/Shanghai' date +'%Y%m%d')
 
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -47,7 +47,7 @@ jobs:
           URL_TODAY="https://clashgithub.com/wp-content/uploads/rss/${DAY_TODAY}.txt"
           echo "尝试下载今日订阅文件：$URL_TODAY"
 
-          if curl -sL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o clashrss.txt && [ $(stat -c%s clashrss.txt) -gt 1024 ]; then
+          if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL_TODAY" -o clashrss.txt && [ $(stat -c%s clashrss.txt) -gt 1024 ]; then
             echo "status=success" >> $GITHUB_ENV
             echo "今日订阅文件下载成功。"
           else
@@ -64,15 +64,21 @@ jobs:
       - name: 提交更新
         if: env.should_update == 'true' && env.status == 'success'
         run: |
-          DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          NOW_TIME=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
           git add clashrss.txt
           
           if git diff --staged --quiet; then
             echo "文件内容未变化，本次无需提交。"
           else
             echo "文件内容已更新，准备提交。"
-            git commit -m "更新 clashrss-$DATE_STR"
+            # ⭐ 目录中显示：更新于: 北京时间 [skip ci]
+            git commit -m "更新于: ${NOW_TIME} [skip ci]"
+            
+            # 拉取远程最新变基，防止多 workflow 并发时 push 被拒绝
+            git pull --rebase
             git push
           fi
