@@ -14510,10 +14510,32 @@ proxies:
   client-fingerprint: firefox
   network: tcp
 - name: 🏳️ 其他 01
-  server: 82.163.7.27
-  port: 9090
+  server: at-dedic-2.failspace.top
+  port: 443
   type: vless
-  uuid: 3400a61c-7326-4fa2-b006-7e1ba201eacb
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  flow: xtls-rprx-vision
+  servername: at-dedic-2.failspace.top
+  client-fingerprint: firefox
+  network: tcp
+  udp: true
+- name: 🇺🇸 美国 17
+  server: 152.67.116.56
+  port: 20000
+  type: hysteria2
+  password: a34f3990b69f44bfa0d32385
+  auth: a34f3990b69f44bfa0d32385
+  sni: rmgyvpn.rest
+  skip-cert-verify: true
+  obfs: salamander
+  obfs-password: a34f3990b69f44bfa0d32385
+  ports: 20000-30000
+- name: 🇩🇪 德国 1336
+  server: 206.189.58.129
+  port: 440
+  type: vless
+  uuid: 59906cb2-a61b-4cf3-b77b-5762ef61d2b0
   tls: false
   network: http
   http-opts:
@@ -14522,77 +14544,9 @@ proxies:
     - /
     headers:
       Host:
-      - play-apps-features.googleusercontent.com
+      - store.steampowered.com
   udp: true
-- name: 🇩🇪 德国 1336
-  server: 172.67.78.174
-  port: 2053
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
 - name: 🇩🇪 德国 1337
-  server: 136.244.86.129
-  port: 443
-  type: trojan
-  password: Tg3RnK7Xp8B1
-  sni: ash.d50f6225-23b4-3a7b-9f15-a0fb2fc16803.kailib.com
-  skip-cert-verify: true
-  udp: true
-- name: 🇩🇪 德国 1338
-  server: 213.176.17.50
-  port: 443
-  type: vless
-  uuid: eb0e3aec-f67f-4fa2-8577-b0bff0484e77
-  tls: true
-  reality-opts:
-    public-key: mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg
-    short-id: f79448a30d
-  servername: sstats.vk-portal.net
-  client-fingerprint: chrome
-  network: xhttp
-  xhttp-opts:
-    path: /assets/v2/pkg
-    host: sstats.vk-portal.net
-    mode: auto
-  udp: true
-- name: 🇩🇪 德国 1339
-  server: k2.cloud--vpn.site
-  port: 443
-  type: vless
-  uuid: f570779f-bbf7-4ef9-e657-8ebbdef2609b
-  tls: true
-  alpn:
-  - h2
-  servername: ssl.fastly.com
-  client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: c12.com
-  udp: true
-- name: 🇩🇪 德国 1340
-  server: 64.226.95.244
-  port: 2096
-  type: vless
-  uuid: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
-  tls: true
-  servername: cf3.schzyc.cc.cd
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.CMLiussss.net
-    headers:
-      Host: cf3.schzyc.cc.cd
-  udp: true
-- name: 🇩🇪 德国 1341
   server: 212.16.92.111
   port: 443
   type: vless
@@ -14605,49 +14559,96 @@ proxies:
   client-fingerprint: firefox
   network: tcp
   udp: true
-- name: 🇩🇪 德国 1342
-  server: 91.107.155.220
-  port: 56539
+- name: 🇩🇪 德国 1338
+  server: 185.126.67.44
+  port: 1932
   type: vless
-  uuid: 7acf89aa-9283-48bd-81a1-de35edf8737d
+  uuid: bae8d9ba-9f5d-4802-bb5e-bc0956a472d6
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: www.vk.com
+  client-fingerprint: firefox
+  network: tcp
+  udp: true
+- name: 🇩🇪 德国 1339
+  server: 91.196.32.163
+  port: 443
+  type: hysteria2
+  password: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
+  auth: mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
+  sni: germany3.h2corp.local
+  skip-cert-verify: true
+- name: 🇩🇪 德国 1340
+  server: 104.21.51.132
+  port: 8080
+  type: vless
+  uuid: 28cec4eb-2c82-4089-a69b-d61db4fb8006
   tls: false
-  encryption: mlkem768x25519plus.random.0rtt.swY_aKEuuHUHKO0BHVV2uot-UFbtrXpLWr7g8uZk0xk
+  encryption: mlkem768x25519plus.native.0rtt.WAc6bqm9bM6YteuKtv84PJogmTI2R5RsWLvIB_WGeXw
+  network: ws
+  ws-opts:
+    path: /play
+    headers:
+      Host: th3ee3322.th3store.ir
+    v2ray-http-upgrade: true
+  udp: true
+- name: 🇩🇪 德国 1341
+  server: 18.199.98.219
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
+- name: 🇩🇪 德国 1342
+  server: 65.109.219.253
+  port: 9093
+  type: vless
+  uuid: 291a1ec4-b722-45d8-925c-99df5196d6b2
+  tls: false
   network: http
   http-opts:
     method: GET
     path:
-    - /
+    - /@Nap_v2ray
+    headers:
+      Host:
+      - play-apps-features.googleusercontent.com
   udp: true
 - name: 🇩🇪 德国 1343
-  server: fxe3.sorixset.ir
+  server: 212.16.92.112
   port: 443
   type: vless
-  uuid: d7282b41-1f2a-47bb-8593-f464fd6b6d78
-  tls: true
-  servername: global.fastly.com
-  client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: kayko.global.ssl.fastly.net
-  udp: true
-- name: 🏳️ 其他 02
-  server: 89.106.88.6
-  port: 20443
-  type: vless
-  uuid: ad297a2b-ae17-4d2d-8fce-e2eafb89b145
+  uuid: 32721515-985b-4773-9e70-5d2e1b88a060
   tls: true
   flow: xtls-rprx-vision
   reality-opts:
-    public-key: -AdhgMZeNHR2zAmGWa5peg7Ni0-e4IVMoSzydC9n7C4
-    short-id: 08
-  servername: dest1.cdn-update.rutube.info
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: jobinvest.ru
   client-fingerprint: firefox
   network: tcp
   udp: true
+- name: 🇩🇪 德国 1344
+  server: 212.16.92.121
+  port: 443
+  type: vless
+  uuid: 32721515-985b-4773-9e70-5d2e1b88a060
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: jobinvest.ru
+  client-fingerprint: firefox
+  network: tcp
+  udp: true
+- name: 🇩🇪 德国 1345
+  server: 63.180.252.123
+  port: 443
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
 - name: 🇫🇷 法国 01
-  server: 104.16.174.143
+  server: 172.67.149.60
   port: 443
   type: trojan
   password: humanity
@@ -14660,7 +14661,7 @@ proxies:
       Host: www.ignitelimit.com
   udp: true
 - name: 🇫🇷 法国 02
-  server: 172.67.188.109
+  server: 104.18.152.77
   port: 443
   type: trojan
   password: humanity
@@ -14673,7 +14674,22 @@ proxies:
       Host: www.ignitelimit.com
   udp: true
 - name: 🇫🇷 法国 03
-  server: 104.18.152.219
+  server: 62.109.5.156
+  port: 443
+  type: vless
+  uuid: b1b3e430-ff52-44b8-b95d-27fa580fbc4f
+  tls: true
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: id.vk.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: vless-grpc-reality
+  udp: true
+- name: 🇫🇷 法国 04
+  server: 104.18.152.244
   port: 443
   type: trojan
   password: humanity
@@ -14685,31 +14701,12 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🇫🇷 法国 04
-  server: 130.49.77.5
-  port: 8443
-  type: vless
-  uuid: 1e4668ca-6526-84ac-2a53-28bbc209da13
-  tls: true
-  reality-opts:
-    public-key: Sq7mtLmaanwsTVNBR9gU7ECU87ftrb_wFGRLLNRBlmQ
-  servername: www.philips.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: TunService
-  udp: true
 - name: 🇫🇷 法国 05
-  server: 198.41.223.96
+  server: 188.114.97.7
   port: 443
   type: trojan
   password: humanity
   sni: www.ignitelimit.com
-  alpn:
-  - http/1.1
-  - h2
-  - h3
   skip-cert-verify: true
   network: ws
   ws-opts:
@@ -14718,7 +14715,7 @@ proxies:
       Host: www.ignitelimit.com
   udp: true
 - name: 🇫🇷 法国 06
-  server: 104.18.152.210
+  server: 104.18.152.108
   port: 443
   type: trojan
   password: humanity
@@ -14730,94 +14727,124 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🇫🇷 法国 07
-  server: 189.74.117.3
+- name: 🇬🇧 英国 01
+  server: 144.24.226.100
+  port: 61312
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: U/JCe7Gq8z+hTeMcZTHvLsueYpo+YGZdxT/egK5sd8c=
+- name: 🇬🇧 英国 02
+  server: 50.7.227.251
   port: 443
   type: vless
-  uuid: ca83b14f-a1c9-4afd-a1cf-70b1ba76135a
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
   tls: true
   flow: xtls-rprx-vision
-  reality-opts:
-    public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
-    short-id: a8
-  servername: api.videoistok.cc
-  client-fingerprint: chrome
+  servername: uk-dedic-new-1.failspace.top
+  client-fingerprint: firefox
   network: tcp
   udp: true
-- name: 🇫🇷 法国 08
-  server: 104.18.152.143
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
+- name: 🇬🇧 英国 03
+  server: 129.151.80.178
+  port: 61312
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: Ym7b+KjmYYPSe9utlERfFgk8cncV74b+oKfyEJouaxw=
   udp: true
+- name: 🇬🇧 英国 04
+  server: 144.24.227.50
+  port: 61312
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: TXrG9spaauTMdmjChxZhzyPS7BmI8GZOgGnNU1f8oTc=
+- name: 🇬🇧 英国 05
+  server: uk-dedic-new-1.failspace.top
+  port: 443
+  type: vless
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  alpn:
+  - h2
+  flow: xtls-rprx-vision
+  servername: uk-dedic-new-1.failspace.top
+  client-fingerprint: firefox
+  network: tcp
+  udp: true
+- name: 🇬🇧 英国 06
+  server: vpn-uk-001.fastervpn.world
+  port: 443
+  type: hysteria2
+  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  auth: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  sni: vpn-uk-001.fastervpn.world
+  skip-cert-verify: true
 - name: 🇯🇵 日本 01
-  server: 8.209.217.129
+  server: 172.64.153.3
   port: 443
   type: vless
-  uuid: 4a1bd3a7-22e6-4ed0-add4-7ee824d8f54a
-  tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: Ci03uVNJ34iSg-BSeOgrhTAeWcJExB5gQNuQVRY3a2Q
-    short-id: 01b4986b50245272
-  servername: www.logitech.com
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
-- name: 🇳🇱 荷兰 01
-  server: 104.26.14.62
-  port: 443
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇳🇱 荷兰 02
-  server: 69.46.46.55
-  port: 443
-  type: vless
-  uuid: ac0b39e7-9f0c-7b15-8e0d-b8f669dd434a
+  uuid: 8779033b-a16a-4a7b-8767-d1980008d82a
   tls: true
   alpn:
   - http/1.1
-  servername: men-production-a373.up.railway.app
+  servername: 38973b0f.69lover.site
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /ws/ac0b39e7-9f0c-7b15-8e0d-b8f669dd434a
+    path: /api/v2/e9182405fa1a6489/stream
     headers:
-      Host: men-production-a373.up.railway.app
+      Host: 38973b0f.69lover.site
   udp: true
-- name: 🇳🇱 荷兰 03
-  server: 104.26.4.224
+- name: 🇯🇵 日本 02
+  server: minimize-evenness.cdn-content.com
   port: 443
   type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
+  uuid: a97b4f58-0d47-416f-9ecd-dfdf20f31bf7
   tls: true
-  servername: qiu000000.ccwu.cc
+  servername: minimize-evenness.cdn-content.com
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /
+    path: /ws
     headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇳🇱 荷兰 04
+      Host: minimize-evenness.cdn-content.com
+  udp: true
+- name: 🏳️ 其他 02
+  server: 188.72.103.3
+  port: 443
+  type: vless
+  uuid: 01a21e01-6098-4c3b-a6fd-1a04d64d0c7f
+  tls: true
+  servername: cdnapiv2.streamru10.net
+  client-fingerprint: qq
+  network: xhttp
+  xhttp-opts:
+    path: /api/v75/uptodown/
+    mode: packet-up
+    seq-key: part_index
+    seq-placement: cookie
+    session-key: stream_auth
+    session-placement: cookie
+    uplink-data-placement: body
+    uplink-http-method: GET
+    x-padding-bytes: 96-1040
+    x-padding-header: X-Media-Token
+    x-padding-key: _t
+    x-padding-method: tokenish
+    x-padding-obfs-mode: true
+    x-padding-placement: queryInHeader
+  udp: true
+- name: 🇳🇱 荷兰 01
+  server: 134.98.150.53
+  port: 45819
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: +WrRlTCtnTZHHQ6YpMHEhRWaLps9wUbI5ZJA85rOaIo=
+  udp: true
+- name: 🇳🇱 荷兰 02
   server: 188.72.103.4
   port: 443
   type: vless
-  uuid: 5032a5c5-67cf-4991-b698-4ab146014cf2
+  uuid: fee5837b-3bc3-4cb9-ae44-84ce536b8764
   tls: true
   alpn:
   - h2
@@ -14842,143 +14869,131 @@ proxies:
     x-padding-obfs-mode: true
     x-padding-placement: queryInHeader
   udp: true
-- name: 🇳🇱 荷兰 05
-  server: 188.114.97.2
-  port: 2086
+- name: 🇳🇱 荷兰 03
+  server: 193.123.39.7
+  port: 45819
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: yE6QCb+TH9e+h01wELq5xdiBgl/ePvuk31Uk8fKYCJ4=
+  udp: true
+- name: 🇳🇱 荷兰 04
+  server: 158.101.197.145
+  port: 62145
   type: vless
-  uuid: c8f3f81a-5276-48e9-af6b-c537fb4c7856
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
   tls: false
-  network: ws
-  ws-opts:
-    path: /vl/ikccafxfZ8tDV11MQjtVmuGhgJbO8?ed=2560
-    headers:
-      Host: r7yhmg1zxnt120wmkag.mf1h0myptv4lougs7341bmttcz8.workers.dev
+  servername: 158.101.197.145
+  network: tcp
+  udp: true
+- name: 🇳🇱 荷兰 05
+  server: 84.235.178.189
+  port: 62145
+  type: vless
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  tls: false
+  servername: 84.235.178.189
+  network: tcp
   udp: true
 - name: 🇳🇱 荷兰 06
-  server: mul.danqela.ir
-  port: 5061
+  server: 158.101.214.23
+  port: 62145
   type: vless
-  uuid: eca1a05f-57c2-46c8-a5ee-a09ddfe8aeae
-  tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: K-ra5wYRignlacUglfdjgTJOf4C4_oxKVm_T6YdgsTM
-    short-id: 8509f205ecd87e17
-  servername: android.clients.google.com
-  client-fingerprint: chrome
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  tls: false
+  servername: 158.101.214.23
   network: tcp
   udp: true
 - name: 🇳🇱 荷兰 07
-  server: 189.74.114.106
-  port: 443
-  type: vless
-  uuid: ca83b14f-a1c9-4afd-a1cf-70b1ba76135a
-  tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
-    short-id: a8
-  servername: api.setevoypotok.cc
-  client-fingerprint: chrome
-  network: tcp
+  server: 134.98.144.81
+  port: 45819
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: kVVSNNennEaDZWnDJazTIUmexljd8bgSrtPATEXz2JQ=
   udp: true
+- name: 🇳🇱 荷兰 08
+  server: 92.5.226.26
+  port: 45819
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: hNiS90pjQkK/jpbZxVPJz7mMYpvomWyw9Qe7blf+bgk=
 - name: 🏳️ 其他 03
-  server: 189.74.116.8
+  server: norway.failspace.top
   port: 443
   type: vless
-  uuid: ca83b14f-a1c9-4afd-a1cf-70b1ba76135a
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
   tls: true
+  alpn:
+  - h2
   flow: xtls-rprx-vision
-  reality-opts:
-    public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
-    short-id: a8
-  servername: api.mediaprival.cc
+  servername: norway.failspace.top
   client-fingerprint: firefox
   network: tcp
   udp: true
 - name: 🏳️ 其他 04
-  server: api.mediaprival.cc
+  server: 31.76.5.123
   port: 443
   type: vless
-  uuid: ca83b14f-a1c9-4afd-a1cf-70b1ba76135a
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
   tls: true
   flow: xtls-rprx-vision
-  reality-opts:
-    public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
-    short-id: a8
-  servername: api.mediaprival.cc
-  client-fingerprint: edge
+  servername: norway.failspace.top
+  client-fingerprint: firefox
   network: tcp
   udp: true
-- name: 🇺🇸 美国 17
-  server: 170.168.99.9
-  port: 8443
-  type: vless
-  uuid: 1e4668ca-6526-84ac-2a53-28bbc209da13
-  tls: true
-  reality-opts:
-    public-key: -GbQJg3bnEGEVFjVaRRu01cgF1f0K_maI4d5MWtMb28
-  servername: www.epson.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: TunService
-  udp: true
-- name: 🇸🇬 新加坡 01
-  server: 188.164.248.19
-  port: 2083
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇸🇬 新加坡 02
-  server: 8.39.125.129
-  port: 2096
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇸🇬 新加坡 03
-  server: 104.18.33.90
-  port: 2083
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇸🇬 新加坡 04
-  server: 43.160.241.174
+- name: 🏳️ 其他 05
+  server: poland-new-dedic-2.failspace.top
   port: 443
   type: vless
-  uuid: 3db635e4-f9ec-42d6-8aba-e23df8b0e6da
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
   tls: true
-  servername: mia11.pages.dev
+  alpn:
+  - h2
+  flow: xtls-rprx-vision
+  servername: poland-new-dedic-2.failspace.top
+  client-fingerprint: firefox
+  network: tcp
+  udp: true
+- name: 🏳️ 其他 06
+  server: poland-new-decic-1.failspace.top
+  port: 443
+  type: vless
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  flow: xtls-rprx-vision
+  servername: poland-new-decic-1.failspace.top
+  client-fingerprint: firefox
+  network: tcp
+  udp: true
+- name: 🇺🇸 美国 18
+  server: 195.133.23.200
+  port: 7018
+  type: ss
+  cipher: aes-256-gcm
+  password: 81a20429165df87e
+  udp: true
+- name: 🇸🇬 新加坡 01
+  server: 172.64.146.211
+  port: 8443
+  type: vless
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  tls: true
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /TG:@MiaChatChannel
+    path: /
     headers:
-      Host: mia11.pages.dev
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   udp: true
-- name: 🇸🇬 新加坡 05
+- name: 🇸🇬 新加坡 02
+  server: cloud.lakshan.us
+  port: 119
+  type: trojan
+  password: skynet
+  sni: cloud.lakshan.us
+  skip-cert-verify: true
+  udp: true
+- name: 🇸🇬 新加坡 03
   server: 172.64.146.211
   port: 2096
   type: vless
@@ -14992,70 +15007,35 @@ proxies:
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   udp: true
-- name: 🇰🇷 韩国 06
-  server: 170.168.97.6
+- name: 🇸🇬 新加坡 04
+  server: 168.138.161.88
+  port: 56927
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 760pNumYNb9c8Y7crKHqib5hYJ5CRYyzrdLhcnea8wc=
+  udp: true
+- name: 🇺🇸 美国 19
+  server: 103.31.4.10
   port: 443
   type: vless
-  uuid: 1e4668ca-6526-84ac-2a53-28bbc209da13
+  uuid: 77dc177b-79d9-49ac-92e1-2f1011faa5e3
   tls: true
-  reality-opts:
-    public-key: jYD82Xg6TRu2lR0XINMWxKb8dNycDwF-H28ZrtiafUo
-  servername: cdn.steamstatic.com
+  alpn:
+  - http/1.1
+  servername: f871a986.69lover.site
   client-fingerprint: chrome
-  network: xhttp
-  xhttp-opts:
-    path: /
-    host: cdn.steamstatic.com
-    mode: auto
+  network: ws
+  ws-opts:
+    path: /api/v2/b8ee4ba356df307c/stream
+    headers:
+      Host: f871a986.69lover.site
   udp: true
-- name: 🇺🇸 美国 18
-  server: 104.16.157.47
-  port: 2087
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 19
-  server: 104.17.182.157
-  port: 2053
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
 - name: 🇺🇸 美国 20
-  server: 104.17.105.65
-  port: 2087
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 21
-  server: 104.18.15.230
+  server: 104.16.174.44
   port: 443
   type: trojan
   password: humanity
   sni: www.ignitelimit.com
-  alpn:
-  - h2
-  - http/1.1
   skip-cert-verify: true
   network: ws
   ws-opts:
@@ -15063,308 +15043,28 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🇺🇸 美国 22
-  server: 104.17.209.228
-  port: 8443
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 23
+- name: 🇺🇸 美国 21
   server: 18.191.174.144
   port: 443
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-- name: 🇺🇸 美国 24
-  server: 104.17.111.209
-  port: 8443
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 25
-  server: 151.242.160.148
-  port: 8090
-  type: vless
-  uuid: 818eaf39-544f-4d1d-977e-87be7e33eecf
-  tls: true
-  servername: askuhgfdsg.space.coupons
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: askuhgfdsg.space.coupons
-  udp: true
-- name: 🇺🇸 美国 26
-  server: 104.19.51.63
-  port: 8443
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 27
-  server: 104.17.191.86
-  port: 2096
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 28
-  server: 141.101.90.101
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
-  udp: true
-- name: 🇺🇸 美国 29
-  server: 104.17.23.128
-  port: 2087
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 30
-  server: 104.17.211.105
-  port: 8443
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 31
-  server: 104.16.174.34
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
-  udp: true
-- name: 🇺🇸 美国 32
-  server: 104.18.152.50
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
-  udp: true
-- name: 🇺🇸 美国 33
-  server: 38.147.172.53
+- name: 🇺🇸 美国 22
+  server: 104.16.151.21
   port: 443
   type: vless
-  uuid: 6e55174c-dc03-4aec-ade0-3e7df74e50ae
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   tls: true
-  servername: thus-k.netnode.cc.cd
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /t.me/daily_free_vpn
-    headers:
-      Host: thus-k.netnode.cc.cd
-  udp: true
-- name: 🇺🇸 美国 34
-  server: 104.17.159.75
-  port: 2053
-  type: vless
-  uuid: 65c56e1f-5c41-40bc-b0b5-9346772476ca
-  tls: true
-  servername: singapore.36109178.xyz
-  client-fingerprint: edge
-  network: ws
-  ws-opts:
-    path: /static/media/video-chunk.f4v
-    headers:
-      Host: singapore.36109178.xyz
-  udp: true
-- name: 🇺🇸 美国 35
-  server: 104.17.26.45
-  port: 8880
-  type: vless
-  uuid: 565326ee-c588-4843-9472-a051578ab1ae
-  tls: false
-  network: ws
-  ws-opts:
-    path: /pyip=ProxyIP.KR.CMLiussss.net
-    headers:
-      Host: lucky-cell-e8c5.490-f12.workers.dev
-  udp: true
-- name: 🇺🇸 美国 36
-  server: 104.17.23.81
-  port: 2053
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 37
-  server: 104.19.49.53
-  port: 2096
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 38
-  server: 104.17.27.215
-  port: 443
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 39
-  server: 104.21.44.253
-  port: 8080
-  type: vless
-  uuid: c6ba83a7-c4b5-481f-8f71-0f17deff0bf2
-  tls: false
-  network: ws
-  ws-opts:
-    path: /eyJqdW5rIjoiOUhPbnRlV0xaekI1cjciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyNjAyOmZjNTk6YjA6NjQ6Ol0iXX0=
-    headers:
-      Host: billowing-sunset-e340.qaraatayi.workers.dev
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   udp: true
-- name: 🇺🇸 美国 40
-  server: 104.17.17.201
-  port: 443
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 41
-  server: 104.18.152.233
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
-  udp: true
-- name: 🇺🇸 美国 42
-  server: starlink-ft.251313.xyz
-  port: 443
-  type: hysteria2
-  password: https://xship.top
-  auth: https://xship.top
-  sni: xship.top
-  skip-cert-verify: true
-  udp: true
-- name: 🇺🇸 美国 43
-  server: 104.17.181.38
-  port: 2087
-  type: vless
-  uuid: 57bbfad4-3971-4136-8511-2e484323261e
-  tls: true
-  servername: qiu000000.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: qiu000000.ccwu.cc
-- name: 🇺🇸 美国 44
-  server: www.gov.ua
-  port: 8880
-  type: vless
-  uuid: a62a4c64-2270-4d41-828b-2591906c48ba
-  tls: false
-  network: ws
-  ws-opts:
-    path: /pyip=ProxyIP.SG.CMLiussss.net
-    headers:
-      Host: sweet-disk-a026.253-54b.workers.dev
-  udp: true
-- name: 🇺🇸 美国 45
-  server: 195.85.59.30
-  port: 8880
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  tls: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: vms.lifetime58.workers.dev
-  udp: true
-- name: 🇺🇸 美国 46
-  server: 172.64.53.215
+- name: 🇺🇸 美国 23
+  server: 172.64.146.211
   port: 2083
   type: vless
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
@@ -15377,7 +15077,150 @@ proxies:
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   udp: true
-- name: 🏳️ 其他 05
+- name: 🇺🇸 美国 24
+  server: 172.64.154.8
+  port: 2095
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  tls: false
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  udp: true
+- name: 🇺🇸 美国 25
+  server: 82.29.71.160
+  port: 36712
+  type: hysteria2
+  password: LX9bCatJWpG9ZLzFjLnBxAyl
+  auth: LX9bCatJWpG9ZLzFjLnBxAyl
+  sni: www.cloudflare.com
+  skip-cert-verify: true
+  udp: true
+- name: 🇺🇸 美国 26
+  server: 104.18.152.204
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: 🇺🇸 美国 27
+  server: 104.16.174.71
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: 🇺🇸 美国 28
+  server: 162.159.43.187
+  port: 8080
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  tls: false
+  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+  udp: true
+- name: 🇺🇸 美国 29
+  server: 104.18.22.63
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: 🇺🇸 美国 30
+  server: flax-spinel23895.my-vm.work
+  port: 8088
+  type: vless
+  uuid: tmp_user
+  tls: false
+  network: ws
+  ws-opts:
+    path: /api
+    headers:
+      Host: queuev4.vk.com
+  udp: true
+- name: 🇺🇸 美国 31
+  server: 172.67.221.242
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: 🇺🇸 美国 32
+  server: 172.67.213.128
+  port: 443
+  type: vless
+  uuid: 7e26fd8f-d75a-473d-84ba-9f4e3f47d086
+  tls: true
+  servername: 9-m20.cd6b506e-5a88-4c5d-9e11-906f39613c04.kdns.fr
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /8qMLgNapWf6SBxo8fhQlVPYO
+    headers:
+      Host: 9-m20.cd6b506e-5a88-4c5d-9e11-906f39613c04.kdns.fr
+  udp: true
+- name: 🇺🇸 美国 33
+  server: 188.114.98.0
+  port: 443
+  type: vless
+  uuid: V2XNET
+  tls: true
+  alpn:
+  - h3
+  - h2
+  - http/1.1
+  servername: or.mirikhan.dpdns.org
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /xvpnws/
+    headers:
+      Host: or.mirikhan.dpdns.org
+  udp: true
+- name: 🇺🇸 美国 34
+  server: 104.18.152.152
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: 🏳️ 其他 07
   type: vless
   server: 200.165.235.78
   port: 443
@@ -15391,7 +15234,7 @@ proxies:
     short-id: 52ccb3687fe0b7ec
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 06
+- name: 🏳️ 其他 08
   type: vless
   server: de1-web.mysoyka.online
   port: 443
@@ -15405,7 +15248,7 @@ proxies:
     short-id: 3d475d331e49eee8
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 07
+- name: 🏳️ 其他 09
   type: vless
   server: uh-sg01.ziyoufly.xyz
   port: 55555
@@ -15419,7 +15262,7 @@ proxies:
     short-id: 8a4a4ce4
   skip-cert-verify: true
   udp: true
-- name: 🇳🇱 荷兰 08
+- name: 🇳🇱 荷兰 09
   type: vless
   server: 147.45.134.184
   port: 8443
@@ -15432,7 +15275,7 @@ proxies:
     short-id: dd910a5b30
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 08
+- name: 🏳️ 其他 10
   type: vless
   server: 95.85.245.163
   port: 442
@@ -15460,7 +15303,7 @@ proxies:
     short-id: 219a891b
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 09
+- name: 🏳️ 其他 11
   type: vless
   server: asaa.mmm.top
   port: 10003
@@ -15474,7 +15317,7 @@ proxies:
     short-id: fb181b38
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 10
+- name: 🏳️ 其他 12
   type: vmess
   server: p05.rghvf.sbs
   port: 1233
@@ -15485,7 +15328,7 @@ proxies:
   skip-cert-verify: true
   servername: gb.uniquenames.net
   udp: true
-- name: 🏳️ 其他 11
+- name: 🏳️ 其他 13
   type: vless
   server: 193.36.38.17
   port: 443
@@ -15500,7 +15343,7 @@ proxies:
       Host: eded-52n.pages.dev
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 12
+- name: 🏳️ 其他 14
   type: vless
   server: 213.111.149.58
   port: 8443
@@ -15515,7 +15358,7 @@ proxies:
       Host: eded-52n.pages.dev
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 13
+- name: 🏳️ 其他 15
   type: vless
   server: 91.206.71.8
   port: 80
@@ -15528,7 +15371,7 @@ proxies:
       Host: round-haze-8783.294.workers.dev
   skip-cert-verify: true
   udp: true
-- name: 🇺🇸 美国 47
+- name: 🇺🇸 美国 35
   type: vless
   server: 50.62.198.30
   port: 8880
@@ -15541,7 +15384,7 @@ proxies:
       Host: vms.lifetime39.workers.dev
   skip-cert-verify: true
   udp: true
-- name: 🇺🇸 美国 48
+- name: 🇺🇸 美国 36
   type: vless
   server: 45.40.149.50
   port: 8880
@@ -15554,7 +15397,7 @@ proxies:
       Host: vms.lifetime39.workers.dev
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 14
+- name: 🏳️ 其他 16
   type: trojan
   server: bestcdn1.868863.xyz
   port: 2087
@@ -15566,7 +15409,7 @@ proxies:
     headers:
       Host: 17895247518869.206356.xyz
   udp: true
-- name: 🏳️ 其他 15
+- name: 🏳️ 其他 17
   type: trojan
   server: bestcdn0.868863.xyz
   port: 2087
@@ -15578,7 +15421,7 @@ proxies:
     headers:
       Host: 17895247513434.682637.xyz
   udp: true
-- name: 🏳️ 其他 16
+- name: 🏳️ 其他 18
   type: trojan
   server: bestcdn0.868863.xyz
   port: 8443
@@ -15590,7 +15433,7 @@ proxies:
     headers:
       Host: 17895247514392.682637.xyz
   udp: true
-- name: 🏳️ 其他 17
+- name: 🏳️ 其他 19
   type: trojan
   server: bestcdn1.868863.xyz
   port: 2053
@@ -15602,7 +15445,7 @@ proxies:
     headers:
       Host: 17895247516803.206352.xyz
   udp: true
-- name: 🏳️ 其他 18
+- name: 🏳️ 其他 20
   type: trojan
   server: bestcdn1.868863.xyz
   port: 2096
@@ -15614,7 +15457,7 @@ proxies:
     headers:
       Host: 17895247515814.206353.xyz
   udp: true
-- name: 🏳️ 其他 19
+- name: 🏳️ 其他 21
   type: trojan
   server: 99.cdn.aewe.de
   port: 2096
@@ -15626,7 +15469,7 @@ proxies:
     headers:
       Host: 17895247516970.206352.xyz
   udp: true
-- name: 🏳️ 其他 20
+- name: 🏳️ 其他 22
   type: trojan
   server: bestcdn0.868863.xyz
   port: 2096
@@ -15638,7 +15481,7 @@ proxies:
     headers:
       Host: 17895247512946.682637.xyz
   udp: true
-- name: 🏳️ 其他 21
+- name: 🏳️ 其他 23
   type: trojan
   server: 99.cdn.aewe.de
   port: 8443
@@ -15650,7 +15493,7 @@ proxies:
     headers:
       Host: 17895247518018.206353.xyz
   udp: true
-- name: 🏳️ 其他 22
+- name: 🏳️ 其他 24
   type: trojan
   server: bestcdn0.868863.xyz
   port: 2053
@@ -15662,7 +15505,7 @@ proxies:
     headers:
       Host: 17895247518915.682637.xyz
   udp: true
-- name: 🏳️ 其他 23
+- name: 🏳️ 其他 25
   type: trojan
   server: 99.cdn.aewe.de
   port: 2083
@@ -15674,7 +15517,7 @@ proxies:
     headers:
       Host: 17895247518859.206355.xyz
   udp: true
-- name: 🏳️ 其他 24
+- name: 🏳️ 其他 26
   type: trojan
   server: bestcdn3.868863.xyz
   port: 2053
@@ -15686,7 +15529,7 @@ proxies:
     headers:
       Host: 17895247513604.206355.xyz
   udp: true
-- name: 🏳️ 其他 25
+- name: 🏳️ 其他 27
   type: trojan
   server: bestcdn3.868863.xyz
   port: 2083
@@ -15698,7 +15541,7 @@ proxies:
     headers:
       Host: 17895247517251.206353.xyz
   udp: true
-- name: 🏳️ 其他 26
+- name: 🏳️ 其他 28
   type: trojan
   server: www.ignitelimit.com
   port: 443
@@ -15708,7 +15551,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 27
+- name: 🏳️ 其他 29
   type: trojan
   server: 104.18.152.207
   port: 443
@@ -15720,7 +15563,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 28
+- name: 🏳️ 其他 30
   type: trojan
   server: 104.18.152.159
   port: 443
@@ -15730,7 +15573,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 29
+- name: 🏳️ 其他 31
   type: trojan
   server: 104.18.152.187
   port: 443
@@ -15740,7 +15583,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 30
+- name: 🏳️ 其他 32
   type: trojan
   server: 104.18.152.161
   port: 443
@@ -15750,17 +15593,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 31
-  type: trojan
-  server: 104.16.174.44
-  port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-  udp: true
-- name: 🏳️ 其他 32
+- name: 🏳️ 其他 33
   type: trojan
   server: 104.16.174.33
   port: 443
@@ -15770,7 +15603,17 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🇺🇸 美国 49
+- name: 🏳️ 其他 34
+  type: trojan
+  server: 104.16.174.34
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /assignment
+  udp: true
+- name: 🇺🇸 美国 37
   type: trojan
   server: 165.215.250.14
   port: 443
@@ -15782,7 +15625,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 33
+- name: 🏳️ 其他 35
   type: trojan
   server: 104.16.174.37
   port: 443
@@ -15794,7 +15637,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 34
+- name: 🏳️ 其他 36
   type: trojan
   server: 104.16.174.36
   port: 443
@@ -15806,17 +15649,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 35
-  type: trojan
-  server: 104.18.152.204
-  port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-  udp: true
-- name: 🏳️ 其他 36
+- name: 🏳️ 其他 37
   type: trojan
   server: 104.16.174.46
   port: 443
@@ -15826,7 +15659,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 37
+- name: 🏳️ 其他 38
   type: trojan
   server: 104.18.152.155
   port: 443
@@ -15838,7 +15671,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 38
+- name: 🏳️ 其他 39
   type: trojan
   server: 104.18.152.140
   port: 443
@@ -15848,7 +15681,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 39
+- name: 🏳️ 其他 40
   type: trojan
   server: 104.18.152.246
   port: 443
@@ -15860,7 +15693,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 40
+- name: 🏳️ 其他 41
   type: trojan
   server: 104.16.174.185
   port: 443
@@ -15870,7 +15703,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 41
+- name: 🏳️ 其他 42
   type: trojan
   server: ip.myip2.qzz.io
   port: 443
@@ -15895,7 +15728,7 @@ proxies:
     path: /ws
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 42
+- name: 🏳️ 其他 43
   type: trojan
   server: join-telegram-channel.tirexnet.kdns.fr
   port: 443
@@ -15905,7 +15738,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 43
+- name: 🏳️ 其他 44
   type: trojan
   server: join-telegram-channel-tirexnet.trex.kdns.fr
   port: 443
@@ -15915,7 +15748,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 44
+- name: 🏳️ 其他 45
   type: trojan
   server: www.speedtest.org
   port: 443
@@ -15925,7 +15758,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 45
+- name: 🏳️ 其他 46
   type: vless
   server: www.speedtest.net
   port: 443
@@ -15937,7 +15770,7 @@ proxies:
     path: /
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 46
+- name: 🏳️ 其他 47
   type: trojan
   server: bestcdn3.868863.xyz
   port: 2087
@@ -15949,7 +15782,7 @@ proxies:
     headers:
       Host: 17895247511297.206352.xyz
   udp: true
-- name: 🏳️ 其他 47
+- name: 🏳️ 其他 48
   type: vless
   server: cz1.zuoai.cf
   port: 443
@@ -15961,7 +15794,7 @@ proxies:
     path: /
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 48
+- name: 🏳️ 其他 49
   type: trojan
   server: www.calmlunch.com
   port: 443
@@ -15973,7 +15806,7 @@ proxies:
     headers:
       Host: www.calmlunch.com
   udp: true
-- name: 🏳️ 其他 49
+- name: 🏳️ 其他 50
   type: trojan
   server: 162.159.36.20
   port: 443
@@ -15983,20 +15816,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 50
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: V2XNET
-  network: ws
-  servername: or.mirikhan.dpdns.org
-  tls: true
-  client-fingerprint: chrome
-  ws-opts:
-    path: /xvpnws/
-  skip-cert-verify: true
-  udp: true
-- name: 🇺🇸 美国 50
+- name: 🇺🇸 美国 38
   type: vless
   server: 63.141.128.30
   port: 8880
@@ -16019,7 +15839,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🇺🇸 美国 51
+- name: 🇺🇸 美国 39
   type: trojan
   server: 162.159.136.234
   port: 443
@@ -16031,7 +15851,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🇺🇸 美国 52
+- name: 🇺🇸 美国 40
   type: trojan
   server: 216.24.57.7
   port: 443
@@ -16041,17 +15861,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 52
-  type: trojan
-  server: 172.67.221.242
-  port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-  udp: true
-- name: 🇺🇸 美国 53
+- name: 🇺🇸 美国 41
   type: trojan
   server: 130.250.137.171
   port: 443
@@ -16061,17 +15871,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 53
-  type: trojan
-  server: 104.18.22.63
-  port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-  udp: true
-- name: 🏳️ 其他 54
+- name: 🏳️ 其他 52
   type: trojan
   server: 104.17.111.8
   port: 443
@@ -16083,7 +15883,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 55
+- name: 🏳️ 其他 53
   type: trojan
   server: 104.17.111.1
   port: 443
@@ -16093,7 +15893,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 56
+- name: 🏳️ 其他 54
   type: trojan
   server: 104.17.177.143
   port: 443
@@ -16103,7 +15903,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 57
+- name: 🏳️ 其他 55
   type: vless
   server: 172.66.47.102
   port: 443
@@ -16118,7 +15918,7 @@ proxies:
       Host: lxcl.pages.dev
   skip-cert-verify: true
   udp: true
-- name: 🏳️ 其他 58
+- name: 🏳️ 其他 56
   type: trojan
   server: 104.17.111.3
   port: 443
@@ -16128,7 +15928,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 59
+- name: 🏳️ 其他 57
   type: trojan
   server: 104.17.111.4
   port: 443
@@ -16138,7 +15938,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 60
+- name: 🏳️ 其他 58
   type: trojan
   server: 172.67.74.2
   port: 443
@@ -16150,7 +15950,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 61
+- name: 🏳️ 其他 59
   type: trojan
   server: 104.26.15.137
   port: 443
@@ -16160,17 +15960,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 62
-  type: trojan
-  server: 172.67.149.60
-  port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-  udp: true
-- name: 🏳️ 其他 63
+- name: 🏳️ 其他 60
   type: trojan
   server: 104.18.12.149
   port: 443
@@ -16180,7 +15970,17 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 64
+- name: 🏳️ 其他 61
+  type: trojan
+  server: 104.18.15.230
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /assignment
+  udp: true
+- name: 🏳️ 其他 62
   type: trojan
   server: 104.26.14.137
   port: 443
@@ -16190,7 +15990,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 65
+- name: 🏳️ 其他 63
   type: trojan
   server: 104.21.46.3
   port: 443
@@ -16200,7 +16000,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 66
+- name: 🏳️ 其他 64
   type: trojan
   server: 8.6.112.0
   port: 443
@@ -16212,7 +16012,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 67
+- name: 🏳️ 其他 65
   type: trojan
   server: 104.16.174.72
   port: 443
@@ -16222,7 +16022,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 68
+- name: 🏳️ 其他 66
   type: trojan
   server: 104.18.152.133
   port: 443
@@ -16232,19 +16032,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 69
-  type: trojan
-  server: 188.114.97.7
-  port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
-  udp: true
-- name: 🏳️ 其他 70
+- name: 🏳️ 其他 67
   type: trojan
   server: 86.38.214.205
   port: 443
@@ -16256,7 +16044,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 71
+- name: 🏳️ 其他 68
   type: trojan
   server: 104.18.152.225
   port: 443
@@ -16266,17 +16054,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 72
-  type: trojan
-  server: 104.18.152.77
-  port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-  udp: true
-- name: 🏳️ 其他 73
+- name: 🏳️ 其他 69
   type: trojan
   server: 45.130.125.158
   port: 443
@@ -16286,7 +16064,7 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 74
+- name: 🏳️ 其他 70
   type: trojan
   server: 104.18.152.175
   port: 443
@@ -16298,7 +16076,17 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 75
+- name: 🏳️ 其他 71
+  type: trojan
+  server: 198.41.223.96
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /assignment
+  udp: true
+- name: 🏳️ 其他 72
   type: trojan
   server: 104.16.73.213
   port: 443
@@ -16308,7 +16096,27 @@ proxies:
   ws-opts:
     path: /assignment
   udp: true
-- name: 🏳️ 其他 76
+- name: 🏳️ 其他 73
+  type: trojan
+  server: 104.18.152.210
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /assignment
+  udp: true
+- name: 🏳️ 其他 74
+  type: trojan
+  server: 104.18.152.233
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /assignment
+  udp: true
+- name: 🏳️ 其他 75
   type: trojan
   server: 104.16.174.117
   port: 443
@@ -16320,7 +16128,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 77
+- name: 🏳️ 其他 76
   type: trojan
   server: 104.18.152.113
   port: 443
@@ -16332,7 +16140,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: 🏳️ 其他 78
+- name: 🏳️ 其他 77
   type: trojan
   server: 104.18.152.149
   port: 443
@@ -16344,9 +16152,19 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
+- name: 🏳️ 其他 78
+  type: trojan
+  server: 172.67.188.109
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /assignment
+  udp: true
 - name: 🏳️ 其他 79
   type: trojan
-  server: 104.16.174.109
+  server: 104.18.152.219
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16356,7 +16174,7 @@ proxies:
   udp: true
 - name: 🏳️ 其他 80
   type: trojan
-  server: 104.18.152.73
+  server: 104.16.174.109
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16366,7 +16184,7 @@ proxies:
   udp: true
 - name: 🏳️ 其他 81
   type: trojan
-  server: 104.18.152.208
+  server: 104.18.152.73
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16376,19 +16194,17 @@ proxies:
   udp: true
 - name: 🏳️ 其他 82
   type: trojan
-  server: 104.18.152.229
+  server: 104.18.152.208
   port: 443
   password: humanity
   sni: www.ignitelimit.com
   skip-cert-verify: true
   ws-opts:
     path: /assignment
-    headers:
-      Host: www.ignitelimit.com
   udp: true
 - name: 🏳️ 其他 83
   type: trojan
-  server: 104.18.152.152
+  server: 104.16.174.143
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16400,7 +16216,7 @@ proxies:
   udp: true
 - name: 🏳️ 其他 84
   type: trojan
-  server: 104.16.174.6
+  server: 104.18.152.229
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16412,17 +16228,19 @@ proxies:
   udp: true
 - name: 🏳️ 其他 85
   type: trojan
-  server: 104.16.174.101
+  server: 104.16.174.6
   port: 443
   password: humanity
   sni: www.ignitelimit.com
   skip-cert-verify: true
   ws-opts:
     path: /assignment
+    headers:
+      Host: www.ignitelimit.com
   udp: true
 - name: 🏳️ 其他 86
   type: trojan
-  server: 104.16.174.71
+  server: 104.16.174.101
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16442,7 +16260,7 @@ proxies:
   udp: true
 - name: 🏳️ 其他 88
   type: trojan
-  server: 104.16.174.14
+  server: 104.18.152.143
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16452,7 +16270,7 @@ proxies:
   udp: true
 - name: 🏳️ 其他 89
   type: trojan
-  server: 104.18.152.108
+  server: 104.16.174.14
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16504,7 +16322,7 @@ proxies:
   udp: true
 - name: 🏳️ 其他 94
   type: trojan
-  server: 104.18.152.244
+  server: 104.18.152.97
   port: 443
   password: humanity
   sni: www.ignitelimit.com
@@ -16514,16 +16332,6 @@ proxies:
   udp: true
 - name: 🏳️ 其他 95
   type: trojan
-  server: 104.18.152.97
-  port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-  udp: true
-- name: 🏳️ 其他 96
-  type: trojan
   server: 104.16.174.22
   port: 443
   password: humanity
@@ -16531,6 +16339,16 @@ proxies:
   skip-cert-verify: true
   ws-opts:
     path: //assignment
+  udp: true
+- name: 🏳️ 其他 96
+  type: trojan
+  server: 104.18.152.50
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /assignment
   udp: true
 - name: 🏳️ 其他 97
   type: trojan
@@ -16601,6 +16419,18 @@ proxies:
   skip-cert-verify: true
   ws-opts:
     path: assignment
+  udp: true
+- name: 🏳️ 其他 104
+  type: trojan
+  server: 141.101.90.101
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+  skip-cert-verify: true
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
   udp: true
 proxy-groups:
 - name: Proxy
@@ -17966,6 +17796,7 @@ proxy-groups:
   - 🇩🇪 德国 1334
   - 🇩🇪 德国 1335
   - 🏳️ 其他 01
+  - 🇺🇸 美国 17
   - 🇩🇪 德国 1336
   - 🇩🇪 德国 1337
   - 🇩🇪 德国 1338
@@ -17974,16 +17805,23 @@ proxy-groups:
   - 🇩🇪 德国 1341
   - 🇩🇪 德国 1342
   - 🇩🇪 德国 1343
-  - 🏳️ 其他 02
+  - 🇩🇪 德国 1344
+  - 🇩🇪 德国 1345
   - 🇫🇷 法国 01
   - 🇫🇷 法国 02
   - 🇫🇷 法国 03
   - 🇫🇷 法国 04
   - 🇫🇷 法国 05
   - 🇫🇷 法国 06
-  - 🇫🇷 法国 07
-  - 🇫🇷 法国 08
+  - 🇬🇧 英国 01
+  - 🇬🇧 英国 02
+  - 🇬🇧 英国 03
+  - 🇬🇧 英国 04
+  - 🇬🇧 英国 05
+  - 🇬🇧 英国 06
   - 🇯🇵 日本 01
+  - 🇯🇵 日本 02
+  - 🏳️ 其他 02
   - 🇳🇱 荷兰 01
   - 🇳🇱 荷兰 02
   - 🇳🇱 荷兰 03
@@ -17991,16 +17829,16 @@ proxy-groups:
   - 🇳🇱 荷兰 05
   - 🇳🇱 荷兰 06
   - 🇳🇱 荷兰 07
+  - 🇳🇱 荷兰 08
   - 🏳️ 其他 03
   - 🏳️ 其他 04
-  - 🇺🇸 美国 17
+  - 🏳️ 其他 05
+  - 🏳️ 其他 06
+  - 🇺🇸 美国 18
   - 🇸🇬 新加坡 01
   - 🇸🇬 新加坡 02
   - 🇸🇬 新加坡 03
   - 🇸🇬 新加坡 04
-  - 🇸🇬 新加坡 05
-  - 🇰🇷 韩国 06
-  - 🇺🇸 美国 18
   - 🇺🇸 美国 19
   - 🇺🇸 美国 20
   - 🇺🇸 美国 21
@@ -18017,33 +17855,19 @@ proxy-groups:
   - 🇺🇸 美国 32
   - 🇺🇸 美国 33
   - 🇺🇸 美国 34
-  - 🇺🇸 美国 35
-  - 🇺🇸 美国 36
-  - 🇺🇸 美国 37
-  - 🇺🇸 美国 38
-  - 🇺🇸 美国 39
-  - 🇺🇸 美国 40
-  - 🇺🇸 美国 41
-  - 🇺🇸 美国 42
-  - 🇺🇸 美国 43
-  - 🇺🇸 美国 44
-  - 🇺🇸 美国 45
-  - 🇺🇸 美国 46
-  - 🏳️ 其他 05
-  - 🏳️ 其他 06
   - 🏳️ 其他 07
-  - 🇳🇱 荷兰 08
   - 🏳️ 其他 08
-  - 🇷🇺 俄罗斯 01
   - 🏳️ 其他 09
+  - 🇳🇱 荷兰 09
   - 🏳️ 其他 10
+  - 🇷🇺 俄罗斯 01
   - 🏳️ 其他 11
   - 🏳️ 其他 12
   - 🏳️ 其他 13
-  - 🇺🇸 美国 47
-  - 🇺🇸 美国 48
   - 🏳️ 其他 14
   - 🏳️ 其他 15
+  - 🇺🇸 美国 35
+  - 🇺🇸 美国 36
   - 🏳️ 其他 16
   - 🏳️ 其他 17
   - 🏳️ 其他 18
@@ -18061,9 +17885,9 @@ proxy-groups:
   - 🏳️ 其他 30
   - 🏳️ 其他 31
   - 🏳️ 其他 32
-  - 🇺🇸 美国 49
   - 🏳️ 其他 33
   - 🏳️ 其他 34
+  - 🇺🇸 美国 37
   - 🏳️ 其他 35
   - 🏳️ 其他 36
   - 🏳️ 其他 37
@@ -18071,8 +17895,8 @@ proxy-groups:
   - 🏳️ 其他 39
   - 🏳️ 其他 40
   - 🏳️ 其他 41
-  - 🇷🇺 俄罗斯 02
   - 🏳️ 其他 42
+  - 🇷🇺 俄罗斯 02
   - 🏳️ 其他 43
   - 🏳️ 其他 44
   - 🏳️ 其他 45
@@ -18081,12 +17905,12 @@ proxy-groups:
   - 🏳️ 其他 48
   - 🏳️ 其他 49
   - 🏳️ 其他 50
-  - 🇺🇸 美国 50
+  - 🇺🇸 美国 38
   - 🏳️ 其他 51
-  - 🇺🇸 美国 51
-  - 🇺🇸 美国 52
+  - 🇺🇸 美国 39
+  - 🇺🇸 美国 40
+  - 🇺🇸 美国 41
   - 🏳️ 其他 52
-  - 🇺🇸 美国 53
   - 🏳️ 其他 53
   - 🏳️ 其他 54
   - 🏳️ 其他 55
@@ -18138,6 +17962,7 @@ proxy-groups:
   - 🏳️ 其他 101
   - 🏳️ 其他 102
   - 🏳️ 其他 103
+  - 🏳️ 其他 104
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
