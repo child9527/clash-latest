@@ -21,13 +21,16 @@ jobs:
       - name: 检查今日是否已更新
         id: check_status
         run: |
-          # 获取格式为 YYYY-MM-DD 的当天日期
           BEIJING_DATE_FMT=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
-          LAST_COMMIT=$(git log -1 --format=%s || echo "none")
-          
-          # 检查最近一次提交信息里是否包含今天的日期 (YYYY-MM-DD)
-          if [[ "$LAST_COMMIT" == *"$BEIJING_DATE_FMT"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
-            echo "今天已经成功跑过任务（上次提交：$LAST_COMMIT），跳过本次。"
+
+          # 只看 nodev2ray.txt 这个文件的最近一次提交日期
+          LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d' -- nodev2ray.txt 2>/dev/null || echo "none")
+
+          echo "当前检查日期：$BEIJING_DATE_FMT"
+          echo "nodev2ray.txt 最近提交日期：$LAST_COMMIT_DATE"
+
+          if [[ "$LAST_COMMIT_DATE" == "$BEIJING_DATE_FMT" ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+            echo "今天已经成功更新过 nodev2ray.txt，跳过本次任务。"
             echo "should_update=false" >> $GITHUB_ENV
           else
             echo "准备抓取今日节点。"
