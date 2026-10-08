@@ -21,16 +21,16 @@ jobs:
       - name: 检查今日是否已更新
         id: check_status
         run: |
-          # 获取当天日期格式：YYYY-MM-DD
           BEIJING_DATE_FMT=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
-          LAST_COMMIT=$(git log -1 --format=%s || echo "none")
-          
-          echo "当前检查日期：$BEIJING_DATE_FMT"
-          echo "最近一次提交信息：$LAST_COMMIT"
 
-          # 检查最近一次提交信息中是否已经包含今天的日期 (YYYY-MM-DD)
-          if [[ "$LAST_COMMIT" == *"$BEIJING_DATE_FMT"* ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
-            echo "今天已经成功更新过，跳过本次任务。"
+          # 只看 clashrss.txt 这个文件的最近一次提交日期
+          LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d' -- clashrss.txt 2>/dev/null || echo "none")
+
+          echo "当前检查日期：$BEIJING_DATE_FMT"
+          echo "clashrss.txt 最近提交日期：$LAST_COMMIT_DATE"
+
+          if [[ "$LAST_COMMIT_DATE" == "$BEIJING_DATE_FMT" ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+            echo "今天已经成功更新过 clashrss.txt，跳过本次任务。"
             echo "should_update=false" >> $GITHUB_ENV
           else
             echo "需要执行更新任务。"
