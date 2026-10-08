@@ -16,7 +16,7 @@ jobs:
       - name: 拉取仓库
         uses: actions/checkout@v6
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: 检查今日是否已更新
         id: check_status
@@ -43,11 +43,11 @@ jobs:
           DATE_STR=$(TZ='Asia/Shanghai' date +'%Y%m%d')
           FILE_NAME="v${DATE_STR}"
           URL="https://github.com/free-nodes/v2rayfree/raw/refs/heads/main/${FILE_NAME}"
-          
+
           echo "尝试抓取：$URL"
-          
+
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-          
+
           if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL" -o nodev2ray.txt && [ $(stat -c%s nodev2ray.txt) -gt 512 ]; then
             echo "status=success" >> $GITHUB_ENV
             echo "节点抓取成功！"
@@ -64,20 +64,15 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           git add nodev2ray.txt
 
-          # 如果没有任何变化，则跳过提交
           if git diff --cached --quiet; then
             echo "今日节点内容无变化，跳过提交（不会报错，不会发邮件）。"
             exit 0
           fi
 
-          # ⭐ 目录中显示的提交信息：保持干净的“更新于: 北京时间”
-          git commit -m "更新于: ${NOW_TIME} [skip ci]"
+          git commit -m "更新 nodev2ray.txt 于: ${NOW_TIME} [skip ci]"
 
-          # ⭐ 先拉取远程最新变更防冲突
-          git pull --rebase
-
-          # ⭐ 推送
+          git pull --rebase origin ${GITHUB_REF_NAME}
           git push
