@@ -1,0 +1,51 @@
+name: 同步&清洗所有Clash订阅
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "task/targets.json"
+      #- "sync.py"
+      #- ".github/workflows/sync_clash.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 安装Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pyyaml
+
+      - name: 执行同步
+        run: python scripts/sync_clash.py
+
+      - name: 提交修改
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "没有变更，跳过提交"
+          else
+            git commit -m "chore: sync subscriptions $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git push
+          fi
