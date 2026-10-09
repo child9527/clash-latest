@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: 检出代码
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -23,11 +23,11 @@ jobs:
         run: |
           BEIJING_DATE_FMT=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
 
-          # 只看 free-nodes.yml 这个文件的最近一次提交日期
-          LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d' -- free-nodes.yml 2>/dev/null || echo "none")
+          # 只看 temp/free-nodes.yml 这个文件的最近一次提交日期
+          LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d' -- temp/free-nodes.yml 2>/dev/null || echo "none")
 
           echo "📅 当前北京日期: $BEIJING_DATE_FMT"
-          echo "📝 free-nodes.yml 最近提交日期: $LAST_COMMIT_DATE"
+          echo "📝 temp/free-nodes.yml 最近提交日期: $LAST_COMMIT_DATE"
 
           if [[ "$LAST_COMMIT_DATE" == "$BEIJING_DATE_FMT" ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "✅ 今日数据已同步，跳过执行。"
@@ -37,10 +37,15 @@ jobs:
             echo "should_update=true" >> $GITHUB_ENV
           fi
 
+          # 显式初始化，避免后续依赖“未设置=空”的隐式行为
+          echo "skip_commit=false" >> $GITHUB_ENV
+
       - name: 下载并处理同步
         if: env.should_update == 'true'
         run: |
           FOUND=false
+          mkdir -p temp
+
           # 循环尝试最近 3 天
           for i in {0..2}; do
             TARGET_DATE=$(TZ='Asia/Shanghai' date -d "$i days ago" +'%Y%m%d')
@@ -49,9 +54,8 @@ jobs:
 
             UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-            if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL" -o temp.yml && [ -s temp.yml ]; then
+            if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL" -o temp/free-nodes.yml && [ -s temp/free-nodes.yml ]; then
               echo "✅ 成功找到可用源: $TARGET_DATE"
-              mv temp.yml free-nodes.yml
               FOUND=true
               break
             fi
@@ -60,7 +64,7 @@ jobs:
 
           if [ "$FOUND" = false ]; then
             echo "⚠️ 警告：最近 3 天的远程源均不可用。"
-            if [ -f free-nodes.yml ]; then
+            if [ -f temp/free-nodes.yml ]; then
               echo "📦 保留现有的本地备份文件。"
               echo "skip_commit=true" >> $GITHUB_ENV
             else
@@ -77,12 +81,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add free-nodes.yml
+          git add temp/free-nodes.yml
 
           if git diff --staged --quiet; then
             echo "ℹ️ 内容无变化，跳过提交。"
           else
-            git commit -m "更新 free-nodes.yml 于: ${NOW_TIME} [skip ci]"
+            git commit -m "更新 temp/free-nodes.yml 于: ${NOW_TIME} [skip ci]"
 
             git pull --rebase origin ${GITHUB_REF_NAME}
             git push
