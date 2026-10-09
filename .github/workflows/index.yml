@@ -1,0 +1,44 @@
+name: 生成订阅中心页面
+
+on:
+  push:
+    paths:
+      - "clash/**"
+      - "v2ray/**"
+      - "index.py"
+      - ".github/workflows/index.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出当前仓库
+        uses: actions/checkout@v4
+
+      - name: 配置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 生成 index.html
+        run: python index.py
+
+      - name: 提交更新到仓库
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add index.html
+
+          if git diff --staged --quiet; then
+            echo "ℹ️ index.html 无变化，跳过提交。"
+          else
+            NOW_TIME=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+            git commit -m "更新 index.html 于: ${NOW_TIME} [skip ci]"
+            git push
+            echo "✨ 仓库已更新。"
+          fi
