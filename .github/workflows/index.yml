@@ -5,7 +5,7 @@ on:
     paths:
       - "clash/**"
       - "v2ray/**"
-      - "index.py"
+      - "scripts/index.py"
       - ".github/workflows/index.yml"
   workflow_dispatch:
 
@@ -25,7 +25,7 @@ jobs:
           python-version: '3.11'
 
       - name: 生成 index.html
-        run: python index.py
+        run: python scripts/index.py
 
       - name: 提交更新到仓库
         run: |
