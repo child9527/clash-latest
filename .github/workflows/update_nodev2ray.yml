@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: 拉取仓库
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -23,11 +23,11 @@ jobs:
         run: |
           BEIJING_DATE_FMT=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
 
-          # 只看 nodev2ray.txt 这个文件的最近一次提交日期
-          LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d' -- nodev2ray.txt 2>/dev/null || echo "none")
+          # 只看 v2ray/nodev2ray.txt 这个文件的最近一次提交日期
+          LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d' -- v2ray/nodev2ray.txt 2>/dev/null || echo "none")
 
           echo "当前检查日期：$BEIJING_DATE_FMT"
-          echo "nodev2ray.txt 最近提交日期：$LAST_COMMIT_DATE"
+          echo "v2ray/nodev2ray.txt 最近提交日期：$LAST_COMMIT_DATE"
 
           if [[ "$LAST_COMMIT_DATE" == "$BEIJING_DATE_FMT" ]] && [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
             echo "今天已经成功更新过 nodev2ray.txt，跳过本次任务。"
@@ -36,6 +36,9 @@ jobs:
             echo "准备抓取今日节点。"
             echo "should_update=true" >> $GITHUB_ENV
           fi
+
+          # 显式初始化，避免依赖“未设置=空”的隐式行为
+          echo "status=skip" >> $GITHUB_ENV
 
       - name: 抓取最新节点
         if: env.should_update == 'true'
@@ -48,7 +51,9 @@ jobs:
 
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-          if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL" -o nodev2ray.txt && [ $(stat -c%s nodev2ray.txt) -gt 512 ]; then
+          mkdir -p v2ray
+
+          if curl -sSL -f -A "$UA" --retry 3 --connect-timeout 15 "$URL" -o v2ray/nodev2ray.txt && [ $(stat -c%s v2ray/nodev2ray.txt) -gt 512 ]; then
             echo "status=success" >> $GITHUB_ENV
             echo "节点抓取成功！"
           else
@@ -65,7 +70,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add nodev2ray.txt
+          git add v2ray/nodev2ray.txt
 
           if git diff --cached --quiet; then
             echo "今日节点内容无变化，跳过提交（不会报错，不会发邮件）。"
