@@ -6,6 +6,10 @@ on:
       - "clash/**"
       - "v2ray/**"
       - "scripts/index.py"
+      - "scripts/sections.py"
+      - "scripts/renderer.py"
+      - "scripts/extension_js.txt"
+      - "templates/**"
       - ".github/workflows/index.yml"
   workflow_dispatch:
 
@@ -23,6 +27,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: 生成 index.html
         run: python scripts/index.py
