@@ -1,7 +1,21 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 import json
 from urllib.parse import quote
 from datetime import datetime, timezone, timedelta
+
+from renderer import render
+from sections import (
+    section_copy_cards,
+    section_copy_cards_wide,
+)
+
+
+# ============================================================
+# 配置
+# ============================================================
 
 # 仓库 raw 根地址
 REPO = "child9527/clash-latest"
@@ -17,11 +31,19 @@ GH_PROXY = "https://gh-proxy.com/"
 # 要内嵌到 HTML 的规则文本路径
 EXTENSION_JS_FILE = "scripts/extension_js.txt"
 
+# 输出文件
+OUTPUT = "index.html"
+
+
+# ============================================================
+# 数据获取
+# ============================================================
 
 def fetch_files(local_dir, raw_prefix):
     """
-    扫描本地目录下的订阅文件，返回 [{name, mirror_url}] 列表
-    仅收录 .yaml / .yml / .txt
+    扫描本地目录下的订阅文件，返回 [{name, url_literal}] 列表。
+    仅收录 .yaml / .yml / .txt。
+    url_literal 已经过 json.dumps，可直接塞进 JS。
     """
     if not os.path.exists(local_dir):
         print(f"⚠️ 未找到目录: {local_dir}")
@@ -48,7 +70,7 @@ def fetch_files(local_dir, raw_prefix):
 
         items.append({
             "name": display_name,
-            "mirror_url": mirror_url,
+            "url_literal": json.dumps(mirror_url, ensure_ascii=False),
         })
 
     # 按文件名长度排序
@@ -65,275 +87,64 @@ def load_extension_js(path):
         return f.read()
 
 
-def generate_html(clash_items, v2ray_items, extension_js_text):
+# ============================================================
+# 组装 sections
+# ============================================================
+
+def build_sections():
+    """
+    组装所有板块。
+
+    以后新增板块，只改这里：
+        sections.append(section_xxx("板块标题", 数据))
+    """
+    sections = []
+
+    # 板块 1：Clash 订阅
+    clash_items = fetch_files("clash", CLASH_RAW_PREFIX)
+    sections.append(section_copy_cards("🌐 Clash 订阅", clash_items))
+
+    # 板块 2：V2ray 订阅
+    v2ray_items = fetch_files("v2ray", V2RAY_RAW_PREFIX)
+    sections.append(section_copy_cards("🚀 V2ray 订阅", v2ray_items))
+
+    # 板块 3：复制规则文本（Clash Verge Rev 全局扩展脚本）
+    extension_js_text = load_extension_js(EXTENSION_JS_FILE)
+    if extension_js_text:
+        sections.append(section_copy_cards_wide("📋 规则及配置", [
+            {
+                "name": "Clash Verge Rev全局扩展脚本",
+                "js_var": "EXTENSION_JS_TEXT",
+                "content_literal": json.dumps(extension_js_text, ensure_ascii=False),
+            },
+        ]))
+    else:
+        print("ℹ️ extension_js.txt 不存在或为空，跳过规则板块")
+
+    return sections
+
+
+# ============================================================
+# 主入口
+# ============================================================
+
+def main():
     bj_tz = timezone(timedelta(hours=8))
     now = datetime.now(bj_tz).strftime("%Y-%m-%d %H:%M:%S")
 
-    # 把规则文本转义成 JS 字符串字面量，避免引号/换行破坏 HTML
-    extension_js_literal = json.dumps(extension_js_text, ensure_ascii=False)
+    sections = build_sections()
 
-    html = f"""<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<title>订阅中心 · Child9527</title>
-<style>
-body {{
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #1e1e1e;
-    color: #e0e0e0;
-}}
+    html = render(
+        "base.html.j2",
+        sections=sections,
+        now=now,
+    )
 
-/* 顶部导航栏 */
-.navbar {{
-    width: 100%;
-    background: #2b2b2b;
-    border-bottom: 2px solid #4aa3ff;
-    padding: 12px 20px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    box-shadow: 0 0 12px rgba(74,163,255,0.3);
-}}
+    with open(OUTPUT, "w", encoding="utf-8") as f:
+        f.write(html)
 
-.navbar a {{
-    color: #e0e0e0;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: 0.2s;
-}}
-
-.navbar a:hover {{
-    background: #4aa3ff;
-    color: #000;
-}}
-
-/* 内容区块 */
-.section {{
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-}}
-
-.section-title {{
-    color: #4aa3ff;
-    font-size: 1.3rem;
-    margin: 30px 0 15px 0;
-    border-left: 4px solid #4aa3ff;
-    padding-left: 10px;
-}}
-
-/* 紧凑卡片网格 */
-.compact-grid {{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 12px;
-    margin-bottom: 30px;
-}}
-
-.source-card {{
-    background: #2b2b2b;
-    border: 1px solid #4aa3ff;
-    box-shadow: 0 0 8px rgba(74,163,255,0.3);
-    border-radius: 10px;
-    padding: 12px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-}}
-
-.source-name {{
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: bold;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}}
-
-.copy-btn {{
-    font-size: 0.85rem;
-    padding: 6px 12px;
-    background: #3a7bd5;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
-}}
-
-.copy-btn:hover {{
-    background: #2f6bb8;
-}}
-
-/* 单独成行的卡片 */
-.wide-card {{
-    width: 100%;
-    box-sizing: border-box;
-}}
-
-/* Toast 提示浮窗 */
-.toast {{
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(74, 163, 255, 0.95);
-    color: #000;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    display: none;
-    z-index: 1000;
-}}
-
-/* 底部 */
-.footer {{
-    text-align: center;
-    padding: 20px;
-    color: #888888;
-    margin-top: 40px;
-}}
-</style>
-</head>
-
-<body>
-
-<!-- 导航栏 -->
-<div class="navbar">
-    <a href="https://child9527.github.io/">首页</a>
-    <a href="https://child9527.github.io/software/">软件中心</a>
-    <a href="https://child9527.github.io/tvbox/">TVbox订阅</a>
-    <a href="https://child9527.github.io/about/">关于本站</a>
-</div>
-
-<!-- 内容区块 -->
-<div class="section">
-<h2>订阅中心</h2>
-
-<!-- 1. Clash 订阅 -->
-<div class="section-title">🌐 Clash 订阅</div>
-<div class="compact-grid">
-"""
-
-    if clash_items:
-        for src in clash_items:
-            html += f"""
-    <div class="source-card">
-        <div class="source-name">{src['name']}</div>
-        <button class="copy-btn" onclick="copyUrl(this, '{src['mirror_url']}')">复制链接</button>
-    </div>
-"""
-    else:
-        html += """
-    <div class="source-card">
-        <div class="source-name">暂无订阅</div>
-    </div>
-"""
-
-    html += """</div>
-
-<!-- 2. V2ray 订阅 -->
-<div class="section-title">🚀 V2ray 订阅</div>
-<div class="compact-grid">
-"""
-
-    if v2ray_items:
-        for src in v2ray_items:
-            html += f"""
-    <div class="source-card">
-        <div class="source-name">{src['name']}</div>
-        <button class="copy-btn" onclick="copyUrl(this, '{src['mirror_url']}')">复制链接</button>
-    </div>
-"""
-    else:
-        html += """
-    <div class="source-card">
-        <div class="source-name">暂无订阅</div>
-    </div>
-"""
-
-    html += f"""</div>
-
-<!-- 3. 复制规则文本 -->
-<div class="section-title">📋 规则及配置</div>
-<div class="source-card wide-card">
-    <div class="source-name">Clash Verge Rev全局扩展脚本</div>
-    <button class="copy-btn" onclick="copyExtensionJs(this)">复制内容</button>
-</div>
-
-<div class="footer">
-    自动生成时间：{now}
-</div>
-</div>
-
-<div id="toast" class="toast">链接已成功复制到剪贴板！</div>
-
-<script>
-// 生成时内嵌的规则文本
-const EXTENSION_JS_TEXT = {extension_js_literal};
-
-function copyUrl(btn, url) {{
-    navigator.clipboard.writeText(url).then(() => {{
-        showToast("已复制：" + url);
-        const originalText = btn.innerText;
-        btn.innerText = "已复制";
-        btn.style.background = "#28a745";
-        setTimeout(() => {{
-            btn.innerText = originalText;
-            btn.style.background = "#3a7bd5";
-        }}, 2000);
-    }}).catch(err => {{
-        console.error("复制失败:", err);
-    }});
-}}
-
-function copyExtensionJs(btn) {{
-    navigator.clipboard.writeText(EXTENSION_JS_TEXT).then(() => {{
-        showToast("规则文本已复制到剪贴板！");
-        const originalText = btn.innerText;
-        btn.innerText = "已复制";
-        btn.style.background = "#28a745";
-        setTimeout(() => {{
-            btn.innerText = originalText;
-            btn.style.background = "#3a7bd5";
-        }}, 2000);
-    }}).catch(err => {{
-        console.error("复制失败:", err);
-        showToast("复制失败：" + err);
-    }});
-}}
-
-function showToast(msg) {{
-    const toast = document.getElementById("toast");
-    toast.innerText = msg;
-    toast.style.display = "block";
-    setTimeout(() => {{
-        toast.style.display = "none";
-    }}, 2000);
-}}
-</script>
-
-</body>
-</html>
-"""
-
-    return html
+    print(f"index.html 生成成功！共 {len(sections)} 个板块。")
 
 
 if __name__ == "__main__":
-    clash_items = fetch_files("clash", CLASH_RAW_PREFIX)
-    v2ray_items = fetch_files("v2ray", V2RAY_RAW_PREFIX)
-    extension_js_text = load_extension_js(EXTENSION_JS_FILE)
-
-    html = generate_html(clash_items, v2ray_items, extension_js_text)
-
-    with open("index.html", "w", encoding="utf-8") as f:
-        f.write(html)
-    print("index.html 生成成功！")
+    main()
