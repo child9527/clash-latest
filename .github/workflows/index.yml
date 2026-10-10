@@ -8,9 +8,14 @@ on:
       - "scripts/index.py"
       - "scripts/sections.py"
       - "scripts/renderer.py"
-      - "scripts/extension_js.txt"
       - "templates/**"
-      - ".github/workflows/index.yml"
+
+  # 当「同步&清洗所有Clash订阅」跑完后，自动触发本 workflow
+  workflow_run:
+    workflows: ["同步&清洗所有Clash订阅"]
+    types:
+      - completed
+
   workflow_dispatch:
 
 permissions:
