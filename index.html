@@ -97,6 +97,12 @@ body {
     background: #2f6bb8;
 }
 
+/* 单独成行的卡片 */
+.wide-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 /* Toast 提示浮窗 */
 .toast {
     position: fixed;
@@ -177,14 +183,24 @@ body {
     </div>
 </div>
 
+<!-- 3. 复制规则文本 -->
+<div class="section-title">📋 复制规则文本</div>
+<div class="source-card wide-card">
+    <div class="source-name">Clash Verge Rev全局扩展覆写脚本</div>
+    <button class="copy-btn" onclick="copyExtensionJs(this)">复制内容</button>
+</div>
+
 <div class="footer">
-    自动生成时间：2026-10-09 14:24:24
+    自动生成时间：2026-10-10 09:46:34
 </div>
 </div>
 
 <div id="toast" class="toast">链接已成功复制到剪贴板！</div>
 
 <script>
+// 生成时内嵌的规则文本
+const EXTENSION_JS_TEXT = "function main(config) {\n\n  // ============================================================\n  // 1. 节点分组：全能代理组 + AI 特供组\n  // ============================================================\n\n  const allProxies = (config.proxies || []).map(p => p.name);\n\n  const aiFriendlyProxies = allProxies.filter(name =>\n    /新加坡|SG|Singapore|🇸🇬|美国|US|USA|United States|🇺🇸|日本|JP|Japan|🇯🇵|台湾|TW|Taiwan|台灣|🇹🇼|英国|UK|United Kingdom|Britain|🇬🇧|韩国|KR|Korea|Seoul|首尔|首爾|🇰🇷|加拿大|CA|Canada|Toronto|Vancouver|多伦多|温哥华|溫哥華|🇨🇦|Tokyo|Osaka|London|LA|NY/i.test(name) &&\n    !/香港|HK|HongKong|🇭🇰|中国|CN|China|🇨🇳/i.test(name)\n  );\n\n  config[\"proxy-groups\"] = [\n    {\n      name: \"Proxy\",\n      type: \"url-test\",\n      proxies:\n        allProxies.length > 0\n          ? allProxies\n          : aiFriendlyProxies.length > 0\n            ? aiFriendlyProxies\n            : [\"DIRECT\"],\n      url: \"http://www.gstatic.com/generate_204\",\n      interval: 300,\n      tolerance: 50,\n      lazy: true\n    },\n    {\n      name: \"🤖 AI Special\",\n      type: \"url-test\",\n      proxies:\n        aiFriendlyProxies.length > 0\n          ? aiFriendlyProxies\n          : allProxies.length > 0\n            ? allProxies\n            : [\"DIRECT\"],\n      url: \"https://www.google.com/generate_204\",\n      interval: 600,\n      tolerance: 50,\n      lazy: true\n    }\n  ];\n\n  // ============================================================\n  // 2. 基础设施直连域名\n  // ============================================================\n\n  const infraDirectDomains = [\n    \"gitee.com\",\n    \"gh-proxy.com\",\n    \"cdn.jsdelivr.net\"\n  ];\n\n  // ============================================================\n  // 3. DNS：容错防护与自动回退架构\n  // ============================================================\n\n  if (!config.dns) config.dns = {};\n  config.dns.enable = true;\n  config.dns[\"enhanced-mode\"] = \"fake-ip\";\n\n  // 关键：防止 DNS 查询死锁的极高容错开关\n  config.dns[\"respect-rules\"] = true; // 命中直连规则的域名直接走 nameserver，不触发 fallback 查询\n\n  // fake-ip-filter\n  config.dns[\"fake-ip-filter\"] = [\n    \"*.lan\",\n    \"*.local\",\n    \"time.*.com\",\n    \"ntp.*.com\",\n    \"*.msftconnecttest.com\",\n    \"*.srv.nintendo.net\",\n    \"*.pool.ntp.org\",\n    \"*.ntp.org\",\n    \"*.battlenet.com.cn\",\n    \"*.battlenet.com\",\n    \"*.blizzard.com\",\n    \"*.steamcontent.com\",\n    \"*.steamserver.net\",\n    \"*.music.163.com\",\n    \"*.google.com\",\n    \"*.googleapis.com\",\n    \"*.gstatic.com\",\n    \"*.recaptcha.net\",\n    \"*.googleusercontent.com\",\n    \"accounts.google.com\",\n    \"accounts.youtube.com\",\n    \"drive.google.com\",\n    ...infraDirectDomains.flatMap(d => [d, `*.${d}`])\n  ];\n\n  // 国内 DoH 服务器\n  const chinaDoh = [\n    \"https://dns.alidns.com/dns-query\",\n    \"https://doh.pub/dns-query\"\n  ];\n\n  config.dns[\"proxy-server-nameserver\"] = chinaDoh;\n  config.dns[\"nameserver\"] = chinaDoh;\n\n  // 国外 fallback DoH，挂载代理组\n  config.dns[\"fallback\"] = [\n    \"https://dns.google/dns-query#Proxy\",\n    \"https://1.1.1.1/dns-query#Proxy\"\n  ];\n\n  // 兜底过滤规则\n  config.dns[\"fallback-filter\"] = {\n    geoip: true,\n    ipcidr: [\"240.0.0.0/4\"],\n    geosite: [\"gfw\"]\n  };\n\n  // 域名 DNS 绑定策略\n  const policy = {\n    \"geosite:cn\": chinaDoh\n  };\n  infraDirectDomains.forEach(d => {\n    policy[d] = chinaDoh;\n    policy[`*.${d}`] = chinaDoh;\n  });\n  config.dns[\"nameserver-policy\"] = policy;\n\n  config.dns[\"ipv6\"] = false;\n\n  // geodata 适配\n  config[\"geodata-mode\"] = true;\n  config[\"geodata-loader\"] = \"standard\";\n  config[\"geox-url\"] = {\n    geosite: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geosite.dat\",\n    geoip: \"https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip.dat\"\n  };\n\n  // ============================================================\n  // 4. Rule Providers\n  // ============================================================\n\n  const providers = {\n    reject: \"domain\",\n    icloud: \"domain\",\n    apple: \"domain\",\n    google: \"domain\",\n    proxy: \"domain\",\n    direct: \"domain\",\n    private: \"domain\",\n    gfw: \"domain\",\n    tldnotcn: \"tld-not-cn\",\n    cncidr: \"ipcidr\",\n    lancidr: \"ipcidr\",\n    applications: \"classical\"\n  };\n\n  config[\"rule-providers\"] = {};\n\n  for (let name in providers) {\n    const file = providers[name] === \"tld-not-cn\" ? \"tld-not-cn\" : name;\n    config[\"rule-providers\"][name] = {\n      type: \"http\",\n      behavior: providers[name] === \"tld-not-cn\" ? \"domain\" : providers[name],\n      url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/${file}.txt`,\n      path: `./ruleset/${name}.yaml`,\n      interval: 86400\n    };\n  }\n\n  // 个人规则集\n  config[\"rule-providers\"][\"my-direct\"] = {\n    type: \"http\",\n    behavior: \"domain\",\n    url: \"https://gh-proxy.com/https://raw.githubusercontent.com/child9527/software/main/clash_rules/my-direct.yaml\",\n    path: \"./ruleset/my-direct.yaml\",\n    interval: 86400\n  };\n\n  config[\"rule-providers\"][\"my-ai\"] = {\n    type: \"http\",\n    behavior: \"domain\",\n    url: \"https://gh-proxy.com/https://raw.githubusercontent.com/child9527/software/main/clash_rules/my-ai.yaml\",\n    path: \"./ruleset/my-ai.yaml\",\n    interval: 86400\n  };\n\n  // ============================================================\n  // 5. 分流规则\n  // ============================================================\n\n  config.rules = [\n    // 0. 基础设施直连（防止更新死锁）\n    ...infraDirectDomains.map(d => `DOMAIN-SUFFIX,${d},DIRECT`),\n\n    // 1. 核心 AI 服务域名硬编码\n    \"DOMAIN-SUFFIX,openai.com,🤖 AI Special\",\n    \"DOMAIN-SUFFIX,chatgpt.com,🤖 AI Special\",\n    \"DOMAIN-SUFFIX,anthropic.com,🤖 AI Special\",\n    \"DOMAIN-SUFFIX,claude.ai,🤖 AI Special\",\n    \"DOMAIN-SUFFIX,x.ai,🤖 AI Special\",\n    \"DOMAIN-SUFFIX,grok.com,🤖 AI Special\",\n    \"DOMAIN-SUFFIX,perplexity.ai,🤖 AI Special\",\n    \"DOMAIN-SUFFIX,aistudio.google.com,🤖 AI Special\",\n\n    // 2. 个人自定义规则集\n    \"RULE-SET,my-direct,DIRECT\",\n    \"RULE-SET,my-ai,🤖 AI Special\",\n\n    // 3. 基础防骚扰与网络隔离规则\n    \"RULE-SET,private,DIRECT\",\n    \"RULE-SET,reject,REJECT\",\n    \"RULE-SET,applications,DIRECT\",\n\n    // 4. 通用直连规则集\n    \"RULE-SET,direct,DIRECT\",\n    \"RULE-SET,icloud,DIRECT\",\n    \"RULE-SET,apple,DIRECT\",\n\n    // 5. 常用代理服务规则集\n    \"RULE-SET,google,Proxy\",\n    \"RULE-SET,proxy,Proxy\",\n    \"RULE-SET,gfw,Proxy\",\n    \"RULE-SET,tldnotcn,Proxy\",\n\n    // 6. Geo 逻辑兜底\n    \"GEOSITE,CN,DIRECT\",\n    \"GEOIP,CN,DIRECT\",\n\n    // 7. 最终兜底\n    \"MATCH,Proxy\"\n  ];\n\n  return config;\n}\n";
+
 function copyUrl(btn, url) {
     navigator.clipboard.writeText(url).then(() => {
         showToast("已复制：" + url);
@@ -197,6 +213,22 @@ function copyUrl(btn, url) {
         }, 2000);
     }).catch(err => {
         console.error("复制失败:", err);
+    });
+}
+
+function copyExtensionJs(btn) {
+    navigator.clipboard.writeText(EXTENSION_JS_TEXT).then(() => {
+        showToast("规则文本已复制到剪贴板！");
+        const originalText = btn.innerText;
+        btn.innerText = "已复制";
+        btn.style.background = "#28a745";
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "#3a7bd5";
+        }, 2000);
+    }).catch(err => {
+        console.error("复制失败:", err);
+        showToast("复制失败：" + err);
     });
 }
 
