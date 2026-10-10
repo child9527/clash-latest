@@ -262,9 +262,9 @@ body {{
     html += f"""</div>
 
 <!-- 3. 复制规则文本 -->
-<div class="section-title">📋 复制规则文本</div>
+<div class="section-title">📋 规则及配置</div>
 <div class="source-card wide-card">
-    <div class="source-name">Clash Verge Rev全局扩展覆写脚本</div>
+    <div class="source-name">Clash Verge Rev全局扩展脚本</div>
     <button class="copy-btn" onclick="copyExtensionJs(this)">复制内容</button>
 </div>
 
