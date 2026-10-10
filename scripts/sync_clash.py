@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import base64
 import hashlib
 import json
 import os
+import re
 import sys
 import tempfile
 from datetime import datetime, timezone, timedelta
@@ -13,7 +13,7 @@ import requests
 import yaml
 
 # ---------- 配置 ----------
-TARGETS_FILE = os.path.join("task", "targets.json")
+clash_FILE = os.path.join("task", "clash.json")
 OUTPUT_DIR = "clash"      # 清洗后的 yaml 放仓库 clash 目录
 TIMEOUT = 30              # 请求超时（秒）
 UA = "okhttp/4.12.0"
@@ -27,12 +27,17 @@ def log(msg: str):
     print(f"[{datetime.now(TZ).strftime('%Y-%m-%d %H:%M:%S')}] {msg}", flush=True)
 
 
-def load_targets(path: str):
+def safe_name(name: str) -> str:
+    """把 name 里可能引起路径问题的字符替换成下划线"""
+    return re.sub(r'[^\w\-.]', '_', name)
+
+
+def load_clash(path: str):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def save_targets(path: str, data):
+def save_clash(path: str, data):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
@@ -75,26 +80,18 @@ def fetch_to_temp(url: str, name: str):
 def clean_subscription_from_file(path: str) -> dict:
     """
     读取临时文件，清洗成只保留 proxies 的 dict。
-    支持 clash yaml 与 base64 编码订阅。
+    仅支持 Clash 原生 YAML 订阅。
     """
     with open(path, "r", encoding="utf-8", errors="ignore") as f:
         text = f.read().strip()
 
-    data = None
     try:
         data = yaml.safe_load(text)
-    except Exception:
-        data = None
+    except Exception as e:
+        raise ValueError(f"YAML 解析失败: {e}")
 
     if not isinstance(data, dict):
-        try:
-            decoded = base64.b64decode(text + "=" * (-len(text) % 4)).decode("utf-8", "ignore")
-            data = yaml.safe_load(decoded)
-        except Exception:
-            data = None
-
-    if not isinstance(data, dict):
-        raise ValueError("无法解析订阅内容为有效的 YAML")
+        raise ValueError("订阅内容不是有效的 YAML 字典")
 
     proxies = data.get("proxies")
     if not proxies:
@@ -118,37 +115,41 @@ def write_yaml(name: str, data: dict) -> str:
 
 
 def main():
-    if not os.path.isfile(TARGETS_FILE):
-        log(f"找不到 {TARGETS_FILE}")
+    if not os.path.isfile(clash_FILE):
+        log(f"找不到 {clash_FILE}")
         sys.exit(1)
 
-    targets = load_targets(TARGETS_FILE)
+    clash = load_clash(clash_FILE)
 
     # ---------- 第一阶段：全部下载到临时空间 + 算 md5 ----------
-    results = []          # [(item, status, tmp_path, remote_md5, err)]
+    results = []          # [(item, safe_name, status, tmp_path, remote_md5, err)]
     can_early_exit = True  # md5 全一致 且 status 全 ok 才为 True
 
-    for item in targets:
-        name = (item.get("name") or "").strip()
+    for item in clash:
+        raw_name = (item.get("name") or "").strip()
         url = (item.get("url") or "").strip()
         old_md5 = (item.get("md5") or "").strip().lower()
         old_status = (item.get("status") or "").strip().lower()
 
-        if not name or not url:
+        if not raw_name or not url:
             log(f"跳过无效条目: {item}")
             continue
+
+        name = safe_name(raw_name)
+        if name != raw_name:
+            log(f"名称含特殊字符，已重命名: {raw_name} -> {name}")
 
         log(f"检查: {name} -> {url}")
         status, tmp_path, err = fetch_to_temp(url, name)
 
         if status != "ok":
             log(f"  获取失败: {status} ({err})")
-            results.append((item, status, None, None, err))
+            results.append((item, name, status, None, None, err))
             can_early_exit = False
             continue
 
         remote_md5 = md5_of_file(tmp_path)
-        results.append((item, "ok", tmp_path, remote_md5, ""))
+        results.append((item, name, "ok", tmp_path, remote_md5, ""))
 
         if remote_md5 != old_md5:
             log(f"  MD5 变化: {old_md5 or '空'} -> {remote_md5}")
@@ -167,8 +168,7 @@ def main():
     # ---------- 第二阶段：处理需要变更的条目 ----------
     changed = False
 
-    for item, status, tmp_path, remote_md5, err in results:
-        name = (item.get("name") or "").strip()
+    for item, name, status, tmp_path, remote_md5, err in results:
         old_md5 = (item.get("md5") or "").strip().lower()
         old_status = (item.get("status") or "").strip().lower()
 
@@ -209,10 +209,10 @@ def main():
         changed = True
 
     if changed:
-        save_targets(TARGETS_FILE, targets)
-        log("targets.json 已更新")
+        save_clash(clash_FILE, clash)
+        log("clash.json 已更新")
     else:
-        log("targets.json 无需更新")
+        log("clash.json 无需更新")
 
     log("完成")
 
