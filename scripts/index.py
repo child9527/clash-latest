@@ -1,4 +1,5 @@
 import os
+import json
 from urllib.parse import quote
 from datetime import datetime, timezone, timedelta
 
@@ -12,6 +13,9 @@ V2RAY_RAW_PREFIX = f"https://raw.githubusercontent.com/{REPO}/refs/heads/{BRANCH
 
 # 镜像前缀
 GH_PROXY = "https://gh-proxy.com/"
+
+# 要内嵌到 HTML 的规则文本路径
+EXTENSION_JS_FILE = "scripts/extension_js.txt"
 
 
 def fetch_files(local_dir, raw_prefix):
@@ -52,9 +56,21 @@ def fetch_files(local_dir, raw_prefix):
     return items
 
 
-def generate_html(clash_items, v2ray_items):
+def load_extension_js(path):
+    """读取要内嵌的规则文本，失败时返回空字符串"""
+    if not os.path.isfile(path):
+        print(f"⚠️ 未找到规则文件: {path}")
+        return ""
+    with open(path, "r", encoding="utf-8", errors="ignore") as f:
+        return f.read()
+
+
+def generate_html(clash_items, v2ray_items, extension_js_text):
     bj_tz = timezone(timedelta(hours=8))
     now = datetime.now(bj_tz).strftime("%Y-%m-%d %H:%M:%S")
+
+    # 把规则文本转义成 JS 字符串字面量，避免引号/换行破坏 HTML
+    extension_js_literal = json.dumps(extension_js_text, ensure_ascii=False)
 
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -155,6 +171,12 @@ body {{
     background: #2f6bb8;
 }}
 
+/* 单独成行的卡片 */
+.wide-card {{
+    width: 100%;
+    box-sizing: border-box;
+}}
+
 /* Toast 提示浮窗 */
 .toast {{
     position: fixed;
@@ -239,6 +261,13 @@ body {{
 
     html += f"""</div>
 
+<!-- 3. 复制规则文本 -->
+<div class="section-title">📋 复制规则文本</div>
+<div class="source-card wide-card">
+    <div class="source-name">Clash Verge Rev全局扩展覆写脚本</div>
+    <button class="copy-btn" onclick="copyExtensionJs(this)">复制内容</button>
+</div>
+
 <div class="footer">
     自动生成时间：{now}
 </div>
@@ -247,6 +276,9 @@ body {{
 <div id="toast" class="toast">链接已成功复制到剪贴板！</div>
 
 <script>
+// 生成时内嵌的规则文本
+const EXTENSION_JS_TEXT = {extension_js_literal};
+
 function copyUrl(btn, url) {{
     navigator.clipboard.writeText(url).then(() => {{
         showToast("已复制：" + url);
@@ -259,6 +291,22 @@ function copyUrl(btn, url) {{
         }}, 2000);
     }}).catch(err => {{
         console.error("复制失败:", err);
+    }});
+}}
+
+function copyExtensionJs(btn) {{
+    navigator.clipboard.writeText(EXTENSION_JS_TEXT).then(() => {{
+        showToast("规则文本已复制到剪贴板！");
+        const originalText = btn.innerText;
+        btn.innerText = "已复制";
+        btn.style.background = "#28a745";
+        setTimeout(() => {{
+            btn.innerText = originalText;
+            btn.style.background = "#3a7bd5";
+        }}, 2000);
+    }}).catch(err => {{
+        console.error("复制失败:", err);
+        showToast("复制失败：" + err);
     }});
 }}
 
@@ -282,8 +330,9 @@ function showToast(msg) {{
 if __name__ == "__main__":
     clash_items = fetch_files("clash", CLASH_RAW_PREFIX)
     v2ray_items = fetch_files("v2ray", V2RAY_RAW_PREFIX)
+    extension_js_text = load_extension_js(EXTENSION_JS_FILE)
 
-    html = generate_html(clash_items, v2ray_items)
+    html = generate_html(clash_items, v2ray_items, extension_js_text)
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
