@@ -1,0 +1,158 @@
+name: 转换Clash规则文件推送到Gitee与GitHub
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'clash_rules/direct.txt'
+      - 'clash_rules/ai.txt'
+  workflow_dispatch:
+
+jobs:
+  convert-and-push:
+    name: 转换规则并推送
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout GitHub Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Convert TXT to Custom Clash YAML Format
+        run: |
+          echo "=================== [步骤 1] 开始转换文本规则 ==================="
+          python -c "
+          import os
+
+          def convert_txt_to_yaml(txt_file, yaml_file):
+              print(f'[提示] 正在检查源文件: {txt_file}')
+              if not os.path.exists(txt_file):
+                  print(f'[警告] 源文件 {txt_file} 不存在，跳过转换。')
+                  return
+              
+              lines = []
+              seen = set()  # 用于内容去重
+              with open(txt_file, 'r', encoding='utf-8') as f:
+                  raw_lines = f.readlines()
+                  print(f'[提示] {txt_file} 读取成功，共 {len(raw_lines)} 行原始文本')
+                  
+                  for line in raw_lines:
+                      line = line.strip()
+                      if not line or line.startswith('#'):
+                          continue
+                      if not line.startswith('+.') and not line.startswith('.'):
+                          line = '+.' + line
+                      
+                      # 去重逻辑
+                      if line not in seen:
+                          seen.add(line)
+                          lines.append(f'  - \'{line}\'')
+              
+              with open(yaml_file, 'w', encoding='utf-8') as f:
+                  f.write('payload:\n')
+                  f.write('\n'.join(lines) + '\n')
+              
+              print(f'[成功] 转换完成: {txt_file} -> {yaml_file}，写入 {len(lines)} 条有效去重规则')
+
+          convert_txt_to_yaml('clash_rules/direct.txt', 'clash_rules/my-direct.yaml')
+          convert_txt_to_yaml('clash_rules/ai.txt', 'clash_rules/my-ai.yaml')
+          "
+          
+          echo "=================== [步骤 1] 规则转换结束 ==================="
+
+      - name: Setup SSH Config and Diagnostics
+        env:
+          SSH_KEY: ${{ secrets.GITEE_SSH_KEY }}
+        run: |
+          echo "=================== [步骤 2] 配置 SSH 与 Gitee 域名映射 ==================="
+          echo "[诊断] 当前 Runner 环境中的 Git 版本:"
+          git --version
+          
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          
+          echo "$SSH_KEY" > ~/.ssh/gitee_id_ed25519
+          chmod 600 ~/.ssh/gitee_id_ed25519
+          
+          cat << 'EOF' > ~/.ssh/config
+          Host gitee.com
+              HostName gitee.com
+              User git
+              IdentityFile ~/.ssh/gitee_id_ed25519
+              StrictHostKeyChecking no
+              ServerAliveInterval 15
+              ServerAliveCountMax 10
+          EOF
+          chmod 600 ~/.ssh/config
+          
+          echo "[提示] SSH 配置文件 ~/.ssh/config 建立完毕"
+          
+          echo "[诊断] 正在测试 Gitee SSH 免密连通性..."
+          ssh -T git@gitee.com || true
+          echo "=================== [步骤 2] SSH 诊断结束 ==================="
+
+      - name: Push to GitHub Repository
+        run: |
+          echo "=================== [步骤 3] 提交生成的文件至 GitHub 仓库 ==================="
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add clash_rules/my-direct.yaml clash_rules/my-ai.yaml
+          
+          if git diff --staged --quiet; then
+            echo "[提示] GitHub 仓库无文件变更，跳过 Commit。"
+          else
+            NOW_TIME=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+            git commit -m "更新 Clash 规则 YAML 文件 ${NOW_TIME} [skip ci]"
+            git push
+            echo "[成功] 已成功将 YAML 文件更新提交至当前 GitHub 仓库！"
+          fi
+
+      - name: Clone Gitee and Push Files
+        run: |
+          echo "=================== [步骤 4] 克隆 Gitee 仓库并同步提交 ==================="
+          git config --global http.postBuffer 524288000
+          
+          echo "[提示] 开始执行 git clone..."
+          
+          retry=0
+          until [ $retry -ge 3 ]
+          do
+             git clone --depth 1 git@gitee.com:child9527/mybox.git gitee_temp && break
+             retry=$((retry+1))
+             echo "[警告] 克隆失败，5秒后尝试第 $retry 次重试..."
+             rm -rf gitee_temp
+             sleep 5
+          done
+
+          if [ $retry -eq 3 ]; then
+             echo "[错误] 无法克隆 Gitee 仓库，退出流程。"
+             exit 1
+          fi
+          
+          echo "[提示] 创建 clash_rules 目录（如果不存在）..."
+          mkdir -p gitee_temp/clash_rules
+          
+          echo "[提示] 正在将生成的 YAML 复制到 Gitee 目标仓库目录 clash_rules/ ..."
+          cp -v clash_rules/my-direct.yaml gitee_temp/clash_rules/
+          cp -v clash_rules/my-ai.yaml gitee_temp/clash_rules/
+          
+          cd gitee_temp
+          git add clash_rules/my-direct.yaml clash_rules/my-ai.yaml
+          
+          if git diff --staged --quiet; then
+            echo "[提示] Gitee 仓库经比对无任何文件变更，跳过 Commit 和 Push 操作。"
+          else
+            echo "[提示] 检测到变更内容，开始提交并推送至 Gitee 远程仓库..."
+            NOW_TIME=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+            git commit -m "更新Clash Verge规则成功 ${NOW_TIME} [skip ci]"
+            git push origin master
+            echo "[成功] 文件更新已顺利推送至 Gitee clash_rules/ 目录！"
+          fi
+          echo "=================== [步骤 4] 全流程执行完毕 ==================="
