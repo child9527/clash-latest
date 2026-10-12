@@ -173,11 +173,11 @@ function main(config) {
     };
   }
 
-  // 个人规则集
+  // 个人规则集（已迁移至 clash-latest 仓库）
   config["rule-providers"]["my-direct"] = {
     type: "http",
     behavior: "domain",
-    url: "https://gh-proxy.com/https://raw.githubusercontent.com/child9527/software/main/clash_rules/my-direct.yaml",
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/child9527/clash-latest/main/clash_rules/my-direct.yaml",
     path: "./ruleset/my-direct.yaml",
     interval: 86400
   };
@@ -185,7 +185,7 @@ function main(config) {
   config["rule-providers"]["my-ai"] = {
     type: "http",
     behavior: "domain",
-    url: "https://gh-proxy.com/https://raw.githubusercontent.com/child9527/software/main/clash_rules/my-ai.yaml",
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/child9527/clash-latest/main/clash_rules/my-ai.yaml",
     path: "./ruleset/my-ai.yaml",
     interval: 86400
   };
