@@ -1,51 +1,69 @@
 function main(config) {
 
   // ============================================================
-  // 1. 节点分组：全能代理组 + AI 特供组
+  // 0. 节点来源识别：同时收集静态 proxies 与动态 proxy-providers
   // ============================================================
+  let allProxies = (config.proxies || []).map(p => p.name);
+  const providerNames = config["proxy-providers"] ? Object.keys(config["proxy-providers"]) : [];
 
-  const allProxies = (config.proxies || []).map(p => p.name);
-
+  // 静态节点的 AI 友好节点筛选（防备纯静态配置场景）
   const aiFriendlyProxies = allProxies.filter(name =>
-    /新加坡|SG|Singapore|🇸🇬|美国|US|USA|United States|🇺🇸|日本|JP|Japan|🇯🇵|台湾|TW|Taiwan|台灣|🇹🇼|英国|UK|United Kingdom|Britain|🇬🇧|韩国|KR|Korea|Seoul|首尔|首爾|🇰🇷|加拿大|CA|Canada|Toronto|Vancouver|多伦多|温哥华|溫哥華|🇨🇦|Tokyo|Osaka|London|LA|NY/i.test(name) &&
-    !/香港|HK|HongKong|🇭🇰|中国|CN|China|🇨🇳/i.test(name)
+    /新加坡|SG|Singapore|美国|US|USA|United States|日本|JP|Japan|台湾|TW|Taiwan|台灣|英国|UK|United Kingdom|Britain|韩国|KR|Korea|Seoul|首尔|首爾|加拿大|CA|Canada|Toronto|Vancouver|多伦多|温哥华|溫哥華|Tokyo|Osaka|London|LA|NY/i.test(name) &&
+    !/香港|HK|HongKong|中国|CN|China/i.test(name)
   );
 
-  config["proxy-groups"] = [
-    {
-      name: "Proxy",
-      type: "url-test",
-      proxies:
-        allProxies.length > 0
-          ? allProxies
-          : aiFriendlyProxies.length > 0
-            ? aiFriendlyProxies
-            : ["DIRECT"],
-      url: "http://www.gstatic.com/generate_204",
-      interval: 300,
-      tolerance: 50,
-      lazy: true
-    },
-    {
-      name: "🤖 AI Special",
-      type: "url-test",
-      proxies:
-        aiFriendlyProxies.length > 0
-          ? aiFriendlyProxies
-          : allProxies.length > 0
-            ? allProxies
-            : ["DIRECT"],
-      url: "https://www.google.com/generate_204",
-      interval: 600,
-      tolerance: 50,
-      lazy: true
-    }
-  ];
+  // ============================================================
+  // 1. 节点分组：通过 Mihomo 原生 filter 彻底解决 provider 场景下的 AI 筛选问题
+  // ============================================================
+  
+  // 基础代理组
+  const proxyGroupDef = {
+    name: "My-Proxy",
+    type: "url-test",
+    url: "http://www.gstatic.com/generate_204",
+    interval: 300,
+    tolerance: 50,
+    lazy: true
+  };
+
+  if (providerNames.length > 0) {
+    proxyGroupDef.use = providerNames;
+  } else {
+    proxyGroupDef.proxies = allProxies.length > 0 ? allProxies : ["DIRECT"];
+  }
+
+  // AI 专用代理组（核心修复：无论是 provider 还是 static，都通过正则精准过滤非港中节点）
+  const aiGroupDef = {
+    name: "🤖 My-AI",
+    type: "url-test",
+    url: "https://www.google.com/generate_204",
+    interval: 600,
+    tolerance: 50,
+    lazy: true
+  };
+
+  if (providerNames.length > 0) {
+    // 关键：利用 Mihomo 的 filter 属性，在运行时从 provider 中动态挑出 AI 友好节点并剔除港中
+    aiGroupDef.use = providerNames;
+    aiGroupDef.filter = "(?i)(新加坡|SG|Singapore|美国|US|USA|United States|日本|JP|Japan|台湾|TW|Taiwan|台灣|英国|UK|United Kingdom|Britain|韩国|KR|Korea|Seoul|首尔|首爾|加拿大|CA|Canada|Toronto|Vancouver|多伦多|温哥华|溫哥華|Tokyo|Osaka|London|LA|NY)";
+    // 排除含有香港或中国的节点
+    aiGroupDef["exclude-filter"] = "(?i)(香港|HK|HongKong|中国|CN|China)";
+  } else {
+    aiGroupDef.proxies = aiFriendlyProxies.length > 0 ? aiFriendlyProxies : (allProxies.length > 0 ? allProxies : ["DIRECT"]);
+  }
+
+  const customGroups = [proxyGroupDef, aiGroupDef];
+
+  // 拼接在原有分组前面，保留机场自带精细化分组
+  if (config["proxy-groups"] && Array.isArray(config["proxy-groups"])) {
+    config["proxy-groups"] = [...customGroups, ...config["proxy-groups"]];
+  } else {
+    config["proxy-groups"] = customGroups;
+  }
 
   // ============================================================
   // 2. 基础设施直连域名
   // ============================================================
-
   const infraDirectDomains = [
     "gitee.com",
     "gh-proxy.com",
@@ -53,18 +71,13 @@ function main(config) {
   ];
 
   // ============================================================
-  // 3. DNS：内核级规则集直通防护架构（跨平台、零维护、绝对防死锁）
+  // 3. DNS：内核级规则集直通防护架构
   // ============================================================
-
   if (!config.dns) config.dns = {};
   config.dns.enable = true;
   config.dns["enhanced-mode"] = "fake-ip";
+  config.dns["respect-rules"] = true;  
 
-  config.dns["respect-rules"] = true; 
-
-  // 【终极解法】：Mihomo 内核原生支持在 fake-ip-filter 中直接引用 rule-set！
-  // 这样你以后在本地或远程的 my-direct.yaml 里加任何域名，内核会自动将其移出 fake-ip。
-  // 同时配合下面的 nameserver-policy，它们在 DNS 阶段会 100% 走国内 DoH，绝不碰代理节点。
   config.dns["fake-ip-filter"] = [
     "rule-set:my-direct",
     "rule-set:my-ai",
@@ -96,7 +109,6 @@ function main(config) {
     ...infraDirectDomains.flatMap(d => [d, `*.${d}`])
   ];
 
-  // 国内 DoH 服务器
   const chinaDoh = [
     "https://dns.alidns.com/dns-query",
     "https://doh.pub/dns-query"
@@ -105,13 +117,11 @@ function main(config) {
   config.dns["proxy-server-nameserver"] = chinaDoh;
   config.dns["nameserver"] = chinaDoh;
 
-  // 国外 fallback DoH，挂载代理组
   config.dns["fallback"] = [
-    "https://dns.google/dns-query#Proxy",
-    "https://1.1.1.1/dns-query#Proxy"
+    "https://dns.google/dns-query#My-Proxy",
+    "https://1.1.1.1/dns-query#My-Proxy"
   ];
 
-  // 严格收紧 Fallback 过滤规则
   config.dns["fallback-filter"] = {
     geoip: true,
     "geoip-code": "CN",
@@ -119,7 +129,6 @@ function main(config) {
     geosite: ["gfw"]
   };
 
-  // 域名 DNS 绑定策略：让自定义的直连规则集在 DNS 解析时也强制绑定国内 DoH
   config.dns["nameserver-policy"] = {
     "geosite:cn": chinaDoh,
     "rule-set:my-direct": chinaDoh,
@@ -134,7 +143,6 @@ function main(config) {
 
   config.dns["ipv6"] = false;
 
-  // geodata 适配
   config["geodata-mode"] = true;
   config["geodata-loader"] = "standard";
   config["geox-url"] = {
@@ -145,7 +153,6 @@ function main(config) {
   // ============================================================
   // 4. Rule Providers
   // ============================================================
-
   const providers = {
     reject: "domain",
     icloud: "domain",
@@ -160,7 +167,7 @@ function main(config) {
     applications: "classical"
   };
 
-  config["rule-providers"] = {};
+  config["rule-providers"] = config["rule-providers"] || {};
 
   for (let name in providers) {
     const file = providers[name] === "tld-not-cn" ? "tld-not-cn" : name;
@@ -173,7 +180,6 @@ function main(config) {
     };
   }
 
-  // 个人规则集（已迁移至 clash-latest 仓库）
   config["rule-providers"]["my-direct"] = {
     type: "http",
     behavior: "domain",
@@ -191,49 +197,46 @@ function main(config) {
   };
 
   // ============================================================
-  // 5. 分流规则
+  // 5. 分流规则（维持国内优先防误伤，绑定最新组名）
   // ============================================================
-
   config.rules = [
-    // 0. 基础设施直连（防止更新死锁）
+    // 0. 基础设施直连
     ...infraDirectDomains.map(d => `DOMAIN-SUFFIX,${d},DIRECT`),
 
     // 1. 核心 AI 服务域名硬编码
-    "DOMAIN-SUFFIX,openai.com,🤖 AI Special",
-    "DOMAIN-SUFFIX,chatgpt.com,🤖 AI Special",
-    "DOMAIN-SUFFIX,anthropic.com,🤖 AI Special",
-    "DOMAIN-SUFFIX,claude.ai,🤖 AI Special",
-    "DOMAIN-SUFFIX,x.ai,🤖 AI Special",
-    "DOMAIN-SUFFIX,grok.com,🤖 AI Special",
-    "DOMAIN-SUFFIX,perplexity.ai,🤖 AI Special",
-    "DOMAIN-SUFFIX,aistudio.google.com,🤖 AI Special",
+    "DOMAIN-SUFFIX,openai.com,🤖 My-AI",
+    "DOMAIN-SUFFIX,chatgpt.com,🤖 My-AI",
+    "DOMAIN-SUFFIX,anthropic.com,🤖 My-AI",
+    "DOMAIN-SUFFIX,claude.ai,🤖 My-AI",
+    "DOMAIN-SUFFIX,x.ai,🤖 My-AI",
+    "DOMAIN-SUFFIX,grok.com,🤖 My-AI",
+    "DOMAIN-SUFFIX,perplexity.ai,🤖 My-AI",
+    "DOMAIN-SUFFIX,aistudio.google.com,🤖 My-AI",
 
     // 2. 个人自定义规则集
     "RULE-SET,my-direct,DIRECT",
-    "RULE-SET,my-ai,🤖 AI Special",
+    "RULE-SET,my-ai,🤖 My-AI",
 
     // 3. 基础防骚扰与网络隔离规则
     "RULE-SET,private,DIRECT",
     "RULE-SET,reject,REJECT",
     "RULE-SET,applications,DIRECT",
 
-    // 4. 通用直连规则集
+    // 4. 通用直连规则集与国内优先判定（防止 tldnotcn 误伤国内网站）
+    "GEOSITE,CN,DIRECT",
+    "GEOIP,CN,DIRECT",
     "RULE-SET,direct,DIRECT",
     "RULE-SET,icloud,DIRECT",
     "RULE-SET,apple,DIRECT",
 
     // 5. 常用代理服务规则集
-    "RULE-SET,google,Proxy",
-    "RULE-SET,proxy,Proxy",
-    "RULE-SET,gfw,Proxy",
-    "RULE-SET,tldnotcn,Proxy",
+    "RULE-SET,google,My-Proxy",
+    "RULE-SET,proxy,My-Proxy",
+    "RULE-SET,gfw,My-Proxy",
+    "RULE-SET,tldnotcn,My-Proxy",
 
-    // 6. Geo 逻辑兜底
-    "GEOSITE,CN,DIRECT",
-    "GEOIP,CN,DIRECT",
-
-    // 7. 最终兜底
-    "MATCH,Proxy"
+    // 6. 最终兜底
+    "MATCH,My-Proxy"
   ];
 
   return config;
