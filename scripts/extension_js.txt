@@ -1,7 +1,7 @@
 function main(config) {
 
   // ============================================================
-  // 0. 节点来源识别：同时收集静态 proxies 与动态 proxy-providers
+  // 0. 节点来源识别：同时支持静态 proxies 与动态 proxy-providers
   // ============================================================
   let allProxies = (config.proxies || []).map(p => p.name);
   const providerNames = config["proxy-providers"] ? Object.keys(config["proxy-providers"]) : [];
@@ -13,10 +13,10 @@ function main(config) {
   );
 
   // ============================================================
-  // 1. 节点分组：通过 Mihomo 原生 filter 彻底解决 provider 场景下的 AI 筛选问题
+  // 1. 纯净节点分组：彻底抛弃机场自带分组，只保留你的核心双组
   // ============================================================
   
-  // 基础代理组
+  // 基础全能代理组
   const proxyGroupDef = {
     name: "My-Proxy",
     type: "url-test",
@@ -32,7 +32,7 @@ function main(config) {
     proxyGroupDef.proxies = allProxies.length > 0 ? allProxies : ["DIRECT"];
   }
 
-  // AI 专用代理组（核心修复：无论是 provider 还是 static，都通过正则精准过滤非港中节点）
+  // AI 专用代理组（基于 provider 或 static 的精准过滤）
   const aiGroupDef = {
     name: "🤖 My-AI",
     type: "url-test",
@@ -43,23 +43,15 @@ function main(config) {
   };
 
   if (providerNames.length > 0) {
-    // 关键：利用 Mihomo 的 filter 属性，在运行时从 provider 中动态挑出 AI 友好节点并剔除港中
     aiGroupDef.use = providerNames;
     aiGroupDef.filter = "(?i)(新加坡|SG|Singapore|美国|US|USA|United States|日本|JP|Japan|台湾|TW|Taiwan|台灣|英国|UK|United Kingdom|Britain|韩国|KR|Korea|Seoul|首尔|首爾|加拿大|CA|Canada|Toronto|Vancouver|多伦多|温哥华|溫哥華|Tokyo|Osaka|London|LA|NY)";
-    // 排除含有香港或中国的节点
     aiGroupDef["exclude-filter"] = "(?i)(香港|HK|HongKong|中国|CN|China)";
   } else {
     aiGroupDef.proxies = aiFriendlyProxies.length > 0 ? aiFriendlyProxies : (allProxies.length > 0 ? allProxies : ["DIRECT"]);
   }
 
-  const customGroups = [proxyGroupDef, aiGroupDef];
-
-  // 拼接在原有分组前面，保留机场自带精细化分组
-  if (config["proxy-groups"] && Array.isArray(config["proxy-groups"])) {
-    config["proxy-groups"] = [...customGroups, ...config["proxy-groups"]];
-  } else {
-    config["proxy-groups"] = customGroups;
-  }
+  // 绝对清爽：直接覆盖，不留任何机场自带的冗余策略组
+  config["proxy-groups"] = [proxyGroupDef, aiGroupDef];
 
   // ============================================================
   // 2. 基础设施直连域名
@@ -197,7 +189,7 @@ function main(config) {
   };
 
   // ============================================================
-  // 5. 分流规则（维持国内优先防误伤，绑定最新组名）
+  // 5. 分流规则（全套完全自主掌控）
   // ============================================================
   config.rules = [
     // 0. 基础设施直连
@@ -222,7 +214,7 @@ function main(config) {
     "RULE-SET,reject,REJECT",
     "RULE-SET,applications,DIRECT",
 
-    // 4. 通用直连规则集与国内优先判定（防止 tldnotcn 误伤国内网站）
+    // 4. 通用直连规则集与国内优先判定
     "GEOSITE,CN,DIRECT",
     "GEOIP,CN,DIRECT",
     "RULE-SET,direct,DIRECT",
