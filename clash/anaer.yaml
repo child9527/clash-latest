@@ -1,92 +1,31 @@
 proxies:
-- name: 中国-001
-  type: vless
-  network: ws
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  server: 129.211.188.184
-  servername: jp3.yohototo.top
-  port: 8443
-  skip-cert-verify: false
-  tls: true
-  udp: true
-  tfo: false
-  ws-opts:
-    headers:
-      Host: jp3.yohototo.top
-    path: /tyxyws
-  client-fingerprint: unsafe
-- name: 中国-002
-  type: vmess
-  network: tcp
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  server: 112.132.215.108
-  port: 50002
-  skip-cert-verify: true
-  alterId: 64
-  cipher: auto
 - name: 其他-001
-  type: vless
+  type: vmess
   network: ws
-  uuid: 2e305ebe-f6e6-4689-b32f-cd04ab5ff541
-  server: 188.114.96.9
-  servername: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  server: guanwang.awsno.com
   port: 443
-  skip-cert-verify: false
+  skip-cert-verify: true
   tls: true
-  udp: true
-  tfo: false
+  alterId: 0
+  cipher: auto
   ws-opts:
     headers:
-      Host: idb8onmvbntuyt5t7t6cejfw8vlrb.pages.dev
-    path: /vl/9yvcoLdzdOXLUYfH7r5gwJhu1CHrj
-  client-fingerprint: chrome
+      Host: guanwang.awsno.com
+    path: /hls/cctv5phd.m3u8
 - name: 其他-002
   type: vless
   network: ws
-  uuid: 0799a47d-d446-4a20-8e75-441fa899fbb1
-  server: 104.16.72.70
-  servername: unnes.ac.id.r3xxe.eu.cc
-  port: 443
-  skip-cert-verify: true
-  tls: true
+  uuid: 3ee10440-225e-4cbc-83ed-3c80b90bcb07
+  server: 188.114.99.0
+  port: 8880
+  tls: false
   udp: true
-  tfo: false
   ws-opts:
     headers:
-      Host: unnes.ac.id.r3xxe.eu.cc
-    path: /id-pusat
-- name: 其他-003
-  type: vless
-  network: ws
-  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
-  server: fbsv6.guardora.pro
-  servername: fbsv6.guardora.pro
-  port: 443
-  skip-cert-verify: false
-  tls: true
-  udp: true
-  tfo: false
-  ws-opts:
-    headers:
-      Host: fbsv6.guardora.pro
-    path: /ws
-  client-fingerprint: firefox
-- name: 其他-004
-  type: vless
-  network: ws
-  uuid: 04c808e2-0b59-47b0-a54b-32fc7ef1c902
-  server: 104.19.154.200
-  servername: free.cndyw.ggff.net
-  port: 443
-  skip-cert-verify: false
-  tls: true
-  udp: true
-  tfo: false
-  ws-opts:
-    headers:
-      Host: free.cndyw.ggff.net
-    path: pyip=bpb.yousef.isegaro.com
-  client-fingerprint: chrome
+      Host: ovh-gr1.mahkhorshidi.ir
+    path: /notls
+  encryption: mlkem768x25519plus.native.0rtt.BheP3zTPlA3cijplJnfrJSIp9rYlrGqnqEOnYD-wA20
 - name: 德国-001 |1.6MB/s
   type: hysteria
   server: 5.83.129.90
@@ -302,16 +241,16 @@ proxies:
   port: 9002
   skip-cert-verify: true
   tls: true
-- name: 荷兰-002 |1.8MB/s|TK-NL|GPT⁺-NL|GM-NL
-  type: http
-  server: 5.255.118.82
-  port: 443
-  skip-cert-verify: true
-  tls: true
-- name: 荷兰-003 |1.8MB/s|TK-NL|GPT⁺-NL
+- name: 荷兰-002 |1.8MB/s|TK-NL|GPT⁺-NL
   type: http
   server: 51.159.225.196
   port: 23856
+  skip-cert-verify: true
+  tls: true
+- name: 荷兰-003 |1.8MB/s|TK-NL|GPT⁺-NL|GM-NL
+  type: http
+  server: 5.255.118.82
+  port: 443
   skip-cert-verify: true
   tls: true
 - name: 荷兰-004 |1.6MB/s|TK-NL|GPT⁺-NL|GM-NL
