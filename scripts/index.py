@@ -150,7 +150,7 @@ CLASH_RAW_PREFIX = f"https://raw.githubusercontent.com/{REPO}/refs/heads/{BRANCH
 V2RAY_RAW_PREFIX = f"https://raw.githubusercontent.com/{REPO}/refs/heads/{BRANCH}/v2ray/"
 
 # 镜像前缀
-GH_PROXY = "https://gh-proxy.com/"
+GH_PROXY = "https://v4.gh-proxy.org/"
 
 # 要内嵌到 HTML 的规则文本路径
 EXTENSION_JS_FILE = "scripts/extension_js.txt"
